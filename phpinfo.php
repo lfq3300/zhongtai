@@ -1,3 +1,3 @@
 <?php
-$out02 = shell_exec('ls -l');
-print_r($out02);
+$output = shell_exec('ls -lart');
+echo "<pre>$output</pre>";
