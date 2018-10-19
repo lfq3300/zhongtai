@@ -1,5 +1,5 @@
 <?php
-$command = "./home/sh/zt.ltthk.top.sh";
+$command = "mkdir aaa";
 $a = exec($command,$out,$status);
 print_r($a);
 print_r($out);
