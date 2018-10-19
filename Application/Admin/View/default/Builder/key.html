@@ -1,0 +1,318 @@
+<switch name="field.type">
+	<case value="hidden">
+		<div class="am-form-group" style="display: none!important;">
+			<php>
+				$value = $field['value'] != ''	 ? $field['value'] : $field['opt']['value'];
+			</php>
+		    <input type="hidden" name="{$field.name}" class="tpl-form-input"  placeholder="{$field.opt.placeholder}" value="{$value}">
+		</div>
+	</case>
+	<case value="textDisabled">
+		<div class="am-form-group">
+			<label  class="am-u-sm-2 am-form-label">{$field.opt.title}
+				<span class="tpl-form-line-small-title">{$field.opt.subtitle}</span>
+			</label>
+			<php>
+				$value = $field['value'] != '' ? $field['value'] : $field['opt']['value'];
+			</php>
+			<div class="am-u-sm-4">
+		        <input type="text" name="{$field.name}" class="tpl-form-input" placeholder="{$field.opt.placeholder}"
+		        value="{$value}"  disabled="disabled" style="border: none;">
+		        <small>{$field.opt.error}</small>
+		    </div>
+			<div class="am-u-sm-6">{$field.opt.prompt}</div>
+		</div>
+	</case>
+	<case value="textnumber">
+		<div class="am-form-group">
+			<label class="am-u-sm-2 am-form-label">{$field.opt.title}
+				<span class="tpl-form-line-small-title">{$field.opt.subtitle}</span>
+			</label>
+			<php>
+				$value = $field['value'] != ''? $field['value'] : $field['opt']['value'];
+			</php>
+			<div class="am-u-sm-4">
+		        <input type="number" name="{$field.name}" class="tpl-form-input"  placeholder="{$field.opt.placeholder}" value="{$value}">
+		        <small>{$field.opt.error}</small>
+		    </div>
+			<div class="am-u-sm-6">{$field.opt.prompt}</div>
+		</div>
+	</case>
+	<case value="radio">
+		<div class="am-form-group">
+			<label class="am-u-sm-2 am-form-label">{$field.opt.title}
+				<span class="tpl-form-line-small-title">{$field.opt.subtitle}</span>
+			</label>
+			<php>
+				$select = $field['opt']['checked'];
+			</php>
+			<div class="am-u-sm-4">
+				<volist name="select" id="key">
+					<div class="am-radio">
+						<label>
+							<input type="radio" name="{$field.name}"  value="{$key}"  checked>
+							{$select.$key}
+						</label>
+					</div>
+				</volist>
+				<small>{$field.opt.error}</small>
+			</div>
+			<div class="am-u-sm-6">{$field.opt.prompt}</div>
+		</div>
+	</case>
+	<case value="textbutton">
+		<div class="am-form-group">
+			<label class="am-u-sm-2 am-form-label">{$field.opt.title}
+				<span class="tpl-form-line-small-title">{$field.opt.subtitle}</span>
+			</label>
+			<php>
+				$value = $field['value'] != '' ? $field['value'] : $field['opt']['value'];
+			</php>
+			<div class="am-u-sm-4">
+		        <input type="text" name="{$field.name}" class="tpl-form-input"  placeholder="{$field.opt.placeholder}" value="{$value}">
+		        <small>{$field.opt.error}</small>
+				<button type="button"  class="am-btn am-btn-success am-btn-sm" onclick="buttonaction()">
+					{$field.opt.btntitle}
+				</button>
+		    </div>
+			<div class="am-u-sm-6">{$field.opt.prompt}</div>
+		</div>
+		<script type="text/javascript">
+			function buttonaction(){
+                $.ajax({
+                    url: '{$field.opt.buttonurl}',
+                    type: 'get',
+                    dataType: 'JSON',
+                    data: '',
+                    success: function(data){
+                        if(data.ret == 1){
+                            alert(data.msg + "请询问后台开发人员");
+						}else{
+                            alert(data.msg);
+						}
+                    },
+                    error: function($data){
+                        alert("error:ajax请求失败");
+                    }
+                })
+			}
+			</script>
+	</case>
+	<case value="text">
+		<div class="am-form-group">
+			<label class="am-u-sm-2 am-form-label">{$field.opt.title}
+				<span class="tpl-form-line-small-title">{$field.opt.subtitle}</span>
+			</label>
+			<php>
+				$value = $field['value'] != '' ? $field['value'] : $field['opt']['value'];
+			</php>
+			<div class="am-u-sm-4">
+				<input type="text" name="{$field.name}" class="tpl-form-input"  placeholder="{$field.opt.placeholder}" value="{$value}">
+				<small>{$field.opt.error}</small>
+			</div>
+			<div class="am-u-sm-6">{$field.opt.prompt}</div>
+		</div>
+	</case>
+	<case value="time">
+		<div class="am-form-group">
+			<label class="am-u-sm-2 am-form-label">{$field.opt.title}
+				<span class="tpl-form-line-small-title">{$field.opt.subtitle}</span>
+			</label>
+			<php>
+				$value = $field['value'] != '' ? $field['value'] : $field['opt']['value'];
+			</php>
+			<div class="am-u-sm-4">
+				<input type="text" name="{$field.name}" class="tpl-form-input"  data-am-datepicker  value="{$value}" readonly>
+				<small>{$field.opt.error}</small>
+			</div>
+			<div class="am-u-sm-6">{$field.opt.prompt}</div>
+		</div>
+	</case>
+	<case value="textarea">
+		<div class="am-form-group">
+            <label for="user-intro" class="am-u-sm-2 am-form-label">{$field.opt.title} </label>
+            <div class="am-u-sm-4">
+                <textarea rows="10"   name="{$field.name}" id="user-intro" placeholder="{$field.opt.placeholder}">{$field.opt.value}</textarea>
+            </div>
+			<div class="am-u-sm-6">{$field.opt.prompt}</div>
+        </div>
+	</case>
+	<case value="select">
+		<div class="am-form-group">
+            <label  class="am-u-sm-2 am-form-label">{$field.opt.title} <span class="tpl-form-line-small-title">{$field.opt.subtitle}</span></label>
+            <div class="am-u-sm-4">
+                <select data-am-selected="{searchBox: 1,maxHeight: 200}" name="{$field.name}">
+				  	 <volist name="field.opt.select" id="option">
+		                <php>
+		                    $selected = $field['opt']['value']==$key ? 'selected="selected" ' : '';
+		                </php>
+		                <option value="{$key}"  {$selected} >{$option|htmlspecialchars}</option>
+		            </volist>
+				</select>
+            </div>
+			<div class="am-u-sm-6"></div>
+        </div>
+	</case>
+	<case value="DisabledStatus">
+		<div class="am-form-group">
+
+            <label class="am-u-sm-2 am-form-label">{$field.opt.title} <span class="tpl-form-line-small-title">{$field.opt.subtitle}</span></label>
+            <div class="am-u-sm-4">
+                <select data-am-selected="{searchBox: 1}" name="{$field.name}" disabled="disabled">
+				  	 <volist name="field.opt.select" id="option">
+		                <php>
+		                    $selected = $field['opt']['value']==$key ? 'selected="selected" ' : '';
+		                </php>
+		                <option value="{$key}"  {$selected}>{$option|htmlspecialchars}</option>
+		            </volist>
+				</select>
+            </div>
+			<div class="am-u-sm-6"></div>
+        </div>
+	</case>
+	<case value="showimg">
+		<div class="am-form-group">
+            <label class="am-u-sm-2 am-form-label">
+            	{$field.opt.title}
+            	<span class="tpl-form-line-small-title">{$field.opt.subtitle}</span>
+            </label>
+            <div class="am-u-sm-4">
+                <div class="am-form-group am-form-file" >
+                   	<empty name="$field.value">
+                   		 <div class="tpl-form-file-img">
+                        	<img src="{$field.value}" id="showimg_{$field.name}" style='max-width:150px;max-height:150px'>
+                    	</div>
+
+                   	</empty>
+                	<input type="hidden" id="showimg_field_hidden_{$field.name}" name="{$field.name}" value="{$field.value}">
+                </div>
+            </div>
+			<div class="am-u-sm-6">{$field.opt.prompt}</div>
+        </div>
+	</case>
+	<case value="uploadimg">
+		<div class="am-form-group">
+            <label class="am-u-sm-2 am-form-label">
+            	{$field.opt.title}
+            	<span class="tpl-form-line-small-title">{$field.opt.subtitle}</span>
+            </label>
+            <div class="am-u-sm-4">
+                <div class="am-form-group am-form-file" >
+                   	<empty name="$field.value">
+                   		 <div class="tpl-form-file-img">
+                        	<img style='max-width:150px;max-height:150px' src="{$field.value}" id="img_{$field.name}" style='max-width:150px;max-height:150px'>
+                    	</div>
+                   	</empty>
+                	<input type="hidden" id="img_field_hidden_{$field.name}" name="{$field.name}"  value="{$field.value}">
+                	<div id="fileImg_{$field.name}">
+                		<button type="button"  class="am-btn am-btn-success am-btn-sm">
+							<i class="am-icon-cloud-upload"></i> {$field.opt.btntitle}
+						</button>
+	                    <input id="doc-form-file_{$field.name}"  type="file" style="font-size: 0px">
+                	</div>
+                </div>
+            </div>
+			<div class="am-u-sm-6"></div>
+        </div>
+        <script type="text/javascript">
+
+    		$(function(){
+    			function init{$field.name}Webuploader(){
+    				var uploader_{$field.name} = WebUploader.create({
+		        		 auto: true,
+		        		 swf: "__JS__/Uploader.swf",
+		        		 server:"{:U('Admin/UploadImg')}",
+		        		 pick:"#fileImg_{$field.name}",
+		        		 duplicate:true,
+		        		 accept: {
+						    title: 'Images',
+						    extensions: 'gif,jpg,jpeg,bmp,png',
+						    mimeTypes: 'image/*'
+					     }
+		        	});
+		        	uploader_{$field.name}.on("uploadSuccess",function(file,data){
+		        	    console.log(data);
+		        		if(data.ret == 1){
+                            var msg = data.msg;
+		        			var data = data.data;
+		        			//显示图片的值
+		        			$("#img_{$field.name}").attr("src",data.root_path);
+		        			//保存到数据库中的值
+		        			$("#img_field_hidden_{$field.name}").val(data.path);
+                            toast.success(msg);
+		        		}else{
+                            toast.error(data.msg);
+						}
+		        	});
+		        	uploader_{$field.name}.on("uploadFinished", function () {
+				        uploader_{$field.name}.destroy();
+				        init{$field.name}Webuploader();
+				    });
+    			}
+    			init{$field.name}Webuploader();
+    		})
+        </script>
+	</case>
+
+	<case value="editor">
+		<div class="am-form-group">
+			<label class="am-u-sm-2 am-form-label">
+				{$field.opt.title}
+				<span class="tpl-form-line-small-title">{$field.opt.subtitle}</span>
+			</label>
+			<div class="am-u-sm-8">
+					<textarea id="editor_{$field.name}" name="{$field.name}" type="text/plain" style="{$field.opt.style}"></textarea>
+					<php>
+						$value = html_entity_decode($field['value']);
+						$value = str_replace(array(" ","　","\t","\n","\r"), '', $value)
+					</php>
+					<script>
+                        UE.getEditor('editor_{$field.name}').addListener("ready", function () {
+                            UE.getEditor('editor_{$field.name}').setContent("{$value}");
+                        });
+					</script>
+			</div>
+			<div class="am-u-sm-2">
+				{$field.opt.prompt}
+			</div>
+		</div>
+	</case>
+	<!--excel 不可用-->
+	<case value="excel">
+		<php>
+			$opt = $field['opt'];
+			$key = $opt['key']?$opt['key']:"";
+			$startime = $opt['startime'];
+			$endtime = $opt['endtime'];
+			$queryType = $opt['queryType'];
+			$timeType = $opt['timeType'];
+			$url = $opt['url'];
+		</php>
+		<input type="hidden" name="key" value="{$key}">
+		<input type="hidden" name="startime" value="{$startime}">
+		<input type="hidden" name="endtime" value="{$endtime}">
+		<input type="hidden" name="queryType" value="{$queryType}">
+		<input type="hidden" name="timeType" value="{$timeType}">
+		<input type="hidden" name="page" id="excelpage" value="1">
+		<div class="am-g">
+			<?php $star = 0; ?>
+			<for start="$star" end="$field.len" name="i">
+				<div class="am-u-sm-2" style="float: left;margin-bottom: 50px">
+					<div><img style="width: 100px;height: 100px" src="__IMG__/excel.jpg"></div>
+					<a class="am-btn am-btn-sm am-btn-primary excel-btn" onclick="checkaction({$i+1},this)" style="width: 100px;margin-top: 10px">未下载</a>
+				</div>
+			</for>
+
+			<script>
+                function checkaction(page,obj){
+                    $("#excelpage").val(page);
+                    $(obj).text("已下载")
+                    document.searchform.action="{$url}";
+                    document.searchform.method="post";
+                    toast.success("正在执行导出操作,请勿关闭浏览器");
+                    searchform.submit();
+                }
+			</script>
+		</div>
+	</case>
+</switch>

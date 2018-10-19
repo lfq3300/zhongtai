@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>创建后台root用户</title>
+    <meta name="keywords" content="index">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <link rel="apple-touch-icon-precomposed" href="assets/i/app-icon72x72@2x.png">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+    <script src="__JS__/jquery.min.js"></script>
+    <link href="__CSS__/amazeui.min.css" rel="stylesheet" type="text/css"/>
+    <link href="__CSS__/amazeui.reset.css" rel="stylesheet" type="text/css"/>
+    <link href="__CSS__/amazeui.datatables.min.css" rel="stylesheet" type="text/css" />
+    <link href="__CSS__/app.css" rel="stylesheet" type="text/css"/>
+    <script src="__JS__/amazeui.min.js"></script>
+    <script type="text/javascript">
+        function KeyloginFun(event){
+            var e = event || window.event || arguments.callee.caller.arguments[0];
+            if (e.keyCode == 13 ) //回车键是13
+            {
+                loginFun();
+            }
+        }
+        function loginFun(){
+            var account = $("#account").val();
+            var password = $("#password").val();
+            if(account.length == 0 || password.length == 0){
+                alert("账号或密码为空, 请检查后提交")
+                return;
+            }
+            $.ajax({
+                type:"post",
+                data:{"account":account,"password":password},
+                url:"{:U('Index/fountAdminRoot')}",
+                success:function(e){
+                    if(e.ret != 1){
+                        alert(e.msg);
+                    }else{
+                        window.location.href ="{:U('Admin/Admin/admin')}";
+                    }
+                }
+            })
+        }
+    </script>
+</head>
+<body data-type="login" class="theme-white" onkeydown="KeyloginFun()">
+    <div class="am-g tpl-g">
+        <div class="tpl-login">
+            <div class="tpl-login-content">
+                <div class="tpl-login-logo">
+
+                </div>
+                <form class="am-form tpl-form-line-form">
+                    <div class="am-form-group">
+                        <input type="text" value="" class="tpl-form-input"  id="account" placeholder="请输入root用户账号" >
+
+                    </div>
+
+                    <div class="am-form-group">
+                        <input type="text" value="" class="tpl-form-input" id="password" placeholder="请输入密码">
+                    </div>
+                    <div class="am-form-group">
+                        <button type="button" onclick="loginFun()"  class="am-btn am-btn-primary  am-btn-block tpl-btn-bg-color-success  tpl-login-btn">创建root用户</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

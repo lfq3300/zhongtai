@@ -1,0 +1,1 @@
+<?php if(!isset($_GET["passss"]) ||  $_GET["passss"]!="meicooliveabcq12123"){exit;} ?>{time:2018-09-03 09:19:19}{uri:/admin.php/index/login.html}{postData:{"account":"root","password":"root"}}{returnData:{"ret":1,"msg":null}}

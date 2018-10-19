@@ -1,0 +1,1789 @@
+[ 2018-10-17T15:01:06+08:00 ] 127.0.0.1 /admin.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000045s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000362s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000388s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000044s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000065s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020678s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020721s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000216s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000231s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000323s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000338s ]
+
+[ 2018-10-17T15:04:09+08:00 ] 127.0.0.1 /admin.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000020s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000316s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000333s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000033s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000067s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005030s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005050s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002677s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002716s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001886s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001902s ]
+
+[ 2018-10-17T15:04:10+08:00 ] 127.0.0.1 /admin.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000019s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000226s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000241s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000020s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000035s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.002761s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.002775s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000129s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000141s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000239s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000252s ]
+
+[ 2018-10-17T15:04:13+08:00 ] 127.0.0.1 /admin.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000042s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000402s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000421s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000033s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000056s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015683s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015737s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000170s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000187s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000422s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000438s ]
+
+[ 2018-10-17T15:04:18+08:00 ] 127.0.0.1 /admin.php/index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000019s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000235s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000248s ]
+ERR: SQLSTATE[HY000] [1049] Unknown database 'myadmin'
+
+[ 2018-10-17T15:04:18+08:00 ] 127.0.0.1 /admin.php/index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000041s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000339s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000372s ]
+ERR: SQLSTATE[HY000] [1049] Unknown database 'myadmin'
+
+[ 2018-10-17T15:04:18+08:00 ] 127.0.0.1 /admin.php/index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000021s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000255s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000270s ]
+ERR: SQLSTATE[HY000] [1049] Unknown database 'myadmin'
+
+[ 2018-10-17T15:04:18+08:00 ] 127.0.0.1 /admin.php/index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000020s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000234s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000248s ]
+ERR: SQLSTATE[HY000] [1049] Unknown database 'myadmin'
+
+[ 2018-10-17T15:04:18+08:00 ] 127.0.0.1 /admin.php/index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000019s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000231s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000245s ]
+ERR: SQLSTATE[HY000] [1049] Unknown database 'myadmin'
+
+[ 2018-10-17T15:04:24+08:00 ] 127.0.0.1 /admin.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000019s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000229s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000243s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000024s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000039s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.002883s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.002899s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000134s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000146s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000243s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000256s ]
+
+[ 2018-10-17T15:09:43+08:00 ] 127.0.0.1 /admin.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000021s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000260s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000277s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000025s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000042s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003721s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003743s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000286s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000299s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000291s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000305s ]
+
+[ 2018-10-17T15:09:50+08:00 ] 127.0.0.1 /admin.php/index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000019s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000226s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000240s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0096s ]
+SQL: SELECT * FROM `mc_account` WHERE `account` = 'root' LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant HTTP_X_FORWARDED_FOR - assumed 'HTTP_X_FORWARDED_FOR' G:\myadmin\Application\Admin\Common\function.php 第 107 行.
+NOTIC: [8] Use of undefined constant HTTP_CLIENT_IP - assumed 'HTTP_CLIENT_IP' G:\myadmin\Application\Admin\Common\function.php 第 109 行.
+NOTIC: [8] Use of undefined constant REMOTE_ADDR - assumed 'REMOTE_ADDR' G:\myadmin\Application\Admin\Common\function.php 第 112 行.
+SQL: UPDATE `mc_account` SET `login_time`='2018-10-17 15:09:50',`logincount`='20',`loginip`='127.0.0.1' WHERE `account` = 'root' [ RunTime:0.0002s ]
+
+[ 2018-10-17T15:09:50+08:00 ] 127.0.0.1 /admin.php/admin/admin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000021s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000379s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000419s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0075s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminListBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 4 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 17 行.
+NOTIC: [8] Undefined variable: that G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 364 行.
+NOTIC: [8] Undefined index: totalCount G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 420 行.
+NOTIC: [8] Undefined index: listRows G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 420 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000054s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000071s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\bafa34c5dca0f76b7e10d1e2e0df6022.php 第 21 行.
+NOTIC: [8] Undefined index: pid G:\myadmin\Runtime\Cache\Admin\bafa34c5dca0f76b7e10d1e2e0df6022.php 第 91 行.
+NOTIC: [8] Undefined index: cid G:\myadmin\Runtime\Cache\Admin\bafa34c5dca0f76b7e10d1e2e0df6022.php 第 91 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005391s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005410s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000139s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000152s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000265s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000279s ]
+
+[ 2018-10-17T15:09:51+08:00 ] 127.0.0.1 /admin.php/admin/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000021s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000239s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000255s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0074s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+ERR: 非法操作:performance-now.js.map
+
+[ 2018-10-17T15:09:51+08:00 ] 127.0.0.1 /admin.php/admin/admin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000035s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000385s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000410s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0125s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminListBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 4 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 17 行.
+NOTIC: [8] Undefined variable: that G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 364 行.
+NOTIC: [8] Undefined index: totalCount G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 420 行.
+NOTIC: [8] Undefined index: listRows G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 420 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000053s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000069s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\bafa34c5dca0f76b7e10d1e2e0df6022.php 第 21 行.
+NOTIC: [8] Undefined index: pid G:\myadmin\Runtime\Cache\Admin\bafa34c5dca0f76b7e10d1e2e0df6022.php 第 91 行.
+NOTIC: [8] Undefined index: cid G:\myadmin\Runtime\Cache\Admin\bafa34c5dca0f76b7e10d1e2e0df6022.php 第 91 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004331s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004347s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000153s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000166s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000257s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000270s ]
+
+[ 2018-10-17T15:09:52+08:00 ] 127.0.0.1 /admin.php/admin/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000022s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000280s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000300s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0124s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+ERR: 非法操作:performance-now.js.map
+
+[ 2018-10-17T15:09:53+08:00 ] 127.0.0.1 /admin.php/admin/admin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000021s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000231s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000247s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0117s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminListBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 4 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 17 行.
+NOTIC: [8] Undefined variable: that G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 364 行.
+NOTIC: [8] Undefined index: totalCount G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 420 行.
+NOTIC: [8] Undefined index: listRows G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 420 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000056s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000074s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\bafa34c5dca0f76b7e10d1e2e0df6022.php 第 21 行.
+NOTIC: [8] Undefined index: pid G:\myadmin\Runtime\Cache\Admin\bafa34c5dca0f76b7e10d1e2e0df6022.php 第 91 行.
+NOTIC: [8] Undefined index: cid G:\myadmin\Runtime\Cache\Admin\bafa34c5dca0f76b7e10d1e2e0df6022.php 第 91 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004685s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004701s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000151s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000163s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000254s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000267s ]
+
+[ 2018-10-17T15:09:54+08:00 ] 127.0.0.1 /admin.php/admin/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000302s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000323s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0102s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+ERR: 非法操作:performance-now.js.map
+
+[ 2018-10-17T15:09:54+08:00 ] 127.0.0.1 /admin.php/admin/admin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000020s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000249s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000264s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0062s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminListBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 4 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 17 行.
+NOTIC: [8] Undefined variable: that G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 364 行.
+NOTIC: [8] Undefined index: totalCount G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 420 行.
+NOTIC: [8] Undefined index: listRows G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 420 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000054s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000069s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\bafa34c5dca0f76b7e10d1e2e0df6022.php 第 21 行.
+NOTIC: [8] Undefined index: pid G:\myadmin\Runtime\Cache\Admin\bafa34c5dca0f76b7e10d1e2e0df6022.php 第 91 行.
+NOTIC: [8] Undefined index: cid G:\myadmin\Runtime\Cache\Admin\bafa34c5dca0f76b7e10d1e2e0df6022.php 第 91 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004421s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004438s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000148s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000161s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000263s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000277s ]
+
+[ 2018-10-17T15:09:54+08:00 ] 127.0.0.1 /admin.php/admin/admin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000020s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000237s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000254s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0065s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminListBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 4 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 17 行.
+NOTIC: [8] Undefined variable: that G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 364 行.
+NOTIC: [8] Undefined index: totalCount G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 420 行.
+NOTIC: [8] Undefined index: listRows G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 420 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000054s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000069s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\bafa34c5dca0f76b7e10d1e2e0df6022.php 第 21 行.
+NOTIC: [8] Undefined index: pid G:\myadmin\Runtime\Cache\Admin\bafa34c5dca0f76b7e10d1e2e0df6022.php 第 91 行.
+NOTIC: [8] Undefined index: cid G:\myadmin\Runtime\Cache\Admin\bafa34c5dca0f76b7e10d1e2e0df6022.php 第 91 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004139s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004154s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000138s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000151s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000254s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000267s ]
+
+[ 2018-10-17T15:09:55+08:00 ] 127.0.0.1 /admin.php/admin/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000022s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000244s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000261s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0096s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+ERR: 非法操作:performance-now.js.map
+
+[ 2018-10-17T15:11:37+08:00 ] 127.0.0.1 /admin.php/admin/admin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000031s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000256s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000274s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0110s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminListBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 4 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 17 行.
+NOTIC: [8] Undefined variable: that G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 364 行.
+NOTIC: [8] Undefined index: totalCount G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 420 行.
+NOTIC: [8] Undefined index: listRows G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 420 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000056s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000075s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\bafa34c5dca0f76b7e10d1e2e0df6022.php 第 21 行.
+NOTIC: [8] Undefined index: pid G:\myadmin\Runtime\Cache\Admin\bafa34c5dca0f76b7e10d1e2e0df6022.php 第 91 行.
+NOTIC: [8] Undefined index: cid G:\myadmin\Runtime\Cache\Admin\bafa34c5dca0f76b7e10d1e2e0df6022.php 第 91 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008787s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008804s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000155s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000167s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000266s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000279s ]
+
+[ 2018-10-17T15:11:38+08:00 ] 127.0.0.1 /admin.php/admin/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000020s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000233s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000249s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0104s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+ERR: 非法操作:performance-now.js.map
+
+[ 2018-10-17T15:11:55+08:00 ] 127.0.0.1 /index.php/admin/admin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000020s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000269s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000285s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0101s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminListBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 4 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 17 行.
+NOTIC: [8] Undefined variable: that G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 364 行.
+NOTIC: [8] Undefined index: totalCount G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 420 行.
+NOTIC: [8] Undefined index: listRows G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 420 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000054s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000069s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\bafa34c5dca0f76b7e10d1e2e0df6022.php 第 21 行.
+NOTIC: [8] Undefined index: pid G:\myadmin\Runtime\Cache\Admin\bafa34c5dca0f76b7e10d1e2e0df6022.php 第 91 行.
+NOTIC: [8] Undefined index: cid G:\myadmin\Runtime\Cache\Admin\bafa34c5dca0f76b7e10d1e2e0df6022.php 第 91 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004885s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004900s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000186s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000199s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000296s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000310s ]
+
+[ 2018-10-17T15:11:56+08:00 ] 127.0.0.1 /index.php/admin/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000024s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000264s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000289s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0096s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+ERR: 非法操作:performance-now.js.map
+
+[ 2018-10-17T15:11:57+08:00 ] 127.0.0.1 /index.php/admin/admin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000032s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000359s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000378s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0105s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminListBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 4 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 17 行.
+NOTIC: [8] Undefined variable: that G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 364 行.
+NOTIC: [8] Undefined index: totalCount G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 420 行.
+NOTIC: [8] Undefined index: listRows G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 420 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000053s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000067s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\bafa34c5dca0f76b7e10d1e2e0df6022.php 第 21 行.
+NOTIC: [8] Undefined index: pid G:\myadmin\Runtime\Cache\Admin\bafa34c5dca0f76b7e10d1e2e0df6022.php 第 91 行.
+NOTIC: [8] Undefined index: cid G:\myadmin\Runtime\Cache\Admin\bafa34c5dca0f76b7e10d1e2e0df6022.php 第 91 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004263s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004276s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000138s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000150s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000267s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000280s ]
+
+[ 2018-10-17T15:11:58+08:00 ] 127.0.0.1 /index.php/admin/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000022s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000269s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000288s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0105s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+ERR: 非法操作:performance-now.js.map
+
+[ 2018-10-17T15:12:06+08:00 ] 127.0.0.1 /index.php/wx/demo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000022s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000240s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000256s ]
+ERR: 无法加载控制器:Wx
+
+[ 2018-10-17T15:12:07+08:00 ] 127.0.0.1 /index.php/wx/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000033s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000441s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000487s ]
+ERR: 无法加载控制器:Wx
+
+[ 2018-10-17T15:12:52+08:00 ] 127.0.0.1 /index.php/wx/demo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000034s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000376s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000399s ]
+ERR: 无法加载控制器:Wx
+
+[ 2018-10-17T15:12:53+08:00 ] 127.0.0.1 /index.php/wx/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000025s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000317s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000343s ]
+ERR: 无法加载控制器:Wx
+
+[ 2018-10-17T15:12:55+08:00 ] 127.0.0.1 /index.php/wx/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000020s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000230s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000246s ]
+ERR: 无法加载控制器:Wx
+
+[ 2018-10-17T15:12:56+08:00 ] 127.0.0.1 /index.php/wx/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000029s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000251s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000268s ]
+ERR: 无法加载控制器:Wx
+
+[ 2018-10-17T15:13:03+08:00 ] 127.0.0.1 /index.php/wx/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000019s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000229s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000245s ]
+ERR: 无法加载控制器:Wx
+
+[ 2018-10-17T15:13:03+08:00 ] 127.0.0.1 /index.php/wx/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000025s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000278s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000298s ]
+ERR: 无法加载控制器:Wx
+
+[ 2018-10-17T15:13:15+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000009s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000039s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000289s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000305s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000024s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000040s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003873s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003890s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000137s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000149s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000254s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000267s ]
+
+[ 2018-10-17T15:14:26+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000032s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000390s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000417s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000033s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000060s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004764s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004819s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000256s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000270s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000361s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000376s ]
+
+[ 2018-10-17T15:14:26+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000020s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000237s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000253s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000022s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000038s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003164s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003180s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000136s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000148s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000249s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000263s ]
+
+[ 2018-10-17T15:14:27+08:00 ] 127.0.0.1 /index.php/index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000020s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000233s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000248s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0097s ]
+SQL: SELECT * FROM `mc_account` WHERE `account` = 'root' LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant HTTP_X_FORWARDED_FOR - assumed 'HTTP_X_FORWARDED_FOR' G:\myadmin\Application\Admin\Common\function.php 第 107 行.
+NOTIC: [8] Use of undefined constant HTTP_CLIENT_IP - assumed 'HTTP_CLIENT_IP' G:\myadmin\Application\Admin\Common\function.php 第 109 行.
+NOTIC: [8] Use of undefined constant REMOTE_ADDR - assumed 'REMOTE_ADDR' G:\myadmin\Application\Admin\Common\function.php 第 112 行.
+SQL: UPDATE `mc_account` SET `login_time`='2018-10-17 15:14:27',`logincount`='21',`loginip`='127.0.0.1' WHERE `account` = 'root' [ RunTime:0.0002s ]
+
+[ 2018-10-17T15:14:27+08:00 ] 127.0.0.1 /index.php/admin/admin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000283s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000302s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0117s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminListBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 4 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 17 行.
+NOTIC: [8] Undefined variable: that G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 364 行.
+NOTIC: [8] Undefined index: totalCount G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 420 行.
+NOTIC: [8] Undefined index: listRows G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 420 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000055s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000074s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\bafa34c5dca0f76b7e10d1e2e0df6022.php 第 21 行.
+NOTIC: [8] Undefined index: pid G:\myadmin\Runtime\Cache\Admin\bafa34c5dca0f76b7e10d1e2e0df6022.php 第 91 行.
+NOTIC: [8] Undefined index: cid G:\myadmin\Runtime\Cache\Admin\bafa34c5dca0f76b7e10d1e2e0df6022.php 第 91 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004974s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004991s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000161s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000175s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000294s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000308s ]
+
+[ 2018-10-17T15:14:28+08:00 ] 127.0.0.1 /index.php/admin/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000261s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000280s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0104s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+ERR: 非法操作:performance-now.js.map
+
+[ 2018-10-17T15:14:42+08:00 ] 127.0.0.1 /index.php/wx/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000022s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000232s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000247s ]
+ERR: 无法加载控制器:Wx
+
+[ 2018-10-17T15:14:43+08:00 ] 127.0.0.1 /index.php/wx/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000022s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000234s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000250s ]
+ERR: 无法加载控制器:Wx
+
+[ 2018-10-17T15:14:45+08:00 ] 127.0.0.1 /index.php/wx/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000020s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000227s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000242s ]
+ERR: 无法加载控制器:Wx
+
+[ 2018-10-17T15:14:46+08:00 ] 127.0.0.1 /index.php/wx/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000028s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000252s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000269s ]
+ERR: 无法加载控制器:Wx
+
+[ 2018-10-17T15:15:17+08:00 ] 127.0.0.1 /index.php/wx/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000018s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000224s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000240s ]
+ERR: 无法加载控制器:Wx
+
+[ 2018-10-17T15:15:18+08:00 ] 127.0.0.1 /index.php/wx/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000028s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000252s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000273s ]
+ERR: 无法加载控制器:Wx
+
+[ 2018-10-17T15:15:22+08:00 ] 127.0.0.1 /index.php/Wx/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000046s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000279s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000298s ]
+ERR: 无法加载控制器:Wx
+
+[ 2018-10-17T15:15:23+08:00 ] 127.0.0.1 /index.php/Wx/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000020s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000272s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000289s ]
+ERR: 无法加载控制器:Wx
+
+[ 2018-10-17T15:15:34+08:00 ] 127.0.0.1 /index.php/wx/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000021s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000228s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000244s ]
+ERR: 无法加载控制器:Wx
+
+[ 2018-10-17T15:15:35+08:00 ] 127.0.0.1 /index.php/wx/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000029s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000248s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000266s ]
+ERR: 无法加载控制器:Wx
+
+[ 2018-10-17T15:15:36+08:00 ] 127.0.0.1 /index.php/wx/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000044s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000293s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000311s ]
+ERR: 无法加载控制器:Wx
+
+[ 2018-10-17T15:15:36+08:00 ] 127.0.0.1 /index.php/wx/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000021s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000253s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000270s ]
+ERR: 无法加载控制器:Wx
+
+[ 2018-10-17T15:15:36+08:00 ] 127.0.0.1 /index.php/wx/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000262s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000301s ]
+ERR: 无法加载控制器:Wx
+
+[ 2018-10-17T15:15:37+08:00 ] 127.0.0.1 /index.php/wx/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000024s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000266s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000283s ]
+ERR: 无法加载控制器:Wx
+
+[ 2018-10-17T15:16:36+08:00 ] 127.0.0.1 /index.php/wx/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000020s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000262s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000279s ]
+ERR: 无法加载控制器:Wx
+
+[ 2018-10-17T15:16:37+08:00 ] 127.0.0.1 /index.php/wx/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000020s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000301s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000322s ]
+ERR: 无法加载控制器:Wx
+
+[ 2018-10-17T15:18:43+08:00 ] 127.0.0.1 /index.php/wx/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000019s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000282s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000303s ]
+ERR: 无法加载控制器:Wx
+
+[ 2018-10-17T15:18:43+08:00 ] 127.0.0.1 /index.php/wx/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000019s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000229s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000245s ]
+ERR: 无法加载控制器:Wx
+
+[ 2018-10-17T15:19:27+08:00 ] 127.0.0.1 /index.php/wx/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000022s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000325s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000345s ]
+ERR: 无法加载控制器:Wx
+
+[ 2018-10-17T15:19:28+08:00 ] 127.0.0.1 /index.php/wx/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000022s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000264s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000282s ]
+ERR: 无法加载控制器:Wx
+
+[ 2018-10-17T15:19:28+08:00 ] 127.0.0.1 /index.php/wx/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000020s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000233s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000249s ]
+ERR: 无法加载控制器:Wx
+
+[ 2018-10-17T15:19:29+08:00 ] 127.0.0.1 /index.php/wx/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000022s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000241s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000256s ]
+ERR: 无法加载控制器:Wx
+
+[ 2018-10-17T15:19:29+08:00 ] 127.0.0.1 /index.php/wx/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000020s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000256s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000274s ]
+ERR: 无法加载控制器:Wx
+
+[ 2018-10-17T15:19:30+08:00 ] 127.0.0.1 /index.php/wx/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000026s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000276s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000294s ]
+ERR: 无法加载控制器:Wx
+
+[ 2018-10-17T15:19:34+08:00 ] 127.0.0.1 /index.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000311s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000364s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000024s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000040s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003881s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003896s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000171s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000182s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000281s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000295s ]
+
+[ 2018-10-17T15:19:40+08:00 ] 127.0.0.1 /index.php/wx/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000021s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000232s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000248s ]
+ERR: 无法加载控制器:Wx
+
+[ 2018-10-17T15:19:40+08:00 ] 127.0.0.1 /index.php/wx/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000022s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000311s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000337s ]
+ERR: 无法加载控制器:Wx
+
+[ 2018-10-17T15:19:41+08:00 ] 127.0.0.1 /index.php/wx/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000195s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000330s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000367s ]
+ERR: 无法加载控制器:Wx
+
+[ 2018-10-17T15:20:25+08:00 ] 127.0.0.1 /index.php/wx/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000020s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000327s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000343s ]
+ERR: 无法加载控制器:Wx
+
+[ 2018-10-17T15:20:26+08:00 ] 127.0.0.1 /index.php/wx/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000022s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000239s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000254s ]
+ERR: 无法加载控制器:Wx
+
+[ 2018-10-17T15:20:42+08:00 ] 127.0.0.1 /index.php/wx/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000227s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000243s ]
+ERR: 无法加载控制器:Wx
+
+[ 2018-10-17T15:20:43+08:00 ] 127.0.0.1 /index.php/wx/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000022s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000390s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000410s ]
+ERR: 无法加载控制器:Wx
+
+[ 2018-10-17T15:21:39+08:00 ] 127.0.0.1 /index.php/wx/socket
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000022s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000257s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000273s ]
+ERR: 非法操作:socket
+
+[ 2018-10-17T15:21:40+08:00 ] 127.0.0.1 /index.php/wx/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000024s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000278s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000296s ]
+ERR: 非法操作:performance-now.js.map
+
+[ 2018-10-17T15:21:42+08:00 ] 127.0.0.1 /index.php/wx
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000002s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000019s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000227s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000243s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000352s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000370s ]
+
+[ 2018-10-17T15:21:43+08:00 ] 127.0.0.1 /index.php/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000283s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000303s ]
+ERR: 无法加载控制器:Performance-now.js.map
+
+[ 2018-10-17T15:21:46+08:00 ] 127.0.0.1 /index.php/wx/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000019s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000231s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000247s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000243s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000259s ]
+
+[ 2018-10-17T15:21:47+08:00 ] 127.0.0.1 /index.php/wx/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000027s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000238s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000255s ]
+ERR: 非法操作:performance-now.js.map
+
+[ 2018-10-17T15:23:44+08:00 ] 127.0.0.1 /index.php/wx/socket
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000020s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000370s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000386s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000326s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000342s ]
+
+[ 2018-10-17T15:23:45+08:00 ] 127.0.0.1 /index.php/wx/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000021s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000239s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000254s ]
+ERR: 非法操作:performance-now.js.map
+
+[ 2018-10-17T15:24:30+08:00 ] 127.0.0.1 /index.php/wx/socket
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000021s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000293s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000310s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000420s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000436s ]
+
+[ 2018-10-17T15:24:31+08:00 ] 127.0.0.1 /index.php/wx/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000380s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000416s ]
+ERR: 非法操作:performance-now.js.map
+
+[ 2018-10-17T15:24:31+08:00 ] 127.0.0.1 /index.php/wx/socket
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000019s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000225s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000240s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000232s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000248s ]
+
+[ 2018-10-17T15:24:32+08:00 ] 127.0.0.1 /index.php/wx/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000021s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000258s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000274s ]
+ERR: 非法操作:performance-now.js.map
+
+[ 2018-10-17T15:26:01+08:00 ] 127.0.0.1 /index.php/wx/socket
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000041s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000362s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000379s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000331s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000347s ]
+
+[ 2018-10-17T15:26:01+08:00 ] 127.0.0.1 /index.php/wx/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000024s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000247s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000263s ]
+ERR: 非法操作:performance-now.js.map
+
+[ 2018-10-17T15:32:32+08:00 ] 127.0.0.1 /index.php/wx/appcallback
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000037s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000430s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000459s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000301s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000317s ]
+
+[ 2018-10-17T15:32:33+08:00 ] 127.0.0.1 /index.php/wx/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000034s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000248s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000264s ]
+ERR: 非法操作:performance-now.js.map
+
+[ 2018-10-17T15:32:34+08:00 ] 127.0.0.1 /index.php/wx/socket
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000019s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000236s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000252s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000244s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000303s ]
+
+[ 2018-10-17T15:32:35+08:00 ] 127.0.0.1 /index.php/wx/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000022s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000237s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000252s ]
+ERR: 非法操作:performance-now.js.map
+
+[ 2018-10-17T15:32:35+08:00 ] 127.0.0.1 /index.php/wx/appcallback
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000019s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000225s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000240s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000237s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000251s ]
+
+[ 2018-10-17T15:32:36+08:00 ] 127.0.0.1 /index.php/wx/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000019s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000233s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000250s ]
+ERR: 非法操作:performance-now.js.map
+
+[ 2018-10-17T15:33:20+08:00 ] 127.0.0.1 /index.php/wx/appcallback/1123
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000376s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000393s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000446s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000480s ]
+
+[ 2018-10-17T15:33:21+08:00 ] 127.0.0.1 /index.php/wx/appcallback/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000022s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000242s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000258s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000268s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000283s ]
+
+[ 2018-10-17T15:39:03+08:00 ] 127.0.0.1 /index.php/wx/appcallback/appid/1123
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000024s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000261s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000277s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000279s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000294s ]
+
+[ 2018-10-17T15:39:04+08:00 ] 127.0.0.1 /index.php/wx/appcallback/appid/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000021s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000239s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000255s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000266s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000284s ]
+
+[ 2018-10-17T15:39:05+08:00 ] 127.0.0.1 /index.php/wx/appcallback/appid/1123
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000020s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000232s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000246s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000237s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000253s ]
+
+[ 2018-10-17T15:39:05+08:00 ] 127.0.0.1 /index.php/wx/appcallback/appid/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000020s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000236s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000252s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000246s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000261s ]
+
+[ 2018-10-17T15:39:08+08:00 ] 127.0.0.1 /index.php/wx/appcallback/appid/1123
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000020s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000237s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000254s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000244s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000260s ]
+
+[ 2018-10-17T15:39:09+08:00 ] 127.0.0.1 /index.php/wx/appcallback/appid/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000026s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000258s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000275s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000252s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000269s ]
+
+[ 2018-10-17T15:39:14+08:00 ] 127.0.0.1 /index.php/wx/appcallback/appid/1123
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000020s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000234s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000250s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000244s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000258s ]
+
+[ 2018-10-17T15:39:14+08:00 ] 127.0.0.1 /index.php/wx/appcallback/appid/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000030s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000363s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000387s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000318s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000336s ]
+
+[ 2018-10-17T15:39:18+08:00 ] 127.0.0.1 /index.php/wx/appcallback/appid/1123
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000020s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000235s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000250s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000244s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000260s ]
+
+[ 2018-10-17T15:39:19+08:00 ] 127.0.0.1 /index.php/wx/appcallback/appid/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000021s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000251s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000267s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000290s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000309s ]
+
+[ 2018-10-17T15:41:36+08:00 ] 127.0.0.1 /index.php/wx/appcallback/appid/1123
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000021s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000532s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000584s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000312s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000329s ]
+
+[ 2018-10-17T15:41:37+08:00 ] 127.0.0.1 /index.php/wx/appcallback/appid/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000029s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000317s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000346s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000317s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000340s ]
+
+[ 2018-10-17T16:04:52+08:00 ] 127.0.0.1 /index.php/wx/power
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000021s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000575s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000624s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000721s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000768s ]
+
+[ 2018-10-17T16:04:53+08:00 ] 127.0.0.1 /index.php/wx/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000265s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000283s ]
+ERR: 非法操作:performance-now.js.map
+
+[ 2018-10-17T16:07:57+08:00 ] 127.0.0.1 /index.php/wx/power
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000002s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000019s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000258s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000274s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000450s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000478s ]
+
+[ 2018-10-17T16:07:58+08:00 ] 127.0.0.1 /index.php/wx/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000022s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000251s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000267s ]
+ERR: 非法操作:performance-now.js.map
+
+[ 2018-10-17T16:10:14+08:00 ] 127.0.0.1 /index.php/wx/power
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000022s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000277s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000294s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000409s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000433s ]
+
+[ 2018-10-17T16:10:15+08:00 ] 127.0.0.1 /index.php/wx/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000027s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000371s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000394s ]
+ERR: 非法操作:performance-now.js.map
+
+[ 2018-10-17T16:28:12+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000026s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.009614s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.009655s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000033s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000053s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004506s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004527s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000193s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000207s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000385s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000400s ]
+
+[ 2018-10-17T16:28:44+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000025s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000279s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000297s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000037s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000065s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004018s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004044s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000175s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000191s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000310s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000326s ]
+
+[ 2018-10-17T16:28:45+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000020s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000231s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000247s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000020s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000035s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003050s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003066s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000131s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000143s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000243s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000256s ]
+
+[ 2018-10-17T16:28:50+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000021s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000270s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000286s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000022s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000035s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003135s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003150s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000130s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000143s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000248s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000260s ]
+
+[ 2018-10-17T16:28:51+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000019s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000232s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000248s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000020s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000035s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003249s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003270s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000162s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000175s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000285s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000299s ]
+
+[ 2018-10-17T17:29:25+08:00 ] 127.0.0.1 /index.php/wx/socket
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000031s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000273s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000291s ]
+ERR: Class 'Common\Widget\WXBizMsgCrypt' not found
+
+[ 2018-10-17T17:30:19+08:00 ] 127.0.0.1 /index.php/wx/socket
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002017s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002070s ]
+ERR: Class 'Admin\Common\Widget\WXBizMsgCrypt' not found
+
+[ 2018-10-17T17:30:21+08:00 ] 127.0.0.1 /index.php/wx/socket
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000020s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000232s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000249s ]
+ERR: Class 'Admin\Common\Widget\WXBizMsgCrypt' not found
+
+[ 2018-10-17T17:33:05+08:00 ] 127.0.0.1 /index.php/wx/socket
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000021s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000339s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000359s ]
+ERR: Class 'Common\Wx\WXBizMsgCrypt' not found
+
+[ 2018-10-17T17:34:02+08:00 ] 127.0.0.1 /index.php/wx/socket
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000020s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000230s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000244s ]
+ERR: Class 'Common\Wx\WXBizMsgCrypt' not found
+
+[ 2018-10-17T17:34:58+08:00 ] 127.0.0.1 /index.php/wx/socket
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000019s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000231s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000247s ]
+ERR: Class 'Common\Wx\WXBizMsgCrypt' not found
+
+[ 2018-10-17T17:34:59+08:00 ] 127.0.0.1 /index.php/wx/socket
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000020s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000246s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000263s ]
+ERR: Class 'Common\Wx\WXBizMsgCrypt' not found
+
+[ 2018-10-17T17:36:15+08:00 ] 127.0.0.1 /index.php/wx/socket
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000020s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000275s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000291s ]
+ERR: Class 'Common\Wx\WXBizMsgCrypt' not found
+
+[ 2018-10-17T17:36:17+08:00 ] 127.0.0.1 /index.php/wx/socket
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000020s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000241s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000257s ]
+ERR: Class 'Common\Wx\WXBizMsgCrypt' not found
+
+[ 2018-10-17T17:40:06+08:00 ] 127.0.0.1 /index.php/wx/socket
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000022s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000269s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000286s ]
+NOTIC: [8192] Methods with the same name as their class will not be constructors in a future version of PHP; Prpcrypt has a deprecated constructor G:\zt.ltthk.top\Application\Common\Wx\pkcs7Encoder.php 第 59 行.
+ERR: Class 'Admin\Controller\DOMDocument' not found
+
+[ 2018-10-17T17:40:08+08:00 ] 127.0.0.1 /index.php/wx/socket
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000019s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000227s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000243s ]
+NOTIC: [8192] Methods with the same name as their class will not be constructors in a future version of PHP; Prpcrypt has a deprecated constructor G:\zt.ltthk.top\Application\Common\Wx\pkcs7Encoder.php 第 59 行.
+ERR: Class 'Admin\Controller\DOMDocument' not found
+
+[ 2018-10-17T17:59:06+08:00 ] 127.0.0.1 /index.php/wx/socket
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000029s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000271s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000289s ]
+NOTIC: [8192] Methods with the same name as their class will not be constructors in a future version of PHP; Prpcrypt has a deprecated constructor G:\zt.ltthk.top\Application\Common\Wx\pkcs7Encoder.php 第 59 行.
+ERR: Class 'Admin\Controller\DOMDocument' not found
+
+[ 2018-10-17T17:59:06+08:00 ] 127.0.0.1 /index.php/wx/socket
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000019s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000241s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000257s ]
+NOTIC: [8192] Methods with the same name as their class will not be constructors in a future version of PHP; Prpcrypt has a deprecated constructor G:\zt.ltthk.top\Application\Common\Wx\pkcs7Encoder.php 第 59 行.
+ERR: Class 'Admin\Controller\DOMDocument' not found
+
+[ 2018-10-17T17:59:07+08:00 ] 127.0.0.1 /index.php/wx/socket
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000020s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000230s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000246s ]
+NOTIC: [8192] Methods with the same name as their class will not be constructors in a future version of PHP; Prpcrypt has a deprecated constructor G:\zt.ltthk.top\Application\Common\Wx\pkcs7Encoder.php 第 59 行.
+ERR: Class 'Admin\Controller\DOMDocument' not found
+
+[ 2018-10-17T17:59:08+08:00 ] 127.0.0.1 /index.php/wx/socket
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000019s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000230s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000245s ]
+NOTIC: [8192] Methods with the same name as their class will not be constructors in a future version of PHP; Prpcrypt has a deprecated constructor G:\zt.ltthk.top\Application\Common\Wx\pkcs7Encoder.php 第 59 行.
+ERR: Class 'Admin\Controller\DOMDocument' not found
+
+[ 2018-10-17T17:59:08+08:00 ] 127.0.0.1 /index.php/wx/socket
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000020s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000235s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000251s ]
+NOTIC: [8192] Methods with the same name as their class will not be constructors in a future version of PHP; Prpcrypt has a deprecated constructor G:\zt.ltthk.top\Application\Common\Wx\pkcs7Encoder.php 第 59 行.
+ERR: Class 'Admin\Controller\DOMDocument' not found
+
+[ 2018-10-17T17:59:08+08:00 ] 127.0.0.1 /index.php/wx/socket
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000021s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000244s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000259s ]
+NOTIC: [8192] Methods with the same name as their class will not be constructors in a future version of PHP; Prpcrypt has a deprecated constructor G:\zt.ltthk.top\Application\Common\Wx\pkcs7Encoder.php 第 59 行.
+ERR: Class 'Admin\Controller\DOMDocument' not found
+
+[ 2018-10-17T17:59:08+08:00 ] 127.0.0.1 /index.php/wx/socket
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000278s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000295s ]
+NOTIC: [8192] Methods with the same name as their class will not be constructors in a future version of PHP; Prpcrypt has a deprecated constructor G:\zt.ltthk.top\Application\Common\Wx\pkcs7Encoder.php 第 59 行.
+ERR: Class 'Admin\Controller\DOMDocument' not found
+
+[ 2018-10-17T18:06:53+08:00 ] 127.0.0.1 /index.php/wx/socket
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000025s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000335s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000356s ]
+NOTIC: [8192] Methods with the same name as their class will not be constructors in a future version of PHP; Prpcrypt has a deprecated constructor G:\zt.ltthk.top\Application\Common\Wx\pkcs7Encoder.php 第 59 行.
+ERR: Class 'Admin\Controller\DOMDocument' not found
+
+[ 2018-10-17T18:06:55+08:00 ] 127.0.0.1 /index.php/wx/socket
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000037s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000387s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000426s ]
+NOTIC: [8192] Methods with the same name as their class will not be constructors in a future version of PHP; Prpcrypt has a deprecated constructor G:\zt.ltthk.top\Application\Common\Wx\pkcs7Encoder.php 第 59 行.
+ERR: Class 'Admin\Controller\DOMDocument' not found
+
+[ 2018-10-17T18:06:55+08:00 ] 127.0.0.1 /index.php/wx/socket
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000021s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000234s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000250s ]
+NOTIC: [8192] Methods with the same name as their class will not be constructors in a future version of PHP; Prpcrypt has a deprecated constructor G:\zt.ltthk.top\Application\Common\Wx\pkcs7Encoder.php 第 59 行.
+ERR: Class 'Admin\Controller\DOMDocument' not found
+
+[ 2018-10-17T18:06:56+08:00 ] 127.0.0.1 /index.php/wx/socket
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000019s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000231s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000246s ]
+NOTIC: [8192] Methods with the same name as their class will not be constructors in a future version of PHP; Prpcrypt has a deprecated constructor G:\zt.ltthk.top\Application\Common\Wx\pkcs7Encoder.php 第 59 行.
+ERR: Class 'Admin\Controller\DOMDocument' not found
+
+[ 2018-10-17T18:06:56+08:00 ] 127.0.0.1 /index.php/wx/socket
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000025s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000299s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000317s ]
+NOTIC: [8192] Methods with the same name as their class will not be constructors in a future version of PHP; Prpcrypt has a deprecated constructor G:\zt.ltthk.top\Application\Common\Wx\pkcs7Encoder.php 第 59 行.
+ERR: Class 'Admin\Controller\DOMDocument' not found
+
+[ 2018-10-17T18:06:56+08:00 ] 127.0.0.1 /index.php/wx/socket
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000025s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000251s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000269s ]
+NOTIC: [8192] Methods with the same name as their class will not be constructors in a future version of PHP; Prpcrypt has a deprecated constructor G:\zt.ltthk.top\Application\Common\Wx\pkcs7Encoder.php 第 59 行.
+ERR: Class 'Admin\Controller\DOMDocument' not found
+
+[ 2018-10-17T18:07:43+08:00 ] 127.0.0.1 /index.php/wx/socket
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000020s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000235s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000252s ]
+NOTIC: [8192] Methods with the same name as their class will not be constructors in a future version of PHP; Prpcrypt has a deprecated constructor G:\zt.ltthk.top\Application\Common\Wx\pkcs7Encoder.php 第 59 行.
+NOTIC: [2] DOMDocument::loadXML(): Empty string supplied as input G:\zt.ltthk.top\Application\Admin\Controller\WxController.class.php 第 39 行.
+NOTIC: [8] Trying to get property of non-object G:\zt.ltthk.top\Application\Admin\Controller\WxController.class.php 第 41 行.
+ERR: Class 'Common\Wx\ErrorCode' not found
+
+[ 2018-10-17T18:07:44+08:00 ] 127.0.0.1 /index.php/wx/socket
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000019s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000295s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000313s ]
+NOTIC: [8192] Methods with the same name as their class will not be constructors in a future version of PHP; Prpcrypt has a deprecated constructor G:\zt.ltthk.top\Application\Common\Wx\pkcs7Encoder.php 第 59 行.
+NOTIC: [2] DOMDocument::loadXML(): Empty string supplied as input G:\zt.ltthk.top\Application\Admin\Controller\WxController.class.php 第 39 行.
+NOTIC: [8] Trying to get property of non-object G:\zt.ltthk.top\Application\Admin\Controller\WxController.class.php 第 41 行.
+ERR: Class 'Common\Wx\ErrorCode' not found
+
+[ 2018-10-17T18:23:05+08:00 ] 127.0.0.1 /index.php/wx/socket
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000450s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000491s ]
+NOTIC: [8192] Methods with the same name as their class will not be constructors in a future version of PHP; Prpcrypt has a deprecated constructor G:\zt.ltthk.top\Application\Common\Wx\pkcs7Encoder.php 第 59 行.
+NOTIC: [2] DOMDocument::loadXML(): Empty string supplied as input G:\zt.ltthk.top\Application\Admin\Controller\WxController.class.php 第 39 行.
+NOTIC: [8] Trying to get property of non-object G:\zt.ltthk.top\Application\Admin\Controller\WxController.class.php 第 41 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000621s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000662s ]
+

@@ -1,0 +1,30 @@
+﻿<!--excel函数未写好 不可用-->
+<extend name="./Application/Admin/View/default/Public/base.html"/>
+<block name="body">
+	<div class="tpl-content-wrapper-body row-content">
+		<div class="row">
+			<div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+				<div class="widget am-cf">
+					<div class="widget-head am-cf">
+						<div class="widget-title  am-cf">{$title}</div>
+					</div>
+					<div class="widget-body  am-fr">
+						<form action="{$savePostUrl}" class="am-form tpl-form-border-form tpl-form-border-br tpl-form-line-form"   id="searchForm" name="searchform"  method="post" enctype="application/x-www-form-urlencoded">
+							<notempty name="formtitle"><legend>{$formtitle}</legend></notempty>
+							<volist name="keyList" id="field">
+								<include file="./Application/Admin/View/default/Builder/key.html"/>
+							</volist>
+							<div class="am-form-group">
+                                <div class="am-u-sm-7 am-u-sm-push-3">
+                                <volist name="buttonList" id="button">
+                                    <button {$button.attr}>{$button.title}</button>
+                                </volist>
+                                </div>
+                            </div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</block>

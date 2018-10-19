@@ -1,0 +1,2670 @@
+[ 2018-10-16T14:53:08+08:00 ] 127.0.0.1 /admin.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000450s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.015234s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.015266s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001086s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001110s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.095038s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.095064s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.008908s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.008931s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.008172s ]
+INFO: [ app_end ] --END-- [ RunTime:0.008200s ]
+
+[ 2018-10-16T14:53:13+08:00 ] 127.0.0.1 /admin.php/index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000022s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000246s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000262s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0382s ]
+SQL: SELECT * FROM `mc_account` WHERE `account` = 'root' LIMIT 1   [ RunTime:0.0023s ]
+
+[ 2018-10-16T14:53:15+08:00 ] 127.0.0.1 /admin.php/index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000243s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000259s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0149s ]
+SQL: SELECT * FROM `mc_account` WHERE `account` = 'root' LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant HTTP_X_FORWARDED_FOR - assumed 'HTTP_X_FORWARDED_FOR' G:\myadmin\Application\Admin\Common\function.php 第 107 行.
+NOTIC: [8] Use of undefined constant HTTP_CLIENT_IP - assumed 'HTTP_CLIENT_IP' G:\myadmin\Application\Admin\Common\function.php 第 109 行.
+NOTIC: [8] Use of undefined constant REMOTE_ADDR - assumed 'REMOTE_ADDR' G:\myadmin\Application\Admin\Common\function.php 第 112 行.
+SQL: UPDATE `mc_account` SET `login_time`='2018-10-16 14:53:15',`logincount`='5',`loginip`='127.0.0.1' WHERE `account` = 'root' [ RunTime:0.0017s ]
+ERR: Too few arguments to function returnJson(), 1 passed in G:\myadmin\Application\Admin\Controller\IndexController.class.php on line 48 and at least 2 expected
+
+[ 2018-10-16T14:53:15+08:00 ] 127.0.0.1 /admin.php/index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000022s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000244s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000259s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0097s ]
+SQL: SELECT * FROM `mc_account` WHERE `account` = 'root' LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant HTTP_X_FORWARDED_FOR - assumed 'HTTP_X_FORWARDED_FOR' G:\myadmin\Application\Admin\Common\function.php 第 107 行.
+NOTIC: [8] Use of undefined constant HTTP_CLIENT_IP - assumed 'HTTP_CLIENT_IP' G:\myadmin\Application\Admin\Common\function.php 第 109 行.
+NOTIC: [8] Use of undefined constant REMOTE_ADDR - assumed 'REMOTE_ADDR' G:\myadmin\Application\Admin\Common\function.php 第 112 行.
+SQL: UPDATE `mc_account` SET `login_time`='2018-10-16 14:53:15',`logincount`='6',`loginip`='127.0.0.1' WHERE `account` = 'root' [ RunTime:0.0002s ]
+ERR: Too few arguments to function returnJson(), 1 passed in G:\myadmin\Application\Admin\Controller\IndexController.class.php on line 48 and at least 2 expected
+
+[ 2018-10-16T14:53:17+08:00 ] 127.0.0.1 /admin.php/index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000022s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000242s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000258s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0132s ]
+SQL: SELECT * FROM `mc_account` WHERE `account` = 'root' LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant HTTP_X_FORWARDED_FOR - assumed 'HTTP_X_FORWARDED_FOR' G:\myadmin\Application\Admin\Common\function.php 第 107 行.
+NOTIC: [8] Use of undefined constant HTTP_CLIENT_IP - assumed 'HTTP_CLIENT_IP' G:\myadmin\Application\Admin\Common\function.php 第 109 行.
+NOTIC: [8] Use of undefined constant REMOTE_ADDR - assumed 'REMOTE_ADDR' G:\myadmin\Application\Admin\Common\function.php 第 112 行.
+SQL: UPDATE `mc_account` SET `login_time`='2018-10-16 14:53:17',`logincount`='7',`loginip`='127.0.0.1' WHERE `account` = 'root' [ RunTime:0.0002s ]
+ERR: Too few arguments to function returnJson(), 1 passed in G:\myadmin\Application\Admin\Controller\IndexController.class.php on line 48 and at least 2 expected
+
+[ 2018-10-16T14:53:25+08:00 ] 127.0.0.1 /admin.php/index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000024s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000257s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000273s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0266s ]
+SQL: SELECT * FROM `mc_account` WHERE `account` = 'root' LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant HTTP_X_FORWARDED_FOR - assumed 'HTTP_X_FORWARDED_FOR' G:\myadmin\Application\Admin\Common\function.php 第 107 行.
+NOTIC: [8] Use of undefined constant HTTP_CLIENT_IP - assumed 'HTTP_CLIENT_IP' G:\myadmin\Application\Admin\Common\function.php 第 109 行.
+NOTIC: [8] Use of undefined constant REMOTE_ADDR - assumed 'REMOTE_ADDR' G:\myadmin\Application\Admin\Common\function.php 第 112 行.
+SQL: UPDATE `mc_account` SET `login_time`='2018-10-16 14:53:25',`logincount`='8',`loginip`='127.0.0.1' WHERE `account` = 'root' [ RunTime:0.0001s ]
+ERR: Too few arguments to function returnJson(), 1 passed in G:\myadmin\Application\Admin\Controller\IndexController.class.php on line 48 and at least 2 expected
+
+[ 2018-10-16T14:53:28+08:00 ] 127.0.0.1 /admin.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000245s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000264s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000024s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000040s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004231s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004257s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000163s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000178s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000291s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000307s ]
+
+[ 2018-10-16T14:55:09+08:00 ] 127.0.0.1 /admin.php/index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000025s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000278s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000296s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0250s ]
+SQL: SELECT * FROM `mc_account` WHERE `account` = 'root' LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant HTTP_X_FORWARDED_FOR - assumed 'HTTP_X_FORWARDED_FOR' G:\myadmin\Application\Admin\Common\function.php 第 107 行.
+NOTIC: [8] Use of undefined constant HTTP_CLIENT_IP - assumed 'HTTP_CLIENT_IP' G:\myadmin\Application\Admin\Common\function.php 第 109 行.
+NOTIC: [8] Use of undefined constant REMOTE_ADDR - assumed 'REMOTE_ADDR' G:\myadmin\Application\Admin\Common\function.php 第 112 行.
+SQL: UPDATE `mc_account` SET `login_time`='2018-10-16 14:55:09',`logincount`='9',`loginip`='127.0.0.1' WHERE `account` = 'root' [ RunTime:0.0002s ]
+ERR: Too few arguments to function returnJson(), 1 passed in G:\myadmin\Application\Admin\Controller\IndexController.class.php on line 48 and at least 2 expected
+
+[ 2018-10-16T14:55:15+08:00 ] 127.0.0.1 /admin.php/index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000028s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000307s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000334s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0406s ]
+SQL: SELECT * FROM `mc_account` WHERE `account` = '' LIMIT 1   [ RunTime:0.0004s ]
+
+[ 2018-10-16T14:55:24+08:00 ] 127.0.0.1 /admin.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000022s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000241s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000259s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000023s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000039s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003967s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003988s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000185s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000199s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000302s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000317s ]
+
+[ 2018-10-16T14:55:32+08:00 ] 127.0.0.1 /admin.php/index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000021s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000239s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000254s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0297s ]
+SQL: SELECT * FROM `mc_account` WHERE `account` = 'root' LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant HTTP_X_FORWARDED_FOR - assumed 'HTTP_X_FORWARDED_FOR' G:\myadmin\Application\Admin\Common\function.php 第 107 行.
+NOTIC: [8] Use of undefined constant HTTP_CLIENT_IP - assumed 'HTTP_CLIENT_IP' G:\myadmin\Application\Admin\Common\function.php 第 109 行.
+NOTIC: [8] Use of undefined constant REMOTE_ADDR - assumed 'REMOTE_ADDR' G:\myadmin\Application\Admin\Common\function.php 第 112 行.
+SQL: UPDATE `mc_account` SET `login_time`='2018-10-16 14:55:32',`logincount`='10',`loginip`='127.0.0.1' WHERE `account` = 'root' [ RunTime:0.0002s ]
+ERR: Too few arguments to function returnJson(), 1 passed in G:\myadmin\Application\Admin\Controller\IndexController.class.php on line 48 and at least 2 expected
+
+[ 2018-10-16T14:56:40+08:00 ] 127.0.0.1 /admin.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000024s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000253s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000272s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000027s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000047s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005031s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005058s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000142s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000156s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000286s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000301s ]
+
+[ 2018-10-16T14:56:43+08:00 ] 127.0.0.1 /admin.php/index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000255s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000274s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0194s ]
+SQL: SELECT * FROM `mc_account` WHERE `account` = '' LIMIT 1   [ RunTime:0.0007s ]
+
+[ 2018-10-16T14:56:43+08:00 ] 127.0.0.1 /admin.php/index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000241s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000260s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0111s ]
+SQL: SELECT * FROM `mc_account` WHERE `account` = '' LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2018-10-16T14:56:43+08:00 ] 127.0.0.1 /admin.php/index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000025s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000256s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000274s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0107s ]
+SQL: SELECT * FROM `mc_account` WHERE `account` = '' LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2018-10-16T14:56:44+08:00 ] 127.0.0.1 /admin.php/index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000032s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000340s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000368s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0186s ]
+SQL: SELECT * FROM `mc_account` WHERE `account` = '' LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2018-10-16T14:58:02+08:00 ] 127.0.0.1 /admin.php/index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000024s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000271s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000287s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0252s ]
+SQL: SELECT * FROM `mc_account` WHERE `account` = 'root' LIMIT 1   [ RunTime:0.0002s ]
+
+[ 2018-10-16T14:58:05+08:00 ] 127.0.0.1 /admin.php/index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000241s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000258s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0151s ]
+SQL: SELECT * FROM `mc_account` WHERE `account` = 'root' LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant HTTP_X_FORWARDED_FOR - assumed 'HTTP_X_FORWARDED_FOR' G:\myadmin\Application\Admin\Common\function.php 第 107 行.
+NOTIC: [8] Use of undefined constant HTTP_CLIENT_IP - assumed 'HTTP_CLIENT_IP' G:\myadmin\Application\Admin\Common\function.php 第 109 行.
+NOTIC: [8] Use of undefined constant REMOTE_ADDR - assumed 'REMOTE_ADDR' G:\myadmin\Application\Admin\Common\function.php 第 112 行.
+SQL: UPDATE `mc_account` SET `login_time`='2018-10-16 14:58:05',`logincount`='11',`loginip`='127.0.0.1' WHERE `account` = 'root' [ RunTime:0.0002s ]
+ERR: Too few arguments to function returnJson(), 1 passed in G:\myadmin\Application\Admin\Controller\IndexController.class.php on line 48 and at least 2 expected
+
+[ 2018-10-16T14:58:14+08:00 ] 127.0.0.1 /admin.php/index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000022s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000240s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000256s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0152s ]
+SQL: SELECT * FROM `mc_account` WHERE `account` = 'root' LIMIT 1   [ RunTime:0.0002s ]
+
+[ 2018-10-16T14:58:17+08:00 ] 127.0.0.1 /admin.php/index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000239s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000255s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0237s ]
+SQL: SELECT * FROM `mc_account` WHERE `account` = 'root' LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant HTTP_X_FORWARDED_FOR - assumed 'HTTP_X_FORWARDED_FOR' G:\myadmin\Application\Admin\Common\function.php 第 107 行.
+NOTIC: [8] Use of undefined constant HTTP_CLIENT_IP - assumed 'HTTP_CLIENT_IP' G:\myadmin\Application\Admin\Common\function.php 第 109 行.
+NOTIC: [8] Use of undefined constant REMOTE_ADDR - assumed 'REMOTE_ADDR' G:\myadmin\Application\Admin\Common\function.php 第 112 行.
+SQL: UPDATE `mc_account` SET `login_time`='2018-10-16 14:58:17',`logincount`='12',`loginip`='127.0.0.1' WHERE `account` = 'root' [ RunTime:0.0001s ]
+ERR: Too few arguments to function returnJson(), 1 passed in G:\myadmin\Application\Admin\Controller\IndexController.class.php on line 48 and at least 2 expected
+
+[ 2018-10-16T14:58:47+08:00 ] 127.0.0.1 /admin.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000046s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000585s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000622s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000032s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000059s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.026845s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.026874s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000194s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000209s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000311s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000328s ]
+
+[ 2018-10-16T14:59:37+08:00 ] 127.0.0.1 /admin.php/index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000024s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000243s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000260s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0147s ]
+SQL: SELECT * FROM `mc_account` WHERE `account` = 'root' LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant HTTP_X_FORWARDED_FOR - assumed 'HTTP_X_FORWARDED_FOR' G:\myadmin\Application\Admin\Common\function.php 第 107 行.
+NOTIC: [8] Use of undefined constant HTTP_CLIENT_IP - assumed 'HTTP_CLIENT_IP' G:\myadmin\Application\Admin\Common\function.php 第 109 行.
+NOTIC: [8] Use of undefined constant REMOTE_ADDR - assumed 'REMOTE_ADDR' G:\myadmin\Application\Admin\Common\function.php 第 112 行.
+SQL: UPDATE `mc_account` SET `login_time`='2018-10-16 14:59:37',`logincount`='13',`loginip`='127.0.0.1' WHERE `account` = 'root' [ RunTime:0.0002s ]
+ERR: Too few arguments to function returnJson(), 1 passed in G:\myadmin\Application\Admin\Controller\IndexController.class.php on line 48 and at least 2 expected
+
+[ 2018-10-16T14:59:48+08:00 ] 127.0.0.1 /admin.php/index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000024s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000248s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000266s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0151s ]
+SQL: SELECT * FROM `mc_account` WHERE `account` = '' LIMIT 1   [ RunTime:0.0002s ]
+
+[ 2018-10-16T14:59:52+08:00 ] 127.0.0.1 /admin.php/index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000259s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000277s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0153s ]
+SQL: SELECT * FROM `mc_account` WHERE `account` = '' LIMIT 1   [ RunTime:0.0002s ]
+
+[ 2018-10-16T15:00:07+08:00 ] 127.0.0.1 /admin.php/index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000024s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000284s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000306s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0135s ]
+SQL: SELECT * FROM `mc_account` WHERE `account` = '' LIMIT 1   [ RunTime:0.0002s ]
+
+[ 2018-10-16T15:00:14+08:00 ] 127.0.0.1 /admin.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000029s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000255s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000275s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000027s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000048s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013740s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013764s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000170s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000185s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000282s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000297s ]
+
+[ 2018-10-16T15:00:23+08:00 ] 127.0.0.1 /admin.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000026s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000357s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000384s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000038s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000066s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005058s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005084s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000148s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000162s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000277s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000292s ]
+
+[ 2018-10-16T15:00:29+08:00 ] 127.0.0.1 /admin.php/index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000024s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000249s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000265s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0253s ]
+SQL: SELECT * FROM `mc_account` WHERE `account` = 'root' LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant HTTP_X_FORWARDED_FOR - assumed 'HTTP_X_FORWARDED_FOR' G:\myadmin\Application\Admin\Common\function.php 第 107 行.
+NOTIC: [8] Use of undefined constant HTTP_CLIENT_IP - assumed 'HTTP_CLIENT_IP' G:\myadmin\Application\Admin\Common\function.php 第 109 行.
+NOTIC: [8] Use of undefined constant REMOTE_ADDR - assumed 'REMOTE_ADDR' G:\myadmin\Application\Admin\Common\function.php 第 112 行.
+SQL: UPDATE `mc_account` SET `login_time`='2018-10-16 15:00:29',`logincount`='14',`loginip`='127.0.0.1' WHERE `account` = 'root' [ RunTime:0.0002s ]
+ERR: Too few arguments to function returnJson(), 1 passed in G:\myadmin\Application\Admin\Controller\IndexController.class.php on line 48 and at least 2 expected
+
+[ 2018-10-16T15:01:25+08:00 ] 127.0.0.1 /admin.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000032s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000301s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000327s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000035s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000059s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008475s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008502s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000195s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000210s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000309s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000323s ]
+
+[ 2018-10-16T15:01:29+08:00 ] 127.0.0.1 /admin.php/index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000024s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000248s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000264s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0137s ]
+SQL: SELECT * FROM `mc_account` WHERE `account` = 'root' LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant HTTP_X_FORWARDED_FOR - assumed 'HTTP_X_FORWARDED_FOR' G:\myadmin\Application\Admin\Common\function.php 第 107 行.
+NOTIC: [8] Use of undefined constant HTTP_CLIENT_IP - assumed 'HTTP_CLIENT_IP' G:\myadmin\Application\Admin\Common\function.php 第 109 行.
+NOTIC: [8] Use of undefined constant REMOTE_ADDR - assumed 'REMOTE_ADDR' G:\myadmin\Application\Admin\Common\function.php 第 112 行.
+SQL: UPDATE `mc_account` SET `login_time`='2018-10-16 15:01:29',`logincount`='15',`loginip`='127.0.0.1' WHERE `account` = 'root' [ RunTime:0.0002s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000348s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000364s ]
+
+[ 2018-10-16T15:01:41+08:00 ] 127.0.0.1 /admin.php/index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000247s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000263s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0202s ]
+SQL: SELECT * FROM `mc_account` WHERE `account` = 'root' LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant HTTP_X_FORWARDED_FOR - assumed 'HTTP_X_FORWARDED_FOR' G:\myadmin\Application\Admin\Common\function.php 第 107 行.
+NOTIC: [8] Use of undefined constant HTTP_CLIENT_IP - assumed 'HTTP_CLIENT_IP' G:\myadmin\Application\Admin\Common\function.php 第 109 行.
+NOTIC: [8] Use of undefined constant REMOTE_ADDR - assumed 'REMOTE_ADDR' G:\myadmin\Application\Admin\Common\function.php 第 112 行.
+SQL: UPDATE `mc_account` SET `login_time`='2018-10-16 15:01:41',`logincount`='16',`loginip`='127.0.0.1' WHERE `account` = 'root' [ RunTime:0.0002s ]
+ERR: Too few arguments to function returnJson(), 1 passed in G:\myadmin\Application\Admin\Controller\IndexController.class.php on line 48 and at least 2 expected
+
+[ 2018-10-16T15:09:12+08:00 ] 127.0.0.1 /admin.php/index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000032s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000303s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000324s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0167s ]
+SQL: SELECT * FROM `mc_account` WHERE `account` = 'root' LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant HTTP_X_FORWARDED_FOR - assumed 'HTTP_X_FORWARDED_FOR' G:\myadmin\Application\Admin\Common\function.php 第 107 行.
+NOTIC: [8] Use of undefined constant HTTP_CLIENT_IP - assumed 'HTTP_CLIENT_IP' G:\myadmin\Application\Admin\Common\function.php 第 109 行.
+NOTIC: [8] Use of undefined constant REMOTE_ADDR - assumed 'REMOTE_ADDR' G:\myadmin\Application\Admin\Common\function.php 第 112 行.
+SQL: UPDATE `mc_account` SET `login_time`='2018-10-16 15:09:12',`logincount`='17',`loginip`='127.0.0.1' WHERE `account` = 'root' [ RunTime:0.0002s ]
+ERR: Too few arguments to function returnJson(), 1 passed in G:\myadmin\Application\Admin\Controller\IndexController.class.php on line 48 and at least 2 expected
+
+[ 2018-10-16T15:49:26+08:00 ] 127.0.0.1 /admin.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000031s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000478s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000528s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000028s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000050s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008541s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008669s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000565s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000615s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000484s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000512s ]
+
+[ 2018-10-16T15:49:36+08:00 ] 127.0.0.1 /admin.php
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000024s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000240s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000258s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000024s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000040s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003670s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003691s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000139s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000153s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.014190s ]
+INFO: [ app_end ] --END-- [ RunTime:0.014217s ]
+
+[ 2018-10-16T15:49:42+08:00 ] 127.0.0.1 /admin.php/index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000024s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000542s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000568s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0266s ]
+SQL: SELECT * FROM `mc_account` WHERE `account` = 'root' LIMIT 1   [ RunTime:0.0003s ]
+
+[ 2018-10-16T15:50:28+08:00 ] 127.0.0.1 /admin.php/index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000025s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000243s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000259s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0162s ]
+SQL: SELECT * FROM `mc_account` WHERE `account` = 'root' LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant HTTP_X_FORWARDED_FOR - assumed 'HTTP_X_FORWARDED_FOR' G:\myadmin\Application\Admin\Common\function.php 第 107 行.
+NOTIC: [8] Use of undefined constant HTTP_CLIENT_IP - assumed 'HTTP_CLIENT_IP' G:\myadmin\Application\Admin\Common\function.php 第 109 行.
+NOTIC: [8] Use of undefined constant REMOTE_ADDR - assumed 'REMOTE_ADDR' G:\myadmin\Application\Admin\Common\function.php 第 112 行.
+SQL: UPDATE `mc_account` SET `login_time`='2018-10-16 15:50:28',`logincount`='18',`loginip`='127.0.0.1' WHERE `account` = 'root' [ RunTime:0.0002s ]
+ERR: Too few arguments to function returnJson(), 1 passed in G:\myadmin\Application\Admin\Controller\IndexController.class.php on line 48 and at least 2 expected
+
+[ 2018-10-16T15:51:43+08:00 ] 127.0.0.1 /admin.php/index/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000026s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000757s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000778s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0172s ]
+SQL: SELECT * FROM `mc_account` WHERE `account` = 'root' LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant HTTP_X_FORWARDED_FOR - assumed 'HTTP_X_FORWARDED_FOR' G:\myadmin\Application\Admin\Common\function.php 第 107 行.
+NOTIC: [8] Use of undefined constant HTTP_CLIENT_IP - assumed 'HTTP_CLIENT_IP' G:\myadmin\Application\Admin\Common\function.php 第 109 行.
+NOTIC: [8] Use of undefined constant REMOTE_ADDR - assumed 'REMOTE_ADDR' G:\myadmin\Application\Admin\Common\function.php 第 112 行.
+SQL: UPDATE `mc_account` SET `login_time`='2018-10-16 15:51:43',`logincount`='19',`loginip`='127.0.0.1' WHERE `account` = 'root' [ RunTime:0.0002s ]
+
+[ 2018-10-16T15:51:43+08:00 ] 127.0.0.1 /admin.php/admin/admin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000010s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000037s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000267s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000297s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0085s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0007s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminListBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 4 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 17 行.
+NOTIC: [8] Undefined variable: that G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 364 行.
+NOTIC: [8] Undefined index: totalCount G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 420 行.
+NOTIC: [8] Undefined index: listRows G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 420 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000067s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000087s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\bafa34c5dca0f76b7e10d1e2e0df6022.php 第 21 行.
+NOTIC: [8] Undefined index: pid G:\myadmin\Runtime\Cache\Admin\bafa34c5dca0f76b7e10d1e2e0df6022.php 第 91 行.
+NOTIC: [8] Undefined index: cid G:\myadmin\Runtime\Cache\Admin\bafa34c5dca0f76b7e10d1e2e0df6022.php 第 91 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.079420s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.079443s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000196s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000210s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000316s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000334s ]
+
+[ 2018-10-16T15:51:44+08:00 ] 127.0.0.1 /admin.php/admin/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000036s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003168s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003198s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0173s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+ERR: 非法操作:performance-now.js.map
+
+[ 2018-10-16T15:52:18+08:00 ] 127.0.0.1 /admin.php/admin/admin.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000240s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000257s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0269s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminListBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 4 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 17 行.
+NOTIC: [8] Undefined variable: that G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 364 行.
+NOTIC: [8] Undefined index: totalCount G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 420 行.
+NOTIC: [8] Undefined index: listRows G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 420 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000061s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000079s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\bafa34c5dca0f76b7e10d1e2e0df6022.php 第 21 行.
+NOTIC: [8] Undefined index: pid G:\myadmin\Runtime\Cache\Admin\bafa34c5dca0f76b7e10d1e2e0df6022.php 第 91 行.
+NOTIC: [8] Undefined index: cid G:\myadmin\Runtime\Cache\Admin\bafa34c5dca0f76b7e10d1e2e0df6022.php 第 91 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.041738s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.041759s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000166s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000181s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000295s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000312s ]
+
+[ 2018-10-16T15:52:19+08:00 ] 127.0.0.1 /admin.php/admin/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000024s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000294s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000317s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0148s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+ERR: 非法操作:performance-now.js.map
+
+[ 2018-10-16T15:52:25+08:00 ] 127.0.0.1 /admin.php/rbac/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000259s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000276s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0141s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0005s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminListBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 4 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 17 行.
+SQL: SHOW COLUMNS FROM `mc_role` [ RunTime:0.0194s ]
+SQL: SELECT * FROM `mc_role` LIMIT 0,20   [ RunTime:0.0019s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `mc_role` LIMIT 1   [ RunTime:0.0032s ]
+NOTIC: [8] Undefined variable: that G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 364 行.
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005418s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005446s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000168s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000183s ]
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004971s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.000255s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000007s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.005079s ]
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005500s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.005365s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000006s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.010711s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000207s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000230s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 21 行.
+NOTIC: [8] Undefined index: pid G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 91 行.
+NOTIC: [8] Undefined index: cid G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 91 行.
+NOTIC: [8] Undefined index: opt G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 121 行.
+NOTIC: [8] Undefined index: target-form G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 241 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.150015s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.012589s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000004s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.162454s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000324s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000340s ]
+
+[ 2018-10-16T15:52:26+08:00 ] 127.0.0.1 /admin.php/rbac/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000031s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000275s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000298s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0165s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+ERR: 非法操作:performance-now.js.map
+
+[ 2018-10-16T15:52:29+08:00 ] 127.0.0.1 /admin.php/rbac/node.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000242s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000259s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0208s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminListBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 4 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 17 行.
+SQL: SELECT A.sort,A.hide,A.url,A.id,A.title,IFNULL(B.`title`,'一级目录') AS p_title FROM mc_admin_menu A LEFT JOIN mc_admin_menu B ON A.`p_id` = B.`id` WHERE A.`p_id` = 0 [ RunTime:0.0062s ]
+NOTIC: [2] explode() expects parameter 2 to be string, object given G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 349 行.
+NOTIC: [8] Undefined variable: that G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 364 行.
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005884s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.005910s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000169s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000184s ]
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005251s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.000249s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000005s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.005340s ]
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004890s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.005605s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000005s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.010336s ]
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009738s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.010602s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000005s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.020183s ]
+NOTIC: [8] Undefined index: totalCount G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 420 行.
+NOTIC: [8] Undefined index: listRows G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 420 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000136s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000154s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 21 行.
+NOTIC: [8] Undefined index: pid G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 91 行.
+NOTIC: [8] Undefined index: cid G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 91 行.
+NOTIC: [8] Undefined index: opt G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 121 行.
+NOTIC: [8] Undefined index: target-form G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 241 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.142583s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.021687s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000004s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.164105s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000355s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000371s ]
+
+[ 2018-10-16T15:52:30+08:00 ] 127.0.0.1 /admin.php/rbac/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000262s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000281s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0184s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+ERR: 非法操作:performance-now.js.map
+
+[ 2018-10-16T15:52:37+08:00 ] 127.0.0.1 /admin.php/rbac/editmenu/id/1.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000024s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000255s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000273s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0170s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminConfigBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 4 行.
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+SQL: SELECT sort,id,title FROM mc_admin_menu WHERE p_id = 0 [ RunTime:0.0002s ]
+SQL: SELECT * FROM mc_admin_menu WHERE id = 1 [ RunTime:0.0001s ]
+ERR: Too few arguments to function Admin\Builder\AdminConfigBuilder::keyHidden(), 1 passed in G:\myadmin\Application\Admin\Controller\RbacController.class.php on line 478 and exactly 2 expected
+
+[ 2018-10-16T15:52:38+08:00 ] 127.0.0.1 /admin.php/rbac/editmenu/id/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000034s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000337s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000364s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0200s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0004s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminConfigBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 4 行.
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+SQL: SELECT sort,id,title FROM mc_admin_menu WHERE p_id = 0 [ RunTime:0.0002s ]
+SQL: SELECT * FROM mc_admin_menu WHERE id = 0 [ RunTime:0.0001s ]
+NOTIC: [8] Undefined offset: 0 G:\myadmin\Application\Admin\Controller\RbacController.class.php 第 474 行.
+ERR: Too few arguments to function Admin\Builder\AdminConfigBuilder::keyHidden(), 1 passed in G:\myadmin\Application\Admin\Controller\RbacController.class.php on line 478 and exactly 2 expected
+
+[ 2018-10-16T15:53:59+08:00 ] 127.0.0.1 /admin.php/rbac/editmenu/id/1.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000025s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000281s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000300s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0277s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminConfigBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 4 行.
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+SQL: SELECT sort,id,title FROM mc_admin_menu WHERE p_id = 0 [ RunTime:0.0004s ]
+SQL: SELECT * FROM mc_admin_menu WHERE id = 1 [ RunTime:0.0003s ]
+ERR: Too few arguments to function Admin\Builder\AdminConfigBuilder::keySelect(), 2 passed in G:\myadmin\Application\Admin\Controller\RbacController.class.php on line 480 and exactly 3 expected
+
+[ 2018-10-16T15:54:00+08:00 ] 127.0.0.1 /admin.php/rbac/editmenu/id/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000035s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000266s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000288s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0258s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminConfigBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 4 行.
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+SQL: SELECT sort,id,title FROM mc_admin_menu WHERE p_id = 0 [ RunTime:0.0002s ]
+SQL: SELECT * FROM mc_admin_menu WHERE id = 0 [ RunTime:0.0002s ]
+NOTIC: [8] Undefined offset: 0 G:\myadmin\Application\Admin\Controller\RbacController.class.php 第 474 行.
+ERR: Too few arguments to function Admin\Builder\AdminConfigBuilder::keySelect(), 2 passed in G:\myadmin\Application\Admin\Controller\RbacController.class.php on line 480 and exactly 3 expected
+
+[ 2018-10-16T15:54:27+08:00 ] 127.0.0.1 /admin.php/rbac/editmenu/id/1.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000268s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000287s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0182s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminConfigBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 4 行.
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+SQL: SELECT sort,id,title FROM mc_admin_menu WHERE p_id = 0 [ RunTime:0.0002s ]
+SQL: SELECT * FROM mc_admin_menu WHERE id = 1 [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: value G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 96 行.
+NOTIC: [8] Undefined index: value G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 96 行.
+ERR: Think\Controller:convertKey方法不存在！
+
+[ 2018-10-16T15:54:28+08:00 ] 127.0.0.1 /admin.php/rbac/editmenu/id/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000008s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000046s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000341s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000371s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0171s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminConfigBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 4 行.
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+SQL: SELECT sort,id,title FROM mc_admin_menu WHERE p_id = 0 [ RunTime:0.0001s ]
+SQL: SELECT * FROM mc_admin_menu WHERE id = 0 [ RunTime:0.0001s ]
+NOTIC: [8] Undefined offset: 0 G:\myadmin\Application\Admin\Controller\RbacController.class.php 第 474 行.
+NOTIC: [8] Undefined index: value G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 96 行.
+NOTIC: [8] Undefined index: value G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 96 行.
+ERR: Think\Controller:convertKey方法不存在！
+
+[ 2018-10-16T15:56:20+08:00 ] 127.0.0.1 /admin.php/rbac/editmenu/id/1.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000026s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000269s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000287s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0186s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminConfigBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 4 行.
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+SQL: SELECT sort,id,title FROM mc_admin_menu WHERE p_id = 0 [ RunTime:0.0002s ]
+SQL: SELECT * FROM mc_admin_menu WHERE id = 1 [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: value G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 96 行.
+NOTIC: [8] Undefined index: value G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000140s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000164s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 21 行.
+NOTIC: [8] Undefined index: pid G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 91 行.
+NOTIC: [8] Undefined index: cid G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 91 行.
+NOTIC: [8] Undefined index: placeholder G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 126 行.
+NOTIC: [8] Undefined index: placeholder G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 126 行.
+NOTIC: [8] Undefined index: subtitle G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 231 行.
+NOTIC: [8] Undefined index: subtitle G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 203 行.
+NOTIC: [8] Undefined index: placeholder G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 207 行.
+NOTIC: [8] Undefined index: error G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 208 行.
+NOTIC: [8] Undefined index: prompt G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 210 行.
+NOTIC: [8] Undefined index: subtitle G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 203 行.
+NOTIC: [8] Undefined index: value G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 205 行.
+NOTIC: [8] Undefined index: error G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 208 行.
+NOTIC: [8] Undefined index: prompt G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 210 行.
+NOTIC: [8] Undefined index: subtitle G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 203 行.
+NOTIC: [8] Undefined index: placeholder G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 207 行.
+NOTIC: [8] Undefined index: error G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 208 行.
+NOTIC: [8] Undefined index: prompt G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 210 行.
+NOTIC: [8] Undefined index: subtitle G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 231 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.167929s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.167952s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000206s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000221s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000326s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000343s ]
+
+[ 2018-10-16T15:56:21+08:00 ] 127.0.0.1 /admin.php/rbac/editmenu/id/performance-now.js.map
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000243s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000261s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0278s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminConfigBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 4 行.
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+SQL: SELECT sort,id,title FROM mc_admin_menu WHERE p_id = 0 [ RunTime:0.0002s ]
+SQL: SELECT * FROM mc_admin_menu WHERE id = 0 [ RunTime:0.0002s ]
+NOTIC: [8] Undefined offset: 0 G:\myadmin\Application\Admin\Controller\RbacController.class.php 第 474 行.
+NOTIC: [8] Undefined index: value G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 96 行.
+NOTIC: [8] Undefined index: value G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000140s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000160s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 21 行.
+NOTIC: [8] Undefined index: pid G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 91 行.
+NOTIC: [8] Undefined index: cid G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 91 行.
+NOTIC: [8] Undefined index: value G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 125 行.
+NOTIC: [8] Undefined index: placeholder G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 126 行.
+NOTIC: [8] Undefined index: value G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 125 行.
+NOTIC: [8] Undefined index: placeholder G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 126 行.
+NOTIC: [8] Undefined index: subtitle G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 231 行.
+NOTIC: [8] Undefined index: subtitle G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 203 行.
+NOTIC: [8] Undefined index: value G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 205 行.
+NOTIC: [8] Undefined index: placeholder G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 207 行.
+NOTIC: [8] Undefined index: error G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 208 行.
+NOTIC: [8] Undefined index: prompt G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 210 行.
+NOTIC: [8] Undefined index: subtitle G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 203 行.
+NOTIC: [8] Undefined index: value G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 205 行.
+NOTIC: [8] Undefined index: error G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 208 行.
+NOTIC: [8] Undefined index: prompt G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 210 行.
+NOTIC: [8] Undefined index: subtitle G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 203 行.
+NOTIC: [8] Undefined index: value G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 205 行.
+NOTIC: [8] Undefined index: placeholder G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 207 行.
+NOTIC: [8] Undefined index: error G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 208 行.
+NOTIC: [8] Undefined index: prompt G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 210 行.
+NOTIC: [8] Undefined index: subtitle G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 231 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.141062s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.141080s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000149s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000164s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000273s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000288s ]
+
+[ 2018-10-16T15:56:28+08:00 ] 127.0.0.1 /admin.php/rbac/editmenu.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000025s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000252s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000269s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0283s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+SQL: SHOW COLUMNS FROM `mc_admin_menu` [ RunTime:0.0143s ]
+NOTIC: [2] Illegal offset type in isset or empty G:\myadmin\ThinkPHP\Library\Think\Model.class.php 第 445 行.
+SQL: UPDATE `mc_admin_menu` SET `title`='Rbac权限组',`url`='',`hide`='1',`p_id`='0',`sort`='0' WHERE `id` = 1 [ RunTime:0.0042s ]
+SQL: SELECT `id` FROM `mc_account`  [ RunTime:0.0002s ]
+NOTIC: [2] unlink(./Runtime/Temp/2d616c640b7ee14ad6577c9812bd13e8.php): No such file or directory G:\myadmin\ThinkPHP\Library\Think\Cache\Driver\File.class.php 第 157 行.
+NOTIC: [2] unlink(./Runtime/Temp/ea5790be46ddb0b66084217c2eaa0112.php): No such file or directory G:\myadmin\ThinkPHP\Library\Think\Cache\Driver\File.class.php 第 157 行.
+NOTIC: [2] unlink(./Runtime/Temp/fbc3278b912b7bed02bc01e0c95835ef.php): No such file or directory G:\myadmin\ThinkPHP\Library\Think\Cache\Driver\File.class.php 第 157 行.
+
+[ 2018-10-16T15:56:30+08:00 ] 127.0.0.1 /admin.php/rbac/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000249s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000268s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0149s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminListBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 4 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 17 行.
+SQL: SHOW COLUMNS FROM `mc_role` [ RunTime:0.0103s ]
+SQL: SELECT * FROM `mc_role` LIMIT 0,20   [ RunTime:0.0002s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `mc_role` LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined variable: that G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 364 行.
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000272s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000292s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000161s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000176s ]
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000168s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.000244s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000003s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.000250s ]
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000145s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.000486s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000004s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.000467s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000136s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000159s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 21 行.
+NOTIC: [8] Undefined index: pid G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 91 行.
+NOTIC: [8] Undefined index: cid G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 91 行.
+NOTIC: [8] Undefined index: opt G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 121 行.
+NOTIC: [8] Undefined index: target-form G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 241 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.160559s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.001915s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000006s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.162316s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000391s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000413s ]
+
+[ 2018-10-16T15:56:37+08:00 ] 127.0.0.1 /admin.php/rbac/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000024s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000283s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000302s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0247s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminListBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 4 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 17 行.
+SQL: SHOW COLUMNS FROM `mc_role` [ RunTime:0.0127s ]
+SQL: SELECT * FROM `mc_role` LIMIT 0,20   [ RunTime:0.0002s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `mc_role` LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined variable: that G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 364 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000017s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000039s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009114s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009146s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000181s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000197s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000012s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.006829s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006655s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.000261s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000006s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.006747s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000011s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.013598s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.002151s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.007025s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000005s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.009000s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 39 行.
+SQL: SELECT title,id FROM mc_admin_menu WHERE p_id = 0 AND hide = 0 ORDER BY sort DESC [ RunTime:0.0008s ]
+SQL: SELECT A.`id`,A.`title`,A.`url`,A.`p_id` FROM mc_admin_menu A LEFT JOIN (SELECT id,title,sort FROM mc_admin_menu WHERE p_id =0 AND hide = 0) B ON A.`p_id` = B.id WHERE A.`hide` = 0  AND A.`p_id` != 0 ORDER BY B.sort,A.`sort`,A.`id` DESC [ RunTime:0.0028s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000133s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.040418s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 21 行.
+NOTIC: [8] Undefined index: pid G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 91 行.
+NOTIC: [8] Undefined index: cid G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 91 行.
+NOTIC: [8] Undefined index: opt G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 121 行.
+NOTIC: [8] Undefined index: target-form G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 241 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.147220s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.029408s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000005s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.176458s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000349s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000366s ]
+
+[ 2018-10-16T15:56:41+08:00 ] 127.0.0.1 /admin.php/rbac/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000241s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000258s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0243s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminListBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 4 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 17 行.
+SQL: SHOW COLUMNS FROM `mc_role` [ RunTime:0.0106s ]
+SQL: SELECT * FROM `mc_role` LIMIT 0,20   [ RunTime:0.0002s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `mc_role` LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined variable: that G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 364 行.
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000752s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000783s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000318s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000341s ]
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000122s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.000477s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000003s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.000267s ]
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000109s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.000671s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000003s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.000446s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000134s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000152s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 21 行.
+NOTIC: [8] Undefined index: pid G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 91 行.
+NOTIC: [8] Undefined index: cid G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 91 行.
+NOTIC: [8] Undefined index: opt G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 121 行.
+NOTIC: [8] Undefined index: target-form G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 241 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.143176s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.002504s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000004s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.145354s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000322s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000339s ]
+
+[ 2018-10-16T15:56:48+08:00 ] 127.0.0.1 /admin.php/rbac/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000025s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000249s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000268s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0194s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminListBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 4 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 17 行.
+SQL: SHOW COLUMNS FROM `mc_role` [ RunTime:0.0111s ]
+SQL: SELECT * FROM `mc_role` LIMIT 0,20   [ RunTime:0.0002s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `mc_role` LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined variable: that G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 364 行.
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000176s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000192s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000142s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000157s ]
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000115s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.000205s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000003s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.000177s ]
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000112s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.000392s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000002s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.000359s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000135s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000154s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 21 行.
+NOTIC: [8] Undefined index: pid G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 91 行.
+NOTIC: [8] Undefined index: cid G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 91 行.
+NOTIC: [8] Undefined index: opt G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 121 行.
+NOTIC: [8] Undefined index: target-form G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 241 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.142594s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.001742s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000005s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.144199s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000299s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000314s ]
+
+[ 2018-10-16T15:56:50+08:00 ] 127.0.0.1 /admin.php/rbac/node.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000082s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000261s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000283s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0173s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminListBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 4 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 17 行.
+SQL: SELECT A.sort,A.hide,A.url,A.id,A.title,IFNULL(B.`title`,'一级目录') AS p_title FROM mc_admin_menu A LEFT JOIN mc_admin_menu B ON A.`p_id` = B.`id` WHERE A.`p_id` = 0 [ RunTime:0.0003s ]
+NOTIC: [2] explode() expects parameter 2 to be string, object given G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 349 行.
+NOTIC: [8] Undefined variable: that G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 364 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000014s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000031s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003776s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003799s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000141s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000155s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000011s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.002422s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.002169s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.000220s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000004s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.002251s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000010s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.004700s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006748s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.002480s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000005s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.009101s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000010s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.011549s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.002258s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.009339s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000004s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.011460s ]
+NOTIC: [8] Undefined index: totalCount G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 420 行.
+NOTIC: [8] Undefined index: listRows G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 420 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000133s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.019021s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 21 行.
+NOTIC: [8] Undefined index: pid G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 91 行.
+NOTIC: [8] Undefined index: cid G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 91 行.
+NOTIC: [8] Undefined index: opt G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 121 行.
+NOTIC: [8] Undefined index: target-form G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 241 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.141163s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.012856s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000005s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.153884s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000364s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000380s ]
+
+[ 2018-10-16T15:56:55+08:00 ] 127.0.0.1 /admin.php/rbac/editmenu/id/4.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000243s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000261s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0160s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminConfigBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 4 行.
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+SQL: SELECT sort,id,title FROM mc_admin_menu WHERE p_id = 0 [ RunTime:0.0002s ]
+SQL: SELECT * FROM mc_admin_menu WHERE id = 4 [ RunTime:0.0001s ]
+NOTIC: [8] Undefined index: value G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 96 行.
+NOTIC: [8] Undefined index: value G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000147s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000172s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 21 行.
+NOTIC: [8] Undefined index: pid G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 91 行.
+NOTIC: [8] Undefined index: cid G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 91 行.
+NOTIC: [8] Undefined index: placeholder G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 126 行.
+NOTIC: [8] Undefined index: placeholder G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 126 行.
+NOTIC: [8] Undefined index: subtitle G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 231 行.
+NOTIC: [8] Undefined index: subtitle G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 203 行.
+NOTIC: [8] Undefined index: placeholder G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 207 行.
+NOTIC: [8] Undefined index: error G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 208 行.
+NOTIC: [8] Undefined index: prompt G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 210 行.
+NOTIC: [8] Undefined index: subtitle G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 203 行.
+NOTIC: [8] Undefined index: value G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 205 行.
+NOTIC: [8] Undefined index: error G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 208 行.
+NOTIC: [8] Undefined index: prompt G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 210 行.
+NOTIC: [8] Undefined index: subtitle G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 203 行.
+NOTIC: [8] Undefined index: placeholder G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 207 行.
+NOTIC: [8] Undefined index: error G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 208 行.
+NOTIC: [8] Undefined index: prompt G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 210 行.
+NOTIC: [8] Undefined index: subtitle G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 231 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.139230s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.139250s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000150s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000164s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000275s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000291s ]
+
+[ 2018-10-16T15:56:58+08:00 ] 127.0.0.1 /admin.php/rbac/editmenu.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000035s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000531s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000560s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0158s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+SQL: SHOW COLUMNS FROM `mc_admin_menu` [ RunTime:0.0119s ]
+NOTIC: [2] Illegal offset type in isset or empty G:\myadmin\ThinkPHP\Library\Think\Model.class.php 第 445 行.
+SQL: UPDATE `mc_admin_menu` SET `title`='Demo',`url`='',`hide`='1',`p_id`='0',`sort`='0' WHERE `id` = 4 [ RunTime:0.0022s ]
+SQL: SELECT `id` FROM `mc_account`  [ RunTime:0.0001s ]
+NOTIC: [2] unlink(./Runtime/Temp/2d616c640b7ee14ad6577c9812bd13e8.php): No such file or directory G:\myadmin\ThinkPHP\Library\Think\Cache\Driver\File.class.php 第 157 行.
+NOTIC: [2] unlink(./Runtime/Temp/ea5790be46ddb0b66084217c2eaa0112.php): No such file or directory G:\myadmin\ThinkPHP\Library\Think\Cache\Driver\File.class.php 第 157 行.
+NOTIC: [2] unlink(./Runtime/Temp/fbc3278b912b7bed02bc01e0c95835ef.php): No such file or directory G:\myadmin\ThinkPHP\Library\Think\Cache\Driver\File.class.php 第 157 行.
+
+[ 2018-10-16T15:57:00+08:00 ] 127.0.0.1 /admin.php/rbac/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000024s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001005s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001064s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0156s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminListBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 4 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 17 行.
+SQL: SHOW COLUMNS FROM `mc_role` [ RunTime:0.0114s ]
+SQL: SELECT * FROM `mc_role` LIMIT 0,20   [ RunTime:0.0002s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `mc_role` LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined variable: that G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 364 行.
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000175s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000193s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000141s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000155s ]
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000113s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.000204s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000003s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.000176s ]
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000108s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.000388s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000003s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.000352s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000134s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000153s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 21 行.
+NOTIC: [8] Undefined index: pid G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 91 行.
+NOTIC: [8] Undefined index: cid G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 91 行.
+NOTIC: [8] Undefined index: opt G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 121 行.
+NOTIC: [8] Undefined index: target-form G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 241 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.140095s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.001722s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000006s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.141685s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000389s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000407s ]
+
+[ 2018-10-16T15:57:06+08:00 ] 127.0.0.1 /admin.php/rbac/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000281s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000302s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0163s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminListBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 4 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 17 行.
+SQL: SHOW COLUMNS FROM `mc_role` [ RunTime:0.0104s ]
+SQL: SELECT * FROM `mc_role` LIMIT 0,20   [ RunTime:0.0002s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `mc_role` LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined variable: that G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 364 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000016s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000036s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004467s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004498s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000184s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000199s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000012s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.002889s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.002488s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.000263s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000006s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.002585s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000012s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.005501s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.002309s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.002869s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000005s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.005004s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 39 行.
+SQL: SELECT title,id FROM mc_admin_menu WHERE p_id = 0 AND hide = 0 ORDER BY sort DESC [ RunTime:0.0003s ]
+SQL: SELECT A.`id`,A.`title`,A.`url`,A.`p_id` FROM mc_admin_menu A LEFT JOIN (SELECT id,title,sort FROM mc_admin_menu WHERE p_id =0 AND hide = 0) B ON A.`p_id` = B.id WHERE A.`hide` = 0  AND A.`p_id` != 0 ORDER BY B.sort,A.`sort`,A.`id` DESC [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000131s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.027501s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 21 行.
+NOTIC: [8] Undefined index: pid G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 91 行.
+NOTIC: [8] Undefined index: cid G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 91 行.
+NOTIC: [8] Undefined index: opt G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 121 行.
+NOTIC: [8] Undefined index: target-form G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 241 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.138927s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.020514s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000004s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.159264s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000375s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000392s ]
+
+[ 2018-10-16T16:00:30+08:00 ] 127.0.0.1 /admin.php/rbac/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000022s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000279s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000296s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0136s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminListBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 4 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 17 行.
+SQL: SHOW COLUMNS FROM `mc_role` [ RunTime:0.0107s ]
+SQL: SELECT * FROM `mc_role` LIMIT 0,20   [ RunTime:0.0002s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `mc_role` LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined variable: that G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 364 行.
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000308s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000325s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000171s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000186s ]
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000144s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.000238s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000003s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.000209s ]
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000139s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.000453s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000003s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.000417s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 39 行.
+SQL: SELECT title,id FROM mc_admin_menu WHERE p_id = 0 AND hide = 0 ORDER BY sort DESC [ RunTime:0.0007s ]
+SQL: SELECT A.`id`,A.`title`,A.`url`,A.`p_id` FROM mc_admin_menu A LEFT JOIN (SELECT id,title,sort FROM mc_admin_menu WHERE p_id =0 AND hide = 0) B ON A.`p_id` = B.id WHERE A.`hide` = 0  AND A.`p_id` != 0 ORDER BY B.sort,A.`sort`,A.`id` DESC [ RunTime:0.0008s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000134s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000155s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 21 行.
+NOTIC: [8] Undefined index: pid G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 91 行.
+NOTIC: [8] Undefined index: cid G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 91 行.
+NOTIC: [8] Undefined index: opt G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 121 行.
+NOTIC: [8] Undefined index: target-form G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 241 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.150002s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.006367s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000004s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.156204s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000380s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000396s ]
+
+[ 2018-10-16T16:00:32+08:00 ] 127.0.0.1 /admin.php/rbac/node.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000259s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000278s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0163s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminListBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 4 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 17 行.
+SQL: SELECT A.sort,A.hide,A.url,A.id,A.title,IFNULL(B.`title`,'一级目录') AS p_title FROM mc_admin_menu A LEFT JOIN mc_admin_menu B ON A.`p_id` = B.`id` WHERE A.`p_id` = 0 [ RunTime:0.0002s ]
+NOTIC: [2] explode() expects parameter 2 to be string, object given G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 349 行.
+NOTIC: [8] Undefined variable: that G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 364 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000014s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000031s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003963s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.003998s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000141s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000155s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000010s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.002582s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.002160s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.000216s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000005s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.002239s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000010s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.004850s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.002162s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.002488s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000004s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.004517s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000012s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.007155s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.003108s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.004751s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000011s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.007753s ]
+NOTIC: [8] Undefined index: totalCount G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 420 行.
+NOTIC: [8] Undefined index: listRows G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 420 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 39 行.
+SQL: SELECT title,id FROM mc_admin_menu WHERE p_id = 0 AND hide = 0 ORDER BY sort DESC [ RunTime:0.0003s ]
+SQL: SELECT A.`id`,A.`title`,A.`url`,A.`p_id` FROM mc_admin_menu A LEFT JOIN (SELECT id,title,sort FROM mc_admin_menu WHERE p_id =0 AND hide = 0) B ON A.`p_id` = B.id WHERE A.`hide` = 0  AND A.`p_id` != 0 ORDER BY B.sort,A.`sort`,A.`id` DESC [ RunTime:0.0007s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000136s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.019706s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 21 行.
+NOTIC: [8] Undefined index: pid G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 91 行.
+NOTIC: [8] Undefined index: cid G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 91 行.
+NOTIC: [8] Undefined index: opt G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 121 行.
+NOTIC: [8] Undefined index: target-form G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 241 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.145933s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.013174s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000005s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.158980s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000319s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000336s ]
+
+[ 2018-10-16T16:00:36+08:00 ] 127.0.0.1 /admin.php/rbac/editmenu/id/4.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000026s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000274s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000294s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0162s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminConfigBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 4 行.
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+SQL: SELECT sort,id,title FROM mc_admin_menu WHERE p_id = 0 [ RunTime:0.0002s ]
+SQL: SELECT * FROM mc_admin_menu WHERE id = 4 [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: value G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 96 行.
+NOTIC: [8] Undefined index: value G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 39 行.
+SQL: SELECT title,id FROM mc_admin_menu WHERE p_id = 0 AND hide = 0 ORDER BY sort DESC [ RunTime:0.0002s ]
+SQL: SELECT A.`id`,A.`title`,A.`url`,A.`p_id` FROM mc_admin_menu A LEFT JOIN (SELECT id,title,sort FROM mc_admin_menu WHERE p_id =0 AND hide = 0) B ON A.`p_id` = B.id WHERE A.`hide` = 0  AND A.`p_id` != 0 ORDER BY B.sort,A.`sort`,A.`id` DESC [ RunTime:0.0006s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000139s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000159s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 21 行.
+NOTIC: [8] Undefined index: pid G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 91 行.
+NOTIC: [8] Undefined index: cid G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 91 行.
+NOTIC: [8] Undefined index: placeholder G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 126 行.
+NOTIC: [8] Undefined index: placeholder G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 126 行.
+NOTIC: [8] Undefined index: subtitle G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 231 行.
+NOTIC: [8] Undefined index: subtitle G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 203 行.
+NOTIC: [8] Undefined index: placeholder G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 207 行.
+NOTIC: [8] Undefined index: error G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 208 行.
+NOTIC: [8] Undefined index: prompt G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 210 行.
+NOTIC: [8] Undefined index: subtitle G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 203 行.
+NOTIC: [8] Undefined index: value G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 205 行.
+NOTIC: [8] Undefined index: error G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 208 行.
+NOTIC: [8] Undefined index: prompt G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 210 行.
+NOTIC: [8] Undefined index: subtitle G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 203 行.
+NOTIC: [8] Undefined index: placeholder G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 207 行.
+NOTIC: [8] Undefined index: error G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 208 行.
+NOTIC: [8] Undefined index: prompt G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 210 行.
+NOTIC: [8] Undefined index: subtitle G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 231 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.141466s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.141489s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000198s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000212s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000283s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000301s ]
+
+[ 2018-10-16T16:00:40+08:00 ] 127.0.0.1 /admin.php/rbac/editmenu.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000026s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000317s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000337s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0158s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+SQL: SHOW COLUMNS FROM `mc_admin_menu` [ RunTime:0.0116s ]
+NOTIC: [2] Illegal offset type in isset or empty G:\myadmin\ThinkPHP\Library\Think\Model.class.php 第 445 行.
+SQL: UPDATE `mc_admin_menu` SET `title`='Demo',`url`='',`hide`='1',`p_id`='0',`sort`='0' WHERE `id` = 4 [ RunTime:0.0022s ]
+SQL: SELECT `id` FROM `mc_account`  [ RunTime:0.0002s ]
+NOTIC: [2] unlink(./Runtime/Temp/2d616c640b7ee14ad6577c9812bd13e8.php): No such file or directory G:\myadmin\ThinkPHP\Library\Think\Cache\Driver\File.class.php 第 157 行.
+NOTIC: [2] unlink(./Runtime/Temp/ea5790be46ddb0b66084217c2eaa0112.php): No such file or directory G:\myadmin\ThinkPHP\Library\Think\Cache\Driver\File.class.php 第 157 行.
+NOTIC: [2] unlink(./Runtime/Temp/fbc3278b912b7bed02bc01e0c95835ef.php): No such file or directory G:\myadmin\ThinkPHP\Library\Think\Cache\Driver\File.class.php 第 157 行.
+
+[ 2018-10-16T16:00:42+08:00 ] 127.0.0.1 /admin.php/rbac/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000022s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000245s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000262s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0170s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminListBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 4 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 17 行.
+SQL: SHOW COLUMNS FROM `mc_role` [ RunTime:0.0109s ]
+SQL: SELECT * FROM `mc_role` LIMIT 0,20   [ RunTime:0.0002s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `mc_role` LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined variable: that G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 364 行.
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000185s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000201s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000142s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000156s ]
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000114s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.000205s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000003s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.000175s ]
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000109s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.000389s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000003s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.000353s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 39 行.
+SQL: SELECT title,id FROM mc_admin_menu WHERE p_id = 0 AND hide = 0 ORDER BY sort DESC [ RunTime:0.0002s ]
+SQL: SELECT A.`id`,A.`title`,A.`url`,A.`p_id` FROM mc_admin_menu A LEFT JOIN (SELECT id,title,sort FROM mc_admin_menu WHERE p_id =0 AND hide = 0) B ON A.`p_id` = B.id WHERE A.`hide` = 0  AND A.`p_id` != 0 ORDER BY B.sort,A.`sort`,A.`id` DESC [ RunTime:0.0006s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000170s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000220s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 21 行.
+NOTIC: [8] Undefined index: pid G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 91 行.
+NOTIC: [8] Undefined index: cid G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 91 行.
+NOTIC: [8] Undefined index: opt G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 121 行.
+NOTIC: [8] Undefined index: target-form G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 241 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.145204s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.005196s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000004s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.150265s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000305s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000320s ]
+
+[ 2018-10-16T16:00:46+08:00 ] 127.0.0.1 /admin.php/rbac/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000022s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000273s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000292s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0162s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminListBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 4 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 17 行.
+SQL: SHOW COLUMNS FROM `mc_role` [ RunTime:0.0109s ]
+SQL: SELECT * FROM `mc_role` LIMIT 0,20   [ RunTime:0.0002s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `mc_role` LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined variable: that G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 364 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000016s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000034s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018852s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018883s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000186s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000200s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000012s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.017230s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.002296s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.000263s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000005s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.002379s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000011s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.019616s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.001998s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.002655s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000004s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.004474s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 39 行.
+SQL: SELECT title,id FROM mc_admin_menu WHERE p_id = 0 AND hide = 0 ORDER BY sort DESC [ RunTime:0.0003s ]
+SQL: SELECT A.`id`,A.`title`,A.`url`,A.`p_id` FROM mc_admin_menu A LEFT JOIN (SELECT id,title,sort FROM mc_admin_menu WHERE p_id =0 AND hide = 0) B ON A.`p_id` = B.id WHERE A.`hide` = 0  AND A.`p_id` != 0 ORDER BY B.sort,A.`sort`,A.`id` DESC [ RunTime:0.0006s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000131s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.031377s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 21 行.
+NOTIC: [8] Undefined index: pid G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 91 行.
+NOTIC: [8] Undefined index: cid G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 91 行.
+NOTIC: [8] Undefined index: opt G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 121 行.
+NOTIC: [8] Undefined index: target-form G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 241 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.144318s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.010006s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000003s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.154148s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000339s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000355s ]
+
+[ 2018-10-16T16:00:49+08:00 ] 127.0.0.1 /admin.php/rbac/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000242s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000259s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0148s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminListBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 4 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 17 行.
+SQL: SHOW COLUMNS FROM `mc_role` [ RunTime:0.0125s ]
+SQL: SELECT * FROM `mc_role` LIMIT 0,20   [ RunTime:0.0002s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `mc_role` LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Undefined variable: that G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 364 行.
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000186s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000204s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000141s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000154s ]
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000119s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.000205s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000003s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.000185s ]
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000107s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.000395s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000003s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.000361s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 39 行.
+SQL: SELECT title,id FROM mc_admin_menu WHERE p_id = 0 AND hide = 0 ORDER BY sort DESC [ RunTime:0.0003s ]
+SQL: SELECT A.`id`,A.`title`,A.`url`,A.`p_id` FROM mc_admin_menu A LEFT JOIN (SELECT id,title,sort FROM mc_admin_menu WHERE p_id =0 AND hide = 0) B ON A.`p_id` = B.id WHERE A.`hide` = 0  AND A.`p_id` != 0 ORDER BY B.sort,A.`sort`,A.`id` DESC [ RunTime:0.0007s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000143s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000175s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 21 行.
+NOTIC: [8] Undefined index: pid G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 91 行.
+NOTIC: [8] Undefined index: cid G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 91 行.
+NOTIC: [8] Undefined index: opt G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 121 行.
+NOTIC: [8] Undefined index: target-form G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 241 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.154992s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.005803s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000006s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.160666s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000402s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000418s ]
+
+[ 2018-10-16T16:00:52+08:00 ] 127.0.0.1 /admin.php/rbac/node.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000031s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000247s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000336s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000368s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0152s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminListBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 4 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 17 行.
+SQL: SELECT A.sort,A.hide,A.url,A.id,A.title,IFNULL(B.`title`,'一级目录') AS p_title FROM mc_admin_menu A LEFT JOIN mc_admin_menu B ON A.`p_id` = B.`id` WHERE A.`p_id` = 0 [ RunTime:0.0002s ]
+NOTIC: [2] explode() expects parameter 2 to be string, object given G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 349 行.
+NOTIC: [8] Undefined variable: that G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 364 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000016s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000038s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.004167s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.004194s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000153s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000167s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000011s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.002598s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.002184s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.000233s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000004s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.002268s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000011s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.004863s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.005567s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.002515s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000005s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.007942s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000010s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.010563s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.002412s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.008192s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000005s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.010457s ]
+NOTIC: [8] Undefined index: totalCount G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 420 行.
+NOTIC: [8] Undefined index: listRows G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 420 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 39 行.
+SQL: SELECT title,id FROM mc_admin_menu WHERE p_id = 0 AND hide = 0 ORDER BY sort DESC [ RunTime:0.0003s ]
+SQL: SELECT A.`id`,A.`title`,A.`url`,A.`p_id` FROM mc_admin_menu A LEFT JOIN (SELECT id,title,sort FROM mc_admin_menu WHERE p_id =0 AND hide = 0) B ON A.`p_id` = B.id WHERE A.`hide` = 0  AND A.`p_id` != 0 ORDER BY B.sort,A.`sort`,A.`id` DESC [ RunTime:0.0006s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000133s ]
+INFO: [ template_filter ] --END-- [ RunTime:-0.023028s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 21 行.
+NOTIC: [8] Undefined index: pid G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 91 行.
+NOTIC: [8] Undefined index: cid G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 91 行.
+NOTIC: [8] Undefined index: opt G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 121 行.
+NOTIC: [8] Undefined index: target-form G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 241 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.141631s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.016589s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000005s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.158075s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000388s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000407s ]
+
+[ 2018-10-16T16:00:54+08:00 ] 127.0.0.1 /admin.php/rbac/editmenu/id/4.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000024s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000243s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000261s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0160s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminConfigBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 4 行.
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+SQL: SELECT sort,id,title FROM mc_admin_menu WHERE p_id = 0 [ RunTime:0.0002s ]
+SQL: SELECT * FROM mc_admin_menu WHERE id = 4 [ RunTime:0.0002s ]
+NOTIC: [8] Undefined index: value G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 96 行.
+NOTIC: [8] Undefined index: value G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 96 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 39 行.
+SQL: SELECT title,id FROM mc_admin_menu WHERE p_id = 0 AND hide = 0 ORDER BY sort DESC [ RunTime:0.0002s ]
+SQL: SELECT A.`id`,A.`title`,A.`url`,A.`p_id` FROM mc_admin_menu A LEFT JOIN (SELECT id,title,sort FROM mc_admin_menu WHERE p_id =0 AND hide = 0) B ON A.`p_id` = B.id WHERE A.`hide` = 0  AND A.`p_id` != 0 ORDER BY B.sort,A.`sort`,A.`id` DESC [ RunTime:0.0007s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000139s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000159s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 21 行.
+NOTIC: [8] Undefined index: pid G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 91 行.
+NOTIC: [8] Undefined index: cid G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 91 行.
+NOTIC: [8] Undefined index: placeholder G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 126 行.
+NOTIC: [8] Undefined index: placeholder G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 126 行.
+NOTIC: [8] Undefined index: subtitle G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 231 行.
+NOTIC: [8] Undefined index: subtitle G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 203 行.
+NOTIC: [8] Undefined index: placeholder G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 207 行.
+NOTIC: [8] Undefined index: error G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 208 行.
+NOTIC: [8] Undefined index: prompt G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 210 行.
+NOTIC: [8] Undefined index: subtitle G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 203 行.
+NOTIC: [8] Undefined index: value G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 205 行.
+NOTIC: [8] Undefined index: error G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 208 行.
+NOTIC: [8] Undefined index: prompt G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 210 行.
+NOTIC: [8] Undefined index: subtitle G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 203 行.
+NOTIC: [8] Undefined index: placeholder G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 207 行.
+NOTIC: [8] Undefined index: error G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 208 行.
+NOTIC: [8] Undefined index: prompt G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 210 行.
+NOTIC: [8] Undefined index: subtitle G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 231 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.141920s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.141943s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000170s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000183s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000277s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000293s ]
+
+[ 2018-10-16T16:00:58+08:00 ] 127.0.0.1 /admin.php/rbac/editmenu.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000006s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000031s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000273s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000292s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0153s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+SQL: SHOW COLUMNS FROM `mc_admin_menu` [ RunTime:0.0115s ]
+NOTIC: [2] Illegal offset type in isset or empty G:\myadmin\ThinkPHP\Library\Think\Model.class.php 第 445 行.
+SQL: UPDATE `mc_admin_menu` SET `title`='Demo',`url`='',`hide`='0',`p_id`='0',`sort`='0' WHERE `id` = 4 [ RunTime:0.0023s ]
+SQL: SELECT `id` FROM `mc_account`  [ RunTime:0.0002s ]
+NOTIC: [2] unlink(./Runtime/Temp/2d616c640b7ee14ad6577c9812bd13e8.php): No such file or directory G:\myadmin\ThinkPHP\Library\Think\Cache\Driver\File.class.php 第 157 行.
+NOTIC: [2] unlink(./Runtime/Temp/ea5790be46ddb0b66084217c2eaa0112.php): No such file or directory G:\myadmin\ThinkPHP\Library\Think\Cache\Driver\File.class.php 第 157 行.
+NOTIC: [2] unlink(./Runtime/Temp/fbc3278b912b7bed02bc01e0c95835ef.php): No such file or directory G:\myadmin\ThinkPHP\Library\Think\Cache\Driver\File.class.php 第 157 行.
+
+[ 2018-10-16T16:01:00+08:00 ] 127.0.0.1 /admin.php/rbac/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000239s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000258s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0167s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminListBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 4 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 17 行.
+SQL: SHOW COLUMNS FROM `mc_role` [ RunTime:0.0126s ]
+SQL: SELECT * FROM `mc_role` LIMIT 0,20   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `mc_role` LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined variable: that G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 364 行.
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000186s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000203s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000167s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000180s ]
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000114s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.000229s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000003s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.000176s ]
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000115s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.000412s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000003s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.000360s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 39 行.
+SQL: SELECT title,id FROM mc_admin_menu WHERE p_id = 0 AND hide = 0 ORDER BY sort DESC [ RunTime:0.0002s ]
+SQL: SELECT A.`id`,A.`title`,A.`url`,A.`p_id` FROM mc_admin_menu A LEFT JOIN (SELECT id,title,sort FROM mc_admin_menu WHERE p_id =0 AND hide = 0) B ON A.`p_id` = B.id WHERE A.`hide` = 0  AND A.`p_id` != 0 ORDER BY B.sort,A.`sort`,A.`id` DESC [ RunTime:0.0006s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000135s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000154s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 21 行.
+NOTIC: [8] Undefined index: pid G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 91 行.
+NOTIC: [8] Undefined index: cid G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 91 行.
+NOTIC: [8] Undefined index: opt G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 121 行.
+NOTIC: [8] Undefined index: target-form G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 241 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.151746s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.005526s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000004s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.157121s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000340s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000356s ]
+
+[ 2018-10-16T16:01:01+08:00 ] 127.0.0.1 /admin.php/rbac/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000244s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000262s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0165s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 32 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminListBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 4 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 17 行.
+SQL: SHOW COLUMNS FROM `mc_role` [ RunTime:0.0167s ]
+SQL: SELECT * FROM `mc_role` LIMIT 0,20   [ RunTime:0.0003s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `mc_role` LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Undefined variable: that G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 364 行.
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000200s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.000218s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000140s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000154s ]
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000114s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.000204s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000004s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.000178s ]
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.000109s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.000390s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000003s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.000356s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000134s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000150s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 21 行.
+NOTIC: [8] Undefined index: pid G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 91 行.
+NOTIC: [8] Undefined index: cid G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 91 行.
+NOTIC: [8] Undefined index: opt G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 121 行.
+NOTIC: [8] Undefined index: target-form G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 241 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.144252s ]
+INFO: [ view_parse ] --END-- [ RunTime:-0.001737s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000004s ]
+INFO: [ view_filter ] --END-- [ RunTime:-0.145854s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000344s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000361s ]
+
+[ 2018-10-16T16:01:03+08:00 ] 127.0.0.1 /admin.php/index/menuindex.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000007s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000037s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000320s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000352s ]
+
+[ 2018-10-16T16:01:03+08:00 ] 127.0.0.1 /admin.php/Demo/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000025s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000365s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000398s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0174s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminListBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 4 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 17 行.
+ERR: Too few arguments to function Admin\Builder\AdminListBuilder::query(), 0 passed in G:\myadmin\Application\Admin\Controller\DemoController.class.php on line 17 and exactly 2 expected
+
+[ 2018-10-16T16:01:45+08:00 ] 127.0.0.1 /admin.php/Demo/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000025s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000240s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000257s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0169s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminListBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 4 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 17 行.
+NOTIC: [8] Undefined variable: that G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 364 行.
+NOTIC: [8] Undefined index: totalCount G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 420 行.
+NOTIC: [8] Undefined index: listRows G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 420 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000134s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000150s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 21 行.
+NOTIC: [8] Undefined index: opt G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 121 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.146266s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.146285s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000150s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000163s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000291s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000307s ]
+
+[ 2018-10-16T16:02:09+08:00 ] 127.0.0.1 /admin.php/Demo/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000091s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000258s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000280s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0151s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminListBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 4 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 17 行.
+NOTIC: [8] Undefined index: state G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 124 行.
+NOTIC: [8] Undefined index: title G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 125 行.
+NOTIC: [8] Undefined index: value G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 126 行.
+NOTIC: [8] Undefined variable: that G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 364 行.
+NOTIC: [8] Undefined index: totalCount G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 420 行.
+NOTIC: [8] Undefined index: listRows G:\myadmin\Application\Admin\Builder\AdminListBuilder.class.php 第 420 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000135s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000153s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 21 行.
+NOTIC: [8] Undefined index: placeholder G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 128 行.
+NOTIC: [8] Undefined index: prompt G:\myadmin\Runtime\Cache\Admin\d787c4e2edac4c7e64b12e3bb7b5aaec.php 第 130 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.148078s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.148097s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000149s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000163s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000330s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000348s ]
+
+[ 2018-10-16T16:08:42+08:00 ] 127.0.0.1 /admin.php/Demo/demo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000026s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000279s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000299s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0287s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminConfigBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 4 行.
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000139s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000161s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 21 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.153722s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.153769s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000201s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000216s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000322s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000338s ]
+
+[ 2018-10-16T16:08:45+08:00 ] 127.0.0.1 /admin.php/Demo/demo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000258s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000275s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0166s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminConfigBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 4 行.
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000140s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000168s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 21 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.140411s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.140444s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000167s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000181s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000330s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000346s ]
+
+[ 2018-10-16T16:09:42+08:00 ] 127.0.0.1 /admin.php/Demo/demo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000027s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000294s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000315s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0155s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminConfigBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 4 行.
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+ERR: Too few arguments to function Admin\Builder\AdminConfigBuilder::keyEditor(), 0 passed in G:\myadmin\Application\Admin\Controller\DemoController.class.php on line 23 and at least 1 expected
+
+[ 2018-10-16T16:10:49+08:00 ] 127.0.0.1 /admin.php/Demo/demo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000276s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000294s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0193s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminConfigBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 4 行.
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [8] Undefined index: NULL G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 151 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000144s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000161s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 21 行.
+NOTIC: [8] Undefined index: title G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 328 行.
+NOTIC: [8] Undefined index: subtitle G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 329 行.
+NOTIC: [8] Undefined index: prompt G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 341 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.139836s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.139856s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000217s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000235s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000321s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000337s ]
+
+[ 2018-10-16T16:14:20+08:00 ] 127.0.0.1 /admin.php/Demo/demo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000025s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000275s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000292s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0150s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminConfigBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 4 行.
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [8] Undefined index: NULL G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 151 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000144s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000163s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 21 行.
+NOTIC: [8] Undefined index: title G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 328 行.
+NOTIC: [8] Undefined index: subtitle G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 329 行.
+NOTIC: [8] Undefined index: prompt G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 341 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.143003s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.143023s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000218s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000232s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000398s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000418s ]
+
+[ 2018-10-16T16:14:22+08:00 ] 127.0.0.1 /admin.php/Demo/demo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000003s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000022s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000261s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000279s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0153s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminConfigBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 4 行.
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [8] Undefined index: NULL G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 151 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000143s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000164s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 21 行.
+NOTIC: [8] Undefined index: title G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 328 行.
+NOTIC: [8] Undefined index: subtitle G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 329 行.
+NOTIC: [8] Undefined index: prompt G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 341 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.139940s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.139960s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000171s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000186s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000286s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000302s ]
+
+[ 2018-10-16T16:14:28+08:00 ] 127.0.0.1 /admin.php/Demo/demo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000272s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000291s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0165s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminConfigBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 4 行.
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [8] Undefined index: NULL G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 151 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 39 行.
+SQL: SELECT title,id FROM mc_admin_menu WHERE p_id = 0 AND hide = 0 ORDER BY sort DESC [ RunTime:0.0006s ]
+SQL: SELECT A.`id`,A.`title`,A.`url`,A.`p_id` FROM mc_admin_menu A LEFT JOIN (SELECT id,title,sort FROM mc_admin_menu WHERE p_id =0 AND hide = 0) B ON A.`p_id` = B.id WHERE A.`hide` = 0  AND A.`p_id` != 0 ORDER BY B.sort,A.`sort`,A.`id` DESC [ RunTime:0.0011s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000145s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000168s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 21 行.
+NOTIC: [8] Undefined index: title G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 328 行.
+NOTIC: [8] Undefined index: subtitle G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 329 行.
+NOTIC: [8] Undefined index: prompt G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 341 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.145894s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.145919s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000282s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000299s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000359s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000378s ]
+
+[ 2018-10-16T16:15:37+08:00 ] 127.0.0.1 /admin.php/Demo/demo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000387s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000422s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0167s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminConfigBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 4 行.
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [8] Undefined index: NULL G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 151 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000129s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000151s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 18 行.
+NOTIC: [8] Undefined index: title G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 325 行.
+NOTIC: [8] Undefined index: subtitle G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 326 行.
+NOTIC: [8] Undefined index: prompt G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 338 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.142925s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.142945s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000157s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000171s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000273s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000288s ]
+
+[ 2018-10-16T16:16:09+08:00 ] 127.0.0.1 /admin.php/Demo/demo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000024s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000246s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000265s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0147s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminConfigBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 4 行.
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [8] Undefined index: NULL G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 151 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000131s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000151s ]
+ERR: syntax error, unexpected '>'
+
+[ 2018-10-16T16:16:21+08:00 ] 127.0.0.1 /admin.php/Demo/demo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000239s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000257s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0182s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminConfigBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 4 行.
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0001s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [8] Undefined index: NULL G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 151 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000134s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000169s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 18 行.
+NOTIC: [8] Undefined index: title G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 325 行.
+NOTIC: [8] Undefined index: subtitle G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 326 行.
+NOTIC: [8] Undefined index: prompt G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 334 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.140259s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.140284s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000152s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000167s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000278s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000295s ]
+
+[ 2018-10-16T16:38:30+08:00 ] 127.0.0.1 /admin.php/Demo/demo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000026s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000277s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000295s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0183s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminConfigBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 4 行.
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0005s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [8] Undefined index: NULL G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 151 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000132s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000157s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 18 行.
+NOTIC: [8] Undefined index: title G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 325 行.
+NOTIC: [8] Undefined index: subtitle G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 326 行.
+NOTIC: [8] Undefined index: prompt G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 338 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.148749s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.148774s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000192s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000206s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000323s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000340s ]
+
+[ 2018-10-16T16:38:43+08:00 ] 127.0.0.1 /admin.php/Demo/demo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000029s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000270s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000289s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0200s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminConfigBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 4 行.
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [8] Undefined index: NULL G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 151 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 39 行.
+SQL: SELECT title,id FROM mc_admin_menu WHERE p_id = 0 AND hide = 0 ORDER BY sort DESC [ RunTime:0.0003s ]
+SQL: SELECT A.`id`,A.`title`,A.`url`,A.`p_id` FROM mc_admin_menu A LEFT JOIN (SELECT id,title,sort FROM mc_admin_menu WHERE p_id =0 AND hide = 0) B ON A.`p_id` = B.id WHERE A.`hide` = 0  AND A.`p_id` != 0 ORDER BY B.sort,A.`sort`,A.`id` DESC [ RunTime:0.0008s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000129s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000149s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 18 行.
+NOTIC: [8] Undefined index: title G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 325 行.
+NOTIC: [8] Undefined index: subtitle G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 326 行.
+NOTIC: [8] Undefined index: prompt G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 338 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.140081s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.140106s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000189s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000202s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000316s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000332s ]
+
+[ 2018-10-16T16:38:55+08:00 ] 127.0.0.1 /admin.php/Demo/demo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000004s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000023s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000243s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000261s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0154s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminConfigBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 4 行.
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [8] Undefined index: NULL G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 151 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000146s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000169s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 21 行.
+NOTIC: [8] Undefined index: title G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 328 行.
+NOTIC: [8] Undefined index: subtitle G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 329 行.
+NOTIC: [8] Undefined index: prompt G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 341 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.145681s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.145701s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000157s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000171s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000275s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000290s ]
+
+[ 2018-10-16T16:39:30+08:00 ] 127.0.0.1 /admin.php/Demo/demo
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000005s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000025s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000249s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000266s ]
+SQL: SHOW COLUMNS FROM `mc_account` [ RunTime:0.0182s ]
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [2] Declaration of Admin\Builder\AdminConfigBuilder::display($solist = '') should be compatible with Admin\Builder\AdminBuilder::display($templateFile = '', $charset = '', $contentType = '', $content = '', $prefix = '') G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 4 行.
+SQL: SELECT * FROM `mc_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0002s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Controller\AdminController.class.php 第 35 行.
+NOTIC: [8] Undefined index: NULL G:\myadmin\Application\Admin\Builder\AdminConfigBuilder.class.php 第 151 行.
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Application\Admin\Builder\AdminBuilder.class.php 第 35 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000140s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000157s ]
+NOTIC: [8] Use of undefined constant ROOT_LEVEL - assumed 'ROOT_LEVEL' G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 21 行.
+NOTIC: [8] Undefined index: title G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 328 行.
+NOTIC: [8] Undefined index: subtitle G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 329 行.
+NOTIC: [8] Undefined index: prompt G:\myadmin\Runtime\Cache\Admin\72b84f8490b8bcc493b4c4f50959da7c.php 第 341 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.138185s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.138205s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000184s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000197s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000274s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000290s ]
+
