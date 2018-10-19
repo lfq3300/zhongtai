@@ -47,6 +47,7 @@ class AuthorizeController extends AdminController {
         $appid = $appInfo['appid'];
         $refresh_token = $appInfo['refresh_token'];
         $url = "https://api.weixin.qq.com/sns/oauth2/refresh_token?appid=$appid&grant_type=refresh_token&refresh_token=$refresh_token";
+        print_r($url);
         $send_result = curl_get_https($url);
         $send_result = json_decode($send_result,true);
         print_r($send_result);
