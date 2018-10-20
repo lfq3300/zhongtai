@@ -1,4 +1,3 @@
 <?php
-
-$output = shell_exec('mkdir demo1');
-echo "<pre>$output</pre>";
+exec("mkdir demo");
+echo exec("git pull origin develop", $result);
