@@ -1,4 +1,4 @@
 <?php
-shell_exec('mkdir demo1');
-$output = shell_exec('./home/wwwroot/sh/zt.ltthk.top.develop.sh');
+
+$output = shell_exec('mkdir demo1');
 echo "<pre>$output</pre>";
