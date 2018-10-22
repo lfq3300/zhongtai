@@ -10,6 +10,12 @@ use Admin\Builder\AdminListBuilder;
 use Admin\Builder\AdminConfigBuilder;
 use Think\Controller;
 
-class DemoController extends Controller {
+class GzhController extends Controller {
+    public function index(){
 
+    }
+
+    public function add(){
+        //引导用户授权
+    }
 }
