@@ -454,6 +454,7 @@ class AdminListBuilder extends AdminBuilder{
         return function ($item) use ($pattern, $fun) {
           //  $item['time']?$pattern=str_replace('{time}', $item['time'], $pattern):$item['time'];
             $pattern = str_replace('###', $item['id'], $pattern);
+            $pattern = str_replace('n#', $item['nick_name'], $pattern);
             //调用ThinkPHP中的解析引擎解析变量
             $view = new \Think\View();
             $view->assign($item);

@@ -29,7 +29,7 @@ class AppModel extends CommonModel
     }
 
     public function  getList(){
-        $data = M()->query("SELECT id,nick_name,service_type_info,verify_type_info,principal_name,head_img,DATE_FORMAT(create_time,'%Y-%m-%d') AS  create_time,responsible FROM mc_app order by id desc");
+        $data = M()->query("SELECT id,nick_name,service_type_info,verify_type_info,principal_name,head_img,DATE_FORMAT(create_time,'%Y-%m-%d') AS  create_time,responsible,group_id FROM mc_app order by id desc");
         return  $data;
     }
 
