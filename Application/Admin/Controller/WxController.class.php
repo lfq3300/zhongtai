@@ -91,9 +91,10 @@ class WxController extends Controller{
            $url = U("App/index");
            print_r($url);
            print_r("<br/>");
+           print_r($ret.'------');
            if($ret){
                print_r($url);
-               echo "<script>window.location.href = '$url'</script>";
+               echo "<script> window.location.href = '$url'</script>";
             }else{
                echo  D("Admin/App")->getError();
            }
