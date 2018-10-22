@@ -91,7 +91,7 @@ class WxController extends Controller{
            'qrcode_url'=>$authorizer_info['qrcode_url'],
            'principal_name'=>$authorizer_info['principal_name'],
            'alias'=> $authorizer_info['alias'],
-        //   'authorization_info'=>'',
+        //  'authorization_info'=>'',
            'authorizer_refresh_token'=>$authorizer_refresh_token,
            'group_id' => 1, // 1 是 默认分组
            'admin_id'=>cookieDecrypt(cookie('account_id'))  //
@@ -101,7 +101,7 @@ class WxController extends Controller{
        if (D("Admin/App")->create($appData,1)){
            $ret = D("Admin/App")->addApp($appData);
            if($ret){
-               $url = U("Authorize/index");
+               $url = U("App/index");
                echo "<script>window.location.href = '$url'</script>";
             }else{
                echo  D("Admin/App")->getError();

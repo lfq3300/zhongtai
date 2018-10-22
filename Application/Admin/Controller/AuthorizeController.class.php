@@ -18,6 +18,9 @@ class AuthorizeController extends AdminController {
             ->powerAdd(U("add"))
             ->display();
     }
+    public  function  acc(){
+        return '1234';
+    }
     public function add(){
         $component_appid = C('ZTAPPID');
         $pre_auth_code = $this->getPreAuthCode();
