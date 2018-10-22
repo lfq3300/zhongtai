@@ -96,6 +96,7 @@ class WxController extends Controller{
            'group_id' => 1, // 1 是 默认分组
            'admin_id'=>cookieDecrypt(cookie('account_id'))  //
        ];
+       echo  '1234';
        $builder = new AdminConfigBuilder();
        $builder
            ->title("授权成功")
