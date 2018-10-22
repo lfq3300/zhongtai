@@ -19,4 +19,8 @@ class AppModel extends CommonModel
     {
         M("app")->add($data);
     }
+
+    public function  getList(){
+        return  M("app")->order("id desc")->select();
+    }
 }

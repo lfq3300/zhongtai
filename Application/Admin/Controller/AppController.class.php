@@ -14,9 +14,12 @@ use Think\Controller;
 class AppController extends Controller {
     public function index(){
         $builder = new AdminListBuilder();
+        $list = D("App")->getList();
+        print_r($list);
         $builder
             ->title("公众号列表")
             ->powerAdd(U("add"))
+            ->data($list)
             ->display();
     }
 
