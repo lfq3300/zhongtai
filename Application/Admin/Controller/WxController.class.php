@@ -2,9 +2,9 @@
 namespace Admin\Controller;
 use Think\Controller;
 use Common\Wx\WXBizMsgCrypt;
+use Admin\Builder\AdminConfigBuilder;
 
 class WxController extends Controller{
-
    /*
     * 每隔10分钟 微信回调并且更新 ticket  存入数据库
     */
@@ -81,7 +81,6 @@ class WxController extends Controller{
        $appInfo = json_decode($appInfo,true);
        $authorizer_info = $appInfo['authorizer_info'];
        $appData = [
-
            'nick_name'=> $authorizer_info['nick_name'],
            'appid'=>$authorizer_appid,
            'refresh_token'=>$authorizer_access_token,
@@ -98,13 +97,20 @@ class WxController extends Controller{
            'group_id' => 1, // 1 是 默认分组
            'admin_id'=>cookieDecrypt(cookie('account_id'))  //
        ];
-//       if (D("Admin/App")->create($appData,1)){
-//           D("Admin/App")->addApp($appData);
-//       }else{
-//           echo D("App")->getError();
-//       }
-       print_r($appData);
+       if (D("Admin/App")->create($appData,1)){
+           $ret = D("Admin/App")->addApp($appData);
+           if($ret){
+                $builder = new AdminConfigBuilder();
+                $builder
+                    ->title("授权成功")
+                    ->display();
+                $this->success("授权成功",U("Authorize/index"));
+            }else{
 
+           }
+       }else{
+            echo  D("Admin/App")->getError();
+       }
    }
 
 

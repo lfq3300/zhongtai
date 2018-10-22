@@ -12,7 +12,7 @@ class AppModel extends CommonModel
 {
     //自动验证
     protected $_validate = array(
-        array('appid','',"APPID已存在",'1','unique','1')
+        array('appid','',"此公众号已经授权,不允许重复授权",'1','unique','1')
     );
 
     public function addApp($data)
