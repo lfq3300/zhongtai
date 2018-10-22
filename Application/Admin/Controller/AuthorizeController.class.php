@@ -11,22 +11,7 @@ use Admin\Builder\AdminConfigBuilder;
 use Think\Controller;
 
 class AuthorizeController extends AdminController {
-    public function index(){
-        $builder = new AdminListBuilder();
-        $builder
-            ->title("公众号列表")
-            ->powerAdd(U("add"))
-            ->display();
-    }
-    public  function  acc(){
-        return '1234';
-    }
-    public function add(){
-        $component_appid = C('ZTAPPID');
-        $pre_auth_code = $this->getPreAuthCode();
-        $this->assign('AuthorizeUrl', "https://mp.weixin.qq.com/cgi-bin/componentloginpage?component_appid=$component_appid&pre_auth_code=$pre_auth_code&redirect_uri=http://zt.ltthk.top/index.php/wx/AuthorizeCallback");
-        $this->display();
-    }
+
     public function getAccessToken(){
         $url = "https://api.weixin.qq.com/cgi-bin/component/api_component_token";
         list($ticket) = M()->query("SELECT ticket FROM mc_ticket ORDER BY id DESC limit 1");

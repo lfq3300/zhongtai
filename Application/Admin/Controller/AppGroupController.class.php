@@ -27,7 +27,7 @@ class AppGroupController extends Controller {
         if($_POST){
             $model = D("AppGroup");
             $data = [
-                'group_name'=>$_POST['group_name']
+                'group_name'=>I("post.group_name")
             ];
             if ($model->create($data,1)){
                 $ret = $model->addGruop($data);
@@ -53,12 +53,12 @@ class AppGroupController extends Controller {
         $model = D("AppGroup");
         if($_POST){
             $data = [
-                'group_name'=>$_POST['group_name']
+                'group_name'=>I("post.group_name")
             ];
-            $id = $_POST['id'];
+            $id = I("post.id");
             if ($model->create($data,1)){
                 $ret = $model->editGruop($id,$data);
-                if($ret){
+                if($ret!=false){
                     $this->success("成功",U("index"));
                 }else{
                     $this->error($model->getError());
@@ -67,7 +67,7 @@ class AppGroupController extends Controller {
                 $this->error($model->getError());
             }
         }else{
-            $data = $model->getInfo($_GET['id']);
+            $data = $model->getInfo(I("get.id"));
             $builder = new AdminConfigBuilder();
             $builder
                 ->title("修改公众号分组")

@@ -15,12 +15,57 @@ class AppController extends Controller {
     public function index(){
         $builder = new AdminListBuilder();
         $list = D("App")->getList();
-        print_r($list);
         $builder
             ->title("公众号列表")
             ->powerAdd(U("add"))
+            ->keyText("responsible","负责人")
+            ->keyText("nick_name","名称")
+            ->keyStatus("service_type_info","类型",[0=>"订阅号",1=>"订阅号",2=>"服务号"])
+            ->keyStatus("verify_type_info","认证",[-1=>"未认证",0=>"微信认证",1=>"新浪微博认证",2=>"腾讯微博认证",3=>"资质认证,但名称未认证",4=>"资质认证,但名称未认证",4=>"资质认证,但名称未认证"])
+            ->keyText("principal_name","公众号主体")
+            ->keyImg("head_img","头像")
+            ->keyText("create_time","授权日期")
+            ->powerEdit("edit?id=###","信息编辑")
             ->data($list)
             ->display();
+    }
+
+    public function edit(){
+        $model = D("App");
+        if($_POST){
+            $data = [
+                "responsible"=>I("post.responsible"),
+                "position"=>I("post.position"),
+                "group_id"=>I("post.group_id"),
+            ];
+            $id = I("post.id");
+            if ($model->create($data,2)){
+                $ret = $model->editApp($data,$id);
+                if($ret!=false){
+                    $this->success("修改成功",U("index"));
+                }else{
+                    $this->error($model->getError());
+                }
+            }else{
+                $this->error($model->getError());
+            }
+        }else{
+            $builder = new AdminConfigBuilder();
+            $data= $model->getInfo(I("get.id"));
+            $group = D("AppGroup")->getList(true);
+            $builder
+                ->title($data['nick_name']." 信息编辑")
+                ->keyDisabled("nick_name",["title"=>"名称"])
+                ->keyShowImg("head_img",["title"=>"头像"])
+                ->keyHidden("id")
+                ->keyText("responsible",["title"=>"负责人"])
+                ->keyText("position",["title"=>"岗位"])
+                ->keySelect("group_id",["title"=>"公众号分类","select"=>$group,"value"=>$data["group_id"]])
+                ->data($data)
+                ->buttonSubmit()
+                ->display();
+        }
+
     }
 
     public function add(){

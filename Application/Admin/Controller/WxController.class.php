@@ -88,12 +88,8 @@ class WxController extends Controller{
        ];
        if (D("Admin/App")->create($appData,1)){
            $ret = D("Admin/App")->addApp($appData);
-           $url = U("App/index");
-           print_r($url);
-           print_r("<br/>");
-           print_r($ret.'------');
            if($ret){
-               print_r($url);
+               $url = U("App/index");
                echo "<script> window.location.href = '$url'</script>";
             }else{
                echo  D("Admin/App")->getError();

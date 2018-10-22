@@ -112,7 +112,7 @@ class AdminListBuilder extends AdminBuilder{
     }
 
 
-     public function keyImg($name,$title,$url){
+     public function keyImg($name,$title,$url = ''){
         $key = array('name' => $name,'title' => $title,'type'=>'Img','opt' => null,'mcurl'=>$url);
         $this->_keyList[] = $key;
         return $this;
@@ -357,7 +357,7 @@ class AdminListBuilder extends AdminBuilder{
 
 
          $this->convertKey("Img",'html',function($value,$key,$item){
-            $html = "<img style='max-width:150px;max-height:150px' src=\"" .$key['mcurl'] .$value ."\" class='tpl-table-line-img' />";
+            $html = "<img style='max-width:100px;max-height:100px' src=\"" .$key['mcurl'] .$value ."\" class='tpl-table-line-img' />";
             return $html;
         });
 
