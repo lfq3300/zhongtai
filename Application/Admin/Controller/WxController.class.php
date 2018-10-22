@@ -96,20 +96,19 @@ class WxController extends Controller{
            'group_id' => 1, // 1 是 默认分组
            'admin_id'=>cookieDecrypt(cookie('account_id'))  //
        ];
-       $url = U("Authorize/index");
-      // echo $url;
-         echo "<script>window.location.href = '$url'</script>";
 
-//       if (D("Admin/App")->create($appData,1)){
-//           $ret = D("Admin/App")->addApp($appData);
-//           if($ret){
-//
-//            }else{
-//
-//           }
-//       }else{
-//            echo  D("Admin/App")->getError();
-//       }
+
+       if (D("Admin/App")->create($appData,1)){
+           $ret = D("Admin/App")->addApp($appData);
+           if($ret){
+               $url = U("Authorize/index");
+               echo "<script>window.location.href = '$url'</script>";
+            }else{
+               echo  D("Admin/App")->getError();
+           }
+       }else{
+            echo  D("Admin/App")->getError();
+       }
    }
 
 
