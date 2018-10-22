@@ -17,7 +17,7 @@ class AppModel extends CommonModel
 
     public function addApp($data)
     {
-        M("app")->add($data);
+        return M("app")->add($data);
     }
 
     public function  getList(){
