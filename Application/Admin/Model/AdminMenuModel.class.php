@@ -8,8 +8,6 @@
 		//自动验证 
 		protected $_validate = array(
 			array('title','',"标题名称以存在",'1','unique','1')
-		//判断
-	//		array('url','isUrl',"标题名称以存在",'1','unique','1');
 		);
 
 		public function addMenu($data){

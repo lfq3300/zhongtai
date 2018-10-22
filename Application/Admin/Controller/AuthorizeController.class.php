@@ -51,7 +51,7 @@ class AuthorizeController extends AdminController {
     }
 
     //重新刷新token
-    public function refreshAccessToken($appid = 'wxf825ca9817d90977'){
+    public function refreshAccessToken($appid){
         list($appInfo) = M()->query("SELECT appid,refresh_token FROM mc_app WHERE appid = '$appid' limit 1");
         $appid = $appInfo['appid'];
         $refresh_token = $appInfo['refresh_token'];

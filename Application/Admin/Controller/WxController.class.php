@@ -71,8 +71,6 @@ class WxController extends Controller{
        $authorizer_appid = $authorization_info['authorizer_appid'];
        $authorizer_access_token = $authorization_info['authorizer_access_token'];
        $authorizer_refresh_token = $authorization_info['authorizer_refresh_token'];
-       //存入数据库
-       // M("app")->add(['appid'=>$authorizer_appid,'refresh_token'=>$authorizer_access_token,'create_time'=>date("Y-m-d H:i:s")]);
 
        $url1 = "https://api.weixin.qq.com/cgi-bin/component/api_get_authorizer_info?component_access_token=".$component_access_token;
        $data1 = array(
@@ -80,15 +78,28 @@ class WxController extends Controller{
            "authorizer_appid"=>$authorizer_appid,
        );
        $appInfo = curl_get_https ($url1,json_encode($data1,true));
-       $authorizer_info = $appInfo['authorizer_info'];
-       $nick_name = $appInfo['nick_name'];
-       $head_img = $appInfo['head_img'];
-       //service_type_info
-       $service_type_info =  $appInfo['service_type_info']['id'];
-       $verify_type_info = $appInfo['verify_type_info']['id'];
-       $user_name = $appInfo['user_name'];
-       $alias = $appInfo['alias'];
-       $qrcode_url  = $appInfo['qrcode_url'];
+       $appData = [
+           'authorizer_info'=> $appInfo['authorizer_info'],
+           'nick_name'=> $appInfo['nick_name'],
+           'head_img'=> $appInfo['head_img'],
+           'service_type_info'=> $appInfo['service_type_info'],   //	授权方公众号类型，0代表订阅号，1代表由历史老帐号升级后的订阅号，2代表服务号
+           'verify_type_info'=> $appInfo['verify_type_info']['id'],  // verify_type_info -1代表未认证，0代表微信认证， ，1代表新浪微博认证，2代表腾讯微博认证，3代表已资质认证通过但还未通过名称认证，4代表已资质认证通过、还未通过名称认证，但通过了新浪微博认证，5代表已资质认证通过、还未通过名称认证，但通过了腾讯微博认证
+           'user_name'=>$appInfo['user_name'], //授权方公众号的原始ID
+           'alias'=> $appInfo['alias'],
+           'qrcode_url'=>$appInfo['qrcode_url'],
+           'principal_name'=>$appInfo['principal_name'],
+           'appid'=>$authorizer_appid,
+           'refresh_token'=>$authorizer_access_token,
+           'authorizer_refresh_token'=>$authorizer_refresh_token,
+           'create_time'=>date("Y-m-d H:i:s")
+       ];
+//       if (D("Admin/App")->create($appData,1)){
+//           D("Admin/App")->addApp($appData);
+//       }else{
+//           echo D("App")->getError();
+//       }
+       print_r($appData);
+       print_r("<br/>--------<br/>");
        print_r($appInfo);
    }
 
