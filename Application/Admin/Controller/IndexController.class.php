@@ -47,7 +47,7 @@ class IndexController extends Controller{
                 cookie('role_id', cookieEncrypt($accountInfo["role_id"]));
                 returnJson(1);
             }else{
-                returnJson("0","密码错误,请注意字母大小写、符号、空格",md5(md5(I('post.password')).md5($accountInfo["add_time"])));
+                returnJson("0","密码错误,请注意字母大小写、符号、空格",md5(md5(I('post.password')).md5($accountInfo["creater_time"])));
             }
         }
 	}

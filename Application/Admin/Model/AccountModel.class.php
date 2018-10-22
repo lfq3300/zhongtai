@@ -12,8 +12,8 @@ class AccountModel extends CommonModel{
     public  function  fountAdminRoot($map){
         if(M("account")->where(array("level"=>C(ROOT_LEVEL)))->count()==0){
            $map["level"] = C(ROOT_LEVEL);
-           $map["add_time"] = date("Y-m-d H:i:s",time());
-           $map["password"] = md5(md5($map["password"]));  //add_time 不能修改
+           $map["creater_time"] = date("Y-m-d H:i:s",time());
+           $map["password"] = md5(md5($map["password"]));  //creater_time 不能修改
            return  M("account")->add($map); //创建超级管理员成功
             //不用创建权限目录了   只要是-100000000  全部目录拿出来
         }else{
