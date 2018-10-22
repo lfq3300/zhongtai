@@ -97,7 +97,8 @@ class WxController extends Controller{
            'admin_id'=>cookieDecrypt(cookie('account_id'))  //
        ];
        $url = U("Authorize/index");
-       echo "<script>window.location.href = '$url'</script>";
+        echo $url;
+       //   echo "<script>window.location.href = '$url'</script>";
 
 //       if (D("Admin/App")->create($appData,1)){
 //           $ret = D("Admin/App")->addApp($appData);
