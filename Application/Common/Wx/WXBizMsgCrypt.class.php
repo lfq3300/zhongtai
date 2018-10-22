@@ -33,8 +33,6 @@ class WXBizMsgCrypt
         $a['token'] = $token;
         $a['encodingAesKey'] = $encodingAesKey;
         $a['appId'] = $appId;
-        $log = "{time:".date("Y-m-d H:i:s")."}{last:'post'}{result:$a}";
-        file_put_contents("./Runtime/WXBizMsgCrypt.log",$log."\r\n",FILE_APPEND);
         $this->token = $token;
         $this->encodingAesKey = $encodingAesKey;
         $this->appId = $appId;
@@ -136,14 +134,6 @@ class WXBizMsgCrypt
         if ($ret != 0) {
             return $ret;
         }
-        $log = "{time:".date("Y-m-d H:i:s")."}{last:'timestamp'}{result:$timestamp}";
-        file_put_contents("./Runtime/WXBizMsgCrypt.log",$log."\r\n",FILE_APPEND);
-        $log = "{time:".date("Y-m-d H:i:s")."}{last:'token'}{result:$this->token}";
-        file_put_contents("./Runtime/WXBizMsgCrypt.log",$log."\r\n",FILE_APPEND);
-        $log = "{time:".date("Y-m-d H:i:s")."}{last:'encrypt'}{result:$encrypt}";
-        file_put_contents("./Runtime/WXBizMsgCrypt.log",$log."\r\n",FILE_APPEND);
-        $log = "{time:".date("Y-m-d H:i:s")."}{last:'nonce'}{result:$nonce}";
-        file_put_contents("./Runtime/WXBizMsgCrypt.log",$log."\r\n",FILE_APPEND);
         $signature = $array[1];
         if ($signature != $msgSignature) {
             return \ErrorCode::$ValidateSignatureError;

@@ -16,12 +16,7 @@ class WxController extends Controller{
        $timeStamp  = $_GET['timestamp'];
        $nonce      = $_GET['nonce'];
        $msg_sign   = $_GET['msg_signature'];
-       $get = json_encode($_GET);
-       $log = "{time:".date("Y-m-d H:i:s")."}{last:'post'}{result:$get}";
-       file_put_contents("./Runtime/getData.log",$log."\r\n",FILE_APPEND);
        $encryptMsg = file_get_contents('php://input');
-       $log = "{time:".date("Y-m-d H:i:s")."}{last:'post'}{result:$encryptMsg}";
-       file_put_contents("./Runtime/input.log",$log."\r\n",FILE_APPEND);
        $pc = new WXBizMsgCrypt();
        $pc->WXBizMsgCrypt($token, $encodingAesKey, $appId);
        $xml_tree = new \DOMDocument();
@@ -37,17 +32,12 @@ class WxController extends Controller{
            $xml->loadXML($msg);
            $array_e = $xml->getElementsByTagName('ComponentVerifyTicket');
            $component_verify_ticket = $array_e->item(0)->nodeValue;
-           $log = "{time:".date("Y-m-d H:i:s")."}{last:'解密后的component_verify_ticket是'}{result:$component_verify_ticket}";
-           file_put_contents("./Runtime/jmticket.log",$log."\r\n",FILE_APPEND);
            //存入数据库
-            M("ticket")->add(['ticket'=>$component_verify_ticket,'create_time'=>date("Y-m-d H:i:s")]);
+            M("ticket")->where(array("id"=>1))->save(['ticket'=>$component_verify_ticket,'create_time'=>date("Y-m-d H:i:s")]);
            echo 'success';
        } else {
            print($errCode . "\n");
        }
-       $postArr = json_decode($encryptMsg,true);
-       $log = "{time:".date("Y-m-d H:i:s")."}{last:'post'}{result:$postArr}";
-       file_put_contents("./Runtime/log.txt",$log."\r\n",FILE_APPEND);
        echo  'success';
    }
    //
