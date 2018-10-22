@@ -96,8 +96,7 @@ class WxController extends Controller{
         //   'authorization_info'=>'',
            'authorizer_refresh_token'=>$authorizer_refresh_token,
            'group_id' => 1, // 1 是 默认分组
-
-
+           'admin_id'=>cookieDecrypt(cookie('account_id'))  //
        ];
 //       if (D("Admin/App")->create($appData,1)){
 //           D("Admin/App")->addApp($appData);
@@ -105,8 +104,7 @@ class WxController extends Controller{
 //           echo D("App")->getError();
 //       }
        print_r($appData);
-       print_r("<br/>--------<br/>");
-       print_r($appInfo);
+
    }
 
 
