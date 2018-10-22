@@ -78,16 +78,17 @@ class WxController extends Controller{
            "authorizer_appid"=>$authorizer_appid,
        );
        $appInfo = curl_get_https ($url1,json_encode($data1,true));
+       $authorizer_info = $appInfo['authorizer_info'];
        $appData = [
-           'authorizer_info'=> $appInfo['authorizer_info'],
-           'nick_name'=> $appInfo['nick_name'],
-           'head_img'=> $appInfo['head_img'],
-           'service_type_info'=> $appInfo['service_type_info'],   //	授权方公众号类型，0代表订阅号，1代表由历史老帐号升级后的订阅号，2代表服务号
-           'verify_type_info'=> $appInfo['verify_type_info']['id'],  // verify_type_info -1代表未认证，0代表微信认证， ，1代表新浪微博认证，2代表腾讯微博认证，3代表已资质认证通过但还未通过名称认证，4代表已资质认证通过、还未通过名称认证，但通过了新浪微博认证，5代表已资质认证通过、还未通过名称认证，但通过了腾讯微博认证
-           'user_name'=>$appInfo['user_name'], //授权方公众号的原始ID
-           'alias'=> $appInfo['alias'],
-           'qrcode_url'=>$appInfo['qrcode_url'],
-           'principal_name'=>$appInfo['principal_name'],
+
+           'nick_name'=> $authorizer_info['nick_name'],
+           'head_img'=> $authorizer_info['head_img'],
+           'service_type_info'=> $authorizer_info['service_type_info'],   //	授权方公众号类型，0代表订阅号，1代表由历史老帐号升级后的订阅号，2代表服务号
+           'verify_type_info'=> $authorizer_info['verify_type_info']['id'],  // verify_type_info -1代表未认证，0代表微信认证， ，1代表新浪微博认证，2代表腾讯微博认证，3代表已资质认证通过但还未通过名称认证，4代表已资质认证通过、还未通过名称认证，但通过了新浪微博认证，5代表已资质认证通过、还未通过名称认证，但通过了腾讯微博认证
+           'user_name'=>$authorizer_info['user_name'], //授权方公众号的原始ID
+           'alias'=> $authorizer_info['alias'],
+           'qrcode_url'=>$authorizer_info['qrcode_url'],
+           'principal_name'=>$authorizer_info['principal_name'],
            'appid'=>$authorizer_appid,
            'refresh_token'=>$authorizer_access_token,
            'authorizer_refresh_token'=>$authorizer_refresh_token,
