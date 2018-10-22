@@ -78,6 +78,7 @@ class WxController extends Controller{
            "authorizer_appid"=>$authorizer_appid,
        );
        $appInfo = curl_get_https ($url1,json_encode($data1,true));
+       print_r(gettype($appInfo));
        $authorizer_info = $appInfo['authorizer_info'];
        print_r($authorizer_info);
        print_r("<br/>-----");
