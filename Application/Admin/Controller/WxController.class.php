@@ -96,12 +96,8 @@ class WxController extends Controller{
            'group_id' => 1, // 1 是 默认分组
            'admin_id'=>cookieDecrypt(cookie('account_id'))  //
        ];
-       echo  '1234';
-       $builder = new AdminConfigBuilder();
-       $builder
-           ->title("授权成功")
-           ->display();
-       $this->success("授权成功",U("Authorize/index"));
+       $url = U("Authorize/index");
+       echo "<script>window.location.href = '$url'</script>";
 
 //       if (D("Admin/App")->create($appData,1)){
 //           $ret = D("Admin/App")->addApp($appData);
