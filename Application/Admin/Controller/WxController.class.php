@@ -64,7 +64,6 @@ class WxController extends Controller{
             "component_appid"=>C('ZTAPPID'),
             "authorization_code"=>$auth_code
         );
-       //queryauthcode@@@PlycPyimJLNJoI4mllBD4-V9xZB_qL5FVu0xeelRBvaJm7JJNp4Jf2oW5jEW9sDz4FzFAvrVd0Z2_RAFQmprIg
        $send_result = curl_get_https($url, json_encode($data));
        $send_result = json_decode($send_result,true);
        $authorization_info = $send_result['authorization_info'];
@@ -97,20 +96,22 @@ class WxController extends Controller{
            'group_id' => 1, // 1 是 默认分组
            'admin_id'=>cookieDecrypt(cookie('account_id'))  //
        ];
-       if (D("Admin/App")->create($appData,1)){
-           $ret = D("Admin/App")->addApp($appData);
-           if($ret){
-                $builder = new AdminConfigBuilder();
-                $builder
-                    ->title("授权成功")
-                    ->display();
-                $this->success("授权成功",U("Authorize/index"));
-            }else{
+       $builder = new AdminConfigBuilder();
+       $builder
+           ->title("授权成功")
+           ->display();
+       $this->success("授权成功",U("Authorize/index"));
 
-           }
-       }else{
-            echo  D("Admin/App")->getError();
-       }
+//       if (D("Admin/App")->create($appData,1)){
+//           $ret = D("Admin/App")->addApp($appData);
+//           if($ret){
+//
+//            }else{
+//
+//           }
+//       }else{
+//            echo  D("Admin/App")->getError();
+//       }
    }
 
 
