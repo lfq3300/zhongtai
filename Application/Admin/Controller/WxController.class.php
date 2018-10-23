@@ -96,6 +96,13 @@ class WxController extends Controller{
         }
    }
 
+
+   public function demo(){
+       echo S("wxf825ca9817d90977access_token");
+   }
+
+   // 定时任务
+   // 每天一点
    public function getRead(){
        $token  = C(READTOKEN);I("get.token");
        if(C(READTOKEN) == $token){
@@ -103,5 +110,9 @@ class WxController extends Controller{
             $appList = M()->query(" SELECT id,appid,authorizer_refresh_token FROM mc_app ");
        }
    }
+
+   //每天一点 15分钟
+
+
 }
 ?>
