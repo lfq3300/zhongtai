@@ -84,24 +84,18 @@ class WxController extends Controller{
                 'group_id' => 1, // 1 是 默认分组
                 'admin_id'=>cookieDecrypt(cookie('account_id'))  //
             ];
-            print_r($appData);
-//            if (D("Admin/App")->create($appData,1)){
-//                $ret = D("Admin/App")->addApp($appData);
-//                if($ret){
-//                    $url = U("App/index");
-//                    echo "<script> window.location.href = '$url'</script>";
-//                }else{
-//                    echo  D("Admin/App")->getError();
-//                }
-//            }else{
-//                echo  D("Admin/App")->getError();
-//            }
+            if (D("Admin/App")->create($appData,1)){
+                $ret = D("Admin/App")->addApp($appData);
+                if($ret){
+                    $url = U("App/index");
+                    echo "<script> window.location.href = '$url'</script>";
+                }else{
+                    echo  D("Admin/App")->getError();
+                }
+            }else{
+                echo  D("Admin/App")->getError();
+            }
         }
-   }
-
-
-   public function demo(){
-       echo S("wxf825ca9817d90977access_token");
    }
 
    // 定时任务
