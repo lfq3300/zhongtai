@@ -39,16 +39,5 @@ class AuthorizeController extends AdminController {
         return $send_result['pre_auth_code'];
     }
 
-    //重新刷新公众号token
-    public function refreshAccessToken($appid = 'wxf825ca9817d90977',$authorizer_refresh_token = ''){
-        if(empty($authorizer_refresh_token)){
-            list($appInfo) = M()->query("SELECT authorizer_refresh_token FROM mc_app WHERE appid = '$appid' limit 1");
-            $refresh_token = $appInfo['authorizer_refresh_token'];
-        }
-        $url = "https://api.weixin.qq.com/sns/oauth2/refresh_token?appid=$appid&grant_type=refresh_token&refresh_token=$refresh_token";
-        print_r($url);
-        $send_result = curl_get_https($url);
-        $send_result = json_decode($send_result,true);
-        print_r($send_result);
-    }
+
 }

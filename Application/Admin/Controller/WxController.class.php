@@ -56,11 +56,10 @@ class WxController extends Controller{
             $authorization_info = $send_result['authorization_info'];
             $authorizer_appid = $authorization_info['authorizer_appid'];
             $authorizer_access_token = $authorization_info['authorizer_access_token'];
-            $authorizer_refresh_token = $authorization_info['authorizer_refresh_token'];
             $url1 = "https://api.weixin.qq.com/cgi-bin/component/api_get_authorizer_info?component_access_token=".$component_access_token;
             $data1 = array(
                 "component_appid"=>C('ZTAPPID'),
-                "authorizer_appid"=>$authorizer_appid,
+                "authorization_code"=>$authorizer_appid,
             );
             $appInfo = curl_get_https ($url1,json_encode($data1,true));
             $appInfo = json_decode($appInfo,true);
@@ -70,7 +69,7 @@ class WxController extends Controller{
             $appData = [
                 'nick_name'=> $authorizer_info['nick_name'],
                 'appid'=>$authorizer_appid,
-                'authorizer_refresh_token'=>$authorizer_refresh_token,
+                'authorizer_refresh_token'=>$authorizer_info['authorizer_refresh_token'],
                 'create_time'=>date("Y-m-d H:i:s"),
                 'head_img'=> $authorizer_info['head_img'],
                 'service_type_info'=> $authorizer_info['service_type_info']['id'],   //	授权方公众号类型，0代表订阅号，1代表由历史老帐号升级后的订阅号，2代表服务号
@@ -82,17 +81,18 @@ class WxController extends Controller{
                 'group_id' => 1, // 1 是 默认分组
                 'admin_id'=>cookieDecrypt(cookie('account_id'))  //
             ];
-            if (D("Admin/App")->create($appData,1)){
-                $ret = D("Admin/App")->addApp($appData);
-                if($ret){
-                    $url = U("App/index");
-                    echo "<script> window.location.href = '$url'</script>";
-                }else{
-                    echo  D("Admin/App")->getError();
-                }
-            }else{
-                echo  D("Admin/App")->getError();
-            }
+            print_r($appData);
+//            if (D("Admin/App")->create($appData,1)){
+//                $ret = D("Admin/App")->addApp($appData);
+//                if($ret){
+//                    $url = U("App/index");
+//                    echo "<script> window.location.href = '$url'</script>";
+//                }else{
+//                    echo  D("Admin/App")->getError();
+//                }
+//            }else{
+//                echo  D("Admin/App")->getError();
+//            }
         }
    }
 
@@ -102,16 +102,57 @@ class WxController extends Controller{
    }
 
    // 定时任务
-   // 每天一点
+   // 每天一点  获取阅读量
    public function getRead(){
        $token  = C(READTOKEN);I("get.token");
        if(C(READTOKEN) == $token){
            // 查询 全部公众号 然后请求 公众号数据
             $appList = M()->query(" SELECT id,appid,authorizer_refresh_token FROM mc_app ");
+
        }
    }
 
-   //每天一点 15分钟
+    //重新刷新公众号token
+    public function refreshAccessToken($appid = '',$authorizer_refresh_token = ''){
+        if(empty($authorizer_refresh_token)){
+            list($appInfo) = M()->query("SELECT authorizer_refresh_token FROM mc_app WHERE appid = '$appid' limit 1");
+            $authorizer_refresh_token = $appInfo['authorizer_refresh_token'];
+        }
+        $url = "https://api.weixin.qq.com/sns/oauth2/refresh_token?appid=$appid&grant_type=refresh_token&refresh_token=$authorizer_refresh_token";
+     //   $url = "https://api.weixin.qq.com/sns/oauth2/refresh_token?appid=$appid&grant_type=refresh_token&refresh_token=$authorizer_refresh_token";
+        print_r($url);
+        $send_result = curl_get_https($url);
+        $send_result = json_decode($send_result,true);
+        print_r($send_result);
+
+    }
+
+   //每天一点 15分钟  获取粉丝数量信息
+
+    public function getFans(){
+        $token  = C(FANSTOKEN);I("get.token");
+        if(C(FANSTOKEN) == $token){
+            if(S("applist")){
+                $appList = S("applist");
+            }else{
+                // 查询 全部公众号 然后请求 公众号数据
+                $appList = M()->query(" SELECT id,appid,authorizer_refresh_token FROM mc_app");
+                //缓存4小时
+                S("applist",$appList,14400);
+            }
+            foreach ($appList as $key => $val){
+
+                if(S($val['appid']."access_token")){
+                    $access_token = S($val['appid']."access_token");
+                }else{
+                    $access_token = $this->refreshAccessToken($val['appid'],$val['authorizer_refresh_token']);
+                }
+//                $url = "https://api.weixin.qq.com/datacube/getusersummary?access_token=$access_token";
+//               $appInfo = curl_get_https ($url);
+            }
+
+        }
+    }
 
 
 }
