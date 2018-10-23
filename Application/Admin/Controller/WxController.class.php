@@ -114,13 +114,18 @@ class WxController extends Controller{
             list($appInfo) = M()->query("SELECT authorizer_refresh_token FROM mc_app WHERE appid = '$appid' limit 1");
             $authorizer_refresh_token = $appInfo['authorizer_refresh_token'];
         }
-        $url = "https://api.weixin.qq.com/sns/oauth2/refresh_token?appid=$appid&grant_type=refresh_token&refresh_token=$authorizer_refresh_token";
-     //   $url = "https://api.weixin.qq.com/sns/oauth2/refresh_token?appid=$appid&grant_type=refresh_token&refresh_token=$authorizer_refresh_token";
-        print_r($url);
-        $send_result = curl_get_https($url);
+        $component_access_token = S("component_access_token");
+        $url =  "https://api.weixin.qq.com/cgi-bin/component/api_authorizer_token?component_access_token=$component_access_token";
+        $data = array(
+                "component_appid"=>C('ZTAPPID'),
+                "authorizer_appid"=>$appid,
+                "authorizer_refresh_token"=>$authorizer_refresh_token,
+        );
+        $send_result = curl_get_https ($url,json_encode($data,true));
         $send_result = json_decode($send_result,true);
-        print_r($send_result);
-
+        $authorizer_access_token = $send_result['authorizer_access_token'];
+        S($appid."access_token",$authorizer_access_token,$send_result['expires_in']);
+        return $authorizer_access_token;
     }
 
    //每天一点 15分钟  获取粉丝数量信息
@@ -137,14 +142,18 @@ class WxController extends Controller{
                 S("applist",$appList,14400);
             }
             foreach ($appList as $key => $val){
-
                 if(S($val['appid']."access_token")){
                     $access_token = S($val['appid']."access_token");
                 }else{
                     $access_token = $this->refreshAccessToken($val['appid'],$val['authorizer_refresh_token']);
                 }
-//                $url = "https://api.weixin.qq.com/datacube/getusersummary?access_token=$access_token";
-//               $appInfo = curl_get_https ($url);
+                $url = "https://api.weixin.qq.com/datacube/getusersummary?access_token=$access_token";
+                $data = array(
+                    "begin_date"=> "2018-10-20",
+                    "end_date"=> "2018-10-21"
+                );
+                $appInfo = curl_get_https($url.json_decode($data,true));
+                print_r($appInfo);
             }
 
         }
