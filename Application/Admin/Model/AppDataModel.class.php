@@ -12,7 +12,7 @@ class AppDataModel extends CommonModel
 {
     public function addData($time,$appid,$data){
 
-        M()->where("")
+      //  M()->where("")
     }
 
 }
