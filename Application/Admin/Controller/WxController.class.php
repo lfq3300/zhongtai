@@ -51,9 +51,10 @@ class WxController extends Controller{
                 "component_appid"=>C('ZTAPPID'),
                 "authorization_code"=>$auth_code
             );
-            print_r($url);
             $send_result = curl_get_https($url, json_encode($data));
             $send_result = json_decode($send_result,true);
+            print_r($send_result);
+            exit;
             $authorization_info = $send_result['authorization_info'];
             $authorizer_appid = $authorization_info['authorizer_appid'];
             $authorizer_access_token = $authorization_info['authorizer_access_token'];
