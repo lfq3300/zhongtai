@@ -54,8 +54,9 @@ class WxController extends Controller{
             $send_result = curl_get_https($url, json_encode($data));
             $send_result = json_decode($send_result,true);
             print_r($send_result);
-            exit;
             $authorization_info = $send_result['authorization_info'];
+            print_r($authorization_info);
+            exit;
             $authorizer_appid = $authorization_info['authorizer_appid'];
             $authorizer_access_token = $authorization_info['authorizer_access_token'];
             $url1 = "https://api.weixin.qq.com/cgi-bin/component/api_get_authorizer_info?component_access_token=".$component_access_token;
