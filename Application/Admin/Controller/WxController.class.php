@@ -53,12 +53,12 @@ class WxController extends Controller{
             );
             $send_result = curl_get_https($url, json_encode($data));
             $send_result = json_decode($send_result,true);
-            print_r($send_result);
             $authorization_info = $send_result['authorization_info'];
-            print_r($authorization_info);
-            exit;
             $authorizer_appid = $authorization_info['authorizer_appid'];
             $authorizer_access_token = $authorization_info['authorizer_access_token'];
+            $authorizer_refresh_token = $authorization_info['authorizer_refresh_token'];
+            S($authorizer_appid."access_token",$authorizer_access_token,7200);
+
             $url1 = "https://api.weixin.qq.com/cgi-bin/component/api_get_authorizer_info?component_access_token=".$component_access_token;
             $data1 = array(
                 "component_appid"=>C('ZTAPPID'),
@@ -70,11 +70,10 @@ class WxController extends Controller{
             $authorizer_info = $appInfo['authorizer_info'];
             print_r($authorizer_info);
             //缓存公众号access_token
-            S($authorizer_appid."access_token",$authorizer_access_token,7200);
             $appData = [
                 'nick_name'=> $authorizer_info['nick_name'],
                 'appid'=>$authorizer_appid,
-                'authorizer_refresh_token'=>$authorizer_info['authorizer_refresh_token'],
+                'authorizer_refresh_token'=> $authorizer_refresh_token,
                 'create_time'=>date("Y-m-d H:i:s"),
                 'head_img'=> $authorizer_info['head_img'],
                 'service_type_info'=> $authorizer_info['service_type_info']['id'],   //	授权方公众号类型，0代表订阅号，1代表由历史老帐号升级后的订阅号，2代表服务号
