@@ -64,6 +64,7 @@ class WxController extends Controller{
             $appInfo = curl_get_https ($url1,json_encode($data1,true));
             $appInfo = json_decode($appInfo,true);
             $authorizer_info = $appInfo['authorizer_info'];
+            print_r($authorizer_info);
             //缓存公众号access_token
             S($authorizer_appid."access_token",$authorizer_access_token,7200);
             $appData = [
