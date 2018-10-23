@@ -65,10 +65,12 @@ class WxController extends Controller{
             $appInfo = curl_get_https ($url1,json_encode($data1,true));
             $appInfo = json_decode($appInfo,true);
             $authorizer_info = $appInfo['authorizer_info'];
+            //缓存公众号access_token
+            S($authorizer_appid."access_token",$authorizer_access_token,7200);
             $appData = [
                 'nick_name'=> $authorizer_info['nick_name'],
                 'appid'=>$authorizer_appid,
-                'refresh_token'=>$authorizer_access_token,
+                'authorizer_refresh_token'=>$authorizer_refresh_token,
                 'create_time'=>date("Y-m-d H:i:s"),
                 'head_img'=> $authorizer_info['head_img'],
                 'service_type_info'=> $authorizer_info['service_type_info']['id'],   //	授权方公众号类型，0代表订阅号，1代表由历史老帐号升级后的订阅号，2代表服务号
@@ -77,8 +79,6 @@ class WxController extends Controller{
                 'qrcode_url'=>$authorizer_info['qrcode_url'],
                 'principal_name'=>$authorizer_info['principal_name'],
                 'alias'=> $authorizer_info['alias'],
-                //  'authorization_info'=>'',
-                'authorizer_refresh_token'=>$authorizer_refresh_token,
                 'group_id' => 1, // 1 是 默认分组
                 'admin_id'=>cookieDecrypt(cookie('account_id'))  //
             ];
@@ -96,5 +96,12 @@ class WxController extends Controller{
         }
    }
 
+   public function getRead(){
+       $token  = C(READTOKEN);I("get.token");
+       if(C(READTOKEN) == $token){
+           // 查询 全部公众号 然后请求 公众号数据
+            $appList = M()->query(" SELECT id,appid,authorizer_refresh_token FROM mc_app ");
+       }
+   }
 }
 ?>
