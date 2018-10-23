@@ -45,12 +45,12 @@ class WxController extends Controller{
    public function AuthorizeCallback(){
         $auth_code = $_GET["auth_code"];
         if($auth_code){
-            $component_access_token = S("component_access_token");
             $url = "https://api.weixin.qq.com/cgi-bin/component/api_query_auth?component_access_token=$component_access_token";
             $data = array(
                 "component_appid"=>C('ZTAPPID'),
                 "authorization_code"=>$auth_code
             );
+            print_r($url);
             $send_result = curl_get_https($url, json_encode($data));
             $send_result = json_decode($send_result,true);
             $authorization_info = $send_result['authorization_info'];
