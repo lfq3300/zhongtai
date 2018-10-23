@@ -62,13 +62,12 @@ class WxController extends Controller{
             $url1 = "https://api.weixin.qq.com/cgi-bin/component/api_get_authorizer_info?component_access_token=".$component_access_token;
             $data1 = array(
                 "component_appid"=>C('ZTAPPID'),
-                "authorization_code"=>$authorizer_appid,
+                "authorization_appid"=>$authorizer_appid,
             );
             $appInfo = curl_get_https ($url1,json_encode($data1,true));
             $appInfo = json_decode($appInfo,true);
             print_r($appInfo);
             $authorizer_info = $appInfo['authorizer_info'];
-            print_r($authorizer_info);
             //缓存公众号access_token
             $appData = [
                 'nick_name'=> $authorizer_info['nick_name'],
@@ -85,7 +84,6 @@ class WxController extends Controller{
                 'group_id' => 1, // 1 是 默认分组
                 'admin_id'=>cookieDecrypt(cookie('account_id'))  //
             ];
-            print_r($appData);
 //            if (D("Admin/App")->create($appData,1)){
 //                $ret = D("Admin/App")->addApp($appData);
 //                if($ret){
