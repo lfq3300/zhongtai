@@ -12,6 +12,7 @@ use Think\Controller;
 
 class AuthorizeController extends AdminController {
 
+    //第三方平台token
     public function getAccessToken(){
         $url = "https://api.weixin.qq.com/cgi-bin/component/api_component_token";
         list($ticket) = M()->query("SELECT ticket FROM mc_ticket ORDER BY id DESC limit 1");
@@ -26,7 +27,7 @@ class AuthorizeController extends AdminController {
         S("component_access_token",$send_result['component_access_token'],7200);
         return $send_result['component_access_token'];
     }
-
+    //预授权码
     public function getPreAuthCode(){
        $access_token =  $this->getAccessToken();
        $url = "https://api.weixin.qq.com/cgi-bin/component/api_create_preauthcode?component_access_token=$access_token";
@@ -38,11 +39,12 @@ class AuthorizeController extends AdminController {
         return $send_result['pre_auth_code'];
     }
 
-    //重新刷新token
-    public function refreshAccessToken($appid){
-        list($appInfo) = M()->query("SELECT appid,refresh_token FROM mc_app WHERE appid = '$appid' limit 1");
-        $appid = $appInfo['appid'];
-        $refresh_token = $appInfo['refresh_token'];
+    //重新刷新公众号token
+    public function refreshAccessToken($appid = 'wxf825ca9817d90977',$authorizer_refresh_token = ''){
+        if(empty($authorizer_refresh_token)){
+            list($appInfo) = M()->query("SELECT authorizer_refresh_token FROM mc_app WHERE appid = '$appid' limit 1");
+            $refresh_token = $appInfo['authorizer_refresh_token'];
+        }
         $url = "https://api.weixin.qq.com/sns/oauth2/refresh_token?appid=$appid&grant_type=refresh_token&refresh_token=$refresh_token";
         print_r($url);
         $send_result = curl_get_https($url);
