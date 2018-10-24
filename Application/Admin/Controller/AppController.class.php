@@ -12,9 +12,10 @@ use Admin\Controller\AuthorizeController;
 use Think\Controller;
 
 class AppController extends Controller {
-    public function index(){
+    public function index($r = 20){
         $builder = new AdminListBuilder();
-        $list = D("App")->getList();
+        $page = I("get.page");
+        list($list,$count) = D("App")->getList($page,$r);
         $group = D("AppGroup")->getList(true);
         $builder
             ->title("公众号列表")
@@ -30,6 +31,7 @@ class AppController extends Controller {
             ->powerEdit("edit?id=###","信息编辑")
             ->powerEdit("operate?id=###&nick_name=n#","运营数据")
             ->data($list)
+            ->pagination($count,$r)
             ->display();
     }
 
@@ -81,17 +83,22 @@ class AppController extends Controller {
 
     public function operate(){
         $builder = new AdminListBuilder();
+        $list = D("App")->getAppData(I("get.id"));
         $builder
             ->title(I("get.nick_name")."  运营数据")
-            ->keyText("read","阅读次数")
-            ->keyText("share","分享次数")
-            ->keyText("open","朋友圈打开次数")
-            ->keyText("conversation","会话次数")
-            ->keyText("share_percent","活跃度")
-            ->keyText("open_percent","朋友圈")
-            ->keyText("open_percent","朋友圈")
-            ->keyText("conversation_percent","会话")
-            ->keyText("open_percent","朋友圈")
+            ->keyText("nick_name","平台名称")
+            ->keyText("cumulate_user","总粉丝数")
+            ->keyText("new_user","新增粉丝")
+            ->keyText("pure_user","净增粉丝")
+            ->keyText("int_page_read_user","图文阅读人数")
+            ->keyText("int_page_from_session_read_user","会话打开人数")
+            ->keyText("int_page_from_friends_read_user","朋友圈打开人数")
+            ->keyText("conversation","分享转发次数")
+            ->keyText("active_percent","活跃度")
+            ->keyText("conversation_percent","会话打开")
+            ->keyText("open_percent","朋友圈打开")
+            ->keyText("share_percent","分享转发")
             ->display();
     }
+
 }

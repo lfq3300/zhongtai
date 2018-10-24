@@ -1,7 +1,7 @@
 <?php
 return array(
     'DB_TYPE'   => 'mysqli', // 数据库类型
-    'DB_HOST'   => '127.0.0.1', // 服务器地址
+    'DB_HOST'   => '39.108.145.2', // 服务器地址
     'DB_NAME'   => 'zt.ltthk.top', // 数据库名
     'DB_USER'   => 'root', // 用户名
     'DB_PWD'    => 'opKkwWsUgiUC0m3k',  // 密码
@@ -45,6 +45,14 @@ return array(
 	'ZTTOKEN'=>"zhongtai",
 	'ZTENCODINGAESKEY'=>"1614bc6a759aa92a28c3196208cac0bc96396203022",
 	'ZTAPPID'=>"wx4136f97196624a87",
-	'ZTSECRET'=>"256e5b2ad8ca1fde610c31b581b44ad1"
+	'ZTSECRET'=>"256e5b2ad8ca1fde610c31b581b44ad1",
+
+	//开发接口自定义密钥
+	'READTOKEN'=>'C4c9g9d6hXyF6lFwZbzEc2A3Kf30w4sb',
+	'FANSTOKEN'=>'AhkAtxnsrHFkJyE9FuUPGciVfbR5lG7t',
+    'PASTREAD'=>'GM6s8DhzQQVrWvdgWyUKwuo6HWeoqofy',
+	'SETNUM'=>'u8tqgmBgpa6zCwF45FSqOmKwj76cO0N1',
+	'YESTERDAY'=>"2018-09-18", //18 19 20  21  22 23 24   17 -  25 9天数据
+	//date("Y-m-d",strtotime("-1 day"))
 )
 ?>

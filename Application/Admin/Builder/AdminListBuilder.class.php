@@ -133,7 +133,7 @@ class AdminListBuilder extends AdminBuilder{
         return $this;
     }
 
-    public  function  queryselect($arrvalue,$opt =[],$name='queryType'){
+    public  function  queryselect($arrvalue = '',$opt =[],$name='queryType'){
         $opt["defaultvalue"]=$opt["defaultvalue"]?$opt["defaultvalue"]:0;
         $opt["title"]=$opt["title"]?$opt["title"]:0;
         $opt["select"]=$opt["select"]?$opt["select"]:0;
@@ -155,12 +155,12 @@ class AdminListBuilder extends AdminBuilder{
      * m  选到月份
      * d  选到天数
      * */
-    public  function  queryStarTime($val,$name='startime', $title = '开始时间',$type = "d"){
+    public  function  queryStarTime($val = '',$name='startime', $title = '开始时间',$type = "d"){
         $this->_startime = array("name"=>$name,"value"=>$val,"title"=>$title,"type"=>$type);
         return $this;
     }
 
-    public function queryEndTime($val,$name = 'endtime', $title = '结束时间')
+    public function queryEndTime($val = '',$name = 'endtime', $title = '结束时间')
     {
         $this->_endtime = array("name"=>$name,"value"=>$val,"title"=>$title);
         return $this;

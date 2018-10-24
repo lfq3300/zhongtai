@@ -6,26 +6,28 @@
  * Time: 15:05
  */
 namespace Admin\Controller;
-use Admin\Builder\AdminListBuilder;
-use Admin\Builder\AdminConfigBuilder;
 use Think\Controller;
 
-class AuthorizeController extends AdminController {
+class AuthorizeController extends Controller{
 
     //第三方平台token
     public function getAccessToken(){
-        $url = "https://api.weixin.qq.com/cgi-bin/component/api_component_token";
-        list($ticket) = M()->query("SELECT ticket FROM mc_ticket ORDER BY id DESC limit 1");
-        $ticket = $ticket['ticket'];
-        $data = array(
-            "component_appid"=>C('ZTAPPID'),
-            "component_appsecret"=>C('ZTSECRET'),
-            "component_verify_ticket"=>$ticket
-        );
-        $send_result = curl_get_https($url, json_encode($data));
-        $send_result = json_decode($send_result,true);
-        S("component_access_token",$send_result['component_access_token'],7200);
-        return $send_result['component_access_token'];
+        if(S("component_access_token")){
+            return S("component_access_token");
+        }else{
+            $url = "https://api.weixin.qq.com/cgi-bin/component/api_component_token";
+            list($ticket) = M()->query("SELECT ticket FROM mc_ticket ORDER BY id DESC limit 1");
+            $ticket = $ticket['ticket'];
+            $data = array(
+                "component_appid"=>C('ZTAPPID'),
+                "component_appsecret"=>C('ZTSECRET'),
+                "component_verify_ticket"=>$ticket
+            );
+            $send_result = curl_get_https($url, json_encode($data));
+            $send_result = json_decode($send_result,true);
+            S("component_access_token",$send_result["component_access_token"],$send_result['expires_in']);
+            return $send_result["component_access_token"];
+        }
     }
     //预授权码
     public function getPreAuthCode(){
@@ -39,5 +41,28 @@ class AuthorizeController extends AdminController {
         return $send_result['pre_auth_code'];
     }
 
-
+    //重新刷新公众号token
+    public function refreshAccessToken($appid = '', $authorizer_refresh_token = '')
+    {
+        if(S($appid ."access_token")){
+            return S($appid ."access_token");
+        }else{
+            if (empty($authorizer_refresh_token)){
+                list($appInfo) = M()->query("SELECT authorizer_refresh_token FROM mc_app WHERE appid = '$appid' limit 1");
+                $authorizer_refresh_token = $appInfo['authorizer_refresh_token'];
+            }
+            $component_access_token = $this->getAccessToken();
+            $url = "https://api.weixin.qq.com/cgi-bin/component/api_authorizer_token?component_access_token=$component_access_token";
+            $data = array(
+                "component_appid" => C('ZTAPPID'),
+                "authorizer_appid" => $appid,
+                "authorizer_refresh_token" => $authorizer_refresh_token,
+            );
+            $send_result = curl_get_https($url,json_encode($data, true));
+            $send_result = json_decode($send_result, true);
+            $authorizer_access_token = $send_result['authorizer_access_token'];
+            S($appid ."access_token", $authorizer_access_token, $send_result['expires_in']);
+            return $authorizer_access_token;
+        }
+    }
 }

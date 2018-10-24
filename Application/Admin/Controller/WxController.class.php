@@ -48,7 +48,9 @@ class WxController extends Controller
     {
         $auth_code = $_GET["auth_code"];
         if ($auth_code) {
-            $component_access_token = S("component_access_token");
+            $Auth = new AuthorizeController();
+            $component_access_token = $Auth->getAccessToken();
+
             $url = "https://api.weixin.qq.com/cgi-bin/component/api_query_auth?component_access_token=$component_access_token";
             $data = array(
                 "component_appid" => C('ZTAPPID'),
@@ -58,10 +60,7 @@ class WxController extends Controller
             $send_result = json_decode($send_result, true);
             $authorization_info = $send_result['authorization_info'];
             $authorizer_appid = $authorization_info['authorizer_appid'];
-            $authorizer_access_token = $authorization_info['authorizer_access_token'];
             $authorizer_refresh_token = $authorization_info['authorizer_refresh_token'];
-            S($authorizer_appid . "access_token", $authorizer_access_token, 7200);
-
             $url1 = "https://api.weixin.qq.com/cgi-bin/component/api_get_authorizer_info?component_access_token=" . $component_access_token;
             $data1 = array(
                 "component_appid" => C('ZTAPPID'),
@@ -70,7 +69,6 @@ class WxController extends Controller
             $appInfo = curl_get_https($url1, json_encode($data1, true));
             $appInfo = json_decode($appInfo, true);
             $authorizer_info = $appInfo['authorizer_info'];
-            //缓存公众号access_token
             $appData = [
                 'nick_name' => $authorizer_info['nick_name'],
                 'appid' => $authorizer_appid,
@@ -101,38 +99,65 @@ class WxController extends Controller
     }
 
     // 定时任务
-    // 每天一点  获取阅读量
+    // 每天一点  获取 最新文章 的阅读量  所以不需要减去昨日阅读的人数
     public function getRead()
     {
-        $token = C(READTOKEN);
-        I("get.token");
-        if (C(READTOKEN) == $token) {
-            // 查询 全部公众号 然后请求 公众号数据
-            $appList = M()->query(" SELECT id,appid,authorizer_refresh_token FROM mc_app ");
-
+        $token = C(FANSTOKEN);I("get.token");
+        if (C(FANSTOKEN) == $token){
+            $appList = D("App")->getEffeList();
+            foreach ($appList as $key => $val){
+                $Auth = new AuthorizeController();
+                $access_token = $Auth->refreshAccessToken($val["appid"], $val["authorizer_refresh_token"]);
+                $url = "https://api.weixin.qq.com/datacube/getarticletotal?access_token=$access_token";
+                $time = C(YESTERDAY);
+                $data = array(
+                    "begin_date" =>$time,
+                    "end_date" =>$time
+                );
+                $send_result = curl_get_https($url, json_encode($data, true));
+                $send_result = json_decode($send_result, true);
+                print_r($send_result);
+                exit;
+                // 获取总粉丝
+                D("AppData")->addData($send_result,$val["appid"]);
+                D("ArticleTerm")->addData($send_result,$val["appid"]);
+            }
         }
     }
 
-    //重新刷新公众号token
-    public function refreshAccessToken($appid = '', $authorizer_refresh_token = '')
-    {
-        if (empty($authorizer_refresh_token)) {
-            list($appInfo) = M()->query("SELECT authorizer_refresh_token FROM mc_app WHERE appid = '$appid' limit 1");
-            $authorizer_refresh_token = $appInfo['authorizer_refresh_token'];
+    //获取 文章 发布日期后 7天有效期内 的 文章数据情况
+    public function getPastRead(){
+        $token = C(PASTREAD);I("get.token");
+        if (C(PASTREAD) == $token){
+            $appList = D("ArticleTerm")->getEffeList();
+            foreach ($appList as $key => $val){
+                $Auth = new AuthorizeController();
+                $access_token = $Auth->refreshAccessToken($val["appid"], $val["authorizer_refresh_token"]);
+                $url = "https://api.weixin.qq.com/datacube/getarticletotal?access_token=$access_token";
+                $time = $val["ref_date"];
+                $data = array(
+                    "begin_date" =>$time,
+                    "end_date" =>$time
+                );
+                $send_result = curl_get_https($url, json_encode($data, true));
+                $yesterInfo = D("AppData")->yesterdayRead($val["msgid"]);
+                D("AppData")->addPastData($send_result,$val,$yesterInfo);
+            }
         }
-        $component_access_token = S("component_access_token");
-        $url = "https://api.weixin.qq.com/cgi-bin/component/api_authorizer_token?component_access_token=$component_access_token";
-        $data = array(
-            "component_appid" => C('ZTAPPID'),
-            "authorizer_appid" => $appid,
-            "authorizer_refresh_token" => $authorizer_refresh_token,
-        );
-        $send_result = curl_get_https($url, json_encode($data, true));
-        $send_result = json_decode($send_result, true);
-        $authorizer_access_token = $send_result['authorizer_access_token'];
-        S($appid . "access_token", $authorizer_access_token, $send_result['expires_in']);
-        return $authorizer_access_token;
     }
+
+
+    //每天 减少 一次获取的机会
+    public function  setNum(){
+        $token = C(SETNUM);I("get.token");
+        if (C(SETNUM) == $token){
+            D("ArticleTerm")->setNum();
+            D("ArticleTerm")->deOver();
+        }
+    }
+
+
+
 
     //每天一点 15分钟  获取粉丝数量信息
 
@@ -140,40 +165,21 @@ class WxController extends Controller
     {
         $token = C(FANSTOKEN);
         I("get.token");
-        if (C(FANSTOKEN) == $token) {
-            if (S("applist")) {
-                $appList = S("applist");
-            } else {
-                // 查询 全部公众号 然后请求 公众号数据  必须通过微信公众号认证  获取用户增长的话
-                $appList = M()->query(" SELECT id,appid,authorizer_refresh_token,verify_type_info FROM mc_app  WHERE verify_type_info = 0");
-                //缓存4小时
-                S("applist", $appList, 14400);
-            }
-            foreach ($appList as $key => $val) {
-                if (S($val['appid'] . "access_token")) {
-                    $access_token = S($val['appid'] . "access_token");
-                } else {
-                    $access_token = $this->refreshAccessToken($val['appid'], $val['authorizer_refresh_token']);
-                }
+        if (C(FANSTOKEN) == $token){
+            $appList = D("App")->getEffeList();
+            foreach ($appList as $key => $val){
+                $Auth = new AuthorizeController();
+                $access_token = $Auth->refreshAccessToken($val["appid"], $val["authorizer_refresh_token"]);
                 $url = "https://api.weixin.qq.com/datacube/getusersummary?access_token=$access_token";
                 $url2 = "https://api.weixin.qq.com/datacube/getusercumulate?access_token=$access_token";
+                $time =  C(YESTERDAY);;
                 $data = array(
-                    "begin_date" => "2018-10-21",
-                    "end_date" => "2018-10-21"
+                    "begin_date" => $time,
+                    "end_date" => $time
                 );
                 $send_result = curl_get_https($url, json_encode($data, true));
-                $send_result = json_decode($send_result, true);
-                list($fans) = $send_result['list'];
                 $send_result2 = curl_get_https($url2, json_encode($data, true));
-                $send_result2 = json_decode($send_result2, true);
-                list($fansCount) = $send_result2['list'];
-                $data = array(
-                    "ref_date"=>$fans['ref_date']." 00:00:00",
-                    "new_user"=>$fans['new_user'],
-                    "cancel_user"=>$fans['cancel_user'],
-                    "pure_user"=>$fans['new_user'] -  $fans['cancel_user'],
-                    "cumulate_user"=>$fansCount['cumulate_user']
-                );
+                D("AppFans")->addFans($send_result,$send_result2,$val["appid"],$time);
             }
         }
     }

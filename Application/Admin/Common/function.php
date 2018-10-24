@@ -140,3 +140,8 @@ function curl_get_https($url,$data = [])
     curl_close($curl);
     return $tmpInfo;   //返回json对象
 }
+
+function writeLog($a,$b){
+    $log = "{time:".date("Y-m-d H:i:s")." log:$b}";
+    file_put_contents("./Log/$a.txt",$log."\r\n",FILE_APPEND);
+}
