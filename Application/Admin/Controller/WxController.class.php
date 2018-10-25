@@ -115,9 +115,6 @@ class WxController extends Controller
                     "end_date" =>$time
                 );
                 $send_result = curl_get_https($url, json_encode($data, true));
-                $send_result = json_decode($send_result, true);
-                print_r($send_result);
-                exit;
                 // 获取总粉丝
                 D("AppData")->addData($send_result,$val["appid"]);
                 D("ArticleTerm")->addData($send_result,$val["appid"]);
@@ -175,7 +172,7 @@ class WxController extends Controller
                 $time =  C(YESTERDAY);;
                 $data = array(
                     "begin_date" => $time,
-                    "end_date" => $time
+                    "end_date" =>$time
                 );
                 $send_result = curl_get_https($url, json_encode($data, true));
                 $send_result2 = curl_get_https($url2, json_encode($data, true));

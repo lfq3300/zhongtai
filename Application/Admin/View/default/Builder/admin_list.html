@@ -9,7 +9,6 @@
 						</div>
 						<php>
 							$style = $query['opt']['state'] ? '':  "style='display: none;'";
-
 						</php>
 						<div id="query-container" {$style} class="am-cf">
 							<form class="am-u-sm-12 am-u-md-4 am-u-lg-4 am-form tpl-form-border-form tpl-form-border-br tpl-form-line-form" id="searchForm" name="searchform" action="" method="get">
@@ -126,7 +125,7 @@
                                             startime = Date.parse(new Date($(stardom).val()));
                                             endtime = Date.parse(new Date($(enddom).val()));
                                             if(endtime && startime > endtime){
-                                                toast.error("开始时间不能大于结束时间");
+                                                toast.error("开始时间不能大于结束时间,否则影响搜索结果");
                                             }
                                         });
                                         $(enddom).datepicker().
@@ -134,7 +133,7 @@
                                             endtime =  Date.parse(new Date($(enddom).val()));
                                             startime =  Date.parse(new Date($(stardom).val()));
                                             if(endtime && startime > endtime){
-                                                toast.error("开始时间不能大于结束时间");
+                                                toast.error("开始时间不能大于结束时间,否则影响搜索结果");
                                             }else{
                                                 console.log("123");
 											}
@@ -148,13 +147,10 @@
 									</script>
 								</notempty>
 								<notempty name="query">
-									<php>
-										$url='http://'.$_SERVER['HTTP_HOST'].'/admin.php'.$_SERVER['PHP_SELF'];
-									</php>
 									<p class="am-u-sm-offset-2">
-										<button type="submit" class="am-btn am-btn-sm am-btn-success ">查询</button>
+										<button type="submit" class="am-btn am-btn-sm am-btn-success">查询</button>
 										<button type="button" class="am-btn am-btn-default am-btn-sm tpl-table-list-field" id="close-query">隐藏</button>
-										<a href="{$url}" class="am-btn am-btn-default am-btn-sm tpl-table-list-field am-btn-danger">清除</a>
+										<a href="{$query.opt.url}" class="am-btn am-btn-default am-btn-sm tpl-table-list-field am-btn-danger">清除</a>
 									</p>
 								</notempty>
 							</form>
@@ -259,7 +255,7 @@
 											</td>
 											<volist name="keyList" id="field">
 												<td>
-													{$e[$field['name']]}	
+													{$e[$field['name']]}
 												</td>
 											</volist>
 										</tr>

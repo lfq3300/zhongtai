@@ -98,12 +98,12 @@ class AdminListBuilder extends AdminBuilder{
         return $this;
     }
 
-    public function keyText($name, $title,$ope = null){
-        return $this->key($name, $title,"text",$ope);
+    public function keyText($name, $title){
+        return $this->key($name, $title,"text");
     }
 
-    public  function  keyTime($name, $title,$ope = null){
-        return $this->key($name, $title,"time",$ope);
+    public  function  keyTime($name, $title,$opt = []){
+        return $this->key($name, $title,"time",$opt);
     }
      public function keyStatus($name = 'status', $title = '状态', $map)
     {
@@ -120,7 +120,7 @@ class AdminListBuilder extends AdminBuilder{
     /*
      * opt
      * */
-    public function query($name='query',$opt = []){
+    public function query($opt = [],$name='query'){
         $opt["state"] = $opt["state"]?$opt["state"]:false;
         $opt["title"] = $opt["title"]?$opt["title"]:"查询条件";
         $opt["value"] = $opt["value"]?$opt["value"]:"";
@@ -263,20 +263,20 @@ class AdminListBuilder extends AdminBuilder{
         return $this->button($title, $attr);
     }
     /*导出excel*/
-    public function powerExport($href){
+    public function powerExport($href = ''){
         if(!$this->export) return $this;
         $this->_excel = array("url"=>$href);
         return $this;
     }
 
-    public function powerExport2($href){
+    public function powerExport2($href = ''){
         if(!$this->export) return $this;
         $this->_excel2 = array("url"=>$href);
         return $this;
     }
 
     /*新增按钮*/
-    public function newButton($href,$title="新增",$attr = array()){
+    public function newButton($href = '',$title="新增",$attr = array()){
         //缓存权限
         $attr['href'] = $href?$href:"JavaScript:void(0)";
         $attr['class'] = "am-btn am-btn-default am-btn-success";
@@ -284,7 +284,7 @@ class AdminListBuilder extends AdminBuilder{
         $attr['label'] = "a";
         return $this->button($title, $attr);
     }
-    public function primaryButton($href,$title="新增",$attr = array()){
+    public function primaryButton($href="",$title="新增",$attr = array()){
         //缓存权限
         $attr['href'] = $href?$href:"JavaScript:void(0)";
         $attr['class'] = "am-btn am-btn-default am-btn-primary";
@@ -292,7 +292,7 @@ class AdminListBuilder extends AdminBuilder{
         return $this->button($title, $attr);
     }
     /*删除按钮*/
-    public function deleteButton($href,$title="删除",$attr = array()){
+    public function deleteButton($href="",$title="删除",$attr = array()){
         //缓存权限
         $attr['href'] = $href?$href:"JavaScript:void(0)";
         $attr['class'] = "am-btn am-btn-default am-btn-danger delete-ajax-post";
@@ -302,7 +302,7 @@ class AdminListBuilder extends AdminBuilder{
         return $this->button($title, $attr);
     }
 
-    public function keyDoAction($getUrl, $text='编辑', $title = '操作')
+    public function keyDoAction($getUrl="", $text='编辑', $title = '操作')
     {
         //获取默认getUrl函数
         if (is_string($getUrl)) {
@@ -332,7 +332,7 @@ class AdminListBuilder extends AdminBuilder{
         return $this;
     }
 
-    public function keyDoActionEdit($getUrl, $text = '编辑')
+    public function keyDoActionEdit($getUrl="", $text = '编辑')
     {
         //缓存权限
         $href = explode("?",$getUrl);
@@ -340,7 +340,7 @@ class AdminListBuilder extends AdminBuilder{
         return $this->keyDoAction($getUrl, $text);
     }
 
-    public function keyLink($name, $title, $getUrl)
+    public function keyLink($name="", $title="", $getUrl="")
     {
         //如果getUrl是一个字符串，则表示getUrl是一个U函数解析的字符串
         if (is_string($getUrl)) {

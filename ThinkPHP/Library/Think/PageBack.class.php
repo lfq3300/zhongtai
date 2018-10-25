@@ -23,12 +23,12 @@ class PageBack{
     public  $nowPage = 1;
     // 分页显示定制
     private $config  = array(
-        'header' => '<span class="rows">共 %TOTAL_ROW% 条记录</span>',
+        'header' => '<span class="rows">    共%TOTAL_PAGE% 页(%LIST_ROW%条/页) , 总共 %TOTAL_ROW% 条记录 </span>',
         'prev'   => '«',
         'next'   => '»',
         'first'  => '1...',
         'last'   => '...%TOTAL_PAGE%',
-        'theme'  => '%FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END%',
+        'theme'  => '%FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END% %LIST_ROW%',
     );
     /**
      * 架构函数
@@ -41,7 +41,7 @@ class PageBack{
         /* 基础设置 */
         $this->totalRows  = $totalRows; //设置总记录数
         $this->listRows   = $listRows;  //设置每页显示行数
-        $this->parameter  = empty($parameter) ? I('get.') : $parameter;
+        $this->parameter  = $_GET;
         $this->nowPage    = empty($_GET[$this->p]) ? 1 : intval($_GET[$this->p]);
         $this->firstRow   = $this->listRows * ($this->nowPage - 1);
     }
@@ -107,6 +107,7 @@ class PageBack{
             $the_end = '<li><a class="end" href="' . $this->url($this->totalPages) . '">' . $this->config['last'] . '</a></li>';
         }
 
+
         //数字连接
         $link_page = "";
         for($i = 1; $i <= $this->rollPage; $i++){
@@ -130,10 +131,11 @@ class PageBack{
                 }
             }
         }
+
         //替换分页内容
         $page_str = str_replace(
-            array('%HEADER%', '%NOW_PAGE%', '%UP_PAGE%', '%DOWN_PAGE%', '%FIRST%', '%LINK_PAGE%', '%END%', '%TOTAL_ROW%', '%TOTAL_PAGE%'),
-            array($this->config['header'], $this->nowPage, $up_page, $down_page, $the_first, $link_page, $the_end, $this->totalRows, $this->totalPages),
+            array('%HEADER%', '%NOW_PAGE%', '%UP_PAGE%', '%DOWN_PAGE%', '%FIRST%', '%LINK_PAGE%', '%END%', '%TOTAL_ROW%', '%TOTAL_PAGE%','%LIST_ROW%'),
+            array($this->config['header'], $this->nowPage, $up_page, $down_page, $the_first, $link_page, $the_end, $this->totalRows, $this->totalPages,$this->listRows),
             $this->config['theme']);
         return "<div class='am-u-lg-12 am-cf'><div class='am-fr'><ul class='am-pagination tpl-pagination'>{$page_str}</ul></div></div>";
     }

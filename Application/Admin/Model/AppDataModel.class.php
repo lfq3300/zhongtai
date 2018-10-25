@@ -37,9 +37,9 @@ class AppDataModel extends CommonModel
             "int_page_from_session_read_count"=>$dataInfo["int_page_from_session_read_count"],
             "int_page_from_hist_msg_read_user"=>$dataInfo["int_page_from_hist_msg_read_user"],
             "int_page_from_hist_msg_read_count"=>$dataInfo["int_page_from_hist_msg_read_count"],
-            "int_page_from_feed_read_user"=>$dataInfo["int_page_from_feed_read_user"],
             "int_page_from_feed_read_count"=>$dataInfo["int_page_from_feed_read_count"],
             "int_page_from_friends_read_user"=>$dataInfo["int_page_from_friends_read_user"],
+            "int_page_from_feed_read_user"=>$dataInfo["int_page_from_feed_read_user"],
             "int_page_from_friends_read_count"=>$dataInfo["int_page_from_friends_read_count"],
             "int_page_from_other_read_user"=>$dataInfo["int_page_from_other_read_user"],
             "int_page_from_other_read_count"=>$dataInfo["int_page_from_other_read_count"],
@@ -69,21 +69,16 @@ class AppDataModel extends CommonModel
             $msgId = $dataInfo["msgid"];
             $title = $dataInfo["title"];
             $dataInfo = $dataInfo["details"][7-$val["num"]];
-            $int_page_read_user = $dataInfo["int_page_read_user"] - $yesterInfo["int_page_read_user"];
+            $int_page_read_user = $dataInfo["int_page_read_user"]- $yesterInfo["int_page_read_user"];
             $int_page_read_count  = $dataInfo["int_page_read_count"] -  $yesterInfo["int_page_read_count"];
             $ori_page_read_user = $dataInfo["ori_page_read_user"] - $yesterInfo["ori_page_read_user"];
             $ori_page_read_count = $dataInfo["ori_page_read_count"] - $yesterInfo["ori_page_read_count"];
             $int_page_from_session_read_user = $dataInfo["int_page_from_session_read_user"] - $yesterInfo["int_page_from_session_read_user"];
             $int_page_from_session_read_count = $dataInfo["int_page_from_session_read_count"] - $yesterInfo["int_page_from_session_read_count"];
-            $int_page_from_hist_msg_read_user = $dataInfo["int_page_from_hist_msg_read_user"] - $yesterInfo["int_page_from_hist_msg_read_user"];
-            $int_page_from_hist_msg_read_count = $dataInfo["int_page_from_hist_msg_read_count"] - $yesterInfo["int_page_from_hist_msg_read_count"];
             $int_page_from_feed_read_user = $dataInfo["int_page_from_feed_read_user"] - $yesterInfo["int_page_from_feed_read_user"];
             $int_page_from_feed_read_count = $dataInfo["int_page_from_feed_read_count"] - $yesterInfo["int_page_from_feed_read_count"];
-
             $int_page_from_friends_read_user = $dataInfo["int_page_from_friends_read_user"] - $yesterInfo["int_page_from_friends_read_user"];
             $int_page_from_friends_read_count = $dataInfo["int_page_from_friends_read_count"] - $yesterInfo["int_page_from_friends_read_count"];
-            $int_page_from_other_read_user = $dataInfo["int_page_from_other_read_user"] - $yesterInfo["int_page_from_other_read_user"];
-            $int_page_from_other_read_count = $dataInfo["int_page_from_other_read_count"] - $yesterInfo["int_page_from_other_read_count"];
             $share_user = $dataInfo["share_user"] - $yesterInfo["share_user"];
             $share_count = $dataInfo["share_count"] - $yesterInfo["share_count"];
             $add_to_fav_user = $dataInfo["add_to_fav_user"] - $yesterInfo["add_to_fav_user"];
@@ -102,20 +97,16 @@ class AppDataModel extends CommonModel
                 "add_to_fav_count"=>$add_to_fav_count,
                 "int_page_from_session_read_user"=>$int_page_from_session_read_user,
                 "int_page_from_session_read_count"=> $int_page_from_session_read_count,
-                "int_page_from_hist_msg_read_user"=>$int_page_from_hist_msg_read_user,
-                "int_page_from_hist_msg_read_count"=> $int_page_from_hist_msg_read_count,
                 "int_page_from_feed_read_user"=>$int_page_from_feed_read_user,
                 "int_page_from_feed_read_count"=>$int_page_from_feed_read_count,
                 "int_page_from_friends_read_user"=>$int_page_from_friends_read_user,
                 "int_page_from_friends_read_count"=>$int_page_from_friends_read_count,
-                "int_page_from_other_read_user"=>$int_page_from_other_read_user,
-                "int_page_from_other_read_count"=>$int_page_from_other_read_count,
                 "target_user"=>$dataInfo["target_user"],
                 "appid"=>$val['appid'],
-                "active_percent"=>  $dataInfo["int_page_read_user"] / $fans * 100, //阅读总量 / 总粉丝
-                "share_percent"=> $dataInfo["share_user"] / $dataInfo['int_page_read_count'] * 100, // 分享转发量/总阅读量
-                "conversation_percent"=> $dataInfo['int_page_from_session_read_user'] / $fans * 100,  //公众号会话 / 总粉丝
-                "open_percent"=>$dataInfo["int_page_from_feed_read_user"] / $fans * 100, //朋友圈打开 /  总粉丝
+                "active_percent"=>  $int_page_read_user / $fans * 100, //阅读总量 / 总粉丝
+                "share_percent"=> $share_user / $int_page_read_count * 100, // 分享转发量/总阅读量
+                "conversation_percent"=> $int_page_from_session_read_user / $fans * 100,  //公众号会话 / 总粉丝
+                "open_percent"=>$int_page_from_feed_read_user / $fans * 100, //朋友圈打开 /  总粉丝
                 "creater_time"=>date("Y-m-d H:i:s")
             );
             $ret = M("app_data")->lock(true)->add($data);
@@ -141,11 +132,7 @@ class AppDataModel extends CommonModel
               SUM(int_page_from_friends_read_count) AS int_page_from_friends_read_count,
               SUM(int_page_from_friends_read_user) AS int_page_from_friends_read_user,
               SUM(add_to_fav_count) AS add_to_fav_count,
-              SUM(add_to_fav_user) AS add_to_fav_user,
-              SUM(int_page_from_other_read_count) AS int_page_from_other_read_count,
-              SUM(int_page_from_other_read_user) AS int_page_from_other_read_user,
-              SUM(int_page_from_hist_msg_read_count) AS int_page_from_hist_msg_read_count,
-              SUM(int_page_from_hist_msg_read_user) AS int_page_from_hist_msg_read_user,
+              SUM(add_to_fav_user) AS add_to_fav_user
             FROM
               mc_app_data 
             WHERE msgid = '$msgId'");

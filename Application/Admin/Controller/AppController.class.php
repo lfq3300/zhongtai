@@ -9,16 +9,18 @@ namespace Admin\Controller;
 use Admin\Builder\AdminListBuilder;
 use Admin\Builder\AdminConfigBuilder;
 use Admin\Controller\AuthorizeController;
-use Think\Controller;
+use Common\Excel\UploadExcel;
 
-class AppController extends Controller {
+class AppController extends AdminController {
     public function index($r = 20){
         $builder = new AdminListBuilder();
-        $page = I("get.page");
-        list($list,$count) = D("App")->getList($page,$r);
+        $page = I("get.page",1,"intval");
+        $query = I("get.query");
+        list($list,$count) = D("App")->getList($page,$r,$query);
         $group = D("AppGroup")->getList(true);
         $builder
             ->title("公众号列表")
+            ->query(["state"=>true,"url"=>U("index"),"placeholder"=>"公众号名称",'value'=>$query])
             ->powerAdd(U("add"))
             ->keyText("responsible","负责人")
             ->keyStatus("group_id",'分类',$group)
@@ -81,24 +83,122 @@ class AppController extends Controller {
         $this->display();
     }
 
-    public function operate(){
+    public function operate($r = 20){
         $builder = new AdminListBuilder();
-        $list = D("App")->getAppData(I("get.id"));
+        $page =  I("get.page",1,"intval");
+        $stime = I("get.startime");
+        $etime = I("get.endtime");
+        $id = I("get.id");
+        $nick_name = I("get.nick_name");
+        list($list,$count) = D("App")->getAppData($id,$page,$r,$stime,$etime);
         $builder
-            ->title(I("get.nick_name")."  运营数据")
-            ->keyText("nick_name","平台名称")
-            ->keyText("cumulate_user","总粉丝数")
-            ->keyText("new_user","新增粉丝")
-            ->keyText("pure_user","净增粉丝")
-            ->keyText("int_page_read_user","图文阅读人数")
-            ->keyText("int_page_from_session_read_user","会话打开人数")
-            ->keyText("int_page_from_friends_read_user","朋友圈打开人数")
-            ->keyText("conversation","分享转发次数")
+            ->title($nick_name."  运营数据")
+            ->query(["url"=>U("operate",array("id"=>$id,"nick_name"=>$nick_name))])
+            ->hidequery()
+            ->queryStarTime($stime)
+            ->queryEndTime($etime)
+            ->powerExport(U("oexcel",array("startime"=>$stime,"endtime"=>$etime,"id"=>$id,"nick_name"=>$nick_name)))
+            ->keyText("ref_date","日期")
+            ->keyText("cumulate_user","总粉丝")
+            ->keyText("pure_user","净粉丝")
+            ->keyText("new_user","新粉丝")
+            ->keyText("int_page_read_user","图文阅读")
+            ->keyText("int_page_from_session_read_user","会话打开")
+            ->keyText("int_page_from_feed_read_user","朋友圈打开")
+            ->keyText("share_user","分享转发")
             ->keyText("active_percent","活跃度")
             ->keyText("conversation_percent","会话打开")
             ->keyText("open_percent","朋友圈打开")
             ->keyText("share_percent","分享转发")
+            ->keyText("responsible","负责人")
+            ->keyText("position","部门")
+            ->data($list)
+            ->pagination($count,$r)
             ->display();
     }
 
+    public function oexcel(){
+        $stime = I("get.startime");
+        $etime = I("get.endtime");
+        $id = I("get.id");
+        $info = D("App")->excelAppData($id,$stime,$etime);
+        $nick_name = I("get.nick_name");
+        $data = array();
+        foreach ($info as $k=>$goods_info){
+            $data[$k][nick_name] = $nick_name;
+            $data[$k][ref_date] = $goods_info['ref_date'];
+            $data[$k][cumulate_user] = $goods_info['cumulate_user'];
+            $data[$k][pure_user] = $goods_info['pure_user'];
+            $data[$k][new_user] = $goods_info['new_user'];
+            $data[$k][int_page_read_user] = $goods_info['int_page_read_user'];
+            $data[$k][int_page_from_session_read_user] = $goods_info['int_page_from_session_read_user'];
+            $data[$k][int_page_from_feed_read_user] = $goods_info['int_page_from_feed_read_user'];
+            $data[$k][share_user] = $goods_info['share_user'];
+            $data[$k][active_percent] = $goods_info['active_percent'];
+            $data[$k][conversation_percent] = $goods_info['conversation_percent'];
+            $data[$k][open_percent] = $goods_info['open_percent'];
+            $data[$k][share_percent] = $goods_info['share_percent'];
+            $data[$k][responsible] = $goods_info['responsible'];
+            $data[$k][position] = $goods_info['position'];
+        }
+        foreach ($data as $field=>$v){
+            if($field == 'nick_name'){
+                $headArr[]='公众号';
+            }
+            if($field == 'ref_date'){
+                $headArr[]='日期';
+            }
+            if($field == 'cumulate_user'){
+                $headArr[]='总粉丝';
+            }
+            if($field == 'pure_user'){
+                $headArr[]='净粉丝';
+            }
+            if($field == 'new_user'){
+                $headArr[]='新粉丝';
+            }
+            if($field == 'int_page_read_user'){
+                $headArr[]='图文阅读';
+            }
+            if($field == 'int_page_from_session_read_user'){
+                $headArr[]='会话打开';
+            }
+            if($field == 'int_page_from_feed_read_user'){
+                $headArr[]='朋友圈打开';
+            }
+            if($field == 'share_user'){
+                $headArr[]='分享转发';
+            }
+            if($field == 'active_percent'){
+                $headArr[]='活跃度';
+            }
+            if($field == 'conversation_percent'){
+                $headArr[]='会话打开';
+            }
+            if($field == 'open_percent'){
+                $headArr[]='朋友圈打开';
+            }
+            if($field == 'share_percent'){
+                $headArr[]='分享转发';
+            }
+            if($field == 'responsible'){
+                $headArr[]='负责人';
+            }
+            if($field == 'position'){
+                $headArr[]='部门';
+            }
+        }
+        $filename=$nick_name.time();
+        $Excel = new UploadExcel();
+        $Excel->getExcel($filename,$headArr,$data);
+    }
+
+    public function appGroup(){
+        $builder = new AdminListBuilder();
+        $builder
+            ->title("公众号分组列表")
+            ->keyText("","分组")
+            ->keyText("","")
+            ->display();
+    }
 }

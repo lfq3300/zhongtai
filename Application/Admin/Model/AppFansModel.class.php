@@ -12,14 +12,20 @@ class AppFansModel extends CommonModel
 {
     public function addFans($send_result,$send_result2,$appid,$time){
             $send_result = json_decode($send_result, true);
-            list($fans) = $send_result["list"];
+            $new_user = 0;
+            $cancel_user = 0;
+            $fans = $send_result["list"];
+            foreach ($fans as $val){
+                $new_user += $val['new_user'];
+                $cancel_user += $val['cancel_user'];
+            }
             $send_result2 = json_decode($send_result2, true);
             list($fansCount) = $send_result2["list"];
             $data = array(
                 "ref_date"=>$time." 00:00:00",
-                "new_user"=>$fans["new_user"],
-                "cancel_user"=>$fans["cancel_user"],
-                "pure_user"=>$fans["new_user"] -  $fans["cancel_user"],
+                "new_user"=>$new_user,
+                "cancel_user"=>$cancel_user,
+                "pure_user"=>$new_user -  $cancel_user,
                 "cumulate_user"=>$fansCount["cumulate_user"],
                 "creater_time"=>date("Y-m-d H:i:s")
             );

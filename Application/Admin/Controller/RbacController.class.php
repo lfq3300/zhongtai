@@ -196,7 +196,6 @@ class RbacController extends AdminController{
         $builder
             ->title("菜单管理")
             ->newButton(U("addMenu"))
-           // ->deleteButton(U("deleteMenu"))
             ->keyLink('title','标题',"nextMenu?id=###")
             ->keyText('p_title','所属目录')
             ->keyText('url','连接')
