@@ -164,6 +164,7 @@ class RbacController extends AdminController{
                 ->keyText("account",array("title"=>"账号"))
                 ->keyText("password",array("title"=>"密码"))
                 ->data(array("role_id"=>$groupid))
+                ->buttonSubmit()
                 ->display();
         }
     }
