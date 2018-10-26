@@ -53,7 +53,7 @@ return array(
     'PASTREAD'=>'GM6s8DhzQQVrWvdgWyUKwuo6HWeoqofy',
 	'SETNUM'=>'u8tqgmBgpa6zCwF45FSqOmKwj76cO0N1',
 	'HISTORY'=>'vqYgI8aexYgFtVGQL7IxrK6AyBprOmZ6',
-	'YESTERDAY'=>"2018-09-18", //18 19 20  21  22 23 24   17 -  25 9天数据
+	'YESTERDAY'=>date("Y-m-d"),
 	'HISDAY'=>"2018-03-01"
 	//date("Y-m-d",strtotime("-1 day"))
 )
