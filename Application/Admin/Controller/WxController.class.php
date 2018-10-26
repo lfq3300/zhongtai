@@ -214,6 +214,7 @@ class WxController extends Controller
 
     //同步历史记录  今年历史3月份开始  必须先确保之前的定时任务完成  才执行
     public function  synchronHistoryData(){
+
         G("begin");
         $token = C(HISTORY);I("get.token");
         if (C(HISTORY) == $token){
@@ -223,17 +224,19 @@ class WxController extends Controller
             $day = ($thisday-$time)/86400;
             $appList = D("App")->getHisList();
             foreach ($appList as $key => $val){
-               for ($i = 0;$i<$day;$i++){
+           //    for ($i = 0;$i<$day;$i++){
                     $Auth = new AuthorizeController();
                     $access_token = $Auth->refreshAccessToken($val["appid"], $val["authorizer_refresh_token"]);
+                    print_r($access_token);
+                    exit;
                     $url = "https://api.weixin.qq.com/datacube/getarticletotal?access_token=$access_token";
                     $data = array(
-                        "begin_date" =>'2018-07-05', //date("Y-m-d",strtotime("$hisday +$i day")),
-                        "end_date" =>'2018-07-05', //date("Y-m-d",strtotime("$hisday+$i day"))
+                        "begin_date" =>'2018-10-16', //date("Y-m-d",strtotime("$hisday +$i day")),
+                        "end_date" =>'2018-10-16', //date("Y-m-d",strtotime("$hisday+$i day"))
                     );
                     $send_result = curl_get_https($url, json_encode($data, true));
                     D("AppData")->addHisData($send_result,$val["appid"]);
-                }
+            //    }
             }
         }
         G("end");
