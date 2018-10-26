@@ -59,6 +59,17 @@ class AppModel extends CommonModel
         return $appList;
     }
 
+    public function getHisList(){
+        if (S("hislist")) {
+            $appList = S("hislist");
+        } else {
+            $appList = M()->query(" SELECT id,appid,authorizer_refresh_token,verify_type_info FROM mc_app WHERE  verify_type_info = 0 AND synchron = 1 ");
+            // 查询 全部公众号 然后请求 公众号数据  必须通过微信公众号认证  获取用户增长的话
+            S("hislist", $appList, 14400);
+        }
+        return $appList;
+    }
+
     public function getInfo($id){
         list($data) = M()->query("SELECT nick_name,head_img,id,responsible,position,group_id FROM mc_app where id = $id limit 1");
         return $data;

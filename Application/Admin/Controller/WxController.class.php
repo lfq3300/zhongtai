@@ -6,6 +6,11 @@ use Admin\Builder\AdminConfigBuilder;
 
 class WxController extends Controller
 {
+
+    public function index(){
+        echo "success";
+    }
+
     /*
      * 每隔10分钟 微信回调并且更新 ticket  存入数据库
      */
@@ -159,7 +164,7 @@ class WxController extends Controller
         $token = C(FANSTOKEN);
         I("get.token");
         if (C(FANSTOKEN) == $token){
-            $appList = D("App")->getEffeList();
+            $appList = D("App")->getHisList();
             foreach ($appList as $key => $val){
                 $Auth = new AuthorizeController();
                 $access_token = $Auth->refreshAccessToken($val["appid"], $val["authorizer_refresh_token"]);
@@ -178,13 +183,14 @@ class WxController extends Controller
     }
 
     public function synchronHistoryFans(){
+        G("begin");
         $token = C(HISTORY);I("get.token");
         if (C(HISTORY) == $token){
             $hisday = C(HISDAY);
             $time = strtotime($hisday);
             $thisday = strtotime(date("Y-m-d",strtotime("-1 day")));
             $day = ($thisday-$time)/86400;
-            $appList = D("App")->getEffeList();
+            $appList = D("App")->getHisList();
             foreach ($appList as $key => $val){
                 for ($i = 0;$i<$day;$i++){
                     $Auth = new AuthorizeController();
@@ -201,6 +207,9 @@ class WxController extends Controller
                 }
            }
         }
+        G("end");
+        echo G('begin','end').'s';
+        echo G('begin','end','m').'kb';
     }
 
     //同步历史记录  今年历史3月份开始  必须先确保之前的定时任务完成  才执行
@@ -214,7 +223,7 @@ class WxController extends Controller
             $day = ($thisday-$time)/86400;
             $appList = D("App")->getEffeList();
             foreach ($appList as $key => $val){
-             //   for ($i = 0;$i<$day;$i++){
+               for ($i = 0;$i<$day;$i++){
                     $Auth = new AuthorizeController();
                     $access_token = $Auth->refreshAccessToken($val["appid"], $val["authorizer_refresh_token"]);
                     $url = "https://api.weixin.qq.com/datacube/getarticletotal?access_token=$access_token";
@@ -224,7 +233,7 @@ class WxController extends Controller
                     );
                     $send_result = curl_get_https($url, json_encode($data, true));
                     D("AppData")->addHisData($send_result,$val["appid"]);
-             //   }
+                }
             }
         }
         G("end");
