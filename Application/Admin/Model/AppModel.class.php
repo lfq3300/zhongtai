@@ -75,6 +75,13 @@ class AppModel extends CommonModel
         return $data;
     }
 
+    public function saveSynchron($appid){
+        $res = M()->query("UPDAE mc_app set synchron = 2 where appid = $appid");
+        if($res === false){
+            writeLog('error',M()->getLastSql());
+            writeLog('data',json_encode($c,true));
+        }
+    }
 
 
 

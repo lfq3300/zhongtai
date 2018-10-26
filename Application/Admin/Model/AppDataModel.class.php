@@ -19,6 +19,17 @@ class AppDataModel extends CommonModel
             $msgId = $b["msgid"];
             $title = $b["title"];
             $dataInfo = $b["details"][0];
+
+            if($fans == 0){
+                $active_percent = 0;
+                $conversation_percent = 0;
+                $open_percent = 0;
+            }else{
+                $active_percent = $dataInfo["int_page_read_user"] / $fans * 100;
+                $conversation_percent = $dataInfo['int_page_from_session_read_user'] / $fans * 100;
+                $open_percent = $dataInfo["int_page_from_feed_read_user"] / $fans * 100;
+            }
+            $dataInfo['int_page_read_count'] == 0?$share_percent = 0:$share_percent = $dataInfo["share_user"] / $dataInfo['int_page_read_count'] * 100;
             $c = array(
                 "msgid"=>$msgId,
                 "title"=>$title,
@@ -43,10 +54,10 @@ class AppDataModel extends CommonModel
                 "int_page_from_other_read_count"=>$dataInfo["int_page_from_other_read_count"],
                 "target_user"=>$dataInfo["target_user"],
                 "appid"=>$appid,
-                "active_percent"=> $dataInfo["int_page_read_user"] / $fans * 100, //阅读量 / 总粉丝
-                "share_percent"=>$dataInfo["share_user"] / $dataInfo['int_page_read_count'] * 100, // 分享转发量/总阅读量
-                "conversation_percent"=> $dataInfo['int_page_from_session_read_user'] / $fans * 100,  //公众号会话 / 总粉丝
-                "open_percent"=>$dataInfo["int_page_from_feed_read_user"] / $fans * 100, //朋友圈打开 /  总粉丝
+                "active_percent"=> $active_percent, //阅读量 / 总粉丝
+                "share_percent"=> $share_percent, // 分享转发量/总阅读量
+                "conversation_percent"=> $conversation_percent,  //公众号会话 / 总粉丝
+                "open_percent"=>$open_percent, //朋友圈打开 /  总粉丝
                 "creater_time"=>date("Y-m-d H:i:s")
             );
             $ret = M("app_data")->lock(true)->add($c);
@@ -64,7 +75,7 @@ class AppDataModel extends CommonModel
         foreach($data as $key=>$val){
             $details = $val['details'];
             foreach ($details as $k=>$dataInfo){
-                $fans = D("AppFans")->getFansCount($appid,$dataInfo['stat_date']);
+                $fans = D("AppFans")->getFansCount($appid,$dataInfo['stat_date']); // 43327
                 $yesterInfo = D("AppData")->yesterdayRead($val["msgid"]);
                 if(empty($yesterInfo)){
                     $yesterInfo = array(
@@ -84,6 +95,11 @@ class AppDataModel extends CommonModel
                         "add_to_fav_count"=>0,
                     );
                 }
+                echo "<br/>";
+                print_r($dataInfo);
+                echo "<br/>";
+                print_r($yesterInfo);
+                echo "<br/>";
                 $int_page_read_user = $dataInfo["int_page_read_user"] - $yesterInfo["int_page_read_user"];
                 $int_page_read_count  = $dataInfo["int_page_read_count"] -  $yesterInfo["int_page_read_count"];
                 $ori_page_read_user = $dataInfo["ori_page_read_user"] - $yesterInfo["ori_page_read_user"];
@@ -98,6 +114,17 @@ class AppDataModel extends CommonModel
                 $share_count = $dataInfo["share_count"] - $yesterInfo["share_count"];
                 $add_to_fav_user = $dataInfo["add_to_fav_user"] - $yesterInfo["add_to_fav_user"];
                 $add_to_fav_count = $dataInfo["add_to_fav_count"] - $yesterInfo["add_to_fav_count"];
+                if($fans == 0){
+                    $active_percent = 0;
+                   $conversation_percent = 0;
+                    $open_percent = 0;
+                }else{
+                    $active_percent = $int_page_read_user / $fans * 100;
+                    $conversation_percent = $int_page_from_session_read_user / $fans * 100;
+                    $open_percent = $int_page_from_feed_read_user / $fans * 100;
+                }
+                $int_page_read_count == 0?$share_percent = 0:$share_percent = $share_user / $int_page_read_count * 100;
+
                 $c = array(
                     "msgid"=>$val["msgid"],
                     "title"=>$val["title"],
@@ -118,10 +145,10 @@ class AppDataModel extends CommonModel
                     "int_page_from_friends_read_count"=>$int_page_from_friends_read_count,
                     "target_user"=>$dataInfo["target_user"],
                     "appid"=>$appid,
-                    "active_percent"=>  $int_page_read_user / $fans * 100, //阅读总量 / 总粉丝
-                    "share_percent"=> $share_user / $int_page_read_count * 100, // 分享转发量/总阅读量
-                    "conversation_percent"=> $int_page_from_session_read_user / $fans * 100,  //公众号会话 / 总粉丝
-                    "open_percent"=>$int_page_from_feed_read_user / $fans * 100, //朋友圈打开 /  总粉丝
+                    "active_percent"=> $active_percent, //阅读总量 / 总粉丝
+                    "share_percent"=>$share_percent, // 分享转发量/总阅读量
+                    "conversation_percent"=> $conversation_percent,  //公众号会话 / 总粉丝
+                    "open_percent"=>$open_percent, //朋友圈打开 /  总粉丝
                     "creater_time"=>date("Y-m-d H:i:s")
                 );
                 $ret = M("app_data")->lock(true)->add($c);
@@ -156,6 +183,16 @@ class AppDataModel extends CommonModel
             $share_count = $dataInfo["share_count"] - $yesterInfo["share_count"];
             $add_to_fav_user = $dataInfo["add_to_fav_user"] - $yesterInfo["add_to_fav_user"];
             $add_to_fav_count = $dataInfo["add_to_fav_count"] - $yesterInfo["add_to_fav_count"];
+            if($fans == 0){
+                $active_percent = 0;
+                $conversation_percent = 0;
+                $open_percent = 0;
+            }else{
+                $active_percent = $int_page_read_user / $fans * 100;
+                $conversation_percent = $int_page_from_session_read_user / $fans * 100;
+                $open_percent = $int_page_from_feed_read_user / $fans * 100;
+            }
+            $int_page_read_count == 0?$share_percent = 0:$share_percent = $share_user / $int_page_read_count * 100;
             $c = array(
                 "msgid"=>$msgId,
                 "title"=>$title,
@@ -176,10 +213,10 @@ class AppDataModel extends CommonModel
                 "int_page_from_friends_read_count"=>$int_page_from_friends_read_count,
                 "target_user"=>$dataInfo["target_user"],
                 "appid"=>$val['appid'],
-                "active_percent"=>  $int_page_read_user / $fans * 100, //阅读总量 / 总粉丝
-                "share_percent"=> $share_user / $int_page_read_count * 100, // 分享转发量/总阅读量
-                "conversation_percent"=> $int_page_from_session_read_user / $fans * 100,  //公众号会话 / 总粉丝
-                "open_percent"=>$int_page_from_feed_read_user / $fans * 100, //朋友圈打开 /  总粉丝
+                "active_percent"=> $active_percent, //阅读总量 / 总粉丝
+                "share_percent"=>$share_percent, // 分享转发量/总阅读量
+                "conversation_percent"=> $conversation_percent,  //公众号会话 / 总粉丝
+                "open_percent"=>$open_percent, //朋友圈打开 /  总粉丝
                 "creater_time"=>date("Y-m-d H:i:s")
             );
             $ret = M("app_data")->lock(true)->add($c);
