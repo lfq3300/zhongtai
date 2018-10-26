@@ -102,8 +102,8 @@ class WxController extends Controller
     // 每天一点  获取 最新文章 的阅读量  所以不需要减去昨日阅读的人数
     public function getRead()
     {
-        $token = C(FANSTOKEN);I("get.token");
-        if (C(FANSTOKEN) == $token){
+        $token = C(READTOKEN);I("get.token");
+        if (C(READTOKEN) == $token){
             $appList = D("App")->getEffeList();
             foreach ($appList as $key => $val){
                 $Auth = new AuthorizeController();
@@ -115,7 +115,6 @@ class WxController extends Controller
                     "end_date" =>$time
                 );
                 $send_result = curl_get_https($url, json_encode($data, true));
-                // 获取总粉丝
                 D("AppData")->addData($send_result,$val["appid"]);
                 D("ArticleTerm")->addData($send_result,$val["appid"]);
             }
@@ -137,8 +136,7 @@ class WxController extends Controller
                     "end_date" =>$time
                 );
                 $send_result = curl_get_https($url, json_encode($data, true));
-                $yesterInfo = D("AppData")->yesterdayRead($val["msgid"]);
-                D("AppData")->addPastData($send_result,$val,$yesterInfo);
+                D("AppData")->addPastData($send_result,$val);
             }
         }
     }
@@ -152,8 +150,6 @@ class WxController extends Controller
             D("ArticleTerm")->deOver();
         }
     }
-
-
 
 
     //每天一点 15分钟  获取粉丝数量信息
@@ -181,5 +177,59 @@ class WxController extends Controller
         }
     }
 
+    public function synchronHistoryFans(){
+        $token = C(HISTORY);I("get.token");
+        if (C(HISTORY) == $token){
+            $hisday = C(HISDAY);
+            $time = strtotime($hisday);
+            $thisday = strtotime(date("Y-m-d",strtotime("-1 day")));
+            $day = ($thisday-$time)/86400;
+            $appList = D("App")->getEffeList();
+            foreach ($appList as $key => $val){
+                for ($i = 0;$i<$day;$i++){
+                    $Auth = new AuthorizeController();
+                    $access_token = $Auth->refreshAccessToken($val["appid"], $val["authorizer_refresh_token"]);
+                    $url = "https://api.weixin.qq.com/datacube/getusersummary?access_token=$access_token";
+                    $url2 = "https://api.weixin.qq.com/datacube/getusercumulate?access_token=$access_token";
+                    $data = array(
+                        "begin_date" => date("Y-m-d",strtotime("$hisday +$i day")),
+                        "end_date" => date("Y-m-d",strtotime("$hisday +$i day"))
+                    );
+                    $send_result = curl_get_https($url, json_encode($data, true));
+                    $send_result2 = curl_get_https($url2, json_encode($data, true));
+                    D("AppFans")->addFans($send_result,$send_result2,$val["appid"],date("Y-m-d",strtotime("$hisday +$i day")));
+                }
+           }
+        }
+    }
+
+    //同步历史记录  今年历史3月份开始  必须先确保之前的定时任务完成  才执行
+    public function  synchronHistoryData(){
+        G("begin");
+        $token = C(HISTORY);I("get.token");
+        if (C(HISTORY) == $token){
+            $hisday = C(HISDAY);
+            $time = strtotime($hisday);
+            $thisday = strtotime(date("Y-m-d",strtotime("-1 day")));
+            $day = ($thisday-$time)/86400;
+            $appList = D("App")->getEffeList();
+            foreach ($appList as $key => $val){
+             //   for ($i = 0;$i<$day;$i++){
+                    $Auth = new AuthorizeController();
+                    $access_token = $Auth->refreshAccessToken($val["appid"], $val["authorizer_refresh_token"]);
+                    $url = "https://api.weixin.qq.com/datacube/getarticletotal?access_token=$access_token";
+                    $data = array(
+                        "begin_date" =>'2018-07-05', //date("Y-m-d",strtotime("$hisday +$i day")),
+                        "end_date" =>'2018-07-05', //date("Y-m-d",strtotime("$hisday+$i day"))
+                    );
+                    $send_result = curl_get_https($url, json_encode($data, true));
+                    D("AppData")->addHisData($send_result,$val["appid"]);
+             //   }
+            }
+        }
+        G("end");
+        echo G('begin','end').'s';
+        echo G('begin','end','m').'kb';
+    }
 }
 ?>

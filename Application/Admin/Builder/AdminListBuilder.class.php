@@ -98,8 +98,8 @@ class AdminListBuilder extends AdminBuilder{
         return $this;
     }
 
-    public function keyText($name, $title){
-        return $this->key($name, $title,"text");
+    public function keyText($name, $title,$opt = []){
+        return $this->key($name, $title,"text",$opt);
     }
 
     public  function  keyTime($name, $title,$opt = []){
@@ -134,7 +134,7 @@ class AdminListBuilder extends AdminBuilder{
     }
 
     public  function  queryselect($arrvalue = '',$opt =[],$name='queryType'){
-        $opt["defaultvalue"]=$opt["defaultvalue"]?$opt["defaultvalue"]:0;
+      //  $opt["defaultvalue"]=$opt["defaultvalue"]?$opt["defaultvalue"]:0;
         $opt["title"]=$opt["title"]?$opt["title"]:0;
         $opt["select"]=$opt["select"]?$opt["select"]:0;
         $this->_queryselect[] = array("arrvalue"=>$arrvalue,"name"=>$name,'opt'=>$opt);
@@ -455,6 +455,8 @@ class AdminListBuilder extends AdminBuilder{
           //  $item['time']?$pattern=str_replace('{time}', $item['time'], $pattern):$item['time'];
             $pattern = str_replace('###', $item['id'], $pattern);
             $pattern = str_replace('n#', $item['nick_name'], $pattern);
+            $pattern = str_replace('r#', $item['responsible'], $pattern);
+
             //调用ThinkPHP中的解析引擎解析变量
             $view = new \Think\View();
             $view->assign($item);

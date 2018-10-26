@@ -12,23 +12,22 @@ class ArticleTermModel extends CommonModel
 {
     public function addData($send_result,$appid){
         $send_result = json_decode($send_result, true);
-        list($dataInfo) = $send_result["list"];
-        if (empty($dataInfo)){
-            return ;
-        }
-        $ref_date =  $dataInfo["ref_date"];
-        $msgId = $dataInfo["msgid"];
-        $title = $dataInfo["title"];
-        $data = array(
-            "msgid"=>$msgId,
-            "title"=>$title,
-            "ref_date"=>$ref_date,
-            "appid"=>$appid
-        );
-        $ret = M("article_term")->add($data);
-        if (!$ret){
-            writeLog('error',M()->getLastSql());
-            writeLog('data',json_encode($data,true));
+        $data = $send_result["list"];
+        foreach ($data as $dataInfo=>$key){
+            $ref_date =  $dataInfo["ref_date"];
+            $msgId = $dataInfo["msgid"];
+            $title = $dataInfo["title"];
+            $data = array(
+                "msgid"=>$msgId,
+                "title"=>$title,
+                "ref_date"=>$ref_date,
+                "appid"=>$appid
+            );
+            $ret = M("article_term")->add($data);
+            if (!$ret){
+                writeLog('error',M()->getLastSql());
+                writeLog('data',json_encode($data,true));
+            }
         }
     }
 

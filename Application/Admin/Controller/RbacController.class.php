@@ -476,7 +476,7 @@ class RbacController extends AdminController{
                 ->title("修改菜单")
                 ->keyHidden("id")
                 ->keyHidden("p_id")
-                ->keySelect("p_id",array("title"=>"所属目录","select"=>$pidList))
+                ->keySelect("p_id",array("title"=>"所属目录","select"=>$pidList,"value"=>$p_id))
                 ->keyText("title",array("title"=>"标题"))
                 ->keyText('url',array("title"=>"菜单连接","placeholder"=>"一级目录无需连接"))
                 ->keyText("sort",array("title"=>"排序"))

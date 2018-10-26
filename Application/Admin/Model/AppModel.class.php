@@ -28,11 +28,15 @@ class AppModel extends CommonModel
         return M("app")->where(array("id"=>$id))->save($data);
     }
 
-    public function  getList($page,$r,$query){
+    public function  getList($page,$r,$query,$queryType){
         $row = ($page-1) * $r;
         $where = "";
         if(!empty($query)){
-            $where = " WHERE nick_name like '%$query%'";
+            if($queryType == 1){
+                $where = " WHERE nick_name like '%$query%'";
+            }else{
+                $where = " WHERE responsible like '%$query%'";
+            }
         }
         $data = M()->query("SELECT id,nick_name,service_type_info,
                             verify_type_info,principal_name,head_img,
@@ -60,59 +64,7 @@ class AppModel extends CommonModel
         return $data;
     }
 
-    public function getAppData($id,$page,$r,$stime,$etime){
-        $row = ($page-1) * $r;
-        $where = "";
-        if (!empty($stime) || !empty($etime)){
-            if(strtotime($etime)>strtotime($stime)){
-                if ($stime && $etime){
-                    $where = " AND A.ref_date BETWEEN '$stime 00:00:00' AND '$etime 00:00:00' ";
-                }else if ($stime){
-                    $where = " AND A.ref_date > '$stime 00:00:00' ";
-                }else if ($etime){
-                    $where = " AND A.ref_date < '$etime 00:00:00' ";
-                }
-            }else if (strtotime($etime)==strtotime($stime)){
-                $where = " AND A.ref_date = '$stime 00:00:00' ";
-            }
-        }
-        list($app) = M()->query("SELECT appid,responsible,`position` FROM mc_app where id = $id limit 1");
-        $appid = $app["appid"];
-        $responsible = $app["responsible"];
-        $position = $app["position"];
-        $info = M()->query(" SELECT B.cumulate_user,B.new_user,B.pure_user,DATE_FORMAT(A.ref_date,'%Y-%m-%d') as ref_date,'$responsible' as responsible,'$position' as `position`,
-                             A.int_page_read_user,A.int_page_read_count,A.int_page_from_session_read_user,A.int_page_from_feed_read_user,A.share_user,A.active_percent,A.conversation_percent,A.open_percent,A.share_percent
-                             FROM mc_app_data as A INNER JOIN  mc_app_fans as 
-                             B on (A.appid = B.appid and A.ref_date = B.ref_date) 
-                             WHERE A.appid = '$appid' $where ORDER  BY A.id desc limit $row,$r");
-        list($count) = M()->query(" SELECT count(*) AS len  FROM mc_app_data as A INNER JOIN  mc_app_fans as B on (A.appid = B.appid and A.ref_date = B.ref_date) WHERE A.appid = '$appid' $where ORDER  BY A.id desc");
-        return array($info,$count['len']);
-    }
 
-    public function excelAppData($id,$stime,$etime){
-        $where = "";
-        if (!empty($stime) || !empty($etime)){
-            if(strtotime($etime)>strtotime($stime)){
-                if ($stime && $etime){
-                    $where = " AND A.ref_date BETWEEN '$stime 00:00:00' AND '$etime 00:00:00' ";
-                }else if ($stime){
-                    $where = " AND A.ref_date > '$stime 00:00:00' ";
-                }else if ($etime){
-                    $where = " AND A.ref_date < '$etime 00:00:00' ";
-                }
-            }else if (strtotime($etime)==strtotime($stime)){
-                $where = " AND A.ref_date = '$stime 00:00:00' ";
-            }
-        }
-        list($app) = M()->query("SELECT appid,responsible,`position` FROM mc_app where id = $id limit 1");
-        $appid = $app["appid"];
-        $responsible = $app["responsible"];
-        $position = $app["position"];
-        $info = M()->query(" SELECT B.cumulate_user,B.new_user,B.pure_user,DATE_FORMAT(A.ref_date,'%Y-%m-%d') as ref_date,'$responsible' as responsible,'$position' as `position`,
-                             A.int_page_read_user,A.int_page_read_count,A.int_page_from_session_read_user,A.int_page_from_feed_read_user,A.share_user,A.active_percent,A.conversation_percent,A.open_percent,A.share_percent
-                             FROM mc_app_data as A INNER JOIN  mc_app_fans as 
-                             B on (A.appid = B.appid and A.ref_date = B.ref_date) 
-                             WHERE A.appid = '$appid' $where ORDER  BY A.id desc");
-        return $info;
-    }
+
+
 }

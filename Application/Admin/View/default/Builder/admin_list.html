@@ -254,8 +254,14 @@
 												</label>
 											</td>
 											<volist name="keyList" id="field">
+												<php>
+													$added = '';
+													if(gettype($field['opt']) == 'array'){
+														$added = $field['opt']['added'];
+													};
+												</php>
 												<td>
-													{$e[$field['name']]}
+													{$e[$field['name']]}{$added}
 												</td>
 											</volist>
 										</tr>
