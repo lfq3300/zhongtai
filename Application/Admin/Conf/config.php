@@ -8,6 +8,7 @@ return array(
     'DB_PORT'   => '3306', // 端口
     'DB_PREFIX' => 'mc_', // 数据库表前缀
 
+	'DEFAULT_PWD'=>'123456',
 
     'URL_CASE_INSENSITIVE' =>true, //不区分大小写
 
