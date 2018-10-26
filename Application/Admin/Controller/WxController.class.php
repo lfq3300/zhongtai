@@ -19,7 +19,6 @@ class WxController extends Controller
         $encodingAesKey = C('ZTENCODINGAESKEY');
         $token = C('ZTTOKEN');
         $appId = C('ZTAPPID');
-        print_r($encodingAesKey . '--' . $token . '--' . $appId);
         $timeStamp = $_GET['timestamp'];
         $nonce = $_GET['nonce'];
         $msg_sign = $_GET['msg_signature'];
@@ -183,7 +182,6 @@ class WxController extends Controller
     }
 
     public function synchronHistoryFans(){
-        G("begin");
         $token = C(HISTORY);I("get.token");
         if (C(HISTORY) == $token){
             $hisday = C(HISDAY);
@@ -207,14 +205,10 @@ class WxController extends Controller
                 }
            }
         }
-        G("end");
-        echo G('begin','end').'s';
-        echo G('begin','end','m').'kb';
     }
 
     //同步历史记录  今年历史3月份开始  必须先确保之前的定时任务完成  才执行
     public function  synchronHistoryData(){
-        G("begin");
         $token = C(HISTORY);I("get.token");
         if (C(HISTORY) == $token){
             $hisday = C(HISDAY);
@@ -228,8 +222,8 @@ class WxController extends Controller
                     $access_token = $Auth->refreshAccessToken($val["appid"], $val["authorizer_refresh_token"]);
                     $url = "https://api.weixin.qq.com/datacube/getarticletotal?access_token=$access_token";
                     $data = array(
-                        "begin_date" =>'2018-10-16', //date("Y-m-d",strtotime("$hisday +$i day")),
-                        "end_date" =>'2018-10-16', //date("Y-m-d",strtotime("$hisday+$i day"))
+                        "begin_date" =>date("Y-m-d",strtotime("$hisday +$i day")),
+                        "end_date" =>date("Y-m-d",strtotime("$hisday+$i day"))
                     );
                     $send_result = curl_get_https($url, json_encode($data, true));
                     D("AppData")->addHisData($send_result,$val["appid"]);
@@ -237,9 +231,6 @@ class WxController extends Controller
                 D("App")->saveSynchron($val["appid"]);
             }
         }
-        G("end");
-        echo G('begin','end').'s';
-        echo G('begin','end','m').'kb';
     }
 }
 ?>

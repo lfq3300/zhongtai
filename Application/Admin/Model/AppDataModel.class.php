@@ -95,11 +95,6 @@ class AppDataModel extends CommonModel
                         "add_to_fav_count"=>0,
                     );
                 }
-                echo "<br/>";
-                print_r($dataInfo);
-                echo "<br/>";
-                print_r($yesterInfo);
-                echo "<br/>";
                 $int_page_read_user = $dataInfo["int_page_read_user"] - $yesterInfo["int_page_read_user"];
                 $int_page_read_count  = $dataInfo["int_page_read_count"] -  $yesterInfo["int_page_read_count"];
                 $ori_page_read_user = $dataInfo["ori_page_read_user"] - $yesterInfo["ori_page_read_user"];
