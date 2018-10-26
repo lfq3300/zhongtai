@@ -70,7 +70,8 @@ class RbacController extends AdminController{
                 "name"=>I("post.name"),
                 "status"=>I("post.status"),
                 "description"=>I("post.description"),
-                "code_name"=>I("post.code_name")
+                "code_name"=>I("post.code_name"),
+                "update_time"=>date("Y-m-d H:i:s")
             );
             $id = I("post.id");
             $model = D("Role");

@@ -16,8 +16,8 @@ class RoleModel extends Model{
     );
 
     public  function addGroup($data){
-        $data["create_time"] = time();
-        $data["update_time"] = time();
+        $data["create_time"] = date("Y-m-d H:i:s");
+        $data["update_time"] = date("Y-m-d H:i:s");
         $ret = $this->add($data);
         return $ret;
     }
