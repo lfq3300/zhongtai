@@ -92,8 +92,6 @@ class WxController extends Controller
                 'responsible'=>$userInfo['nick_name'],
                 'position'=>$userInfo['position']
             ];
-            print_r($appData);
-            exit;
             if (D("Admin/App")->create($appData, 1)) {
                 $ret = D("Admin/App")->addApp($appData);
                 if ($ret) {
