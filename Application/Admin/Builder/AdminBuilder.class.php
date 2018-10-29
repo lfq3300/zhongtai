@@ -47,7 +47,7 @@ abstract class AdminBuilder extends AdminController{
                 //根据 $role_id 获取一级目录
                 $sql = "select B.title,B.id from mc_access as A INNER JOIN mc_admin_menu as B on A.node_id = B.id WHERE  A.role_id = $role_id AND A.level = 1";
                 $sqldata = M()->query($sql);
-                $sql = "select B.`id`,B.`title`,B.`url`,B.`p_id` from mc_access as A INNER JOIN mc_admin_menu as B on A.node_id = B.id WHERE  A.role_id = $role_id AND A.level = 2 A.`hide` = 0";
+                $sql = "select B.`id`,B.`title`,B.`url`,B.`p_id` from mc_access as A INNER JOIN mc_admin_menu as B on A.node_id = B.id WHERE  A.role_id = $role_id AND A.level = 2 AND  A.`hide` = 0";
                 $sqldata2 = M()->query($sql);
             }
             $this->assign("menus",$sqldata);
