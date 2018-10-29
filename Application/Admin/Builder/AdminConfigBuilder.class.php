@@ -28,6 +28,10 @@ class AdminConfigBuilder extends AdminBuilder{
         return $this;
     }
 
+    public function keyCancel(){
+        return $this->key('','cancelimg',[]);
+    }
+
     public function data($list = [])
     {
         $this->_data = $list;
@@ -156,6 +160,7 @@ class AdminConfigBuilder extends AdminBuilder{
 		$this->assign('buttonList', $this->_buttonList);
 		$this->assign('savePostUrl', $this->_savePostUrl);
         $this->assign('selectData', $this->_selectData);
+
 		if ($solist) {
 				parent::display($solist);
 			} else {

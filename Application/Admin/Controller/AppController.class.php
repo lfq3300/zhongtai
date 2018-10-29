@@ -34,6 +34,7 @@ class AppController extends AdminController {
             ->keyText("create_time","授权日期")
             ->powerEdit("edit?id=###","信息编辑")
             ->powerEdit("operate?id=###&nick_name=n#","运营数据")
+            ->powerEdit("cancel?id=###","取消授权")
             ->data($list)
             ->pagination($count,$r)
             ->display();
@@ -398,5 +399,28 @@ class AppController extends AdminController {
             ->data($list)
             ->pagination($count,$r)
             ->display();
+    }
+
+    public function cancel(){
+        $builder = new AdminConfigBuilder();
+        if ($_POST){
+            $res= D("app")->DelApp($_POST['id']);
+            if($res){
+                $this->success("取消授权成功",U("index"));
+            }else{
+                $this->error(D("app")->getError());
+            }
+        }else{
+            $id = I("get.id");
+            $builder
+                ->title("取消授权详细")
+                ->keyHidden("id")
+                ->formtitle("<span style='color: red;'> 取消授权后 平台将不再获取公众号数据,并将此公众号在本平台数据全部删除 </span>. <br/> 此页面取消授权 是在本平台上取消, 还需管理员登陆微信公众号取消")
+                ->keyCancel()
+                ->buttonSubmit('','确定取消授权')
+                ->data(array("id"=>$id))
+                ->display();
+        }
+
     }
 }
