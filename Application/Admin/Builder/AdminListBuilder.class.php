@@ -11,6 +11,7 @@ class AdminListBuilder extends AdminBuilder{
     private $verify;
     private $thisUrl;
     private $export;
+    private $_queryHiddenInput = array();
 
     public function _initialize()
     {
@@ -132,7 +133,10 @@ class AdminListBuilder extends AdminBuilder{
         $this->_hidequery = false;
         return $this;
     }
-
+    public  function  keyHidden($name,$value){
+        $this->_queryHiddenInput[] = array("name"=>$name,"value"=>$value);
+        return $this;
+    }
     public  function  queryselect($arrvalue = '',$opt =[],$name='queryType'){
       //  $opt["defaultvalue"]=$opt["defaultvalue"]?$opt["defaultvalue"]:0;
         $opt["title"]=$opt["title"]?$opt["title"]:0;
@@ -414,6 +418,7 @@ class AdminListBuilder extends AdminBuilder{
         $this->assign('select',$this->_select);
         $this->assign("grossincome",$this->_grossincome);
         $this->assign("otherdata",$this->_otherData);
+        $this->assign("hiddenInput",$this->_queryHiddenInput);
         $this->assign("hidequery",$this->_hidequery);
 
         C('VAR_PAGE', 'page');

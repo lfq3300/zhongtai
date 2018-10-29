@@ -149,7 +149,6 @@ class WxController extends Controller
         }
     }
 
-
     //每天 减少 一次获取的机会
     public function  setNum(){
         $token = C(SETNUM);I("get.token");

@@ -13,6 +13,9 @@
 						<div id="query-container" {$style} class="am-cf">
 							<form class="am-u-sm-12 am-u-md-4 am-u-lg-4 am-form tpl-form-border-form tpl-form-border-br tpl-form-line-form" id="searchForm" name="searchform" action="" method="get">
 								<input type="hidden" name="page" value="1">
+								<volist name="hiddenInput" id="item">
+									<input type="hidden" name="{$item.name}" value="{$item.value}">
+								</volist>
 								<notempty name="query">
 									<if condition="$hidequery">
 										<div class="am-form-group">

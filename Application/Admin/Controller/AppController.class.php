@@ -65,6 +65,7 @@ class AppController extends AdminController {
             $group = D("AppGroup")->getList(true);
             $builder
                 ->title($data['nick_name']." 信息编辑")
+                ->keyDisabled("appid",["title"=>"Appid"])
                 ->keyDisabled("nick_name",["title"=>"名称"])
                 ->keyShowImg("head_img",["title"=>"头像"])
                 ->keyHidden("id")
@@ -92,23 +93,32 @@ class AppController extends AdminController {
         $page =  I("get.page",1,"intval");
         $stime = I("get.startime");
         $etime = I("get.endtime");
-        $state = $stime||$etime;
+        $key = I("get.query");
+        $select = I("get.select",1,"intval");
+        $state = $stime||$etime||$key;
         $id = I("get.id");
         $nick_name = I("get.nick_name");
-        list($list,$count) = D("appData")->getAppData($id,$page,$r,$stime,$etime);
+
+        list($list,$count) = D("appData")->getAppData($id,$page,$r,$stime,$etime,$key,$select);
         $builder
             ->title($nick_name."  运营数据")
-            ->query(["state"=>$state,"url"=>U("operate",array("id"=>$id,"nick_name"=>$nick_name))])
-            ->hidequery()
-            ->queryStarTime($stime)
+            ->query(["placeholder"=>"搜索文章标题","value"=>$key,"state"=>$state,"url"=>U("operate",array("id"=>$id,"nick_name"=>$nick_name))]);
+        if($select == 2){
+            $builder->hidequery();
+        }
+        $builder->queryStarTime($stime)
             ->queryEndTime($etime)
-            ->powerExport(U("oexcel",array("startime"=>$stime,"endtime"=>$etime,"id"=>$id,"filename"=>$nick_name)))
+            ->powerExport(U("oexcel",array("startime"=>$stime,"endtime"=>$etime,"id"=>$id,"filename"=>$nick_name,"key"=>$key,"select"=>$select)))
+            ->select(["1"=>"详细数据","2"=>"总数据"],["title"=>"查看数据方式","select"=>$select])
+            ->keyHidden("select",$select)
             ->keyText("ref_date","日期")
             ->keyText("cumulate_user","总粉丝")
             ->keyText("pure_user","净粉丝")
-            ->keyText("new_user","新粉丝")
-            ->keyText("title","文章标题")
-            ->keyText("int_page_read_user","图文阅读")
+            ->keyText("new_user","新粉丝");
+           if($select==1){
+               $builder->keyText("title","文章标题");
+           }
+        $builder->keyText("int_page_read_user","图文阅读")
             ->keyText("int_page_from_session_read_user","会话打开")
             ->keyText("int_page_from_feed_read_user","朋友圈打开")
             ->keyText("share_user","分享转发")
@@ -127,7 +137,9 @@ class AppController extends AdminController {
         $stime = I("get.startime");
         $etime = I("get.endtime");
         $id = I("get.id");
-        $info = D("appData")->excelAppData($id,$stime,$etime);
+        $key = I("get.key");
+        $select = I("get.select");
+        $info = D("appData")->excelAppData($id,$stime,$etime,$key,$select);
         $filename = I("get.filename");
         $data = array();
         foreach ($info as $k=>$goods_info){

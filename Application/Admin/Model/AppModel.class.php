@@ -67,7 +67,7 @@ class AppModel extends CommonModel
     }
 
     public function getInfo($id){
-        list($data) = M()->query("SELECT nick_name,head_img,id,responsible,position,group_id FROM mc_app where id = $id limit 1");
+        list($data) = M()->query("SELECT appid,nick_name,head_img,id,responsible,position,group_id FROM mc_app where id = $id limit 1");
         return $data;
     }
 
