@@ -23,18 +23,21 @@ class AdminController extends Controller{
             $actionname = ACTION_NAME;
             //获取当前控制器/方法名
             $thisurl = $controllername."/".$actionname;
-            //判断url是否在权限表中存在
-            if($role_id){
-                $sql = "select * from mc_access as A INNER  JOIN mc_admin_menu as B on A.node_id = B.id where B.url = '$thisurl' AND A.role_id = $role_id";
-                $power = M()->query($sql);
-            }
-            /*直接查询数据库是否有条件*/
-            if(strtoupper($controllername) == "RBAC" && cookieDecrypt(cookie('level'))!=C(ROOT_LEVEL)){
-                $this->error("您没有访问该功能的权限，详情请询问开发人员");
-            }
-            if(cookieDecrypt(cookie('level'))!=C(ROOT_LEVEL)){
-                if($thisurl!="Admin/admin" && !$power){
-                    $this->error("您没有访问该功能的权限，详情请询问开发人员");
+            if($actionname == "setMyPwd"){
+            }else{
+                //判断url是否在权限表中存在
+                if($role_id){
+                    $sql = "select * from mc_access as A INNER  JOIN mc_admin_menu as B on A.node_id = B.id where B.url = '$thisurl' AND A.role_id = $role_id";
+                    $power = M()->query($sql);
+                }
+                /*直接查询数据库是否有条件*/
+//            if(strtoupper($controllername) == "RBAC" && cookieDecrypt(cookie('level'))!=C(ROOT_LEVEL)){
+//                $this->error("您没有访问该功能的权限，详情请询问开发人员");
+//            }
+                if(cookieDecrypt(cookie('level'))!=C(ROOT_LEVEL)){
+                    if($thisurl!="Admin/admin" && !$power){
+                        $this->error("您没有访问该功能的权限，详情请询问开发人员");
+                    }
                 }
             }
         }

@@ -21,7 +21,7 @@ class RbacController extends AdminController{
             ->powerAdd(U("addGroup"))
             ->keyText("id","ID")
             ->keyText("name","组名")
-            ->keyText("code_name","代码编号")
+    //        ->keyText("code_name","代码编号")
             ->keyText("description","描述")
             ->keyDoAction("editGroup?id=###","编辑")
             ->keyDoAction("powerGroup?id=###","授权")
@@ -55,7 +55,7 @@ class RbacController extends AdminController{
             $builder
                 ->title("添加角色组")
                 ->keyText("name",array("title"=>"组名"))
-                ->keyText("code_name",array("title"=>"代码编号"))
+        //        ->keyText("code_name",array("title"=>"代码编号"))
                 ->keySelect("status",array("select"=>array("1"=>"正常","2"=>"禁止登陆"),"title"=>"状态"))
                 ->keyTextarea("description",array("title"=>"描述"))
                 ->buttonSubmit()
@@ -92,7 +92,6 @@ class RbacController extends AdminController{
                 ->keyHidden("id")
                 ->title("编辑角色组")
                 ->keyText("name",array("title"=>"组名"))
-                ->keyText("code_name",array("title"=>"代码编号"))
                 ->keySelect("status",array("title"=>"状态","select"=>array("1"=>"正常","2"=>"禁止登陆")))
                 ->keyTextarea("description",array("title"=>"描述"))
                 ->buttonSubmit()
@@ -107,13 +106,13 @@ class RbacController extends AdminController{
         $groupid = I("get.id");
         $data = $model->getGroupInfo($groupid);
         $name = $data["name"];
-        $code_name = $data["code_name"];
         $data = M("account")->where(array("role_id"=>$groupid))->select();
         $builder
             ->title($name." 用户管理")
-        ->powerAdd(U("addAccount",array("id"=>$groupid)));
-        $builder->keyText("account","账号");
-        $builder
+            ->powerAdd(U("addAccount",array("id"=>$groupid)))
+            ->keyText("account","账号")
+            ->keyText("nick_name","名称")
+            ->keyText("position","职位")
             ->keyStatus("status","账户状态",array("0"=>"禁止登陆","1"=>"正常"))
             ->keyText("login_time","最后登陆")
             ->keyText("logincount","登陆次数")
@@ -130,7 +129,9 @@ class RbacController extends AdminController{
                 "account"=>I("post.account"),
                 "password"=>md5(md5(I("post.password"))),
                 "add_time"=>date("Y-m-d H:i:s"),
-                "role_id" =>I("post.role_id")
+                "role_id" =>I("post.role_id"),
+                "nick_name"=>I("post.nick_name"),
+                "position" =>I("post.position")
             );
             $groupid =I("post.role_id");
             $groupinfo = D("Role")->getGroupInfo($groupid);
@@ -157,12 +158,13 @@ class RbacController extends AdminController{
             $model = D("Role");
             $data = $model->getGroupInfo($groupid);
             $name = $data["name"];
-            $code_name = $data["code_name"];
             $builder = new AdminConfigBuilder();
             $builder->title("添加".$name."账号")
                 ->keyHidden("role_id")
                 ->keyText("account",array("title"=>"账号"))
                 ->keyText("password",array("title"=>"密码"))
+                ->keyText("nick_name",array("title"=>"名称"))
+                ->keyText("position",array("title"=>"职位"))
                 ->data(array("role_id"=>$groupid))
                 ->buttonSubmit()
                 ->display();
