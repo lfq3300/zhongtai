@@ -107,6 +107,7 @@ class AppController extends AdminController {
             ->keyText("cumulate_user","总粉丝")
             ->keyText("pure_user","净粉丝")
             ->keyText("new_user","新粉丝")
+            ->keyText("title","文章标题")
             ->keyText("int_page_read_user","图文阅读")
             ->keyText("int_page_from_session_read_user","会话打开")
             ->keyText("int_page_from_feed_read_user","朋友圈打开")

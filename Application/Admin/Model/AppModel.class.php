@@ -60,13 +60,9 @@ class AppModel extends CommonModel
     }
 
     public function getHisList(){
-        if (S("hislist")) {
-            $appList = S("hislist");
-        } else {
-            $appList = M()->query(" SELECT id,appid,authorizer_refresh_token,verify_type_info FROM mc_app WHERE  verify_type_info = 0 AND synchron = 1 ");
-            // 查询 全部公众号 然后请求 公众号数据  必须通过微信公众号认证  获取用户增长的话
-            S("hislist", $appList, 14400);
-        }
+        //此处不能做缓存 synchron  = 2 的状态会更新 所以不能缓存
+        $appList = M()->query(" SELECT id,appid,authorizer_refresh_token,verify_type_info FROM mc_app WHERE  verify_type_info = 0 AND synchron = 1 ");
+        // 查询 全部公众号 然后请求 公众号数据  必须通过微信公众号认证  获取用户增长的话
         return $appList;
     }
 

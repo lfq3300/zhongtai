@@ -264,11 +264,11 @@ class AppDataModel extends CommonModel
         $appid = $app["appid"];
         $responsible = $app["responsible"];
         $position = $app["position"];
-        $info = M()->query(" SELECT B.cumulate_user,B.new_user,B.pure_user,DATE_FORMAT(A.ref_date,'%Y-%m-%d') as ref_date,'$responsible' as responsible,'$position' as `position`,
+        $info = M()->query(" SELECT A.title,B.cumulate_user,B.new_user,B.pure_user,DATE_FORMAT(A.ref_date,'%Y-%m-%d') as ref_date,'$responsible' as responsible,'$position' as `position`,
                              A.int_page_read_user,A.int_page_read_count,A.int_page_from_session_read_user,A.int_page_from_feed_read_user,A.share_user,A.active_percent,A.conversation_percent,A.open_percent,A.share_percent
                              FROM mc_app_data as A INNER JOIN  mc_app_fans as 
                              B on (A.appid = B.appid and A.ref_date = B.ref_date) 
-                             WHERE A.appid = '$appid' $where ORDER  BY A.ref_date desc limit $row,$r");
+                             WHERE A.appid = '$appid' $where ORDER  BY A.msgid desc,A.ref_date desc limit $row,$r");
         list($count) = M()->query(" SELECT count(*) AS len  FROM mc_app_data as A INNER JOIN  mc_app_fans as B on (A.appid = B.appid and A.ref_date = B.ref_date) WHERE A.appid = '$appid' $where ");
         return array($info,$count['len']);
     }
