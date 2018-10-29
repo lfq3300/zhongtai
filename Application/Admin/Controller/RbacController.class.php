@@ -301,7 +301,7 @@ class RbacController extends AdminController{
         $data = $model->getThreeFun($id);
         $builder->title($title."  相关函数")
                 ->powerAdd(U("addNode",array("id"=>$id)))
-                ->powerRemove(U("deleteNode"))
+                ->powerRemove(U("deleteNode",array("id"=>$id)))
                 ->keyText("id","ID")
                 ->keyText("title","标题")
                 ->keyText("url","函数名")
@@ -310,8 +310,15 @@ class RbacController extends AdminController{
                 ->display();
     }
 
-    public  function  deleteNode(){
-
+    public  function  deleteNode($ids){
+        $map['id'] = array("in",$ids);
+        $id = $_GET['id'];
+        $ret =  M('AdminMenu')->where($map)->delete();
+        if($ret){
+            $this->success("修改成功",U('hideUrl',array("id"=>$id)));
+        }else{
+            $this->error(M('AdminMenu')->getError());
+        }
     }
 
     public  function editNode(){
