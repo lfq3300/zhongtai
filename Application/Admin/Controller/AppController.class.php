@@ -243,23 +243,29 @@ class AppController extends AdminController {
         $page =  I("get.page",1,"intval");
         $stime = I("get.startime");
         $etime = I("get.endtime");
-        $state = $stime||$etime;
-        list($list,$count) = D("appData")->getAppsData($id,$page,$r,$stime,$etime,true);
+        $select = I("get.select",1,"intval");
+        $query = I("get.query");
+        $state = $stime||$etime||$query;
+        list($list,$count) = D("appData")->getAppsData($id,$page,$r,$stime,$etime,true,$select,$query);
         $groupName = D("appGroup")->getInfo($id);
         $groupName = $groupName["group_name"];
         $builder
             ->title("公众号分组：$groupName")
-            ->hidequery()
-            ->query(["state"=>$state,"url"=>U("guardData",array("id"=>$id))])
+            ->query(["placeholder"=>"搜索精准负责人","state"=>$state,'value'=>$query,"url"=>U("guardData",array("id"=>$id))])
             ->queryStarTime($stime)
+            ->keyHidden("select",$select)
             ->queryEndTime($etime)
-            ->powerExport(U("excelGuardAppData",array("startime"=>$stime,"endtime"=>$etime,"key"=>$id,"filename"=>$groupName,"state"=>true)))
+            ->select(["1"=>"详细数据","2"=>"总数据"],["title"=>"查看数据方式","select"=>$select])
+            ->powerExport(U("excelGuardAppData",array("startime"=>$stime,"endtime"=>$etime,"key"=>$id,"filename"=>$groupName,"state"=>true,"select"=>$select)))
             ->keyText("ref_date","日期")
             ->keyText("nick_name","公众号")
             ->keyText("cumulate_user","总粉丝")
             ->keyText("pure_user","净粉丝")
-            ->keyText("new_user","新粉丝")
-            ->keyText("int_page_read_user","图文阅读")
+            ->keyText("new_user","新粉丝");
+            if($select==1){
+                $builder->keyText("title","文章标题");
+            }
+        $builder->keyText("int_page_read_user","图文阅读")
             ->keyText("int_page_from_session_read_user","会话打开")
             ->keyText("int_page_from_feed_read_user","朋友圈打开")
             ->keyText("share_user","分享转发")

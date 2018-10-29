@@ -386,39 +386,45 @@ class AppDataModel extends CommonModel
         }
     }
 
-    public function getAppsData($key,$page,$r,$stime,$etime,$state){
+    public function getAppsData($key,$page,$r,$stime,$etime,$state,$select,$query){
         $row = ($page-1) * $r;
-        $where1 = "";
-        if ($state){
-            $where1  = "C.group_id = $key";
-        }else{
-            $where1 = "C.responsible = '$key'";
-        }
-        $where = "";
-        if (!empty($stime) || !empty($etime)){
-            if(strtotime($etime)>strtotime($stime)){
-                if ($stime && $etime){
-                    $where = " AND A.ref_date BETWEEN '$stime 00:00:00' AND '$etime 00:00:00' ";
-                }else if ($stime){
-                    $where = " AND A.ref_date > '$stime 00:00:00' ";
-                }else if ($etime){
-                    $where = " AND A.ref_date < '$etime 00:00:00' ";
-                }
-            }else if (strtotime($etime)==strtotime($stime)){
-                $where = " AND A.ref_date = '$stime 00:00:00' ";
+        if($select == 1){
+            if ($state){
+                $where1  = "C.group_id = $key";
+            }else{
+                $where1 = "C.responsible = '$key'";
             }
-        }
-        $info = M()->query("SELECT A.appid,B.cumulate_user,B.new_user,B.pure_user,DATE_FORMAT(A.ref_date,'%Y-%m-%d') as ref_date,C.responsible,C.position,C.nick_name,
+            $where = "";
+            if (!empty($stime) || !empty($etime)){
+                if(strtotime($etime)>strtotime($stime)){
+                    if ($stime && $etime){
+                        $where = " AND A.ref_date BETWEEN '$stime 00:00:00' AND '$etime 00:00:00' ";
+                    }else if ($stime){
+                        $where = " AND A.ref_date > '$stime 00:00:00' ";
+                    }else if ($etime){
+                        $where = " AND A.ref_date < '$etime 00:00:00' ";
+                    }
+                }else if (strtotime($etime)==strtotime($stime)){
+                    $where = " AND A.ref_date = '$stime 00:00:00' ";
+                }
+            }
+            if($query){
+                $where.= " AND C.nick_name = '$query'";
+            }
+            $info = M()->query("SELECT A.appid,B.cumulate_user,B.new_user,B.pure_user,DATE_FORMAT(A.ref_date,'%Y-%m-%d') as ref_date,C.responsible,C.position,C.nick_name,
                              A.int_page_read_user,A.int_page_read_count,A.int_page_from_session_read_user,A.int_page_from_feed_read_user,A.share_user,A.active_percent,A.conversation_percent,A.open_percent,A.share_percent
                              FROM mc_app_data as A INNER JOIN  mc_app_fans as 
                              B on (A.appid = B.appid and A.ref_date = B.ref_date) INNER JOIN mc_app as C ON A.appid = C.appid
                              WHERE $where1  $where ORDER  BY A.ref_date desc limit $row,$r");
 
-        list($count) = M()->query("SELECT count(*) AS len
+            list($count) = M()->query("SELECT count(*) AS len
                              FROM mc_app_data as A INNER JOIN  mc_app_fans as 
                              B on (A.appid = B.appid and A.ref_date = B.ref_date) INNER JOIN mc_app as C ON A.appid = C.appid
                              WHERE $where1 $where ");
-        return array($info,$count['len']);
+            return array($info,$count['len']);
+        }else{
+            //需要有了数据才能查看
+        }
     }
 
     public function excelGuardAppData($key,$stime,$etime,$state){
