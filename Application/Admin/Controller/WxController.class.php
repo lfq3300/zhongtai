@@ -74,7 +74,7 @@ class WxController extends Controller
             $appInfo = curl_get_https($url1, json_encode($data1, true));
             $appInfo = json_decode($appInfo, true);
             $authorizer_info = $appInfo['authorizer_info'];
-            $userInfo = D("account")->getAccountInfo($accountid);
+            $userInfo = D("account")->getAccountNameInfo($accountid);
             $appData = [
                 'nick_name' => $authorizer_info['nick_name'],
                 'appid' => $authorizer_appid,
