@@ -81,7 +81,8 @@ class AppController extends AdminController {
         $component_appid = C('ZTAPPID');
         $Auth = new AuthorizeController();
         $pre_auth_code = $Auth->getPreAuthCode();
-        $this->assign('AuthorizeUrl', "https://mp.weixin.qq.com/cgi-bin/componentloginpage?component_appid=$component_appid&pre_auth_code=$pre_auth_code&redirect_uri=http://zt.ltthk.top/index.php/wx/AuthorizeCallback");
+        $accountid = cookieDecrypt(cookie('account_id'));
+        $this->assign('AuthorizeUrl', "https://mp.weixin.qq.com/cgi-bin/componentloginpage?component_appid=$component_appid&pre_auth_code=$pre_auth_code&redirect_uri=http://zt.ltthk.top/index.php/wx/AuthorizeCallback?accountid=$accountid");
         $this->display();
     }
 

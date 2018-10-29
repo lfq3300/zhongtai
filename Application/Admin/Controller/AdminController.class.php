@@ -23,7 +23,7 @@ class AdminController extends Controller{
             $actionname = ACTION_NAME;
             //获取当前控制器/方法名
             $thisurl = $controllername."/".$actionname;
-            if($actionname == "setMyPwd"){
+            if($actionname == "setmypwd"){
             }else{
                 //判断url是否在权限表中存在
                 if($role_id){

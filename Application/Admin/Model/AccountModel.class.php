@@ -31,6 +31,15 @@ class AccountModel extends CommonModel{
         }
     }
 
+    public function getAccountNameInfo($id){
+        list($info) = M()->query("select nick_name,`position` from mc_account where id = $id limit 1");
+        if (empty($info)){
+            $info['nick_name'] = "系统";
+            $info['position'] = "系统";
+        }
+        return $info;
+    }
+
     public  function  getGameAccountInfo($level){
         if ($level == C(ROOT_LEVEL)){
             $ret = M("")->table("mc_account A")

@@ -51,6 +51,7 @@ class WxController extends Controller
     public function AuthorizeCallback()
     {
         $auth_code = $_GET["auth_code"];
+        $accountid = $_GET["accountid"];
         if ($auth_code) {
             $Auth = new AuthorizeController();
             $component_access_token = $Auth->getAccessToken();
@@ -73,6 +74,7 @@ class WxController extends Controller
             $appInfo = curl_get_https($url1, json_encode($data1, true));
             $appInfo = json_decode($appInfo, true);
             $authorizer_info = $appInfo['authorizer_info'];
+            $userInfo = D("account")->getAccountInfo($accountid);
             $appData = [
                 'nick_name' => $authorizer_info['nick_name'],
                 'appid' => $authorizer_appid,
@@ -86,7 +88,9 @@ class WxController extends Controller
                 'principal_name' => $authorizer_info['principal_name'],
                 'alias' => $authorizer_info['alias'],
                 'group_id' => 1, // 1 是 默认分组
-                'admin_id' => cookieDecrypt(cookie('account_id'))  //
+                'account_id' => $accountid,  //
+                'responsible'=>$userInfo['nick_name'],
+                'position'=>$userInfo['position']
             ];
             if (D("Admin/App")->create($appData, 1)) {
                 $ret = D("Admin/App")->addApp($appData);
