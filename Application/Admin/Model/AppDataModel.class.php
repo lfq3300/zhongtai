@@ -273,32 +273,32 @@ class AppDataModel extends CommonModel
                              A.int_page_read_user,A.int_page_read_count,A.int_page_from_session_read_user,A.int_page_from_feed_read_user,A.share_user,A.active_percent,A.conversation_percent,A.open_percent,A.share_percent
                              FROM mc_app_data as A INNER JOIN  mc_app_fans as 
                              B on (A.appid = B.appid and A.ref_date = B.ref_date)
-                             WHERE A.appid = '$appid' $where ORDER  BY A.msgid desc,A.ref_date desc limit $row,$r");
+                             WHERE A.appid = '$appid' $where ORDER  BY A.ref_date desc limit $row,$r");
             list($count) = M()->query(" SELECT count(*) AS len  FROM mc_app_data as A INNER JOIN  mc_app_fans as B on (A.appid = B.appid and A.ref_date = B.ref_date) WHERE A.appid = '$appid' $where ");
         }else{
             if (!empty($stime) || !empty($etime)){
                 if(strtotime($etime)>strtotime($stime)){
                     if ($stime && $etime){
-                        $where = " WHERE A.ref_date BETWEEN '$stime 00:00:00' AND '$etime 00:00:00' ";
+                        $where = " AND  A.ref_date BETWEEN '$stime 00:00:00' AND '$etime 00:00:00' ";
                     }else if ($stime){
-                        $where = " WHERE A.ref_date > '$stime 00:00:00' ";
+                        $where = " AND  A.ref_date > '$stime 00:00:00' ";
                     }else if ($etime){
-                        $where = " WHERE A.ref_date < '$etime 00:00:00' ";
+                        $where = " AND A.ref_date < '$etime 00:00:00' ";
                     }
                 }else if (strtotime($etime)==strtotime($stime)){
-                    $where = "  WHERE A.ref_date = '$stime 00:00:00' ";
+                    $where = " AND  A.ref_date = '$stime 00:00:00' ";
                 }
             }
             $info = M()->query("SELECT 
-                          A.cumulate_user,B.appid,B.ref_date,B.int_page_read_user,B.share_user,B.int_page_from_session_read_user,B.int_page_from_feed_read_user,FORMAT(B.int_page_read_user/A.cumulate_user*100,2 ) AS active_percent,
+                          A.cumulate_user,B.appid,DATE_FORMAT(B.ref_date,'%Y-%m-%d') as ref_date,B.int_page_read_user,B.share_user,B.int_page_from_session_read_user,B.int_page_from_feed_read_user,FORMAT(B.int_page_read_user/A.cumulate_user*100,2 ) AS active_percent,
                           FORMAT(B.share_user/B.int_page_read_count*100,2 )AS share_percent,'$responsible' as responsible,'$position' as `position`,A.pure_user,A.new_user,A.pure_user,
                           FORMAT(B.int_page_from_session_read_user/A.cumulate_user*100,2 )AS conversation_percent,FORMAT(B.int_page_from_feed_read_user/A.cumulate_user*100,2 ) AS open_percent
                         FROM mc_app_fans AS A INNER JOIN (SELECT appid,ref_date,SUM(int_page_read_user) AS int_page_read_user,SUM(share_user) AS share_user,SUM(int_page_from_session_read_user) AS int_page_from_session_read_user,
                         SUM(int_page_from_feed_read_user) AS int_page_from_feed_read_user,SUM(int_page_read_count) AS int_page_read_count FROM mc_app_data GROUP BY appid,ref_date) AS B 
-                        ON A.`ref_date` = B.`ref_date` AND A.`appid` = B.`appid` $where ORDER  BY A.ref_date DESC  limit $row,$r ");
+                        ON A.`ref_date` = B.`ref_date` AND A.`appid` = B.`appid` where A.appid = '$appid' $where ORDER  BY A.ref_date DESC  limit $row,$r ");
             list($count) = M()->query("SELECT count(*) AS len FROM mc_app_fans AS A INNER JOIN  (SELECT  appid,ref_date,SUM(int_page_read_user) AS int_page_read_user,
                         SUM(share_user) AS share_user,SUM(int_page_from_session_read_user) AS int_page_from_session_read_user,SUM(int_page_from_feed_read_user) AS int_page_from_feed_read_user,
-                        SUM(int_page_read_count) AS int_page_read_count FROM mc_app_data  GROUP BY appid, ref_date) AS B ON A.`ref_date` = B.`ref_date` AND A.`appid` = B.`appid` $where ORDER  BY A.ref_date DESC  ");
+                        SUM(int_page_read_count) AS int_page_read_count FROM mc_app_data  GROUP BY appid, ref_date) AS B ON A.`ref_date` = B.`ref_date` AND A.`appid` = B.`appid` where A.appid = '$appid' $where ORDER  BY A.ref_date DESC  ");
         }
         return array($info,$count['len']);
     }
@@ -335,23 +335,23 @@ class AppDataModel extends CommonModel
             if (!empty($stime) || !empty($etime)){
                 if(strtotime($etime)>strtotime($stime)){
                     if ($stime && $etime){
-                        $where = " WHERE A.ref_date BETWEEN '$stime 00:00:00' AND '$etime 00:00:00' ";
+                        $where = " AND A.ref_date BETWEEN '$stime 00:00:00' AND '$etime 00:00:00' ";
                     }else if ($stime){
-                        $where = " WHERE A.ref_date > '$stime 00:00:00' ";
+                        $where = " AND A.ref_date > '$stime 00:00:00' ";
                     }else if ($etime){
-                        $where = " WHERE A.ref_date < '$etime 00:00:00' ";
+                        $where = " AND A.ref_date < '$etime 00:00:00' ";
                     }
                 }else if (strtotime($etime)==strtotime($stime)){
-                    $where = "  WHERE A.ref_date = '$stime 00:00:00' ";
+                    $where = "  AND A.ref_date = '$stime 00:00:00' ";
                 }
             }
             $info = M()->query("SELECT 
-                          A.cumulate_user,B.appid,B.ref_date,B.int_page_read_user,B.share_user,B.int_page_from_session_read_user,B.int_page_from_feed_read_user,FORMAT(B.int_page_read_user/A.cumulate_user*100,2 ) AS active_percent,
+                          A.cumulate_user,B.appid,DATE_FORMAT(B.ref_date,'%Y-%m-%d') as ref_date,B.int_page_read_user,B.share_user,B.int_page_from_session_read_user,B.int_page_from_feed_read_user,FORMAT(B.int_page_read_user/A.cumulate_user*100,2 ) AS active_percent,
                           FORMAT(B.share_user/B.int_page_read_count*100,2 )AS share_percent,'$responsible' as responsible,'$position' as `position`,A.pure_user,A.new_user,A.pure_user,
                           FORMAT(B.int_page_from_session_read_user/A.cumulate_user*100,2 )AS conversation_percent,FORMAT(B.int_page_from_feed_read_user/A.cumulate_user*100,2 ) AS open_percent
                         FROM mc_app_fans AS A INNER JOIN (SELECT appid,ref_date,SUM(int_page_read_user) AS int_page_read_user,SUM(share_user) AS share_user,SUM(int_page_from_session_read_user) AS int_page_from_session_read_user,
                         SUM(int_page_from_feed_read_user) AS int_page_from_feed_read_user,SUM(int_page_read_count) AS int_page_read_count FROM mc_app_data GROUP BY appid,ref_date) AS B 
-                        ON A.`ref_date` = B.`ref_date` AND A.`appid` = B.`appid` $where ORDER  BY A.ref_date DESC  ");
+                        ON A.`ref_date` = B.`ref_date` AND A.`appid` = B.`appid`  where A.appid = '$appid' $where  ORDER  BY A.ref_date DESC  ");
         }
         return $info;
 
@@ -386,8 +386,13 @@ class AppDataModel extends CommonModel
         }
     }
 
-    public function getAppsData($key,$page,$r,$stime,$etime,$state,$select,$query){
+    public function getAppsData($key,$page,$r,$stime,$etime,$state,$select,$query,$queryType){
         $row = ($page-1) * $r;
+        if ($queryType == 1){
+            $order = " ORDER BY A.ref_date DESC,A.appid DESC";
+        }else{
+            $order = " ORDER  BY A.appid DESC, A.ref_date DESC ";
+        }
         if($select == 1){
             if ($state){
                 $where1  = "C.group_id = $key";
@@ -409,50 +414,125 @@ class AppDataModel extends CommonModel
                 }
             }
             if($query){
-                $where.= " AND C.nick_name = '$query'";
+                $where.= " AND C.responsible = '$query'";
             }
-            $info = M()->query("SELECT A.appid,B.cumulate_user,B.new_user,B.pure_user,DATE_FORMAT(A.ref_date,'%Y-%m-%d') as ref_date,C.responsible,C.position,C.nick_name,
+            $info = M()->query("SELECT A.appid,B.cumulate_user,B.new_user,B.pure_user,DATE_FORMAT(A.ref_date,'%Y-%m-%d') as ref_date,C.responsible,C.position,C.nick_name,A.title,
                              A.int_page_read_user,A.int_page_read_count,A.int_page_from_session_read_user,A.int_page_from_feed_read_user,A.share_user,A.active_percent,A.conversation_percent,A.open_percent,A.share_percent
                              FROM mc_app_data as A INNER JOIN  mc_app_fans as 
                              B on (A.appid = B.appid and A.ref_date = B.ref_date) INNER JOIN mc_app as C ON A.appid = C.appid
-                             WHERE $where1  $where ORDER  BY A.ref_date desc limit $row,$r");
-
+                             WHERE $where1 $where $order limit $row,$r");
             list($count) = M()->query("SELECT count(*) AS len
                              FROM mc_app_data as A INNER JOIN  mc_app_fans as 
                              B on (A.appid = B.appid and A.ref_date = B.ref_date) INNER JOIN mc_app as C ON A.appid = C.appid
                              WHERE $where1 $where ");
-            return array($info,$count['len']);
         }else{
+            if ($state){
+                $where1  = "  C.group_id = $key";
+                $where2 = "  group_id = $key";
+            }else{
+                $where1 = "  C.responsible = '$key'";
+                $where2 = "  responsible = '$key'";
+            }
+            if (!empty($stime) || !empty($etime)){
+                if(strtotime($etime)>strtotime($stime)){
+                    if ($stime && $etime){
+                        $where = " AND A.ref_date BETWEEN '$stime 00:00:00' AND '$etime 00:00:00' ";
+                    }else if ($stime){
+                        $where = " AND A.ref_date > '$stime 00:00:00' ";
+                    }else if ($etime){
+                        $where = " AND A.ref_date < '$etime 00:00:00' ";
+                    }
+                }else if (strtotime($etime)==strtotime($stime)){
+                    $where = " AND A.ref_date = '$stime 00:00:00' ";
+                }
+            }
+            list($app) = M()->query("SELECT appid,responsible,`position` FROM mc_app where $where2 limit 1");
+            $responsible = $app["responsible"];
+            $position = $app["position"];
             //需要有了数据才能查看
+            $info = M()->query("SELECT C.nick_name,
+                          A.cumulate_user,B.appid,DATE_FORMAT(B.ref_date,'%Y-%m-%d') as ref_date,B.int_page_read_user,B.share_user,B.int_page_from_session_read_user,B.int_page_from_feed_read_user,FORMAT(B.int_page_read_user/A.cumulate_user*100,2 ) AS active_percent,
+                          FORMAT(B.share_user/B.int_page_read_count*100,2 )AS share_percent,'$responsible' as responsible,'$position' as `position`,A.pure_user,A.new_user,A.pure_user,
+                          FORMAT(B.int_page_from_session_read_user/A.cumulate_user*100,2 )AS conversation_percent,FORMAT(B.int_page_from_feed_read_user/A.cumulate_user*100,2 ) AS open_percent
+                        FROM mc_app_fans AS A INNER JOIN (SELECT appid,ref_date,SUM(int_page_read_user) AS int_page_read_user,SUM(share_user) AS share_user,SUM(int_page_from_session_read_user) AS int_page_from_session_read_user,
+                        SUM(int_page_from_feed_read_user) AS int_page_from_feed_read_user,SUM(int_page_read_count) AS int_page_read_count FROM mc_app_data GROUP BY appid,ref_date) AS B 
+                        ON A.`ref_date` = B.`ref_date` AND A.`appid` = B.`appid` INNER JOIN mc_app AS C ON A.`appid` = C.`appid` AND $where1 $where $order limit $row,$r");
+            list($count) = M()->query("SELECT count(*) AS len FROM mc_app_fans AS A INNER JOIN  (SELECT  appid,ref_date,SUM(int_page_read_user) AS int_page_read_user,
+                        SUM(share_user) AS share_user,SUM(int_page_from_session_read_user) AS int_page_from_session_read_user,SUM(int_page_from_feed_read_user) AS int_page_from_feed_read_user,
+                        SUM(int_page_read_count) AS int_page_read_count FROM mc_app_data  GROUP BY appid, ref_date) AS B ON A.`ref_date` = B.`ref_date` AND A.`appid` = B.`appid` INNER JOIN mc_app AS C ON A.`appid` = C.`appid` AND $where1 $where ORDER  BY A.ref_date DESC  ");
         }
+        return array($info,$count['len']);
     }
 
-    public function excelGuardAppData($key,$stime,$etime,$state){
-        $where1 = "";
-        if ($state){
-            $where1  = "C.group_id = $key";
+    public function excelGuardAppData($key,$stime,$etime,$state,$select,$query,$queryType){
+
+        if ($queryType == 1){
+            $order = " ORDER  BY A.ref_date DESC,A.appid DESC ";
         }else{
-            $where1 = "C.responsible = '$key'";
+            $order = " ORDER  BY A.appid DESC, A.ref_date DESC ";
         }
-        $where = "";
-        if (!empty($stime) || !empty($etime)){
-            if(strtotime($etime)>strtotime($stime)){
-                if ($stime && $etime){
-                    $where = " AND A.ref_date BETWEEN '$stime 00:00:00' AND '$etime 00:00:00' ";
-                }else if ($stime){
-                    $where = " AND A.ref_date > '$stime 00:00:00' ";
-                }else if ($etime){
-                    $where = " AND A.ref_date < '$etime 00:00:00' ";
-                }
-            }else if (strtotime($etime)==strtotime($stime)){
-                $where = " AND A.ref_date = '$stime 00:00:00' ";
+        if($select == 1){
+            if ($state){
+                $where1  = "C.group_id = $key";
+            }else{
+                $where1 = "C.responsible = '$key'";
             }
-        }
-        $info = M()->query("SELECT A.appid,B.cumulate_user,B.new_user,B.pure_user,DATE_FORMAT(A.ref_date,'%Y-%m-%d') as ref_date,C.responsible,C.position,C.nick_name,
+            $where = "";
+            if (!empty($stime) || !empty($etime)){
+                if(strtotime($etime)>strtotime($stime)){
+                    if ($stime && $etime){
+                        $where = " AND A.ref_date BETWEEN '$stime 00:00:00' AND '$etime 00:00:00' ";
+                    }else if ($stime){
+                        $where = " AND A.ref_date > '$stime 00:00:00' ";
+                    }else if ($etime){
+                        $where = " AND A.ref_date < '$etime 00:00:00' ";
+                    }
+                }else if (strtotime($etime)==strtotime($stime)){
+                    $where = " AND A.ref_date = '$stime 00:00:00' ";
+                }
+            }
+            if($query){
+                $where.= " AND C.responsible = '$query'";
+            }
+            $info = M()->query("SELECT A.appid,B.cumulate_user,B.new_user,B.pure_user,DATE_FORMAT(A.ref_date,'%Y-%m-%d') as ref_date,C.responsible,C.position,C.nick_name,A.title,
                              A.int_page_read_user,A.int_page_read_count,A.int_page_from_session_read_user,A.int_page_from_feed_read_user,A.share_user,A.active_percent,A.conversation_percent,A.open_percent,A.share_percent
                              FROM mc_app_data as A INNER JOIN  mc_app_fans as 
                              B on (A.appid = B.appid and A.ref_date = B.ref_date) INNER JOIN mc_app as C ON A.appid = C.appid
-                             WHERE $where1 $where ORDER  BY A.ref_date desc");
+                             WHERE $where1 $where $order ");
+
+        }else{
+            if ($state){
+                $where1  = "  C.group_id = $key";
+                $where2 = "  group_id = $key";
+            }else{
+                $where1 = "  C.responsible = '$key'";
+                $where2 = "  responsible = '$key'";
+            }
+            if (!empty($stime) || !empty($etime)){
+                if(strtotime($etime)>strtotime($stime)){
+                    if ($stime && $etime){
+                        $where = " AND A.ref_date BETWEEN '$stime 00:00:00' AND '$etime 00:00:00' ";
+                    }else if ($stime){
+                        $where = " AND A.ref_date > '$stime 00:00:00' ";
+                    }else if ($etime){
+                        $where = " AND A.ref_date < '$etime 00:00:00' ";
+                    }
+                }else if (strtotime($etime)==strtotime($stime)){
+                    $where = " AND A.ref_date = '$stime 00:00:00' ";
+                }
+            }
+            list($app) = M()->query("SELECT appid,responsible,`position` FROM mc_app where $where2 limit 1");
+            $responsible = $app["responsible"];
+            $position = $app["position"];
+            //需要有了数据才能查看
+            $info = M()->query("SELECT C.nick_name,
+                          A.cumulate_user,B.appid,DATE_FORMAT(B.ref_date,'%Y-%m-%d') as ref_date,B.int_page_read_user,B.share_user,B.int_page_from_session_read_user,B.int_page_from_feed_read_user,FORMAT(B.int_page_read_user/A.cumulate_user*100,2 ) AS active_percent,
+                          FORMAT(B.share_user/B.int_page_read_count*100,2 )AS share_percent,'$responsible' as responsible,'$position' as `position`,A.pure_user,A.new_user,A.pure_user,
+                          FORMAT(B.int_page_from_session_read_user/A.cumulate_user*100,2 )AS conversation_percent,FORMAT(B.int_page_from_feed_read_user/A.cumulate_user*100,2 ) AS open_percent
+                        FROM mc_app_fans AS A INNER JOIN (SELECT appid,ref_date,SUM(int_page_read_user) AS int_page_read_user,SUM(share_user) AS share_user,SUM(int_page_from_session_read_user) AS int_page_from_session_read_user,
+                        SUM(int_page_from_feed_read_user) AS int_page_from_feed_read_user,SUM(int_page_read_count) AS int_page_read_count FROM mc_app_data GROUP BY appid,ref_date) AS B 
+                        ON A.`ref_date` = B.`ref_date` AND A.`appid` = B.`appid` INNER JOIN mc_app AS C ON A.`appid` = C.`appid` AND $where1 $where $order ");
+           }
         return $info;
     }
 }

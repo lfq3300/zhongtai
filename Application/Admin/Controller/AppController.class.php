@@ -91,10 +91,10 @@ class AppController extends AdminController {
     public function operate($r = 20){
         $builder = new AdminListBuilder();
         $page =  I("get.page",1,"intval");
-        $stime = I("get.startime");
-        $etime = I("get.endtime");
+        $stime = I("get.startime",date("Y-m-01", time()),"date");
+        $etime = I("get.endtime",date("Y-m-t", time()),"date");
         $key = I("get.query");
-        $select = I("get.select",1,"intval");
+        $select = I("get.select",2,"intval");
         $state = $stime||$etime||$key;
         $id = I("get.id");
         $nick_name = I("get.nick_name");
@@ -102,7 +102,7 @@ class AppController extends AdminController {
         list($list,$count) = D("appData")->getAppData($id,$page,$r,$stime,$etime,$key,$select);
         $builder
             ->title($nick_name."  运营数据")
-            ->query(["placeholder"=>"搜索文章标题","value"=>$key,"state"=>$state,"url"=>U("operate",array("id"=>$id,"nick_name"=>$nick_name))]);
+            ->query(["placeholder"=>"搜索标题","value"=>$key,"state"=>$state,"url"=>U("operate",array("id"=>$id,"nick_name"=>$nick_name))]);
         if($select == 2){
             $builder->hidequery();
         }
@@ -116,7 +116,7 @@ class AppController extends AdminController {
             ->keyText("pure_user","净粉丝")
             ->keyText("new_user","新粉丝");
            if($select==1){
-               $builder->keyText("title","文章标题");
+               $builder->keyText("title","标题");
            }
         $builder->keyText("int_page_read_user","图文阅读")
             ->keyText("int_page_from_session_read_user","会话打开")
@@ -127,7 +127,7 @@ class AppController extends AdminController {
             ->keyText("open_percent","朋友圈打开",["added"=>'%'])
             ->keyText("share_percent","分享转发",["added"=>'%'])
             ->keyText("responsible","负责人")
-            ->keyText("position","部门")
+            ->keyText("position","岗位")
             ->data($list)
             ->pagination($count,$r)
             ->display();
@@ -203,7 +203,7 @@ class AppController extends AdminController {
                 $headArr[]='负责人';
             }
             if($field == 'position'){
-                $headArr[]='部门';
+                $headArr[]='岗位';
             }
         }
         $filename=$filename.time();
@@ -219,7 +219,7 @@ class AppController extends AdminController {
         list($list,$count) = D("appData")->getGroupList($page,$r,$query,$queryType);
         $builder
             ->title("多公众号管理")
-            ->query(["state"=>!empty($query),"url"=>U("appGroup"),"placeholder"=>"请搜索：公众号分组",'value'=>$query])
+            ->query(["state"=>true,"url"=>U("appGroup"),"placeholder"=>"按搜索条件搜索",'value'=>$query])
             ->queryselect(["1"=>"公众号分组","2"=>"精准负责人姓名"],["title"=>"搜索条件","select"=>$queryType]);
             if($queryType == 1){
                 $builder->keyText("group_name",'分组')
@@ -241,29 +241,32 @@ class AppController extends AdminController {
         $builder = new AdminListBuilder();
         $id = I("get.id");
         $page =  I("get.page",1,"intval");
-        $stime = I("get.startime");
-        $etime = I("get.endtime");
+        $stime = I("get.startime",date("Y-m-01", time()),"date");
+        $etime = I("get.endtime",date("Y-m-t", time()),"date");
         $select = I("get.select",1,"intval");
         $query = I("get.query");
+        $queryType = I("get.queryType",1,"intval");
         $state = $stime||$etime||$query;
-        list($list,$count) = D("appData")->getAppsData($id,$page,$r,$stime,$etime,true,$select,$query);
+        list($list,$count) = D("appData")->getAppsData($id,$page,$r,$stime,$etime,true,$select,$query,$queryType);
         $groupName = D("appGroup")->getInfo($id);
         $groupName = $groupName["group_name"];
         $builder
             ->title("公众号分组：$groupName")
             ->query(["placeholder"=>"搜索精准负责人","state"=>$state,'value'=>$query,"url"=>U("guardData",array("id"=>$id))])
+            ->queryselect(["1"=>"按时间排序","2"=>"按公众号排序"],["title"=>"排序规则","select"=>$queryType])
+            ->hidequery()
             ->queryStarTime($stime)
-            ->keyHidden("select",$select)
             ->queryEndTime($etime)
+            ->keyHidden("select",$select)
             ->select(["1"=>"详细数据","2"=>"总数据"],["title"=>"查看数据方式","select"=>$select])
-            ->powerExport(U("excelGuardAppData",array("startime"=>$stime,"endtime"=>$etime,"key"=>$id,"filename"=>$groupName,"state"=>true,"select"=>$select)))
+            ->powerExport(U("excelGuardAppData",array("startime"=>$stime,"endtime"=>$etime,"key"=>$id,"filename"=>$groupName,"state"=>true,"select"=>$select,"query"=>$query,"queryType"=>$queryType)))
             ->keyText("ref_date","日期")
             ->keyText("nick_name","公众号")
             ->keyText("cumulate_user","总粉丝")
             ->keyText("pure_user","净粉丝")
             ->keyText("new_user","新粉丝");
             if($select==1){
-                $builder->keyText("title","文章标题");
+                $builder->keyText("title","标题");
             }
         $builder->keyText("int_page_read_user","图文阅读")
             ->keyText("int_page_from_session_read_user","会话打开")
@@ -274,7 +277,7 @@ class AppController extends AdminController {
             ->keyText("open_percent","朋友圈打开",["added"=>'%'])
             ->keyText("share_percent","分享转发",["added"=>'%'])
             ->keyText("responsible","负责人")
-            ->keyText("position","部门")
+            ->keyText("position","岗位")
             ->data($list)
             ->pagination($count,$r)
             ->display();
@@ -286,7 +289,10 @@ class AppController extends AdminController {
         $etime = I("get.endtime");
         $key = I("get.key");
         $state = I("get.state");
-        $info = D("appData")->excelGuardAppData($key,$stime,$etime,$state);
+        $select = I("get.select");
+        $query  = I("get.query");
+        $queryType = I("get.queryType");
+        $info = D("appData")->excelGuardAppData($key,$stime,$etime,$state,$select,$query,$queryType);
         $filename = I("get.filename");
         $data = array();
         foreach ($info as $k=>$goods_info){
@@ -295,6 +301,9 @@ class AppController extends AdminController {
             $data[$k][cumulate_user] = $goods_info['cumulate_user'];
             $data[$k][pure_user] = $goods_info['pure_user'];
             $data[$k][new_user] = $goods_info['new_user'];
+            if($select == 1){
+                $data[$k][title] = $goods_info['title'];
+            }
             $data[$k][int_page_read_user] = $goods_info['int_page_read_user'];
             $data[$k][int_page_from_session_read_user] = $goods_info['int_page_from_session_read_user'];
             $data[$k][int_page_from_feed_read_user] = $goods_info['int_page_from_feed_read_user'];
@@ -321,6 +330,9 @@ class AppController extends AdminController {
             }
             if($field == 'new_user'){
                 $headArr[]='新粉丝';
+            }
+            if($field == 'title'){
+                $headArr[]='标题';
             }
             if($field == 'int_page_read_user'){
                 $headArr[]='图文阅读';
@@ -350,7 +362,7 @@ class AppController extends AdminController {
                 $headArr[]='负责人';
             }
             if($field == 'position'){
-                $headArr[]='部门';
+                $headArr[]='岗位';
             }
         }
         $filename=$filename.time();
@@ -363,20 +375,30 @@ class AppController extends AdminController {
         $builder = new AdminListBuilder();
         $responsible = I("get.responsible");
         $page =  I("get.page",1,"intval");
-        $stime = I("get.startime");
-        $etime = I("get.endtime");
+        $stime = I("get.startime",date("Y-m-01", time()),"date");
+        $etime = I("get.endtime",date("Y-m-t", time()),"date");
+        $select = I("get.select",1,"intval");
+        $query = I("get.query");
+        $queryType = I("get.queryType",1,"intval");
         $state = $stime||$etime;
-        list($list,$count) = D("appData")->getAppsData($responsible,$page,$r,$stime,$etime,false);
+        list($list,$count) = D("appData")->getAppsData($responsible,$page,$r,$stime,$etime,false,$select,$query,$queryType);
         $builder
             ->title("公众号负责人：$responsible")
             ->hidequery()
+            ->keyHidden("select",$select)
             ->query(["state"=>$state,"url"=>U("responsibleData",array("responsible"=>$responsible))])
+            ->queryselect(["1"=>"按时间排序","2"=>"按公众号排序"],["title"=>"排序规则","select"=>$queryType])
             ->queryStarTime($stime)
             ->queryEndTime($etime)
-            ->powerExport(U("excelGuardAppData",array("startime"=>$stime,"endtime"=>$etime,"key"=>$responsible,"filename"=>$responsible,"state"=>false)))
+            ->queryEndTime($etime)
+            ->select(["1"=>"详细数据","2"=>"总数据"],["title"=>"查看数据方式","select"=>$select])
+            ->powerExport(U("excelGuardAppData",array("startime"=>$stime,"endtime"=>$etime,"key"=>$responsible,"filename"=>$responsible,"state"=>false,"select"=>$select,"query"=>$query,"queryType"=>$queryType)))
             ->keyText("ref_date","日期")
-            ->keyText("nick_name","公众号")
-            ->keyText("cumulate_user","总粉丝")
+            ->keyText("nick_name","公众号");
+             if($select==1){
+                 $builder->keyText("title","标题");
+             }
+        $builder->keyText("cumulate_user","总粉丝")
             ->keyText("pure_user","净粉丝")
             ->keyText("new_user","新粉丝")
             ->keyText("int_page_read_user","图文阅读")
@@ -388,7 +410,7 @@ class AppController extends AdminController {
             ->keyText("open_percent","朋友圈打开",["added"=>'%'])
             ->keyText("share_percent","分享转发",["added"=>'%'])
             ->keyText("responsible","负责人")
-            ->keyText("position","部门")
+            ->keyText("position","岗位")
             ->data($list)
             ->pagination($count,$r)
             ->display();
@@ -397,8 +419,8 @@ class AppController extends AdminController {
     public function fans($r = 20){
         $builder = new AdminListBuilder();
         $page =  I("get.page",1,"intval");
-        $stime = I("get.startime");
-        $etime = I("get.endtime");
+        $stime = I("get.startime",date("Y-m-01", time()),"date");
+        $etime = I("get.endtime",date("Y-m-t", time()),"date");
         $query = I("get.query");
         $queryType = I("get.queryType",1,"intval");
         list($list,$count) = D("appFans")->getFans($page,$r,$stime,$etime,$query,$queryType);
@@ -414,7 +436,7 @@ class AppController extends AdminController {
             ->keyText("pure_user","净粉丝")
             ->keyText("new_user","新粉丝")
             ->keyText("responsible","负责人")
-            ->keyText("position","部门")
+            ->keyText("position","职位")
             ->data($list)
             ->pagination($count,$r)
             ->display();
