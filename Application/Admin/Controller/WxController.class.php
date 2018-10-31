@@ -116,18 +116,13 @@ class WxController extends Controller
             foreach ($appList as $key => $val){
                 $Auth = new AuthorizeController();
                 $access_token = $Auth->refreshAccessToken($val["appid"], $val["authorizer_refresh_token"]);
-                print_r($access_token);
-                exit;
                 $url = "https://api.weixin.qq.com/datacube/getarticletotal?access_token=$access_token";
                 $time = C(YESTERDAY);
                 $data = array(
-                    "begin_date" =>'2018-10-01',
-                    "end_date" =>'2018-10-01'
+                    "begin_date" =>$time,
+                    "end_date" =>$time
                 );
                 $send_result = curl_get_https($url, json_encode($data, true));
-                $send_result = json_decode($send_result, true);
-                print_r($send_result);
-                exit;
                 D("AppData")->addHisData($send_result,$val["appid"]);
               //  D("ArticleTerm")->addData($send_result,$val["appid"]);
             }
@@ -171,7 +166,7 @@ class WxController extends Controller
         $token = C(FANSTOKEN);
         I("get.token");
         if (C(FANSTOKEN) == $token){
-            $appList = D("App")->getHisList();
+            $appList = D("App")->getEffeList();
             foreach ($appList as $key => $val){
                 $Auth = new AuthorizeController();
                 $access_token = $Auth->refreshAccessToken($val["appid"], $val["authorizer_refresh_token"]);
@@ -183,7 +178,9 @@ class WxController extends Controller
                     "end_date" =>$time
                 );
                 $send_result = curl_get_https($url, json_encode($data, true));
+                print_r($send_result);
                 $send_result2 = curl_get_https($url2, json_encode($data, true));
+                print_r($send_result2);
                 D("AppFans")->addFans($send_result,$send_result2,$val["appid"],$time);
             }
         }

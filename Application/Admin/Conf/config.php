@@ -54,7 +54,7 @@ return array(
     'PASTREAD'=>'GM6s8DhzQQVrWvdgWyUKwuo6HWeoqofy',
 	'SETNUM'=>'u8tqgmBgpa6zCwF45FSqOmKwj76cO0N1',
 	'HISTORY'=>'vqYgI8aexYgFtVGQL7IxrK6AyBprOmZ6',
-	'YESTERDAY'=>date("Y-m-d"),
+	'YESTERDAY'=>date("Y-m-d",strtotime("- 1 day")),
 	'HISDAY'=>"2018-03-01"
 	//date("Y-m-d",strtotime("-1 day"))
 )
