@@ -33,7 +33,7 @@ class AccountModel extends CommonModel{
 
     public function getAccountNameInfo($id){
         list($info) = M()->query("select nick_name,`position` from mc_account where id = $id limit 1");
-        if (empty($info)){
+        if (empty($info["nick_name"])){
             $info['nick_name'] = "系统";
             $info['position'] = "系统";
         }
