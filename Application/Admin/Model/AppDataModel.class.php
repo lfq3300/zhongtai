@@ -19,7 +19,6 @@ class AppDataModel extends CommonModel
             $msgId = $b["msgid"];
             $title = $b["title"];
             $dataInfo = $b["details"][0];
-
             if($fans == 0){
                 $active_percent = 0;
                 $conversation_percent = 0;
@@ -92,9 +91,19 @@ class AppDataModel extends CommonModel
                 $share_count = $dataInfo["share_count"] - $yesterInfo["share_count"];
                 $add_to_fav_user = $dataInfo["add_to_fav_user"] - $yesterInfo["add_to_fav_user"];
                 $add_to_fav_count = $dataInfo["add_to_fav_count"] - $yesterInfo["add_to_fav_count"];
+                $int_page_from_other_read_user = $dataInfo["int_page_from_other_read_user"] - $yesterInfo["int_page_from_other_read_user"];
+                $int_page_from_other_read_count = $dataInfo["int_page_from_other_read_count"] - $yesterInfo["int_page_from_other_read_count"];
+                $feed_share_from_session_user = $dataInfo["feed_share_from_session_user"] - $yesterInfo["feed_share_from_session_user"];
+                $feed_share_from_session_count = $dataInfo["feed_share_from_session_count"] - $yesterInfo["feed_share_from_session_count"];
+                $feed_share_from_feed_user = $dataInfo["feed_share_from_feed_user"] - $yesterInfo["feed_share_from_feed_user"];
+                $feed_share_from_feed_count = $dataInfo["feed_share_from_feed_count"] - $yesterInfo["feed_share_from_feed_count"];
+                $feed_share_from_other_user = $dataInfo["feed_share_from_other_user"] - $yesterInfo["feed_share_from_other_user"];
+                $feed_share_from_other_count = $dataInfo["feed_share_from_other_count"] - $yesterInfo["feed_share_from_other_count"];
+//                $user_count = $dataInfo["int_page_from_feed_read_user"]+ $dataInfo["feed_share_from_other_user"] + $dataInfo["int_page_from_session_read_user"] + $dataInfo["int_page_from_feed_read_user"] + $dataInfo["int_page_from_friends_read_user"]+$dataInfo["share_user"];
+//                $read_user_count =  $user_count - $yesterInfo["read_user_count"];
                 if($fans == 0){
                     $active_percent = 0;
-                   $conversation_percent = 0;
+                    $conversation_percent = 0;
                     $open_percent = 0;
                 }else{
                     $active_percent = $int_page_read_user / $fans * 100;
@@ -102,7 +111,6 @@ class AppDataModel extends CommonModel
                     $open_percent = $int_page_from_feed_read_user / $fans * 100;
                 }
                 $int_page_read_count == 0?$share_percent = 0:$share_percent = $share_user / $int_page_read_count * 100;
-
                 $c = array(
                     "msgid"=>$val["msgid"],
                     "title"=>$val["title"],
@@ -121,6 +129,15 @@ class AppDataModel extends CommonModel
                     "int_page_from_feed_read_count"=>$int_page_from_feed_read_count,
                     "int_page_from_friends_read_user"=>$int_page_from_friends_read_user,
                     "int_page_from_friends_read_count"=>$int_page_from_friends_read_count,
+                    "int_page_from_other_read_user"=>$int_page_from_other_read_user,
+                    "int_page_from_other_read_count"=>$int_page_from_other_read_count,
+                    "feed_share_from_session_user"=>$feed_share_from_session_user,
+                    "feed_share_from_session_count"=>$feed_share_from_session_count,
+                    "feed_share_from_feed_user"=>$feed_share_from_feed_user,
+                    "feed_share_from_feed_count"=>$feed_share_from_feed_count,
+                    "feed_share_from_other_user"=>$feed_share_from_other_user,
+                    "feed_share_from_other_count"=>$feed_share_from_other_count,
+                    "read_count"=>0,
                     "target_user"=>$dataInfo["target_user"],
                     "appid"=>$appid,
                     "active_percent"=> $active_percent, //阅读总量 / 总粉丝
@@ -221,7 +238,16 @@ class AppDataModel extends CommonModel
               SUM(int_page_from_friends_read_count) AS int_page_from_friends_read_count,
               SUM(int_page_from_friends_read_user) AS int_page_from_friends_read_user,
               SUM(add_to_fav_count) AS add_to_fav_count,
-              SUM(add_to_fav_user) AS add_to_fav_user
+              SUM(add_to_fav_user) AS add_to_fav_user,
+              SUM(int_page_from_other_read_user) as int_page_from_other_read_user,
+              SUM(int_page_from_other_read_count) as int_page_from_other_read_count,
+              SUM(feed_share_from_session_user) AS  feed_share_from_session_user,
+              SUM(feed_share_from_session_count) AS  feed_share_from_session_count,
+              SUM(feed_share_from_feed_user) AS  feed_share_from_feed_user,
+              SUM(feed_share_from_feed_count) AS  feed_share_from_feed_count,
+              SUM(feed_share_from_other_user) AS  feed_share_from_other_user,
+              SUM(feed_share_from_other_count) AS  feed_share_from_other_count,
+              SUM(read_user_count) AS read_user_count,
             FROM
               mc_app_data 
             WHERE msgid = '$msgId' AND title = '$title'");
@@ -241,6 +267,15 @@ class AppDataModel extends CommonModel
                 "share_count"=>0,
                 "add_to_fav_user"=>0,
                 "add_to_fav_count"=>0,
+                "int_page_from_other_read_user"=>0,
+                "int_page_from_other_read_count"=>0,
+                "feed_share_from_session_user"=>0,
+                "feed_share_from_session_count"=>0,
+                "feed_share_from_feed_user"=>0,
+                "feed_share_from_feed_count"=>0,
+                "feed_share_from_other_user"=>0,
+                "feed_share_from_other_count"=>0,
+                "read_user_count"=>0
             );
         }
        return $info;

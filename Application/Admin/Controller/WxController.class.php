@@ -119,8 +119,8 @@ class WxController extends Controller
                 $url = "https://api.weixin.qq.com/datacube/getarticletotal?access_token=$access_token";
                 $time = C(YESTERDAY);
                 $data = array(
-                    "begin_date" =>$time,
-                    "end_date" =>$time
+                    "begin_date" =>'2018-10-24',
+                    "end_date" =>'2018-10-24'
                 );
                 $send_result = curl_get_https($url, json_encode($data, true));
                 D("AppData")->addHisData($send_result,$val["appid"]);
