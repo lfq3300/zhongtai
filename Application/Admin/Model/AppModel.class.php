@@ -49,13 +49,8 @@ class AppModel extends CommonModel
 
 
     public function getEffeList(){
-//        if (S("applist")) {
-//            $appList = S("applist");
-//        } else {
-            $appList = M()->query(" SELECT id,appid,authorizer_refresh_token,verify_type_info FROM mc_app WHERE  appid = 'wx46d8082bdca64ea2'");
-            // 查询 全部公众号 然后请求 公众号数据  必须通过微信公众号认证  获取用户增长的话
-            S("applist", $appList, 14400);
-       // }
+        // 查询 全部公众号 然后请求 公众号数据  必须通过微信公众号认证  获取用户增长的话
+        $appList = M()->query(" SELECT id,appid,authorizer_refresh_token,verify_type_info FROM mc_app WHERE  verify_type_info = 0");
         return $appList;
     }
 
