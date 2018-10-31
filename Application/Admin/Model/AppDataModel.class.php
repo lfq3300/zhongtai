@@ -99,8 +99,10 @@ class AppDataModel extends CommonModel
                 $feed_share_from_feed_count = $dataInfo["feed_share_from_feed_count"] - $yesterInfo["feed_share_from_feed_count"];
                 $feed_share_from_other_user = $dataInfo["feed_share_from_other_user"] - $yesterInfo["feed_share_from_other_user"];
                 $feed_share_from_other_count = $dataInfo["feed_share_from_other_count"] - $yesterInfo["feed_share_from_other_count"];
-//                $user_count = $dataInfo["int_page_from_feed_read_user"]+ $dataInfo["feed_share_from_other_user"] + $dataInfo["int_page_from_session_read_user"] + $dataInfo["int_page_from_feed_read_user"] + $dataInfo["int_page_from_friends_read_user"]+$dataInfo["share_user"];
-//                $read_user_count =  $user_count - $yesterInfo["read_user_count"];
+                $int_page_from_histmsg_read_count = $dataInfo["int_page_from_histmsg_read_count"] - $yesterInfo["int_page_from_histmsg_read_count"];
+                $int_page_from_histmsg_read_user = $dataInfo["int_page_from_histmsg_read_user"] - $yesterInfo["int_page_from_histmsg_read_user"];
+                $user_count = $dataInfo["int_page_from_session_read_user"]+ $dataInfo["int_page_from_friends_read_user"] + $dataInfo["int_page_from_feed_read_user"] + $dataInfo["int_page_from_histmsg_read_user"] + $dataInfo["feed_share_from_other_user"];
+                $read_user_count =  $user_count - $yesterInfo["read_user_count"];
                 if($fans == 0){
                     $active_percent = 0;
                     $conversation_percent = 0;
@@ -137,7 +139,9 @@ class AppDataModel extends CommonModel
                     "feed_share_from_feed_count"=>$feed_share_from_feed_count,
                     "feed_share_from_other_user"=>$feed_share_from_other_user,
                     "feed_share_from_other_count"=>$feed_share_from_other_count,
-                    "read_count"=>0,
+                    "int_page_from_histmsg_read_count"=>$int_page_from_histmsg_read_count,
+                    "int_page_from_histmsg_read_user"=>$int_page_from_histmsg_read_user,
+                    "read_count"=>$read_user_count,
                     "target_user"=>$dataInfo["target_user"],
                     "appid"=>$appid,
                     "active_percent"=> $active_percent, //阅读总量 / 总粉丝
@@ -248,6 +252,8 @@ class AppDataModel extends CommonModel
               SUM(feed_share_from_other_user) AS  feed_share_from_other_user,
               SUM(feed_share_from_other_count) AS  feed_share_from_other_count,
               SUM(read_user_count) AS read_user_count,
+              SUM(int_page_from_histmsg_read_count) as int_page_from_histmsg_read_count,
+              SUM(int_page_from_histmsg_read_user) as int_page_from_histmsg_read_user,
             FROM
               mc_app_data 
             WHERE msgid = '$msgId' AND title = '$title'");
@@ -275,7 +281,9 @@ class AppDataModel extends CommonModel
                 "feed_share_from_feed_count"=>0,
                 "feed_share_from_other_user"=>0,
                 "feed_share_from_other_count"=>0,
-                "read_user_count"=>0
+                "read_user_count"=>0,
+                "int_page_from_histmsg_read_user"=>0,
+                "int_page_from_histmsg_read_user"=>0
             );
         }
        return $info;
