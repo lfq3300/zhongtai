@@ -74,6 +74,7 @@ class AppDataModel extends CommonModel
         $data = $send_result["list"];
         foreach($data as $key=>$val){
             $details = $val['details'];
+            $article_date = $val['ref_date'];
             foreach ($details as $k=>$dataInfo){
                 $fans = D("AppFans")->getFansCount($appid,$dataInfo['stat_date']);
                 $yesterInfo = D("AppData")->yesterdayRead($val["msgid"],$val["title"]);
@@ -126,7 +127,8 @@ class AppDataModel extends CommonModel
                     "share_percent"=>$share_percent, // 分享转发量/总阅读量
                     "conversation_percent"=> $conversation_percent,  //公众号会话 / 总粉丝
                     "open_percent"=>$open_percent, //朋友圈打开 /  总粉丝
-                    "creater_time"=>date("Y-m-d H:i:s")
+                    "creater_time"=>date("Y-m-d H:i:s"),
+                    "article_date"=>$article_date
                 );
                 $ret = M("app_data")->lock(true)->add($c);
                 if(!$ret){
