@@ -178,9 +178,7 @@ class WxController extends Controller
                     "end_date" =>$time
                 );
                 $send_result = curl_get_https($url, json_encode($data, true));
-                print_r($send_result);
                 $send_result2 = curl_get_https($url2, json_encode($data, true));
-                print_r($send_result2);
                 D("AppFans")->addFans($send_result,$send_result2,$val["appid"],$time);
             }
         }
