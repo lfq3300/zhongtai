@@ -123,40 +123,40 @@ class WxController extends Controller
                     "end_date" =>$time
                 );
                 $send_result = curl_get_https($url, json_encode($data, true));
-                D("AppData")->addData($send_result,$val["appid"]);
-                D("ArticleTerm")->addData($send_result,$val["appid"]);
+                D("AppData")->addHisData($send_result,$val["appid"]);
+              //  D("ArticleTerm")->addData($send_result,$val["appid"]);
             }
         }
     }
 
-    //获取 文章 发布日期后 7天有效期内 的 文章数据情况
-    public function getPastRead(){
-        $token = C(PASTREAD);I("get.token");
-        if (C(PASTREAD) == $token){
-            $appList = D("ArticleTerm")->getEffeList();
-            foreach ($appList as $key => $val){
-                $Auth = new AuthorizeController();
-                $access_token = $Auth->refreshAccessToken($val["appid"], $val["authorizer_refresh_token"]);
-                $url = "https://api.weixin.qq.com/datacube/getarticletotal?access_token=$access_token";
-                $time = $val["ref_date"];
-                $data = array(
-                    "begin_date" =>$time,
-                    "end_date" =>$time
-                );
-                $send_result = curl_get_https($url, json_encode($data, true));
-                D("AppData")->addPastData($send_result,$val);
-            }
-        }
-    }
-
-    //每天 减少 一次获取的机会
-    public function  setNum(){
-        $token = C(SETNUM);I("get.token");
-        if (C(SETNUM) == $token){
-            D("ArticleTerm")->setNum();
-            D("ArticleTerm")->deOver();
-        }
-    }
+//    //获取 文章 发布日期后 7天有效期内 的 文章数据情况
+//    public function getPastRead(){
+//        $token = C(PASTREAD);I("get.token");
+//        if (C(PASTREAD) == $token){
+//            $appList = D("ArticleTerm")->getEffeList();
+//            foreach ($appList as $key => $val){
+//                $Auth = new AuthorizeController();
+//                $access_token = $Auth->refreshAccessToken($val["appid"], $val["authorizer_refresh_token"]);
+//                $url = "https://api.weixin.qq.com/datacube/getarticletotal?access_token=$access_token";
+//                $time = $val["ref_date"];
+//                $data = array(
+//                    "begin_date" =>$time,
+//                    "end_date" =>$time
+//                );
+//                $send_result = curl_get_https($url, json_encode($data, true));
+//                D("AppData")->addPastData($send_result,$val);
+//            }
+//        }
+//    }
+//
+//    //每天 减少 一次获取的机会
+//    public function  setNum(){
+//        $token = C(SETNUM);I("get.token");
+//        if (C(SETNUM) == $token){
+//            D("ArticleTerm")->setNum();
+//            D("ArticleTerm")->deOver();
+//        }
+//    }
 
 
     //每天一点 15分钟  获取粉丝数量信息
