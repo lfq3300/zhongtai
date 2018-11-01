@@ -93,34 +93,24 @@ class AppController extends AdminController {
         $page =  I("get.page",1,"intval");
         $stime = I("get.startime",date("Y-m-01", time()),"date");
         $etime = I("get.endtime",date("Y-m-t", time()),"date");
-        $key = I("get.query");
-        $select = I("get.select",2,"intval");
-        $state = $stime||$etime||$key;
+        $state = $stime||$etime;
         $id = I("get.id");
         $nick_name = I("get.nick_name");
-
-        list($list,$count) = D("appData")->getAppData($id,$page,$r,$stime,$etime,$key,$select);
+        list($list,$count) = D("appData")->getAppData($id,$page,$r,$stime,$etime);
         $builder
             ->title($nick_name."  运营数据")
-            ->query(["placeholder"=>"搜索标题","value"=>$key,"state"=>$state,"url"=>U("operate",array("id"=>$id,"nick_name"=>$nick_name))]);
-        if($select == 2){
-            $builder->hidequery();
-        }
-        $builder->queryStarTime($stime)
+            ->query(["placeholder"=>"搜索标题","state"=>$state,"url"=>U("operate",array("id"=>$id,"nick_name"=>$nick_name))])
+            ->hidequery()
+            ->queryStarTime($stime)
             ->queryEndTime($etime)
-            ->powerExport(U("oexcel",array("startime"=>$stime,"endtime"=>$etime,"id"=>$id,"filename"=>$nick_name,"key"=>$key,"select"=>$select)))
-            ->select(["1"=>"详细数据","2"=>"总数据"],["title"=>"查看数据方式","select"=>$select])
-            ->keyHidden("select",$select)
+            ->powerExport(U("oexcel",array("startime"=>$stime,"endtime"=>$etime,"id"=>$id,"filename"=>$nick_name)))
             ->keyText("ref_date","日期")
             ->keyText("cumulate_user","总粉丝")
             ->keyText("pure_user","净粉丝")
-            ->keyText("new_user","新粉丝");
-           if($select==1){
-               $builder->keyText("title","标题");
-           }
-        $builder->keyText("int_page_read_user","图文阅读")
+            ->keyText("new_user","新粉丝")
+            ->keyText("int_page_read_user","图文阅读")
             ->keyText("int_page_from_session_read_user","会话打开")
-            ->keyText("int_page_from_feed_read_user","朋友圈打开")
+            ->keyText("int_page_from_friends_read_user","朋友圈打开")
             ->keyText("share_user","分享转发")
             ->keyText("active_percent","活跃度",["added"=>'%'])
             ->keyText("conversation_percent","会话打开",["added"=>'%'])
@@ -137,9 +127,7 @@ class AppController extends AdminController {
         $stime = I("get.startime");
         $etime = I("get.endtime");
         $id = I("get.id");
-        $key = I("get.key");
-        $select = I("get.select");
-        $info = D("appData")->excelAppData($id,$stime,$etime,$key,$select);
+        $info = D("appData")->excelAppData($id,$stime,$etime);
         $filename = I("get.filename");
         $data = array();
         foreach ($info as $k=>$goods_info){
@@ -150,7 +138,7 @@ class AppController extends AdminController {
             $data[$k][new_user] = $goods_info['new_user'];
             $data[$k][int_page_read_user] = $goods_info['int_page_read_user'];
             $data[$k][int_page_from_session_read_user] = $goods_info['int_page_from_session_read_user'];
-            $data[$k][int_page_from_feed_read_user] = $goods_info['int_page_from_feed_read_user'];
+            $data[$k][int_page_from_friends_read_user] = $goods_info['int_page_from_friends_read_user'];
             $data[$k][share_user] = $goods_info['share_user'];
             $data[$k][active_percent] = $goods_info['active_percent']."%";
             $data[$k][conversation_percent] = $goods_info['conversation_percent']."%";
@@ -181,7 +169,7 @@ class AppController extends AdminController {
             if($field == 'int_page_from_session_read_user'){
                 $headArr[]='会话打开';
             }
-            if($field == 'int_page_from_feed_read_user'){
+            if($field == 'int_page_from_friends_read_user'){
                 $headArr[]='朋友圈打开';
             }
             if($field == 'share_user'){
@@ -243,11 +231,10 @@ class AppController extends AdminController {
         $page =  I("get.page",1,"intval");
         $stime = I("get.startime",date("Y-m-01", time()),"date");
         $etime = I("get.endtime",date("Y-m-t", time()),"date");
-        $select = I("get.select",1,"intval");
         $query = I("get.query");
         $queryType = I("get.queryType",1,"intval");
         $state = $stime||$etime||$query;
-        list($list,$count) = D("appData")->getAppsData($id,$page,$r,$stime,$etime,true,$select,$query,$queryType);
+        list($list,$count) = D("appData")->getAppsData($id,$page,$r,$stime,$etime,true,$query,$queryType);
         $groupName = D("appGroup")->getInfo($id);
         $groupName = $groupName["group_name"];
         $builder
@@ -257,20 +244,15 @@ class AppController extends AdminController {
             ->hidequery()
             ->queryStarTime($stime)
             ->queryEndTime($etime)
-            ->keyHidden("select",$select)
-            ->select(["1"=>"详细数据","2"=>"总数据"],["title"=>"查看数据方式","select"=>$select])
-            ->powerExport(U("excelGuardAppData",array("startime"=>$stime,"endtime"=>$etime,"key"=>$id,"filename"=>$groupName,"state"=>true,"select"=>$select,"query"=>$query,"queryType"=>$queryType)))
+            ->powerExport(U("excelGuardAppData",array("startime"=>$stime,"endtime"=>$etime,"key"=>$id,"filename"=>$groupName,"state"=>true,"query"=>$query,"queryType"=>$queryType)))
             ->keyText("ref_date","日期")
             ->keyText("nick_name","公众号")
             ->keyText("cumulate_user","总粉丝")
             ->keyText("pure_user","净粉丝")
-            ->keyText("new_user","新粉丝");
-            if($select==1){
-                $builder->keyText("title","标题");
-            }
-        $builder->keyText("int_page_read_user","图文阅读")
+            ->keyText("new_user","新粉丝")
+            ->keyText("int_page_read_user","图文阅读")
             ->keyText("int_page_from_session_read_user","会话打开")
-            ->keyText("int_page_from_feed_read_user","朋友圈打开")
+            ->keyText("int_page_from_friends_read_user","朋友圈打开")
             ->keyText("share_user","分享转发")
             ->keyText("active_percent","活跃度",["added"=>'%'])
             ->keyText("conversation_percent","会话打开",["added"=>'%'])
@@ -289,10 +271,9 @@ class AppController extends AdminController {
         $etime = I("get.endtime");
         $key = I("get.key");
         $state = I("get.state");
-        $select = I("get.select");
         $query  = I("get.query");
         $queryType = I("get.queryType");
-        $info = D("appData")->excelGuardAppData($key,$stime,$etime,$state,$select,$query,$queryType);
+        $info = D("appData")->excelGuardAppData($key,$stime,$etime,$state,$query,$queryType);
         $filename = I("get.filename");
         $data = array();
         foreach ($info as $k=>$goods_info){
@@ -301,12 +282,9 @@ class AppController extends AdminController {
             $data[$k][cumulate_user] = $goods_info['cumulate_user'];
             $data[$k][pure_user] = $goods_info['pure_user'];
             $data[$k][new_user] = $goods_info['new_user'];
-            if($select == 1){
-                $data[$k][title] = $goods_info['title'];
-            }
             $data[$k][int_page_read_user] = $goods_info['int_page_read_user'];
             $data[$k][int_page_from_session_read_user] = $goods_info['int_page_from_session_read_user'];
-            $data[$k][int_page_from_feed_read_user] = $goods_info['int_page_from_feed_read_user'];
+            $data[$k][int_page_from_friends_read_user] = $goods_info['int_page_from_friends_read_user'];
             $data[$k][share_user] = $goods_info['share_user'];
             $data[$k][active_percent] = $goods_info['active_percent']."%";
             $data[$k][conversation_percent] = $goods_info['conversation_percent']."%";
@@ -340,7 +318,7 @@ class AppController extends AdminController {
             if($field == 'int_page_from_session_read_user'){
                 $headArr[]='会话打开';
             }
-            if($field == 'int_page_from_feed_read_user'){
+            if($field == 'int_page_from_friends_read_user'){
                 $headArr[]='朋友圈打开';
             }
             if($field == 'share_user'){
@@ -377,33 +355,27 @@ class AppController extends AdminController {
         $page =  I("get.page",1,"intval");
         $stime = I("get.startime",date("Y-m-01", time()),"date");
         $etime = I("get.endtime",date("Y-m-t", time()),"date");
-        $select = I("get.select",1,"intval");
         $query = I("get.query");
         $queryType = I("get.queryType",1,"intval");
         $state = $stime||$etime;
-        list($list,$count) = D("appData")->getAppsData($responsible,$page,$r,$stime,$etime,false,$select,$query,$queryType);
+        list($list,$count) = D("appData")->getAppsData($responsible,$page,$r,$stime,$etime,false,$query,$queryType);
         $builder
             ->title("公众号负责人：$responsible")
             ->hidequery()
-            ->keyHidden("select",$select)
             ->query(["state"=>$state,"url"=>U("responsibleData",array("responsible"=>$responsible))])
             ->queryselect(["1"=>"按时间排序","2"=>"按公众号排序"],["title"=>"排序规则","select"=>$queryType])
             ->queryStarTime($stime)
             ->queryEndTime($etime)
             ->queryEndTime($etime)
-            ->select(["1"=>"详细数据","2"=>"总数据"],["title"=>"查看数据方式","select"=>$select])
-            ->powerExport(U("excelGuardAppData",array("startime"=>$stime,"endtime"=>$etime,"key"=>$responsible,"filename"=>$responsible,"state"=>false,"select"=>$select,"query"=>$query,"queryType"=>$queryType)))
+            ->powerExport(U("excelGuardAppData",array("startime"=>$stime,"endtime"=>$etime,"key"=>$responsible,"filename"=>$responsible,"state"=>false,"query"=>$query,"queryType"=>$queryType)))
             ->keyText("ref_date","日期")
-            ->keyText("nick_name","公众号");
-             if($select==1){
-                 $builder->keyText("title","标题");
-             }
-        $builder->keyText("cumulate_user","总粉丝")
+            ->keyText("nick_name","公众号")
+            ->keyText("cumulate_user","总粉丝")
             ->keyText("pure_user","净粉丝")
             ->keyText("new_user","新粉丝")
             ->keyText("int_page_read_user","图文阅读")
             ->keyText("int_page_from_session_read_user","会话打开")
-            ->keyText("int_page_from_feed_read_user","朋友圈打开")
+            ->keyText("int_page_from_friends_read_user","朋友圈打开")
             ->keyText("share_user","分享转发")
             ->keyText("active_percent","活跃度",["added"=>'%'])
             ->keyText("conversation_percent","会话打开",["added"=>'%'])

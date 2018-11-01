@@ -47,16 +47,14 @@ class AppFansModel extends CommonModel
         if(S($appid.$time."fans")){
             return S($appid.$time."fans");
         }else{
-            list($info) =  M()->query("SELECT cumulate_user FROM mc_app_fans WHERE appid = 'wx46d8082bdca64ea2' AND ref_date = '2018-10-19 00:00:00' ");
+            list($info) =  M()->query("SELECT cumulate_user FROM mc_app_fans WHERE appid = '$appid' AND ref_date = '$c' ");
             S($appid.$time."fans",$info['cumulate_user']);
             return $info['cumulate_user'];
         }
-
     }
 
     public function getFans($page,$r,$stime,$etime,$query,$queryType){
         $row = ($page-1) * $r;
-
         if (!empty($stime) || !empty($etime)){
             if(strtotime($etime)>strtotime($stime)){
                 if ($stime && $etime){

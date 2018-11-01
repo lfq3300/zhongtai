@@ -10,293 +10,64 @@ namespace Admin\Model;
 use Admin\Model\CommonModel;
 class AppDataModel extends CommonModel
 {
-    public function addData($send_result,$appid){
+    public function addHisData($send_result,$appid,$time){
         $send_result = json_decode($send_result, true);
-        $data = $send_result["list"];
-        foreach ($data as $key=>$b){
-            $fans = D("AppFans")->getFansCount($appid,$b["ref_date"]);
-            $ref_date =  $b["ref_date"];
-            $msgId = $b["msgid"];
-            $title = $b["title"];
-            $dataInfo = $b["details"][0];
+        $list = $send_result["list"];
+        if(empty($list)){
+            return;
+        }else{
+            $data = array();
+            foreach($list as $key=>$v) {
+                $data['int_page_read_user']+=$v['int_page_read_user'];
+                $data['int_page_read_count']+=$v['int_page_read_count'];
+                $data['ori_page_read_user']+=$v['ori_page_read_user'];
+                $data['ori_page_read_count']+=$v['ori_page_read_count'];
+                $data['share_user']+=$v['share_user'];
+                $data['share_count']+=$v['share_count'];
+                $data['add_to_fav_user']+=$v['add_to_fav_user'];
+                $data['add_to_fav_count']+=$v['add_to_fav_count'];
+            }
+            $fans = D("AppFans")->getFansCount($appid,$time);
+            $data["int_page_from_session_read_user"] =  $list[0]["int_page_read_user"];
+            $data["int_page_from_session_read_count"] =  $list[0]["int_page_read_count"];
+            $data["int_page_from_friends_read_user"] =  $list[2]["int_page_read_user"];
+            $data["int_page_from_friends_read_count"] =  $list[2]["int_page_read_count"];
+            $data["appid"] = $appid;
+            $data["ref_date"] = $time;
             if($fans == 0){
                 $active_percent = 0;
                 $conversation_percent = 0;
                 $open_percent = 0;
             }else{
-                $active_percent = $dataInfo["int_page_read_user"] / $fans * 100;
-                $conversation_percent = $dataInfo['int_page_from_session_read_user'] / $fans * 100;
-                $open_percent = $dataInfo["int_page_from_feed_read_user"] / $fans * 100;
+                $active_percent = $data["int_page_read_user"] / $fans * 100;
+                $conversation_percent = $data['int_page_from_session_read_user'] / $fans * 100;
+                $open_percent = $data["int_page_from_friends_read_user"] / $fans * 100;
             }
-            $dataInfo['int_page_read_count'] == 0?$share_percent = 0:$share_percent = $dataInfo["share_user"] / $dataInfo['int_page_read_count'] * 100;
-            $c = array(
-                "msgid"=>$msgId,
-                "title"=>$title,
-                "ref_date"=>$ref_date,
-                "int_page_read_user"=>$dataInfo["int_page_read_user"],
-                "int_page_read_count"=>$dataInfo["int_page_read_count"],
-                "ori_page_read_user"=>$dataInfo["ori_page_read_user"],
-                "ori_page_read_count"=>$dataInfo["ori_page_read_count"],
-                "share_user"=>$dataInfo["share_user"],
-                "share_count"=>$dataInfo["share_count"],
-                "add_to_fav_user"=>$dataInfo["add_to_fav_user"],
-                "add_to_fav_count"=>$dataInfo["add_to_fav_count"],
-                "int_page_from_session_read_user"=>$dataInfo["int_page_from_session_read_user"],
-                "int_page_from_session_read_count"=>$dataInfo["int_page_from_session_read_count"],
-                "int_page_from_hist_msg_read_user"=>$dataInfo["int_page_from_hist_msg_read_user"],
-                "int_page_from_hist_msg_read_count"=>$dataInfo["int_page_from_hist_msg_read_count"],
-                "int_page_from_feed_read_count"=>$dataInfo["int_page_from_feed_read_count"],
-                "int_page_from_friends_read_user"=>$dataInfo["int_page_from_friends_read_user"],
-                "int_page_from_feed_read_user"=>$dataInfo["int_page_from_feed_read_user"],
-                "int_page_from_friends_read_count"=>$dataInfo["int_page_from_friends_read_count"],
-                "int_page_from_other_read_user"=>$dataInfo["int_page_from_other_read_user"],
-                "int_page_from_other_read_count"=>$dataInfo["int_page_from_other_read_count"],
-                "target_user"=>$dataInfo["target_user"],
-                "appid"=>$appid,
-                "active_percent"=> $active_percent, //阅读量 / 总粉丝
-                "share_percent"=> $share_percent, // 分享转发量/总阅读量
-                "conversation_percent"=> $conversation_percent,  //公众号会话 / 总粉丝
-                "open_percent"=>$open_percent, //朋友圈打开 /  总粉丝
-                "creater_time"=>date("Y-m-d H:i:s")
-            );
-            $ret = M("app_data")->lock(true)->add($c);
+            if($data['int_page_read_count'] == 0){
+                $share_percent = 0;
+            }else{
+                $share_percent = $data["share_user"] / $data['int_page_read_count'] * 100;
+            }
+            $data["active_percent"] = $active_percent;
+            $data["open_percent"] = $open_percent;
+            $data["share_percent"] = $share_percent;
+            $data["conversation_percent"] = $conversation_percent;
+            $ret = M("app_data")->add($data);
             if (!$ret){
                 writeLog('error',M()->getLastSql());
-                writeLog('data',json_encode($c,true));
+                writeLog('data',json_encode($data,true));
             }
         }
     }
 
 
-    public function addHisData($send_result,$appid){
-        $send_result = json_decode($send_result, true);
-        $data = $send_result["list"];
-        foreach($data as $key=>$val){
-            $details = $val['details'];
-            $article_date = $val['ref_date'];
-            foreach ($details as $k=>$dataInfo){
-                $fans = D("AppFans")->getFansCount($appid,$dataInfo['stat_date']);
-                $yesterInfo = D("AppData")->yesterdayRead($val["msgid"],$val["title"]);
-                $int_page_read_user = $dataInfo["int_page_read_user"] - $yesterInfo["int_page_read_user"];
-                $int_page_read_count  = $dataInfo["int_page_read_count"] -  $yesterInfo["int_page_read_count"];
-                $ori_page_read_user = $dataInfo["ori_page_read_user"] - $yesterInfo["ori_page_read_user"];
-                $ori_page_read_count = $dataInfo["ori_page_read_count"] - $yesterInfo["ori_page_read_count"];
-                $int_page_from_session_read_user = $dataInfo["int_page_from_session_read_user"] - $yesterInfo["int_page_from_session_read_user"];
-                $int_page_from_session_read_count = $dataInfo["int_page_from_session_read_count"] - $yesterInfo["int_page_from_session_read_count"];
-                $int_page_from_feed_read_user = $dataInfo["int_page_from_feed_read_user"] - $yesterInfo["int_page_from_feed_read_user"];
-                $int_page_from_feed_read_count = $dataInfo["int_page_from_feed_read_count"] - $yesterInfo["int_page_from_feed_read_count"];
-                $int_page_from_friends_read_user = $dataInfo["int_page_from_friends_read_user"] - $yesterInfo["int_page_from_friends_read_user"];
-                $int_page_from_friends_read_count = $dataInfo["int_page_from_friends_read_count"] - $yesterInfo["int_page_from_friends_read_count"];
-                $share_user = $dataInfo["share_user"] - $yesterInfo["share_user"];
-                $share_count = $dataInfo["share_count"] - $yesterInfo["share_count"];
-                $add_to_fav_user = $dataInfo["add_to_fav_user"] - $yesterInfo["add_to_fav_user"];
-                $add_to_fav_count = $dataInfo["add_to_fav_count"] - $yesterInfo["add_to_fav_count"];
-                $int_page_from_other_read_user = $dataInfo["int_page_from_other_read_user"] - $yesterInfo["int_page_from_other_read_user"];
-                $int_page_from_other_read_count = $dataInfo["int_page_from_other_read_count"] - $yesterInfo["int_page_from_other_read_count"];
-                $feed_share_from_session_user = $dataInfo["feed_share_from_session_user"] - $yesterInfo["feed_share_from_session_user"];
-                $feed_share_from_session_count = $dataInfo["feed_share_from_session_count"] - $yesterInfo["feed_share_from_session_count"];
-                $feed_share_from_feed_user = $dataInfo["feed_share_from_feed_user"] - $yesterInfo["feed_share_from_feed_user"];
-                $feed_share_from_feed_count = $dataInfo["feed_share_from_feed_count"] - $yesterInfo["feed_share_from_feed_count"];
-                $feed_share_from_other_user = $dataInfo["feed_share_from_other_user"] - $yesterInfo["feed_share_from_other_user"];
-                $feed_share_from_other_count = $dataInfo["feed_share_from_other_count"] - $yesterInfo["feed_share_from_other_count"];
-                $int_page_from_histmsg_read_count = $dataInfo["int_page_from_histmsg_read_count"] - $yesterInfo["int_page_from_histmsg_read_count"];
-                $int_page_from_histmsg_read_user = $dataInfo["int_page_from_histmsg_read_user"] - $yesterInfo["int_page_from_histmsg_read_user"];
-                $user_count = $dataInfo["int_page_from_session_read_user"]+ $dataInfo["int_page_from_friends_read_user"] + $dataInfo["int_page_from_feed_read_user"] + $dataInfo["int_page_from_histmsg_read_user"] + $dataInfo["feed_share_from_other_user"];
-                $read_user_count =  $user_count - $yesterInfo["read_user_count"];
-                if($fans == 0){
-                    $active_percent = 0;
-                    $conversation_percent = 0;
-                    $open_percent = 0;
-                }else{
-                    $active_percent = $int_page_read_user / $fans * 100;
-                    $conversation_percent = $int_page_from_session_read_user / $fans * 100;
-                    $open_percent = $int_page_from_feed_read_user / $fans * 100;
-                }
-                $int_page_read_count == 0?$share_percent = 0:$share_percent = $share_user / $int_page_read_count * 100;
-                $c = array(
-                    "msgid"=>$val["msgid"],
-                    "title"=>$val["title"],
-                    "ref_date"=> $dataInfo["stat_date"],
-                    "int_page_read_user"=>$int_page_read_user,
-                    "int_page_read_count"=>$int_page_read_count,
-                    "ori_page_read_user"=>$ori_page_read_user,
-                    "ori_page_read_count"=>$ori_page_read_count,
-                    "share_user"=>$share_user,
-                    "share_count"=>$share_count,
-                    "add_to_fav_user"=>$add_to_fav_user,
-                    "add_to_fav_count"=>$add_to_fav_count,
-                    "int_page_from_session_read_user"=>$int_page_from_session_read_user,
-                    "int_page_from_session_read_count"=> $int_page_from_session_read_count,
-                    "int_page_from_feed_read_user"=>$int_page_from_feed_read_user,
-                    "int_page_from_feed_read_count"=>$int_page_from_feed_read_count,
-                    "int_page_from_friends_read_user"=>$int_page_from_friends_read_user,
-                    "int_page_from_friends_read_count"=>$int_page_from_friends_read_count,
-                    "int_page_from_other_read_user"=>$int_page_from_other_read_user,
-                    "int_page_from_other_read_count"=>$int_page_from_other_read_count,
-                    "feed_share_from_session_user"=>$feed_share_from_session_user,
-                    "feed_share_from_session_count"=>$feed_share_from_session_count,
-                    "feed_share_from_feed_user"=>$feed_share_from_feed_user,
-                    "feed_share_from_feed_count"=>$feed_share_from_feed_count,
-                    "feed_share_from_other_user"=>$feed_share_from_other_user,
-                    "feed_share_from_other_count"=>$feed_share_from_other_count,
-                    "int_page_from_histmsg_read_count"=>$int_page_from_histmsg_read_count,
-                    "int_page_from_histmsg_read_user"=>$int_page_from_histmsg_read_user,
-                    "read_count"=>$read_user_count,
-                    "target_user"=>$dataInfo["target_user"],
-                    "appid"=>$appid,
-                    "active_percent"=> $active_percent, //阅读总量 / 总粉丝
-                    "share_percent"=>$share_percent, // 分享转发量/总阅读量
-                    "conversation_percent"=> $conversation_percent,  //公众号会话 / 总粉丝
-                    "open_percent"=>$open_percent, //朋友圈打开 /  总粉丝
-                    "creater_time"=>date("Y-m-d H:i:s"),
-                    "article_date"=>$article_date
-                );
-                $ret = M("app_data")->lock(true)->add($c);
-                if(!$ret){
-                    writeLog('error',M()->getLastSql());
-                    writeLog('data',json_encode($c,true));
-                }
-            }
-        }
-    }
-
-//    public function addPastData($send_result,$val){
-//        $send_result = json_decode($send_result, true);
-//        $data = $send_result["list"];
-//        foreach ($data as $key=>$dataInfo){
-//            $fans = D("AppFans")->getFansCount($val['appid'],$dataInfo['stat_date']);
-//            $yesterInfo = D("AppData")->yesterdayRead($dataInfo["msgid"],);
-//            $msgId = $dataInfo["msgid"];
-//            $title = $dataInfo["title"];
-//            $dataInfo = $dataInfo["details"][7-$val["num"]];
-//            $int_page_read_user = $dataInfo["int_page_read_user"] - $yesterInfo["int_page_read_user"];
-//            $int_page_read_count  = $dataInfo["int_page_read_count"] -  $yesterInfo["int_page_read_count"];
-//            $ori_page_read_user = $dataInfo["ori_page_read_user"] - $yesterInfo["ori_page_read_user"];
-//            $ori_page_read_count = $dataInfo["ori_page_read_count"] - $yesterInfo["ori_page_read_count"];
-//            $int_page_from_session_read_user = $dataInfo["int_page_from_session_read_user"] - $yesterInfo["int_page_from_session_read_user"];
-//            $int_page_from_session_read_count = $dataInfo["int_page_from_session_read_count"] - $yesterInfo["int_page_from_session_read_count"];
-//            $int_page_from_feed_read_user = $dataInfo["int_page_from_feed_read_user"] - $yesterInfo["int_page_from_feed_read_user"];
-//            $int_page_from_feed_read_count = $dataInfo["int_page_from_feed_read_count"] - $yesterInfo["int_page_from_feed_read_count"];
-//            $int_page_from_friends_read_user = $dataInfo["int_page_from_friends_read_user"] - $yesterInfo["int_page_from_friends_read_user"];
-//            $int_page_from_friends_read_count = $dataInfo["int_page_from_friends_read_count"] - $yesterInfo["int_page_from_friends_read_count"];
-//            $share_user = $dataInfo["share_user"] - $yesterInfo["share_user"];
-//            $share_count = $dataInfo["share_count"] - $yesterInfo["share_count"];
-//            $add_to_fav_user = $dataInfo["add_to_fav_user"] - $yesterInfo["add_to_fav_user"];
-//            $add_to_fav_count = $dataInfo["add_to_fav_count"] - $yesterInfo["add_to_fav_count"];
-//            if($fans == 0){
-//                $active_percent = 0;
-//                $conversation_percent = 0;
-//                $open_percent = 0;
-//            }else{
-//                $active_percent = $int_page_read_user / $fans * 100;
-//                $conversation_percent = $int_page_from_session_read_user / $fans * 100;
-//                $open_percent = $int_page_from_feed_read_user / $fans * 100;
-//            }
-//            $int_page_read_count == 0?$share_percent = 0:$share_percent = $share_user / $int_page_read_count * 100;
-//            $c = array(
-//                "msgid"=>$msgId,
-//                "title"=>$title,
-//                "ref_date"=>$dataInfo['stat_date'],
-//                "int_page_read_user"=>$int_page_read_user,
-//                "int_page_read_count"=>$int_page_read_count,
-//                "ori_page_read_user"=>$ori_page_read_user,
-//                "ori_page_read_count"=>$ori_page_read_count,
-//                "share_user"=>$share_user,
-//                "share_count"=>$share_count,
-//                "add_to_fav_user"=>$add_to_fav_user,
-//                "add_to_fav_count"=>$add_to_fav_count,
-//                "int_page_from_session_read_user"=>$int_page_from_session_read_user,
-//                "int_page_from_session_read_count"=> $int_page_from_session_read_count,
-//                "int_page_from_feed_read_user"=>$int_page_from_feed_read_user,
-//                "int_page_from_feed_read_count"=>$int_page_from_feed_read_count,
-//                "int_page_from_friends_read_user"=>$int_page_from_friends_read_user,
-//                "int_page_from_friends_read_count"=>$int_page_from_friends_read_count,
-//                "target_user"=>$dataInfo["target_user"],
-//                "appid"=>$val['appid'],
-//                "active_percent"=> $active_percent, //阅读总量 / 总粉丝
-//                "share_percent"=>$share_percent, // 分享转发量/总阅读量
-//                "conversation_percent"=> $conversation_percent,  //公众号会话 / 总粉丝
-//                "open_percent"=>$open_percent, //朋友圈打开 /  总粉丝
-//                "creater_time"=>date("Y-m-d H:i:s")
-//            );
-//            $ret = M("app_data")->lock(true)->add($c);
-//            if (!$ret){
-//                writeLog('error',M()->getLastSql());
-//                writeLog('data',json_encode($c,true));
-//            }
-//        }
-//    }
-
-    public function yesterdayRead($msgId,$title){
-       list($info) =  M()->query("SELECT
-              SUM(int_page_read_count) AS int_page_read_count,
-              SUM(int_page_read_user) AS int_page_read_user,
-              SUM(ori_page_read_count) AS ori_page_read_count,
-              SUM(ori_page_read_user) AS ori_page_read_user,
-              SUM(share_count) AS share_count,
-              SUM(share_user) AS share_user,
-              SUM(int_page_from_feed_read_count) AS int_page_from_feed_read_count,
-              SUM(int_page_from_feed_read_user) AS int_page_from_feed_read_user,
-              SUM(int_page_from_session_read_count) AS int_page_from_session_read_count,
-              SUM(int_page_from_session_read_user) AS int_page_from_session_read_user,
-              SUM(int_page_from_friends_read_count) AS int_page_from_friends_read_count,
-              SUM(int_page_from_friends_read_user) AS int_page_from_friends_read_user,
-              SUM(add_to_fav_count) AS add_to_fav_count,
-              SUM(add_to_fav_user) AS add_to_fav_user,
-              SUM(int_page_from_other_read_user) as int_page_from_other_read_user,
-              SUM(int_page_from_other_read_count) as int_page_from_other_read_count,
-              SUM(feed_share_from_session_user) AS  feed_share_from_session_user,
-              SUM(feed_share_from_session_count) AS  feed_share_from_session_count,
-              SUM(feed_share_from_feed_user) AS  feed_share_from_feed_user,
-              SUM(feed_share_from_feed_count) AS  feed_share_from_feed_count,
-              SUM(feed_share_from_other_user) AS  feed_share_from_other_user,
-              SUM(feed_share_from_other_count) AS  feed_share_from_other_count,
-              SUM(read_user_count) AS read_user_count,
-              SUM(int_page_from_histmsg_read_count) as int_page_from_histmsg_read_count,
-              SUM(int_page_from_histmsg_read_user) as int_page_from_histmsg_read_user,
-            FROM
-              mc_app_data 
-            WHERE msgid = '$msgId' AND title = '$title'");
-        if(empty($info)){
-            $info = array(
-                "int_page_read_user"=>0,
-                "int_page_read_count"=>0,
-                "ori_page_read_user"=>0,
-                "ori_page_read_count"=>0,
-                "int_page_from_session_read_user"=>0,
-                "int_page_from_session_read_count"=>0,
-                "int_page_from_feed_read_user"=>0,
-                "int_page_from_feed_read_count"=>0,
-                "int_page_from_friends_read_user"=>0,
-                "int_page_from_friends_read_count"=>0,
-                "share_user"=>0,
-                "share_count"=>0,
-                "add_to_fav_user"=>0,
-                "add_to_fav_count"=>0,
-                "int_page_from_other_read_user"=>0,
-                "int_page_from_other_read_count"=>0,
-                "feed_share_from_session_user"=>0,
-                "feed_share_from_session_count"=>0,
-                "feed_share_from_feed_user"=>0,
-                "feed_share_from_feed_count"=>0,
-                "feed_share_from_other_user"=>0,
-                "feed_share_from_other_count"=>0,
-                "read_user_count"=>0,
-                "int_page_from_histmsg_read_user"=>0,
-                "int_page_from_histmsg_read_user"=>0
-            );
-        }
-       return $info;
-    }
-
-    public function getAppData($id,$page,$r,$stime,$etime,$key,$select){
+    public function getAppData($id,$page,$r,$stime,$etime){
         $row = ($page-1) * $r;
         $where = "";
         list($app) = M()->query("SELECT appid,responsible,`position` FROM mc_app where id = $id limit 1");
         $appid = $app["appid"];
         $responsible = $app["responsible"];
         $position = $app["position"];
-        if($select == 1){
             if (!empty($stime) || !empty($etime)){
                 if(strtotime($etime)>strtotime($stime)){
                     if ($stime && $etime){
@@ -310,96 +81,40 @@ class AppDataModel extends CommonModel
                     $where = " AND A.ref_date = '$stime 00:00:00' ";
                 }
             }
-            if($key){
-                $where .= " and A.title like '%$key%'";
-            }
-
-            $info = M()->query(" SELECT A.title,B.cumulate_user,B.new_user,B.pure_user,DATE_FORMAT(A.ref_date,'%Y-%m-%d') as ref_date,'$responsible' as responsible,'$position' as `position`,
-                             A.int_page_read_user,A.int_page_read_count,A.int_page_from_session_read_user,A.int_page_from_feed_read_user,A.share_user,A.active_percent,A.conversation_percent,A.open_percent,A.share_percent
+            $info = M()->query(" SELECT A.int_page_read_user,B.cumulate_user,B.new_user,B.pure_user,DATE_FORMAT(A.ref_date,'%Y-%m-%d') as ref_date,'$responsible' as responsible,'$position' as `position`,
+                             A.int_page_from_session_read_user,A.int_page_from_friends_read_user,A.active_percent,A.open_percent,A.share_percent,A.conversation_percent,A.share_user
                              FROM mc_app_data as A INNER JOIN  mc_app_fans as 
                              B on (A.appid = B.appid and A.ref_date = B.ref_date)
                              WHERE A.appid = '$appid' $where ORDER  BY A.ref_date desc limit $row,$r");
             list($count) = M()->query(" SELECT count(*) AS len  FROM mc_app_data as A INNER JOIN  mc_app_fans as B on (A.appid = B.appid and A.ref_date = B.ref_date) WHERE A.appid = '$appid' $where ");
-        }else{
-            if (!empty($stime) || !empty($etime)){
-                if(strtotime($etime)>strtotime($stime)){
-                    if ($stime && $etime){
-                        $where = " AND  A.ref_date BETWEEN '$stime 00:00:00' AND '$etime 00:00:00' ";
-                    }else if ($stime){
-                        $where = " AND  A.ref_date > '$stime 00:00:00' ";
-                    }else if ($etime){
-                        $where = " AND A.ref_date < '$etime 00:00:00' ";
-                    }
-                }else if (strtotime($etime)==strtotime($stime)){
-                    $where = " AND  A.ref_date = '$stime 00:00:00' ";
-                }
-            }
-            $info = M()->query("SELECT 
-                          A.cumulate_user,B.appid,DATE_FORMAT(B.ref_date,'%Y-%m-%d') as ref_date,B.int_page_read_user,B.share_user,B.int_page_from_session_read_user,B.int_page_from_feed_read_user,FORMAT(B.int_page_read_user/A.cumulate_user*100,2 ) AS active_percent,
-                          FORMAT(B.share_user/B.int_page_read_count*100,2 )AS share_percent,'$responsible' as responsible,'$position' as `position`,A.pure_user,A.new_user,A.pure_user,
-                          FORMAT(B.int_page_from_session_read_user/A.cumulate_user*100,2 )AS conversation_percent,FORMAT(B.int_page_from_feed_read_user/A.cumulate_user*100,2 ) AS open_percent
-                        FROM mc_app_fans AS A INNER JOIN (SELECT appid,ref_date,SUM(int_page_read_user) AS int_page_read_user,SUM(share_user) AS share_user,SUM(int_page_from_session_read_user) AS int_page_from_session_read_user,
-                        SUM(int_page_from_feed_read_user) AS int_page_from_feed_read_user,SUM(int_page_read_count) AS int_page_read_count FROM mc_app_data GROUP BY appid,ref_date) AS B 
-                        ON A.`ref_date` = B.`ref_date` AND A.`appid` = B.`appid` where A.appid = '$appid' $where ORDER  BY A.ref_date DESC  limit $row,$r ");
-            list($count) = M()->query("SELECT count(*) AS len FROM mc_app_fans AS A INNER JOIN  (SELECT  appid,ref_date,SUM(int_page_read_user) AS int_page_read_user,
-                        SUM(share_user) AS share_user,SUM(int_page_from_session_read_user) AS int_page_from_session_read_user,SUM(int_page_from_feed_read_user) AS int_page_from_feed_read_user,
-                        SUM(int_page_read_count) AS int_page_read_count FROM mc_app_data  GROUP BY appid, ref_date) AS B ON A.`ref_date` = B.`ref_date` AND A.`appid` = B.`appid` where A.appid = '$appid' $where ORDER  BY A.ref_date DESC  ");
-        }
-        return array($info,$count['len']);
+            return array($info,$count["len"]);
     }
 
-    public function excelAppData($id,$stime,$etime,$key,$select){
+    public function excelAppData($id,$stime,$etime){
         $where = "";
         list($app) = M()->query("SELECT appid,responsible,`position` FROM mc_app where id = $id limit 1");
         $appid = $app["appid"];
         $responsible = $app["responsible"];
         $position = $app["position"];
-        if($select == 1){
-            if (!empty($stime) || !empty($etime)){
-                if(strtotime($etime)>strtotime($stime)){
-                    if ($stime && $etime){
-                        $where = " AND A.ref_date BETWEEN '$stime 00:00:00' AND '$etime 00:00:00' ";
-                    }else if ($stime){
-                        $where = " AND A.ref_date > '$stime 00:00:00' ";
-                    }else if ($etime){
-                        $where = " AND A.ref_date < '$etime 00:00:00' ";
-                    }
-                }else if (strtotime($etime)==strtotime($stime)){
-                    $where = " AND A.ref_date = '$stime 00:00:00' ";
+        if (!empty($stime) || !empty($etime)){
+            if(strtotime($etime)>strtotime($stime)){
+                if ($stime && $etime){
+                    $where = " AND A.ref_date BETWEEN '$stime 00:00:00' AND '$etime 00:00:00' ";
+                }else if ($stime){
+                    $where = " AND A.ref_date > '$stime 00:00:00' ";
+                }else if ($etime){
+                    $where = " AND A.ref_date < '$etime 00:00:00' ";
                 }
+            }else if (strtotime($etime)==strtotime($stime)){
+                $where = " AND A.ref_date = '$stime 00:00:00' ";
             }
-            if($key){
-                $where .= " and A.title like '%$key%'";
-            }
-            $info = M()->query(" SELECT B.cumulate_user,B.new_user,B.pure_user,DATE_FORMAT(A.ref_date,'%Y-%m-%d') as ref_date,'$responsible' as responsible,'$position' as `position`,
-                             A.int_page_read_user,A.int_page_read_count,A.int_page_from_session_read_user,A.int_page_from_feed_read_user,A.share_user,A.active_percent,A.conversation_percent,A.open_percent,A.share_percent
-                             FROM mc_app_data as A INNER JOIN  mc_app_fans as 
-                             B on (A.appid = B.appid and A.ref_date = B.ref_date) 
-                             WHERE A.appid = '$appid' $where ORDER  BY A.ref_date desc");
-        }else{
-            if (!empty($stime) || !empty($etime)){
-                if(strtotime($etime)>strtotime($stime)){
-                    if ($stime && $etime){
-                        $where = " AND A.ref_date BETWEEN '$stime 00:00:00' AND '$etime 00:00:00' ";
-                    }else if ($stime){
-                        $where = " AND A.ref_date > '$stime 00:00:00' ";
-                    }else if ($etime){
-                        $where = " AND A.ref_date < '$etime 00:00:00' ";
-                    }
-                }else if (strtotime($etime)==strtotime($stime)){
-                    $where = "  AND A.ref_date = '$stime 00:00:00' ";
-                }
-            }
-            $info = M()->query("SELECT 
-                          A.cumulate_user,B.appid,DATE_FORMAT(B.ref_date,'%Y-%m-%d') as ref_date,B.int_page_read_user,B.share_user,B.int_page_from_session_read_user,B.int_page_from_feed_read_user,FORMAT(B.int_page_read_user/A.cumulate_user*100,2 ) AS active_percent,
-                          FORMAT(B.share_user/B.int_page_read_count*100,2 )AS share_percent,'$responsible' as responsible,'$position' as `position`,A.pure_user,A.new_user,A.pure_user,
-                          FORMAT(B.int_page_from_session_read_user/A.cumulate_user*100,2 )AS conversation_percent,FORMAT(B.int_page_from_feed_read_user/A.cumulate_user*100,2 ) AS open_percent
-                        FROM mc_app_fans AS A INNER JOIN (SELECT appid,ref_date,SUM(int_page_read_user) AS int_page_read_user,SUM(share_user) AS share_user,SUM(int_page_from_session_read_user) AS int_page_from_session_read_user,
-                        SUM(int_page_from_feed_read_user) AS int_page_from_feed_read_user,SUM(int_page_read_count) AS int_page_read_count FROM mc_app_data GROUP BY appid,ref_date) AS B 
-                        ON A.`ref_date` = B.`ref_date` AND A.`appid` = B.`appid`  where A.appid = '$appid' $where  ORDER  BY A.ref_date DESC  ");
         }
-        return $info;
-
+        $info = M()->query(" SELECT A.int_page_read_user,B.cumulate_user,B.new_user,B.pure_user,DATE_FORMAT(A.ref_date,'%Y-%m-%d') as ref_date,'$responsible' as responsible,'$position' as `position`,
+                             A.int_page_from_session_read_user,A.int_page_from_friends_read_user,A.active_percent,A.open_percent,A.share_percent,A.conversation_percent,A.share_user
+                             FROM mc_app_data as A INNER JOIN  mc_app_fans as 
+                             B on (A.appid = B.appid and A.ref_date = B.ref_date)
+                             WHERE A.appid = '$appid' $where ORDER  BY A.ref_date desc");
+        return$info;
     }
 
     public function getGroupList($page,$r,$query,$queryType){
@@ -431,153 +146,80 @@ class AppDataModel extends CommonModel
         }
     }
 
-    public function getAppsData($key,$page,$r,$stime,$etime,$state,$select,$query,$queryType){
+    public function getAppsData($key,$page,$r,$stime,$etime,$state,$query,$queryType){
         $row = ($page-1) * $r;
         if ($queryType == 1){
             $order = " ORDER BY A.ref_date DESC,A.appid DESC";
         }else{
             $order = " ORDER  BY A.appid DESC, A.ref_date DESC ";
         }
-        if($select == 1){
-            if ($state){
-                $where1  = "C.group_id = $key";
-            }else{
-                $where1 = "C.responsible = '$key'";
-            }
-            $where = "";
-            if (!empty($stime) || !empty($etime)){
-                if(strtotime($etime)>strtotime($stime)){
-                    if ($stime && $etime){
-                        $where = " AND A.ref_date BETWEEN '$stime 00:00:00' AND '$etime 00:00:00' ";
-                    }else if ($stime){
-                        $where = " AND A.ref_date > '$stime 00:00:00' ";
-                    }else if ($etime){
-                        $where = " AND A.ref_date < '$etime 00:00:00' ";
-                    }
-                }else if (strtotime($etime)==strtotime($stime)){
-                    $where = " AND A.ref_date = '$stime 00:00:00' ";
-                }
-            }
-            if($query){
-                $where.= " AND C.responsible = '$query'";
-            }
-            $info = M()->query("SELECT A.appid,B.cumulate_user,B.new_user,B.pure_user,DATE_FORMAT(A.ref_date,'%Y-%m-%d') as ref_date,C.responsible,C.position,C.nick_name,A.title,
-                             A.int_page_read_user,A.int_page_read_count,A.int_page_from_session_read_user,A.int_page_from_feed_read_user,A.share_user,A.active_percent,A.conversation_percent,A.open_percent,A.share_percent
-                             FROM mc_app_data as A INNER JOIN  mc_app_fans as 
-                             B on (A.appid = B.appid and A.ref_date = B.ref_date) INNER JOIN mc_app as C ON A.appid = C.appid
-                             WHERE $where1 $where $order limit $row,$r");
-            list($count) = M()->query("SELECT count(*) AS len
-                             FROM mc_app_data as A INNER JOIN  mc_app_fans as 
-                             B on (A.appid = B.appid and A.ref_date = B.ref_date) INNER JOIN mc_app as C ON A.appid = C.appid
-                             WHERE $where1 $where ");
+        if ($state){
+            $where1  = "C.group_id = $key";
         }else{
-            if ($state){
-                $where1  = "  C.group_id = $key";
-                $where2 = "  group_id = $key";
-            }else{
-                $where1 = "  C.responsible = '$key'";
-                $where2 = "  responsible = '$key'";
-            }
-            if (!empty($stime) || !empty($etime)){
-                if(strtotime($etime)>strtotime($stime)){
-                    if ($stime && $etime){
-                        $where = " AND A.ref_date BETWEEN '$stime 00:00:00' AND '$etime 00:00:00' ";
-                    }else if ($stime){
-                        $where = " AND A.ref_date > '$stime 00:00:00' ";
-                    }else if ($etime){
-                        $where = " AND A.ref_date < '$etime 00:00:00' ";
-                    }
-                }else if (strtotime($etime)==strtotime($stime)){
-                    $where = " AND A.ref_date = '$stime 00:00:00' ";
-                }
-            }
-            list($app) = M()->query("SELECT appid,responsible,`position` FROM mc_app where $where2 limit 1");
-            $responsible = $app["responsible"];
-            $position = $app["position"];
-            //需要有了数据才能查看
-            $info = M()->query("SELECT C.nick_name,
-                          A.cumulate_user,B.appid,DATE_FORMAT(B.ref_date,'%Y-%m-%d') as ref_date,B.int_page_read_user,B.share_user,B.int_page_from_session_read_user,B.int_page_from_feed_read_user,FORMAT(B.int_page_read_user/A.cumulate_user*100,2 ) AS active_percent,
-                          FORMAT(B.share_user/B.int_page_read_count*100,2 )AS share_percent,'$responsible' as responsible,'$position' as `position`,A.pure_user,A.new_user,A.pure_user,
-                          FORMAT(B.int_page_from_session_read_user/A.cumulate_user*100,2 )AS conversation_percent,FORMAT(B.int_page_from_feed_read_user/A.cumulate_user*100,2 ) AS open_percent
-                        FROM mc_app_fans AS A INNER JOIN (SELECT appid,ref_date,SUM(int_page_read_user) AS int_page_read_user,SUM(share_user) AS share_user,SUM(int_page_from_session_read_user) AS int_page_from_session_read_user,
-                        SUM(int_page_from_feed_read_user) AS int_page_from_feed_read_user,SUM(int_page_read_count) AS int_page_read_count FROM mc_app_data GROUP BY appid,ref_date) AS B 
-                        ON A.`ref_date` = B.`ref_date` AND A.`appid` = B.`appid` INNER JOIN mc_app AS C ON A.`appid` = C.`appid` AND $where1 $where $order limit $row,$r");
-            list($count) = M()->query("SELECT count(*) AS len FROM mc_app_fans AS A INNER JOIN  (SELECT  appid,ref_date,SUM(int_page_read_user) AS int_page_read_user,
-                        SUM(share_user) AS share_user,SUM(int_page_from_session_read_user) AS int_page_from_session_read_user,SUM(int_page_from_feed_read_user) AS int_page_from_feed_read_user,
-                        SUM(int_page_read_count) AS int_page_read_count FROM mc_app_data  GROUP BY appid, ref_date) AS B ON A.`ref_date` = B.`ref_date` AND A.`appid` = B.`appid` INNER JOIN mc_app AS C ON A.`appid` = C.`appid` AND $where1 $where ORDER  BY A.ref_date DESC  ");
+            $where1 = "C.responsible = '$key'";
         }
+        $where = "";
+        if (!empty($stime) || !empty($etime)){
+            if(strtotime($etime)>strtotime($stime)){
+                if ($stime && $etime){
+                    $where = " AND A.ref_date BETWEEN '$stime 00:00:00' AND '$etime 00:00:00' ";
+                }else if ($stime){
+                    $where = " AND A.ref_date > '$stime 00:00:00' ";
+                }else if ($etime){
+                    $where = " AND A.ref_date < '$etime 00:00:00' ";
+                }
+            }else if (strtotime($etime)==strtotime($stime)){
+                $where = " AND A.ref_date = '$stime 00:00:00' ";
+            }
+        }
+        if($query){
+            $where.= " AND C.responsible = '$query'";
+        }
+        $info = M()->query("SELECT A.appid,B.cumulate_user,B.new_user,B.pure_user,DATE_FORMAT(A.ref_date,'%Y-%m-%d') as ref_date,C.responsible,C.position,C.nick_name,
+                        A.int_page_from_session_read_user,A.int_page_from_friends_read_user,A.active_percent,A.open_percent,A.share_percent,A.conversation_percent,A.share_user,A.int_page_read_user,A.int_page_from_friends_read_user
+                         FROM mc_app_data as A INNER JOIN  mc_app_fans as 
+                         B on (A.appid = B.appid and A.ref_date = B.ref_date) INNER JOIN mc_app as C ON A.appid = C.appid
+                         WHERE $where1 $where $order limit $row,$r");
+        list($count) = M()->query("SELECT count(*) AS len
+                         FROM mc_app_data as A INNER JOIN  mc_app_fans as 
+                         B on (A.appid = B.appid and A.ref_date = B.ref_date) INNER JOIN mc_app as C ON A.appid = C.appid
+                         WHERE $where1 $where ");
         return array($info,$count['len']);
     }
 
-    public function excelGuardAppData($key,$stime,$etime,$state,$select,$query,$queryType){
-
+    public function excelGuardAppData($key,$stime,$etime,$state,$query,$queryType){
         if ($queryType == 1){
-            $order = " ORDER  BY A.ref_date DESC,A.appid DESC ";
+            $order = " ORDER BY A.ref_date DESC,A.appid DESC";
         }else{
             $order = " ORDER  BY A.appid DESC, A.ref_date DESC ";
         }
-        if($select == 1){
-            if ($state){
-                $where1  = "C.group_id = $key";
-            }else{
-                $where1 = "C.responsible = '$key'";
-            }
-            $where = "";
-            if (!empty($stime) || !empty($etime)){
-                if(strtotime($etime)>strtotime($stime)){
-                    if ($stime && $etime){
-                        $where = " AND A.ref_date BETWEEN '$stime 00:00:00' AND '$etime 00:00:00' ";
-                    }else if ($stime){
-                        $where = " AND A.ref_date > '$stime 00:00:00' ";
-                    }else if ($etime){
-                        $where = " AND A.ref_date < '$etime 00:00:00' ";
-                    }
-                }else if (strtotime($etime)==strtotime($stime)){
-                    $where = " AND A.ref_date = '$stime 00:00:00' ";
-                }
-            }
-            if($query){
-                $where.= " AND C.responsible = '$query'";
-            }
-            $info = M()->query("SELECT A.appid,B.cumulate_user,B.new_user,B.pure_user,DATE_FORMAT(A.ref_date,'%Y-%m-%d') as ref_date,C.responsible,C.position,C.nick_name,A.title,
-                             A.int_page_read_user,A.int_page_read_count,A.int_page_from_session_read_user,A.int_page_from_feed_read_user,A.share_user,A.active_percent,A.conversation_percent,A.open_percent,A.share_percent
-                             FROM mc_app_data as A INNER JOIN  mc_app_fans as 
-                             B on (A.appid = B.appid and A.ref_date = B.ref_date) INNER JOIN mc_app as C ON A.appid = C.appid
-                             WHERE $where1 $where $order ");
-
+        if ($state){
+            $where1  = "C.group_id = $key";
         }else{
-            if ($state){
-                $where1  = "  C.group_id = $key";
-                $where2 = "  group_id = $key";
-            }else{
-                $where1 = "  C.responsible = '$key'";
-                $where2 = "  responsible = '$key'";
-            }
-            if (!empty($stime) || !empty($etime)){
-                if(strtotime($etime)>strtotime($stime)){
-                    if ($stime && $etime){
-                        $where = " AND A.ref_date BETWEEN '$stime 00:00:00' AND '$etime 00:00:00' ";
-                    }else if ($stime){
-                        $where = " AND A.ref_date > '$stime 00:00:00' ";
-                    }else if ($etime){
-                        $where = " AND A.ref_date < '$etime 00:00:00' ";
-                    }
-                }else if (strtotime($etime)==strtotime($stime)){
-                    $where = " AND A.ref_date = '$stime 00:00:00' ";
+            $where1 = "C.responsible = '$key'";
+        }
+        $where = "";
+        if (!empty($stime) || !empty($etime)){
+            if(strtotime($etime)>strtotime($stime)){
+                if ($stime && $etime){
+                    $where = " AND A.ref_date BETWEEN '$stime 00:00:00' AND '$etime 00:00:00' ";
+                }else if ($stime){
+                    $where = " AND A.ref_date > '$stime 00:00:00' ";
+                }else if ($etime){
+                    $where = " AND A.ref_date < '$etime 00:00:00' ";
                 }
+            }else if (strtotime($etime)==strtotime($stime)){
+                $where = " AND A.ref_date = '$stime 00:00:00' ";
             }
-            list($app) = M()->query("SELECT appid,responsible,`position` FROM mc_app where $where2 limit 1");
-            $responsible = $app["responsible"];
-            $position = $app["position"];
-            //需要有了数据才能查看
-            $info = M()->query("SELECT C.nick_name,
-                          A.cumulate_user,B.appid,DATE_FORMAT(B.ref_date,'%Y-%m-%d') as ref_date,B.int_page_read_user,B.share_user,B.int_page_from_session_read_user,B.int_page_from_feed_read_user,FORMAT(B.int_page_read_user/A.cumulate_user*100,2 ) AS active_percent,
-                          FORMAT(B.share_user/B.int_page_read_count*100,2 )AS share_percent,'$responsible' as responsible,'$position' as `position`,A.pure_user,A.new_user,A.pure_user,
-                          FORMAT(B.int_page_from_session_read_user/A.cumulate_user*100,2 )AS conversation_percent,FORMAT(B.int_page_from_feed_read_user/A.cumulate_user*100,2 ) AS open_percent
-                        FROM mc_app_fans AS A INNER JOIN (SELECT appid,ref_date,SUM(int_page_read_user) AS int_page_read_user,SUM(share_user) AS share_user,SUM(int_page_from_session_read_user) AS int_page_from_session_read_user,
-                        SUM(int_page_from_feed_read_user) AS int_page_from_feed_read_user,SUM(int_page_read_count) AS int_page_read_count FROM mc_app_data GROUP BY appid,ref_date) AS B 
-                        ON A.`ref_date` = B.`ref_date` AND A.`appid` = B.`appid` INNER JOIN mc_app AS C ON A.`appid` = C.`appid` AND $where1 $where $order ");
-           }
+        }
+        if($query){
+            $where.= " AND C.responsible = '$query'";
+        }
+        $info = M()->query("SELECT A.appid,B.cumulate_user,B.new_user,B.pure_user,DATE_FORMAT(A.ref_date,'%Y-%m-%d') as ref_date,C.responsible,C.position,C.nick_name,
+                        A.int_page_from_session_read_user,A.int_page_from_friends_read_user,A.active_percent,A.open_percent,A.share_percent,A.conversation_percent,A.share_user,A.int_page_read_user,A.int_page_from_friends_read_user
+                         FROM mc_app_data as A INNER JOIN  mc_app_fans as 
+                         B on (A.appid = B.appid and A.ref_date = B.ref_date) INNER JOIN mc_app as C ON A.appid = C.appid
+                         WHERE $where1 $where $order");
         return $info;
     }
 }

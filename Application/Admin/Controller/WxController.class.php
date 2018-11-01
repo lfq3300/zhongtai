@@ -10,7 +10,9 @@ class WxController extends Controller
     public function index(){
         echo "success";
     }
-
+    public function savData(){
+        M()->query("UPDATE mc_app set position = '专员1'");
+    }
     /*
      * 每隔10分钟 微信回调并且更新 ticket  存入数据库
      */
@@ -40,9 +42,6 @@ class WxController extends Controller
             $component_verify_ticket = $array_e->item(0)->nodeValue;
             //存入数据库
             M("ticket")->where(array("id" => 1))->save(['ticket' => $component_verify_ticket, 'create_time' => date("Y-m-d H:i:s")]);
-            echo 'success';
-        } else {
-            print($errCode . "\n");
         }
         echo 'success';
     }
@@ -116,48 +115,17 @@ class WxController extends Controller
             foreach ($appList as $key => $val){
                 $Auth = new AuthorizeController();
                 $access_token = $Auth->refreshAccessToken($val["appid"], $val["authorizer_refresh_token"]);
-                $url = "https://api.weixin.qq.com/datacube/getarticletotal?access_token=$access_token";
+                $url = "https://api.weixin.qq.com/datacube/getuserread?access_token=$access_token";
                 $time = C(YESTERDAY);
                 $data = array(
-                    "begin_date" =>'2018-10-24',
-                    "end_date" =>'2018-10-24'
+                    "begin_date" =>$time,
+                    "end_date" =>$time
                 );
                 $send_result = curl_get_https($url, json_encode($data, true));
-                D("AppData")->addHisData($send_result,$val["appid"]);
-              //  D("ArticleTerm")->addData($send_result,$val["appid"]);
+                D("AppData")->addHisData($send_result,$val["appid"],$time);
             }
         }
     }
-
-//    //获取 文章 发布日期后 7天有效期内 的 文章数据情况
-//    public function getPastRead(){
-//        $token = C(PASTREAD);I("get.token");
-//        if (C(PASTREAD) == $token){
-//            $appList = D("ArticleTerm")->getEffeList();
-//            foreach ($appList as $key => $val){
-//                $Auth = new AuthorizeController();
-//                $access_token = $Auth->refreshAccessToken($val["appid"], $val["authorizer_refresh_token"]);
-//                $url = "https://api.weixin.qq.com/datacube/getarticletotal?access_token=$access_token";
-//                $time = $val["ref_date"];
-//                $data = array(
-//                    "begin_date" =>$time,
-//                    "end_date" =>$time
-//                );
-//                $send_result = curl_get_https($url, json_encode($data, true));
-//                D("AppData")->addPastData($send_result,$val);
-//            }
-//        }
-//    }
-//
-//    //每天 减少 一次获取的机会
-//    public function  setNum(){
-//        $token = C(SETNUM);I("get.token");
-//        if (C(SETNUM) == $token){
-//            D("ArticleTerm")->setNum();
-//            D("ArticleTerm")->deOver();
-//        }
-//    }
-
 
     //每天一点 15分钟  获取粉丝数量信息
 
@@ -172,7 +140,7 @@ class WxController extends Controller
                 $access_token = $Auth->refreshAccessToken($val["appid"], $val["authorizer_refresh_token"]);
                 $url = "https://api.weixin.qq.com/datacube/getusersummary?access_token=$access_token";
                 $url2 = "https://api.weixin.qq.com/datacube/getusercumulate?access_token=$access_token";
-                $time =  C(YESTERDAY);;
+                $time =  C(YESTERDAY);
                 $data = array(
                     "begin_date" => $time,
                     "end_date" =>$time
@@ -228,13 +196,13 @@ class WxController extends Controller
                for ($i = 0;$i<$day;$i++){
                     $Auth = new AuthorizeController();
                     $access_token = $Auth->refreshAccessToken($val["appid"], $val["authorizer_refresh_token"]);
-                    $url = "https://api.weixin.qq.com/datacube/getarticletotal?access_token=$access_token";
+                    $url = "https://api.weixin.qq.com/datacube/getuserread?access_token=$access_token";
                     $data = array(
                         "begin_date" =>date("Y-m-d",strtotime("$hisday +$i day")),
                         "end_date" =>date("Y-m-d",strtotime("$hisday+$i day"))
                     );
                     $send_result = curl_get_https($url, json_encode($data, true));
-                    D("AppData")->addHisData($send_result,$val["appid"]);
+                    D("AppData")->addHisData($send_result,$val["appid"],date("Y-m-d",strtotime("$hisday +$i day")));
                 }
                 D("App")->saveSynchron($val["appid"]);
             }
