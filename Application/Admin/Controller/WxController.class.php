@@ -11,7 +11,9 @@ class WxController extends Controller
         echo "success";
     }
     public function savData(){
-        M()->query("UPDATE mc_app set position = '专员1'");
+        M()->query("UPDATE mc_app set synchron = 1");
+        M()->query("delete from mc_app_data");
+        M()->query("delete from mc_app_fans");
     }
     /*
      * 每隔10分钟 微信回调并且更新 ticket  存入数据库
