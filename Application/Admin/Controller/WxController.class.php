@@ -152,7 +152,6 @@ class WxController extends Controller
     }
 
     public function synchronHistoryFans(){
-        G("begin");
         $token = C(HISFANS);I("get.token");
         if (C(HISFANS) == $token){
             $hisday = C(HISDAY);
@@ -176,14 +175,10 @@ class WxController extends Controller
                 }
            }
         }
-        G("end");
-        echo G('begin','end').'s';
-        echo G('begin','end','m').'kb';
     }
 
     //同步历史记录  今年历史3月份开始  必须先确保之前的定时任务完成  才执行
     public function  synchronHistoryData(){
-        G("begin");
         $token =I("get.token");
         if (C(HISDATA) == $token){
             $hisday = C(HISDAY);
@@ -206,10 +201,6 @@ class WxController extends Controller
                 D("App")->saveSynchron($val["appid"]);
             }
         }
-        G("end");
-        echo G('begin','end').'s';
-        echo "<br/>";
-        echo G('begin','end','m').'kb';
     }
 
 }
