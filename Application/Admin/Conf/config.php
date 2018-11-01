@@ -52,8 +52,8 @@ return array(
 	'READTOKEN'=>'C4c9g9d6hXyF6lFwZbzEc2A3Kf30w4sb',
 	'FANSTOKEN'=>'AhkAtxnsrHFkJyE9FuUPGciVfbR5lG7t',
     'PASTREAD'=>'GM6s8DhzQQVrWvdgWyUKwuo6HWeoqofy',
-	'SETNUM'=>'u8tqgmBgpa6zCwF45FSqOmKwj76cO0N1',
-	'HISTORY'=>'vqYgI8aexYgFtVGQL7IxrK6AyBprOmZ6',
+	'HISFANS'=>'vqYgI8aexYgFtVGQL7IxrK6AyBprOmZ6',
+    'HISDATA'=>'vyN1LMwRaHPj8CRwr1TRpHLWwVaiW5WH',
 	'YESTERDAY'=>date("Y-m-d",strtotime("- 1 day")),
 	'HISDAY'=>"2018-03-01"
 	//date("Y-m-d",strtotime("-1 day"))

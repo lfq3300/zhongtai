@@ -109,7 +109,7 @@ class WxController extends Controller
     // 每天一点  获取 最新文章 的阅读量  所以不需要减去昨日阅读的人数
     public function getRead()
     {
-        $token = C(READTOKEN);I("get.token");
+        $token = I("get.token");
         if (C(READTOKEN) == $token){
             $appList = D("App")->getEffeList();
             foreach ($appList as $key => $val){
@@ -131,8 +131,7 @@ class WxController extends Controller
 
     public function getFans()
     {
-        $token = C(FANSTOKEN);
-        I("get.token");
+        $token = I("get.token");
         if (C(FANSTOKEN) == $token){
             $appList = D("App")->getEffeList();
             foreach ($appList as $key => $val){
@@ -154,8 +153,8 @@ class WxController extends Controller
 
     public function synchronHistoryFans(){
         G("begin");
-        $token = C(HISTORY);I("get.token");
-        if (C(HISTORY) == $token){
+        $token = C(HISFANS);I("get.token");
+        if (C(HISFANS) == $token){
             $hisday = C(HISDAY);
             $time = strtotime($hisday);
             $thisday = strtotime(date("Y-m-d",strtotime("-1 day")));
@@ -185,8 +184,8 @@ class WxController extends Controller
     //同步历史记录  今年历史3月份开始  必须先确保之前的定时任务完成  才执行
     public function  synchronHistoryData(){
         G("begin");
-        $token = C(HISTORY);I("get.token");
-        if (C(HISTORY) == $token){
+        $token =I("get.token");
+        if (C(HISDATA) == $token){
             $hisday = C(HISDAY);
             $time = strtotime($hisday);
             $thisday = strtotime(date("Y-m-d",strtotime("-1 day")));
