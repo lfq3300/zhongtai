@@ -30,12 +30,15 @@ class AdminController extends Controller{
                 }else if ($accountInfo["level"]== 1){
                     $sql = "select * from mc_access as A INNER  JOIN mc_admin_menu as B on A.node_id = B.id where B.url = '$thisurl' AND A.account_id = $account_id";
                     $power = M()->query($sql);
-                    print_r(M()->getLastSql());
                     if($thisurl!="Admin/admin" && !$power){
                         $this->error("您没有访问该功能的权限，详情请询问开发人员");
                     }
                 }else if($accountInfo["level"]== 2){
-
+                    $sql = "select * from mc_access as A INNER  JOIN mc_admin_menu as B on A.node_id = B.id where B.url = '$thisurl' AND A.role_id = $role_id";
+                    $power = M()->query($sql);
+                    if($thisurl!="Admin/admin" && !$power){
+                        $this->error("您没有访问该功能的权限，详情请询问开发人员");
+                    }
                 }
             }
         }
