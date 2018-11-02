@@ -33,7 +33,12 @@ class AppFansModel extends CommonModel
                 "creater_time"=>date("Y-m-d H:i:s")
             );
             $data['appid'] = $appid;
-            $ret = M("app_fans")->lock(true)->add($data);
+            if (S($appid.$time."fans",true)){
+                return;
+            }else{
+                S($appid.$time."fans",true);
+                $ret = M("app_fans")->lock(true)->add($data);
+            }
             if (!$ret){
                 writeLog('error',M()->getLastSql());
                 writeLog('data',json_encode($data,true));

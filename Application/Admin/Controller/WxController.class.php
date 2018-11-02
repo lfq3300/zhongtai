@@ -154,7 +154,7 @@ class WxController extends Controller
     }
 
     public function synchronHistoryFans(){
-        $token = C(HISFANS);I("get.token");
+        $token = C(HISFANS);
         if (C(HISFANS) == $token){
             $hisday = C(HISDAY);
             $time = strtotime($hisday);
