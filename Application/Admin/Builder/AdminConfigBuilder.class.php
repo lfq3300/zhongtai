@@ -160,12 +160,11 @@ class AdminConfigBuilder extends AdminBuilder{
 		$this->assign('buttonList', $this->_buttonList);
 		$this->assign('savePostUrl', $this->_savePostUrl);
         $this->assign('selectData', $this->_selectData);
-
-		if ($solist) {
-				parent::display($solist);
+		if (empty($solist)) {
+                parent::display('admin_congif');
 			} else {
-				parent::display('admin_congif');
-		}
+                parent::display($solist);
+        }
 	}
 }
 ?>

@@ -13,7 +13,6 @@ class AdminController extends Controller{
         $role_id = cookieDecrypt(cookie('role_id'));
         $accountInfo = M("account")->where(array("id"=>$account_id))->find();
         if(empty($accountInfo)||$accountInfo["password"] != $token || $role_id != $accountInfo["role_id"] || $account != $accountInfo["account"]){
-            print_r("123456");
             $url = U("Index/index");
             header("Location: $url");
             exit;
@@ -24,20 +23,19 @@ class AdminController extends Controller{
             //获取当前控制器/方法名
             $thisurl = $controllername."/".$actionname;
             if($actionname == "setmypwd"){
+
             }else{
-                //判断url是否在权限表中存在
-                if($role_id){
-                    $sql = "select * from mc_access as A INNER  JOIN mc_admin_menu as B on A.node_id = B.id where B.url = '$thisurl' AND A.role_id = $role_id";
+                if($accountInfo["level"]==C(ROOT_LEVEL)){
+
+                }else if ($accountInfo["level"]== 1){
+                    $sql = "select * from mc_access as A INNER  JOIN mc_admin_menu as B on A.node_id = B.id where B.url = '$thisurl' AND A.account_id = $account_id";
                     $power = M()->query($sql);
-                }
-                /*直接查询数据库是否有条件*/
-//            if(strtoupper($controllername) == "RBAC" && cookieDecrypt(cookie('level'))!=C(ROOT_LEVEL)){
-//                $this->error("您没有访问该功能的权限，详情请询问开发人员");
-//            }
-                if(cookieDecrypt(cookie('level'))!=C(ROOT_LEVEL)){
+                    print_r(M()->getLastSql());
                     if($thisurl!="Admin/admin" && !$power){
                         $this->error("您没有访问该功能的权限，详情请询问开发人员");
                     }
+                }else if($accountInfo["level"]== 2){
+
                 }
             }
         }

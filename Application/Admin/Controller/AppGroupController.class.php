@@ -75,7 +75,7 @@ class AppGroupController extends Controller {
                 ->keyText("group_name",['title'=>'分组名称'])
                 ->buttonSubmit()
                 ->data($data)
-                ->display();
+                ->display("");
         }
     }
 }

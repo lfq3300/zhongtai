@@ -17,15 +17,17 @@ class RbacController extends AdminController{
         $page = I("post.page",1,"intval");
         list($data,$count) = $model->getList($page,$r);
         $builder
-            ->title("角色组管理")
+            ->title("部门管理")
             ->powerAdd(U("addGroup"))
             ->keyText("id","ID")
-            ->keyText("name","组名")
+            ->keyText("name","部门")
     //        ->keyText("code_name","代码编号")
             ->keyText("description","描述")
-            ->keyDoAction("editGroup?id=###","编辑")
-            ->keyDoAction("powerGroup?id=###","授权")
-            ->keyDoAction("userGroup?id=###","用户列表")
+            ->keyDoAction("editGroup?id=###","编辑");
+        if(cookieDecrypt(cookie('level'))<0){
+            $builder->keyDoAction("powerGroup?id=###","授权");
+        }
+        $builder->keyDoAction("userGroup?id=###","用户列表")
             ->data($data)
             ->pagination($count,$r)
             ->display();
@@ -53,8 +55,8 @@ class RbacController extends AdminController{
             }
         }else{
             $builder
-                ->title("添加角色组")
-                ->keyText("name",array("title"=>"组名"))
+                ->title("添加部门")
+                ->keyText("name",array("title"=>"部门"))
         //        ->keyText("code_name",array("title"=>"代码编号"))
                 ->keySelect("status",array("select"=>array("1"=>"正常","2"=>"禁止登陆"),"title"=>"状态"))
                 ->keyTextarea("description",array("title"=>"描述"))
@@ -90,8 +92,8 @@ class RbacController extends AdminController{
             $data = $model->getGroupInfo(I("get.id"));
             $builder
                 ->keyHidden("id")
-                ->title("编辑角色组")
-                ->keyText("name",array("title"=>"组名"))
+                ->title("编辑部门")
+                ->keyText("name",array("title"=>"部门"))
                 ->keySelect("status",array("title"=>"状态","select"=>array("1"=>"正常","2"=>"禁止登陆")))
                 ->keyTextarea("description",array("title"=>"描述"))
                 ->buttonSubmit()
@@ -106,21 +108,68 @@ class RbacController extends AdminController{
         $groupid = I("get.id");
         $data = $model->getGroupInfo($groupid);
         $name = $data["name"];
-        $data = M("account")->where(array("role_id"=>$groupid))->select();
+        $data = M("account")->where(array("role_id"=>$groupid,"id"=>array("neq",cookieDecrypt(cookie("account_id")))))->select();
         $builder
-            ->title($name." 用户管理")
+            ->title($name)
             ->powerAdd(U("addAccount",array("id"=>$groupid)))
             ->keyText("account","账号")
             ->keyText("nick_name","名称")
             ->keyText("position","职位")
             ->keyStatus("status","账户状态",array("0"=>"禁止登陆","1"=>"正常"))
+            ->keyStatus("level","账户权限",array(1=>"普通成员",2=>"组长"))
             ->keyText("login_time","最后登陆")
             ->keyText("logincount","登陆次数")
             ->keyDoActionEdit("setLoginOff?id=###&pid=$groupid","禁止登录")
             ->keyDoActionEdit("setLoginOn?id=###&pid=$groupid","允许登录")
             ->keyDoActionEdit("setPass?id=###&pid=$groupid","重置密码")
+            ->keyDoAction("powerAccount?id=###&pid=$groupid","授权")
             ->data($data)
             ->display();
+    }
+
+
+    public function powerAccount(){
+        if($_POST){
+            $accountid = $_POST["account_id"];
+            $one = $_POST["one"];
+            $two = $_POST["two"];
+            $pageFun = $_POST["pageFun"];
+            //每次修改时将之前组的权限全部删除, 在添加回去组的权限
+            M("access")->where(array("account_id"=>$accountid))->delete();
+            foreach ($one as $key =>$val){
+                M("access")->add(array("account_id"=>$accountid,"node_id"=>$val,"level"=>1));
+            }
+            foreach ($two as $key =>$val){
+                M("access")->add(array("account_id"=>$accountid,"node_id"=>$val,"level"=>2));
+            }
+            foreach ($pageFun as $key =>$val){
+                M("access")->add(array("account_id"=>$accountid,"node_id"=>$val,"level"=>3));
+            }
+            M("power")->where(array("account_id"=>$accountid))->delete();
+            $three =$_POST["btn"];
+            foreach ($three as $key =>$item){
+                $add = $item['add'][0]==1?$item['add'][0]:0;
+                $remove = $item['remove'][0]==1?$item['remove'][0]:0;
+                $edit = $item['edit'][0]==1?$item['edit'][0]:0;
+                $query = $item['query'][0]==1?$item['query'][0]:0;
+                $excel = $item['excel'][0]==1?$item['excel'][0]:0;
+                $verify = $item['verify'][0]==1?$item['verify'][0]:0;
+                M("power")->add(array("account_id"=>$accountid,"menu_id"=>$key,"add"=>$add,"remove"=>$remove,"edit"=>$edit,"query"=>$query,"export"=>$excel,"verify"=>$verify,"level"=>2));
+            }
+            $this->success("权限更改成功",U("index"));
+        }else{
+            $builder = new AdminListBuilder();
+            $Accountid = I("get.id");
+            $roleid = I("get.pid");
+            $model = D("Role");
+            $data = $model->getAccountInfo($Accountid,$roleid);
+            $name = $data["name"];
+            $data = $model->setPower($roleid);
+            $builder
+                ->title($name."权限配置")
+                ->otherData($data)
+                ->display("power");
+        }
     }
 
     public  function  addAccount(){
@@ -131,7 +180,8 @@ class RbacController extends AdminController{
                 "add_time"=>date("Y-m-d H:i:s"),
                 "role_id" =>I("post.role_id"),
                 "nick_name"=>I("post.nick_name"),
-                "position" =>I("post.position")
+                "position" =>I("post.position"),
+                "level" =>I("post.level")
             );
             $groupid =I("post.role_id");
             $groupinfo = D("Role")->getGroupInfo($groupid);
@@ -165,6 +215,7 @@ class RbacController extends AdminController{
                 ->keyText("password",array("title"=>"密码"))
                 ->keyText("nick_name",array("title"=>"名称"))
                 ->keyText("position",array("title"=>"职位"))
+                ->keySelect("level",array("select"=>[1=>"普通成员",2=>"组长"],"title"=>"账号权限"))
                 ->data(array("role_id"=>$groupid))
                 ->buttonSubmit()
                 ->display();

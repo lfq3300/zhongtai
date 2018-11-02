@@ -45,20 +45,34 @@
                 <div class="widget am-cf">
                     <div class="widget-head am-cf">
                         <php>
-                            $role_id = I('get.id');
-                            $data = M("role")->where(array('id'=>$role_id))->find();
-                            $onepower = M("access")->where(array('role_id'=>$role_id,'level'=>1))->select();
-                            $twopower = M("access")->where(array('role_id'=>$role_id,'level'=>2))->select();
-                            $threepower = M("access")->where(array('role_id'=>$role_id,'level'=>3))->select();
-                            $power = M("power")->where(array('role_id'=>$role_id))->select();
+                            $account_id = cookieDecrypt(cookie('account_id'));
+                            if(cookieDecrypt(cookie('level'))>0){
+                                $url = U('Rbac/powerAccount');
+                                $account_id = I('get.id');
+                                $role_id = I("get.pid");
+                                $data = M("role")->where(array('id'=>$role_id))->find();
+                                $onepower = M("access")->where(array('account_id'=>$account_id,'role_id'=>$role_id,'level'=>1))->select();
+                                $twopower = M("access")->where(array('account_id'=>$account_id,'role_id'=>$role_id,'level'=>2))->select();
+                                $threepower = M("access")->where(array('account_id'=>$account_id,'role_id'=>$role_id,'level'=>3))->select();
+                                $power = M("power")->where(array('account_id'=>$account_id,'role_id'=>$role_id))->select();
+                            }else{
+                                $url = U('Rbac/powerGroup');
+                                $role_id = I('get.id');
+                                $data = M("role")->where(array('id'=>$role_id))->find();
+                                $onepower = M("access")->where(array('role_id'=>$role_id,'level'=>1))->select();
+                                $twopower = M("access")->where(array('role_id'=>$role_id,'level'=>2))->select();
+                                $threepower = M("access")->where(array('role_id'=>$role_id,'level'=>3))->select();
+                                $power = M("power")->where(array('role_id'=>$role_id))->select();
+                            }
                         </php>
                         <div class="widget-title  am-cf">{$data['name']} 账号权限设置
                             每个权限的查看是必选的  否则其他权限没有入口
-                            </div>
+                        </div>
                     </div>
                     <div class="widget-body am-fr">
-                        <form class="am-form tpl-form-border-form tpl-form-border-br tpl-form-line-form" method="post" action="{:U('Rbac/powerGroup')}" enctype="application/x-www-form-urlencoded">
+                        <form class="am-form tpl-form-border-form tpl-form-border-br tpl-form-line-form" method="post" action="{$url}" enctype="application/x-www-form-urlencoded">
                             <input type="hidden" name="role_id" value="{$data['id']}">
+                            <input type="hidden" name="account_id" value="{$account_id}">
                             <volist name="otherdata" id="item">
                                 <div class="am-form-group am-form-group-box">
                                     <i class="am-icon-plus icon"></i>
