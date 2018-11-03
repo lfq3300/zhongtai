@@ -180,7 +180,6 @@ class AppDataModel extends CommonModel
                          FROM mc_app_data as A INNER JOIN  mc_app_fans as 
                          B on (A.appid = B.appid and A.ref_date = B.ref_date) INNER JOIN mc_app as C ON A.appid = C.appid
                          WHERE $where1 $where $order limit $row,$r");
-        print_r(M()->getLastSql());
         list($count) = M()->query("SELECT count(*) AS len
                          FROM mc_app_data as A INNER JOIN  mc_app_fans as 
                          B on (A.appid = B.appid and A.ref_date = B.ref_date) INNER JOIN mc_app as C ON A.appid = C.appid

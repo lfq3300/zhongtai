@@ -168,8 +168,8 @@ class WxController extends Controller
                     $url = "https://api.weixin.qq.com/datacube/getusersummary?access_token=$access_token";
                     $url2 = "https://api.weixin.qq.com/datacube/getusercumulate?access_token=$access_token";
                     $data = array(
-                        "begin_date" => '2018-10-30',//date("Y-m-d",strtotime("$hisday +$i day")),
-                        "end_date" =>'2018-10-30',// date("Y-m-d",strtotime("$hisday +$i day"))
+                        "begin_date" => date("Y-m-d",strtotime("$hisday +$i day")),
+                        "end_date" => date("Y-m-d",strtotime("$hisday +$i day"))
                     );
                     $send_result = curl_get_https($url, json_encode($data, true));
                     $send_result2 = curl_get_https($url2, json_encode($data, true));
