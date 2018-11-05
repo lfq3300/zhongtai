@@ -15,9 +15,10 @@
 							</volist>
 							<div class="am-form-group">
                                 <div class="am-u-sm-7 am-u-sm-push-3">
-                                <volist name="buttonList" id="button">
-                                    <button {$button.attr}>{$button.title}</button>
-                                </volist>
+									<button class="am-btn am-btn-warning tpl-btn-bg-color-success" type="button" onclick="javascript:window.history.back(-1);">返回</button>
+									<volist name="buttonList" id="button">
+                                    	<button {$button.attr}>{$button.title}</button>
+                                	</volist>
                                 </div>
                             </div>
 						</form>
