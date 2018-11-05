@@ -135,6 +135,7 @@ class RbacController extends AdminController{
     public function powerAccount(){
         if($_POST){
             $accountid = $_POST["account_id"];
+            $roleid = $_POST["id"];
             $one = $_POST["one"];
             $two = $_POST["two"];
             $pageFun = $_POST["pageFun"];
@@ -160,7 +161,7 @@ class RbacController extends AdminController{
                 $verify = $item['verify'][0]==1?$item['verify'][0]:0;
                 M("power")->add(array("account_id"=>$accountid,"menu_id"=>$key,"add"=>$add,"remove"=>$remove,"edit"=>$edit,"query"=>$query,"export"=>$excel,"verify"=>$verify,"level"=>2));
             }
-            $this->success("权限更改成功",U("index"));
+            $this->success("权限更改成功",U("userGroup",array("id"=>$roleid)));
         }else{
             $builder = new AdminListBuilder();
             $Accountid = I("get.id");
