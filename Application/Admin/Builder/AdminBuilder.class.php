@@ -36,7 +36,7 @@ abstract class AdminBuilder extends AdminController{
         if($adminlevel == C(ROOT_LEVEL)){
             $role_id = "root";
         }
-        if(!(S("menus".$role_id.$account_id)&&S("menuChildrens".$role_id.$account_id))){
+    //    if(!(S("menus".$role_id.$account_id)&&S("menuChildrens".$role_id.$account_id))){
             if($adminlevel == C(ROOT_LEVEL)){ //判断超级用户
                 $role_id = "root";
                 $sql = "SELECT title,id FROM mc_admin_menu WHERE p_id = 0 AND hide = 0 ORDER BY sort DESC";
@@ -60,10 +60,10 @@ abstract class AdminBuilder extends AdminController{
             $this->assign("menuChildrens",$sqldata2);
             S("menus".$role_id.$account_id,$sqldata,$time);  //在设置账户权限的时候清空
             S("menuChildrens".$role_id.$account_id,$sqldata2,$time); //在设置账户权限的时候清空
-        }else{
-            $this->assign("menus",S("menus".$role_id.$account_id));
-            $this->assign("menuChildrens",S("menuChildrens".$role_id.$account_id));
-        }
+//        }else{
+//            $this->assign("menus",S("menus".$role_id.$account_id));
+//            $this->assign("menuChildrens",S("menuChildrens".$role_id.$account_id));
+//        }
         $this->assign("adminlUrl",C("ADMIN_URL"));
         parent::display($template);
     }
