@@ -28,10 +28,10 @@ class AppDataModel extends CommonModel
                 $data['add_to_fav_count']+=$v['add_to_fav_count'];
             }
             $fans = D("AppFans")->getFansCount($appid,$time);
-            $data["int_page_from_session_read_user"] =  $list[0]["int_page_read_user"];
-            $data["int_page_from_session_read_count"] =  $list[0]["int_page_read_count"];
-            $data["int_page_from_friends_read_user"] =  $list[2]["int_page_read_user"];
-            $data["int_page_from_friends_read_count"] =  $list[2]["int_page_read_count"];
+            $data["int_page_from_session_read_user"] =  $list[0]["int_page_read_user"]?$list[0]["int_page_read_user"]:0;
+            $data["int_page_from_session_read_count"] =  $list[0]["int_page_read_count"]?$list[0]["int_page_read_count"]:0;
+            $data["int_page_from_friends_read_user"] =  $list[2]["int_page_read_user"]?$list[0]["int_page_read_user"]:0;
+            $data["int_page_from_friends_read_count"] =  $list[2]["int_page_read_count"]?$list[2]["int_page_read_count"]:0;
             $data["appid"] = $appid;
             $data["ref_date"] = $time;
             if($fans == 0){
