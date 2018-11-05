@@ -135,7 +135,7 @@ class RbacController extends AdminController{
     public function powerAccount(){
         if($_POST){
             $accountid = $_POST["account_id"];
-            $roleid = $_POST["id"];
+            $roleid = $_POST["role_id"];
             $one = $_POST["one"];
             $two = $_POST["two"];
             $pageFun = $_POST["pageFun"];
