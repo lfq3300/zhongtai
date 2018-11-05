@@ -416,8 +416,8 @@ class AppController extends AdminController {
 
     public function cancel(){
         if ($_POST){
-            $res= D("app")->DelApp($_POST['id']);
-            if($res){
+            $res= M("app")->where(array("id"=>I("post.id")))->delete();
+            if($res === false){
                 $this->success("取消授权成功",U("index"));
             }else{
                 $this->error(D("app")->getError());
