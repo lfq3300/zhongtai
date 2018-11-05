@@ -418,9 +418,9 @@ class AppController extends AdminController {
         if ($_POST){
             $res= M("app")->where(array("id"=>I("post.id")))->delete();
             if($res === false){
-                $this->success("取消授权成功",U("index"));
-            }else{
                 $this->error(D("app")->getError());
+            }else{
+                $this->success("取消授权成功",U("index"));
             }
         }else{
             $builder = new AdminConfigBuilder();
