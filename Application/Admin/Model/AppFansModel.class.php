@@ -10,7 +10,7 @@ namespace Admin\Model;
 use Admin\Model\CommonModel;
 class AppFansModel extends CommonModel
 {
-    public function addFans($send_result,$send_result2,$appid,$time){
+    public function addFans($send_result,$send_result2,$appid,$time,$access_token = ''){
             $send_result = json_decode($send_result, true);
             $new_user = 0;
             $cancel_user = 0;
@@ -24,6 +24,17 @@ class AppFansModel extends CommonModel
             }
             $send_result2 = json_decode($send_result2, true);
             list($fansCount) = $send_result2["list"];
+            //如果  当前的总粉丝数为空  那么一定请求过程发生错误
+            //再次发起请求 ***
+            if(empty($fansCount["cumulate_user"])){
+                $url2 = "https://api.weixin.qq.com/datacube/getusercumulate?access_token=$access_token";
+                $parameter = array(
+                    "begin_date" => $time,
+                    "end_date" =>$time
+                );
+                $send_result2 = curl_get_https($url2, json_encode($parameter, true));
+                list($fansCount) = $send_result2["list"];
+            }
             $data = array(
                 "ref_date"=>$time." 00:00:00",
                 "new_user"=>$new_user,
@@ -33,6 +44,11 @@ class AppFansModel extends CommonModel
                 "creater_time"=>date("Y-m-d H:i:s")
             );
             $data['appid'] = $appid;
+            if (empty($fansCount["cumulate_user"])){
+                //不在请求 写入日志
+                writeLog('data',json_encode($data,true));
+                return;
+            }
             $ret = M("app_fans")->lock(true)->add($data);
             if (!$ret){
                 writeLog('error',M()->getLastSql());

@@ -133,7 +133,7 @@ class WxController extends Controller
 
     public function getFans()
     {
-        $token = I("get.token");
+            $token = I("get.token");
         if (C(FANSTOKEN) == $token){
             $appList = D("App")->getEffeList();
             foreach ($appList as $key => $val){
@@ -148,7 +148,7 @@ class WxController extends Controller
                 );
                 $send_result = curl_get_https($url, json_encode($data, true));
                 $send_result2 = curl_get_https($url2, json_encode($data, true));
-                D("AppFans")->addFans($send_result,$send_result2,$val["appid"],$time);
+                D("AppFans")->addFans($send_result,$send_result2,$val["appid"],$time,$access_token);
             }
         }
     }

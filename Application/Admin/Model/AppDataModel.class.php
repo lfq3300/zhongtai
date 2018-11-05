@@ -52,6 +52,7 @@ class AppDataModel extends CommonModel
             $data["open_percent"] = $open_percent;
             $data["share_percent"] = $share_percent;
             $data["conversation_percent"] = $conversation_percent;
+            $data["create_date"] = date("Y-m-d H:i:s");
             $ret = M("app_data")->add($data);
             if (!$ret){
                 writeLog('error',M()->getLastSql());
