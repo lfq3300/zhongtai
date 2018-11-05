@@ -24,7 +24,6 @@ class AppGroupController extends Controller {
                 ->display();
     }
     public  function add(){
-        $builder = new AdminConfigBuilder();
         if($_POST){
             $model = D("AppGroup");
             $data = [
@@ -33,14 +32,15 @@ class AppGroupController extends Controller {
             if ($model->create($data,1)){
                 $ret = $model->addGruop($data);
                 if($ret){
-                    $builder->success("成功",U("index"));
+                    $this->success("成功",U("index"));
                 }else{
-                    $builder->error($model->getError());
+                    $this->error($model->getError());
                 }
             }else{
-                $builder->error($model->getError());
+                $this->error($model->getError());
             }
         }else{
+            $builder = new AdminConfigBuilder();
             $builder
                 ->title("添加公众号分组")
                 ->keyText("group_name",['title'=>'分组名称'])
@@ -50,7 +50,6 @@ class AppGroupController extends Controller {
     }
 
     public  function edit(){
-        $builder = new AdminConfigBuilder();
         $model = D("AppGroup");
         if($_POST){
             $data = [
@@ -60,14 +59,15 @@ class AppGroupController extends Controller {
             if ($model->create($data,1)){
                 $ret = $model->editGruop($id,$data);
                 if($ret!=false){
-                    $builder->success("成功",U("index"));
+                    $this->success("成功",U("index"));
                 }else{
-                    $builder->error($model->getError());
+                    $this->error($model->getError());
                 }
             }else{
-                $builder->error($model->getError());
+                $this->error($model->getError());
             }
         }else{
+            $builder = new AdminConfigBuilder();
             $data = $model->getInfo(I("get.id"));
             $builder
                 ->title("修改公众号分组")

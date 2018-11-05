@@ -41,7 +41,6 @@ class AppController extends AdminController {
     }
 
     public function edit(){
-        $builder = new AdminConfigBuilder();
         $model = D("App");
         if($_POST){
             $data = [
@@ -53,14 +52,15 @@ class AppController extends AdminController {
             if ($model->create($data,2)){
                 $ret = $model->editApp($data,$id);
                 if($ret!=false){
-                    $builder->success("修改成功",U("index"));
+                    $this->success("修改成功",U("index"));
                 }else{
-                    $builder->error($model->getError());
+                    $this->error($model->getError());
                 }
             }else{
-                $builder->error($model->getError());
+                $this->error($model->getError());
             }
         }else{
+            $builder = new AdminConfigBuilder();
             $data= $model->getInfo(I("get.id"));
             $group = D("AppGroup")->getList(true);
             $builder
@@ -415,15 +415,15 @@ class AppController extends AdminController {
     }
 
     public function cancel(){
-        $builder = new AdminConfigBuilder();
         if ($_POST){
             $res= D("app")->DelApp($_POST['id']);
             if($res){
-                $builder->success("取消授权成功",U("index"));
+                $this->success("取消授权成功",U("index"));
             }else{
-                $builder->error(D("app")->getError());
+                $this->error(D("app")->getError());
             }
         }else{
+            $builder = new AdminConfigBuilder();
             $id = I("get.id");
             $builder
                 ->title("取消授权详细")

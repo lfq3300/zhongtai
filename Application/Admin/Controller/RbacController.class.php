@@ -34,7 +34,6 @@ class RbacController extends AdminController{
     }
 
     public  function addGroup(){
-        $builder = new AdminConfigBuilder();
         if($_POST){
             $data = array(
                 "name"=>I("post.name"),
@@ -47,14 +46,15 @@ class RbacController extends AdminController{
             if($model->create($data)){
                $ret =  $model->addGroup($data);
                if($ret){
-                   $builder->success("添加成功",U("index"));
+                   $this->success("添加成功",U("index"));
                }else{
-                   $builder->error($model->getError());
+                   $this->error($model->getError());
                }
             }else{
-                $builder->error($model->getError());
+                $this->error($model->getError());
             }
         }else{
+            $builder = new AdminConfigBuilder();
             $builder
                 ->title("添加部门")
                 ->keyText("name",array("title"=>"部门"))
@@ -67,7 +67,6 @@ class RbacController extends AdminController{
     }
 
     public  function  editGroup(){
-        $builder = new AdminConfigBuilder();
         if($_POST){
             $data = array(
                 "name"=>I("post.name"),
@@ -81,14 +80,15 @@ class RbacController extends AdminController{
             if($model->create($data)){
                 $ret = $model->editGroup($id,$data);
                 if($ret){
-                    $builder->success("修改成功",U("index"));
+                    $this->success("修改成功",U("index"));
                 }else{
-                    $builder->error($model->getError());
+                    $this->error($model->getError());
                 }
             }else{
-                $builder->error($model->getError());
+                $this->error($model->getError());
             }
         }else{
+            $builder = new AdminConfigBuilder();
             $model = D("Role");
             $data = $model->getGroupInfo(I("get.id"));
             $builder
@@ -175,7 +175,6 @@ class RbacController extends AdminController{
     }
 
     public  function  addAccount(){
-        $builder = new AdminConfigBuilder();
         if(IS_POST){
             $data = array(
                 "account"=>I("post.account"),
@@ -193,20 +192,21 @@ class RbacController extends AdminController{
                 $data["level"] = 5;
             }
             if ($data["level"] ==C(ROOT_LEVEL)){
-                $builder->error("权限不正确 ,请刷新页面后重试");
+                $this->error("权限不正确 ,请刷新页面后重试");
             }
             $model = D("account");
             if($model->create($data)){
                 $ret =  D("account")->add($data);
                 if($ret){
-                    $builder->success("添加成功",U("userGroup",array("id"=>I("post.role_id"))));
+                    $this->success("添加成功",U("userGroup",array("id"=>I("post.role_id"))));
                 }else{
-                    $builder->error($model->getError());
+                    $this->error($model->getError());
                 }
             }else{
-                $builder->error($model->getError());
+                $this->error($model->getError());
             }
         }else{
+            $builder = new AdminConfigBuilder();
             $groupid = I("get.id");
             $model = D("Role");
             $data = $model->getGroupInfo($groupid);
@@ -267,7 +267,6 @@ class RbacController extends AdminController{
     }
 
     public function addMenu(){
-        $builder = new AdminConfigBuilder();
         $model = D("Admin/AdminMenu");
         if(IS_POST){
             $next = I("post.next");
@@ -302,6 +301,7 @@ class RbacController extends AdminController{
                 }
             }
         }else{
+            $builder = new AdminConfigBuilder();
             $nextId = I("get.next");
             $pidList = $model->getFirstMenuConfig();
             $pidList = i_array_column($pidList,'title','id');
@@ -367,19 +367,17 @@ class RbacController extends AdminController{
     }
 
     public  function  deleteNode($ids){
-        $builder = new AdminListBuilder();
         $map['id'] = array("in",$ids);
         $id = $_GET['id'];
         $ret =  M('AdminMenu')->where($map)->delete();
         if($ret){
-            $builder->success("修改成功",U('hideUrl',array("id"=>$id)));
+            $this->success("修改成功",U('hideUrl',array("id"=>$id)));
         }else{
-            $builder->error(M('AdminMenu')->getError());
+            $this->error(M('AdminMenu')->getError());
         }
     }
 
     public  function editNode(){
-        $builder = new AdminConfigBuilder();
         if($_POST){
             $data = array(
                 "url"=>I("post.url"),
@@ -389,14 +387,16 @@ class RbacController extends AdminController{
             $model = D("AdminMenu");
                 $ret =  $model->saveMenu($data,$id);
                 if($ret){
-                    $builder->success("添加成功",U("hideUrl",array("id"=>I("post.p_id"))));
+                    $this->success("添加成功",U("hideUrl",array("id"=>I("post.p_id"))));
                 }else{
-                    $builder->error($model->getError());
+                    $this->error($model->getError());
                 }
         }else{
             $id = I("get.id");
             $model = D("AdminMenu");
             list($data) = $model->getMenuInfo($id);
+            $builder = new AdminConfigBuilder();
+
             $builder
                 ->keyHidden("id")
                 ->keyHidden("p_id")
@@ -410,7 +410,6 @@ class RbacController extends AdminController{
     }
 
     public  function addNode(){
-        $builder = new AdminConfigBuilder();
         if($_POST){
            $data = array(
                "url"=>I("post.url"),
@@ -422,15 +421,16 @@ class RbacController extends AdminController{
            $model = D("AdminMenu");
                $ret =  $model->addMenu($data);
                if($ret){
-                   $builder->success("添加成功",U("hideUrl",array("id"=>I("post.p_id"))));
+                   $this->success("添加成功",U("hideUrl",array("id"=>I("post.p_id"))));
                }else{
-                   $builder->error($model->getError());
+                   $this->error($model->getError());
                }
        }else{
            $id = I("get.id");
            $model = D("AdminMenu");
            list($data) = $model->getMenuInfo($id);
-           $builder
+            $builder = new AdminConfigBuilder();
+            $builder
                ->title($data["title"]."  新增授权函数")
                ->keyText("url",array("title"=>"函数名"))
                ->keyText("title",array("title"=>"标题"))
@@ -443,13 +443,12 @@ class RbacController extends AdminController{
     }
 
     public  function  powerGroup(){
-        $builder = new AdminListBuilder();
+        $builder = new AdminConfigBuilder();
         if($_POST){
             $role_id = $_POST["role_id"];
             $one = $_POST["one"];
             $two = $_POST["two"];
             $pageFun = $_POST["pageFun"];
-
             //每次修改时将之前组的权限全部删除, 在添加回去组的权限
             M("access")->where(array("role_id"=>$role_id))->delete();
             foreach ($one as $key =>$val){
@@ -461,9 +460,7 @@ class RbacController extends AdminController{
             foreach ($pageFun as $key =>$val){
                 M("access")->add(array("role_id"=>$role_id,"node_id"=>$val,"level"=>3));
             }
-
             M("power")->where(array("role_id"=>$role_id))->delete();
-
             $three =$_POST["btn"];
             foreach ($three as $key =>$item){
                 $add = $item['add'][0]==1?$item['add'][0]:0;
@@ -489,7 +486,6 @@ class RbacController extends AdminController{
     }
 
     public  function  deletenextMenu($ids){
-        $builder = new AdminListBuilder();
         $id = array_unique((array)I('ids', 0));
         $map2['id']= array('in', $ids);
         $ret2 =  M("admin_menu")->where($map2)->delete();
@@ -500,14 +496,13 @@ class RbacController extends AdminController{
             S("menuPower".$item["id"],NULL);
         }
         if( $ret2>0){
-            $builder->success("删除成功",U("index"));
+            $this->success("删除成功",U("index"));
         }else{
-            $builder->error("删除失败");
+            $this->error("删除失败");
         }
     }
 
     public function editMenu(){
-        $builder = new AdminConfigBuilder();
         $model = D("AdminMenu");
         if(IS_POST){
             $data = array(
@@ -527,14 +522,15 @@ class RbacController extends AdminController{
                     S("menuPower".$item["id"],NULL);
                 }
                 if(I("post.p_id")){
-                    $builder->success("成功",U("nextMenu",array("id"=>I("post.p_id"))));
+                    $this->success("成功",U("nextMenu",array("id"=>I("post.p_id"))));
                 }else{
-                    $builder->success("成功",U("index"));
+                    $this->success("成功",U("index"));
                 }
             }else{
-                $builder->error($model->getError());
+                $this->error($model->getError());
             }
         }else{
+            $builder = new AdminConfigBuilder();
             $pidList = $model->getFirstMenuConfig();
             $id = I("get.id");
             $p_id = I("get.p_id");
@@ -557,7 +553,6 @@ class RbacController extends AdminController{
     }
 
     public function handover(){
-        $builder = new AdminConfigBuilder();
         if($_POST){
             $id = I("post.id");
             $account_id = I("post.account_id");
@@ -570,11 +565,12 @@ class RbacController extends AdminController{
             );
             $ret = M("app")->where(array("account_id"=>$id))->save($data);
             if($ret === false){
-                $builder->error(M("app")->getError());
+                $this->error(M("app")->getError());
             }else{
-                $builder->success("交接成功",U("usergroup",array("id"=>$role_id)));
+                $this->success("交接成功",U("usergroup",array("id"=>$role_id)));
             }
        }else{
+           $builder = new AdminConfigBuilder();
            $model = D("Account");
            $account_id = I("id");
            $groupid = I("pid");
