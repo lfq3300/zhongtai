@@ -19,7 +19,7 @@ class RbacController extends AdminController{
         $builder
             ->title("部门管理")
             ->powerAdd(U("addGroup"))
-            ->keyText("id","ID")
+    //        ->keyText("id","ID")
             ->keyText("name","部门")
     //        ->keyText("code_name","代码编号")
             ->keyText("description","描述")
