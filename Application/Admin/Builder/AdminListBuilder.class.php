@@ -52,7 +52,7 @@ class AdminListBuilder extends AdminBuilder{
     private $_pagination = array();
     private $_grossincome = array();
     private  $_setStatusUrl;
-    private  $_otherData;
+    private  $_otherData = array();
     private $_hidequery = true;
     private $_excel = array();
     private $_excel2 = array();

@@ -131,7 +131,6 @@ class RbacController extends AdminController{
 
 
     public function powerAccount(){
-        $builder = new AdminListBuilder();
         if($_POST){
             $accountid = $_POST["account_id"];
             $one = $_POST["one"];
@@ -161,6 +160,7 @@ class RbacController extends AdminController{
             }
             $builder->success("权限更改成功",U("index"));
         }else{
+            $builder = new AdminConfigBuilder();
             $Accountid = I("get.id");
             $roleid = I("get.pid");
             $model = D("Role");
@@ -225,28 +225,25 @@ class RbacController extends AdminController{
     }
 
     public  function  setPass(){
-        $builder = new AdminListBuilder();
         $id = I("get.id");
         $pid = I("get.pid");
         $pwd = md5(md5(C(DEFAULT_PWD)));
         M("account")->where(array("id"=>$id))->save(array("password"=>$pwd));
-        $builder->Success("重置成功 密码为： ".C(DEFAULT_PWD),U("userGroup",array("id"=>$pid)),5);
+        $this->Success("重置成功 密码为： ".C(DEFAULT_PWD),U("userGroup",array("id"=>$pid)),5);
     }
 
     public  function  setLoginOff(){
-        $builder = new AdminListBuilder();
         $id = I("get.id");
         $pid = I("get.pid");
         M("account")->where(array("id"=>$id))->save(array("status"=>"0"));
-        $builder->success("修改成功",U("userGroup",array("id"=>$pid)));
+        $this->success("修改成功",U("userGroup",array("id"=>$pid)));
     }
 
     public  function  setLoginOn(){
-        $builder = new AdminListBuilder();
         $id = I("get.id");
         $pid = I("get.pid");
         M("account")->where(array("id"=>$id))->save(array("status"=>"1"));
-        $builder->success("修改成功",U("userGroup",array("id"=>$pid)));
+        $this->success("修改成功",U("userGroup",array("id"=>$pid)));
     }
 
     public  function  node(){
@@ -294,9 +291,9 @@ class RbacController extends AdminController{
                         S("menuPower".$item["id"],NULL);
                     }
                     if($next){
-                        $builder->success("成功",U("nextmenu",array("id"=>$next)));
+                        $this->success("成功",U("nextmenu",array("id"=>$next)));
                     }else{
-                        $builder->success("成功",U("node"));
+                        $this->success("成功",U("node"));
                     }
                 }
             }
@@ -443,7 +440,6 @@ class RbacController extends AdminController{
     }
 
     public  function  powerGroup(){
-        $builder = new AdminConfigBuilder();
         if($_POST){
             $role_id = $_POST["role_id"];
             $one = $_POST["one"];
@@ -471,8 +467,9 @@ class RbacController extends AdminController{
                 $verify = $item['verify'][0]==1?$item['verify'][0]:0;
                M("power")->add(array("role_id"=>$role_id,"menu_id"=>$key,"add"=>$add,"remove"=>$remove,"edit"=>$edit,"query"=>$query,"export"=>$excel,"verify"=>$verify,"level"=>2));
             }
-            $builder->success("权限更改成功",U("index"));
+            $this->success("权限更改成功",U("index"));
         }else{
+            $builder = new AdminListBuilder();
             $groupid = I("post.id");
             $model = D("Role");
             $data = $model->getGroupInfo($groupid);
