@@ -17,7 +17,7 @@ class AppGroupController extends Controller {
         $list = $model->getList();
         $builder->title("公众号分组")
                 ->powerAdd(U("add"))
-                ->keyText("id","ID")
+           //     ->keyText("id","ID")
                 ->keyText("group_name","组名")
                 ->powerEdit("edit?id=###")
                 ->data($list)
