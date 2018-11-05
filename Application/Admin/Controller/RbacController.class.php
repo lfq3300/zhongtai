@@ -123,9 +123,11 @@ class RbacController extends AdminController{
             ->keyDoActionEdit("handover?id=###&pid=$groupid","工作交接")
             ->keyDoActionEdit("setLoginOff?id=###&pid=$groupid","禁止登录")
             ->keyDoActionEdit("setLoginOn?id=###&pid=$groupid","允许登录")
-            ->keyDoActionEdit("setPass?id=###&pid=$groupid","重置密码")
-            ->keyDoAction("powerAccount?id=###&pid=$groupid","授权")
-            ->data($data)
+            ->keyDoActionEdit("setPass?id=###&pid=$groupid","重置密码");
+            if(cookieDecrypt(cookie("level")) == 2){
+                $builder->keyDoAction("powerAccount?id=###&pid=$groupid","授权");
+            }
+            $builder->data($data)
             ->display();
     }
 
@@ -179,7 +181,7 @@ class RbacController extends AdminController{
             $data = array(
                 "account"=>I("post.account"),
                 "password"=>md5(md5(I("post.password"))),
-                "add_time"=>date("Y-m-d H:i:s"),
+                "creater_time"=>date("Y-m-d H:i:s"),
                 "role_id" =>I("post.role_id"),
                 "nick_name"=>I("post.nick_name"),
                 "position" =>I("post.position"),
