@@ -44,8 +44,6 @@ class AppController extends AdminController {
         $model = D("App");
         if($_POST){
             $data = [
-                "responsible"=>I("post.responsible"),
-                "position"=>I("post.position"),
                 "group_id"=>I("post.group_id"),
             ];
             $id = I("post.id");
@@ -69,8 +67,8 @@ class AppController extends AdminController {
                 ->keyDisabled("nick_name",["title"=>"名称"])
                 ->keyShowImg("head_img",["title"=>"头像"])
                 ->keyHidden("id")
-                ->keyText("responsible",["title"=>"负责人"])
-                ->keyText("position",["title"=>"岗位"])
+                ->keyDisabled("responsible",["title"=>"负责人"])
+                ->keyDisabled("position",["title"=>"岗位"])
                 ->keySelect("group_id",["title"=>"公众号分类","select"=>$group,"value"=>$data["group_id"]])
                 ->data($data)
                 ->buttonSubmit()
