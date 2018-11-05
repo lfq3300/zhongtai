@@ -416,12 +416,12 @@ class AppController extends AdminController {
 
     public function cancel(){
         if ($_POST){
-            $res= M("app")->where(array("id"=>I("post.id")))->delete();
-            if($res === false){
-                $this->error(D("app")->getError());
-            }else{
-                $this->success("取消授权成功",U("index"));
-            }
+            $appid = M("app")->where(array("id"=>I("post.id")))->find();
+            $appid = $appid["appid"];
+            M("app_fans")->where(array("appid"=>$appid))->delete();
+            M("app_data")->where(array("appid"=>$appid))->delete();
+            M("app")->where(array("id"=>I("post.id")))->delete();
+            $this->success("取消授权成功",U("index"));
         }else{
             $builder = new AdminConfigBuilder();
             $id = I("get.id");
