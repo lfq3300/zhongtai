@@ -158,9 +158,9 @@ class RbacController extends AdminController{
                 $verify = $item['verify'][0]==1?$item['verify'][0]:0;
                 M("power")->add(array("account_id"=>$accountid,"menu_id"=>$key,"add"=>$add,"remove"=>$remove,"edit"=>$edit,"query"=>$query,"export"=>$excel,"verify"=>$verify,"level"=>2));
             }
-            $builder->success("权限更改成功",U("index"));
+            $this->success("权限更改成功",U("index"));
         }else{
-            $builder = new AdminConfigBuilder();
+            $builder = new AdminListBuilder();
             $Accountid = I("get.id");
             $roleid = I("get.pid");
             $model = D("Role");
