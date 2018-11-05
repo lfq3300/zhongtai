@@ -1,6 +1,6 @@
 <?php
 
-define('APP_DEBUG',False);
+define('APP_DEBUG',True);
 define('BIND_MODULE','Admin');
 define ( 'APP_PATH', './Application/' );
 define ('OS_THEME_PATH', './Theme/');
