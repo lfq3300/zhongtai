@@ -41,6 +41,7 @@ class AppController extends AdminController {
     }
 
     public function edit(){
+        $builder = new AdminConfigBuilder();
         $model = D("App");
         if($_POST){
             $data = [
@@ -52,15 +53,14 @@ class AppController extends AdminController {
             if ($model->create($data,2)){
                 $ret = $model->editApp($data,$id);
                 if($ret!=false){
-                    $this->success("修改成功",U("index"));
+                    $builder->success("修改成功",U("index"));
                 }else{
-                    $this->error($model->getError());
+                    $builder->error($model->getError());
                 }
             }else{
-                $this->error($model->getError());
+                $builder->error($model->getError());
             }
         }else{
-            $builder = new AdminConfigBuilder();
             $data= $model->getInfo(I("get.id"));
             $group = D("AppGroup")->getList(true);
             $builder
@@ -419,9 +419,9 @@ class AppController extends AdminController {
         if ($_POST){
             $res= D("app")->DelApp($_POST['id']);
             if($res){
-                $this->success("取消授权成功",U("index"));
+                $builder->success("取消授权成功",U("index"));
             }else{
-                $this->error(D("app")->getError());
+                $builder->error(D("app")->getError());
             }
         }else{
             $id = I("get.id");

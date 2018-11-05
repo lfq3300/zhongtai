@@ -131,6 +131,7 @@ class RbacController extends AdminController{
 
 
     public function powerAccount(){
+        $builder = new AdminListBuilder();
         if($_POST){
             $accountid = $_POST["account_id"];
             $one = $_POST["one"];
@@ -158,9 +159,8 @@ class RbacController extends AdminController{
                 $verify = $item['verify'][0]==1?$item['verify'][0]:0;
                 M("power")->add(array("account_id"=>$accountid,"menu_id"=>$key,"add"=>$add,"remove"=>$remove,"edit"=>$edit,"query"=>$query,"export"=>$excel,"verify"=>$verify,"level"=>2));
             }
-            $this->success("权限更改成功",U("index"));
+            $builder->success("权限更改成功",U("index"));
         }else{
-            $builder = new AdminListBuilder();
             $Accountid = I("get.id");
             $roleid = I("get.pid");
             $model = D("Role");
@@ -225,25 +225,28 @@ class RbacController extends AdminController{
     }
 
     public  function  setPass(){
+        $builder = new AdminListBuilder();
         $id = I("get.id");
         $pid = I("get.pid");
         $pwd = md5(md5(C(DEFAULT_PWD)));
         M("account")->where(array("id"=>$id))->save(array("password"=>$pwd));
-        $this->Success("重置成功 密码为： ".C(DEFAULT_PWD),U("userGroup",array("id"=>$pid)),5);
+        $builder->Success("重置成功 密码为： ".C(DEFAULT_PWD),U("userGroup",array("id"=>$pid)),5);
     }
 
     public  function  setLoginOff(){
+        $builder = new AdminListBuilder();
         $id = I("get.id");
         $pid = I("get.pid");
         M("account")->where(array("id"=>$id))->save(array("status"=>"0"));
-        $this->success("修改成功",U("userGroup",array("id"=>$pid)));
+        $builder->success("修改成功",U("userGroup",array("id"=>$pid)));
     }
 
     public  function  setLoginOn(){
+        $builder = new AdminListBuilder();
         $id = I("get.id");
         $pid = I("get.pid");
         M("account")->where(array("id"=>$id))->save(array("status"=>"1"));
-        $this->success("修改成功",U("userGroup",array("id"=>$pid)));
+        $builder->success("修改成功",U("userGroup",array("id"=>$pid)));
     }
 
     public  function  node(){
@@ -364,13 +367,14 @@ class RbacController extends AdminController{
     }
 
     public  function  deleteNode($ids){
+        $builder = new AdminListBuilder();
         $map['id'] = array("in",$ids);
         $id = $_GET['id'];
         $ret =  M('AdminMenu')->where($map)->delete();
         if($ret){
-            $this->success("修改成功",U('hideUrl',array("id"=>$id)));
+            $builder->success("修改成功",U('hideUrl',array("id"=>$id)));
         }else{
-            $this->error(M('AdminMenu')->getError());
+            $builder->error(M('AdminMenu')->getError());
         }
     }
 
@@ -439,6 +443,7 @@ class RbacController extends AdminController{
     }
 
     public  function  powerGroup(){
+        $builder = new AdminListBuilder();
         if($_POST){
             $role_id = $_POST["role_id"];
             $one = $_POST["one"];
@@ -469,9 +474,8 @@ class RbacController extends AdminController{
                 $verify = $item['verify'][0]==1?$item['verify'][0]:0;
                M("power")->add(array("role_id"=>$role_id,"menu_id"=>$key,"add"=>$add,"remove"=>$remove,"edit"=>$edit,"query"=>$query,"export"=>$excel,"verify"=>$verify,"level"=>2));
             }
-           $this->success("权限更改成功",U("index"));
+            $builder->success("权限更改成功",U("index"));
         }else{
-            $builder = new AdminListBuilder();
             $groupid = I("post.id");
             $model = D("Role");
             $data = $model->getGroupInfo($groupid);
@@ -485,6 +489,7 @@ class RbacController extends AdminController{
     }
 
     public  function  deletenextMenu($ids){
+        $builder = new AdminListBuilder();
         $id = array_unique((array)I('ids', 0));
         $map2['id']= array('in', $ids);
         $ret2 =  M("admin_menu")->where($map2)->delete();
@@ -495,13 +500,14 @@ class RbacController extends AdminController{
             S("menuPower".$item["id"],NULL);
         }
         if( $ret2>0){
-            $this->success("删除成功",U("index"));
+            $builder->success("删除成功",U("index"));
         }else{
-            $this->error("删除失败");
+            $builder->error("删除失败");
         }
     }
 
     public function editMenu(){
+        $builder = new AdminConfigBuilder();
         $model = D("AdminMenu");
         if(IS_POST){
             $data = array(
@@ -521,15 +527,14 @@ class RbacController extends AdminController{
                     S("menuPower".$item["id"],NULL);
                 }
                 if(I("post.p_id")){
-                    $this->success("成功",U("nextMenu",array("id"=>I("post.p_id"))));
+                    $builder->success("成功",U("nextMenu",array("id"=>I("post.p_id"))));
                 }else{
-                    $this->success("成功",U("index"));
+                    $builder->success("成功",U("index"));
                 }
             }else{
-                $this->error($model->getError());
+                $builder->error($model->getError());
             }
         }else{
-            $builder = new AdminConfigBuilder();
             $pidList = $model->getFirstMenuConfig();
             $id = I("get.id");
             $p_id = I("get.p_id");
