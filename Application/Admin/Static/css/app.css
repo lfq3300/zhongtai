@@ -16,13 +16,14 @@ header{
     text-align: center;
     position: relative;
     z-index: 1300;
+    overflow: hidden;
 }
 .tpl-header-logo a {
     display: table-cell;
     vertical-align: middle;
 }
 .tpl-header-logo img {
-    width: 170px;
+   max-height: 55px;
 }
 
 .theme-white .tpl-header-fluid {
@@ -363,6 +364,7 @@ td.checkbox label{
 
 .theme-white .tpl-login-logo {
     background: url(../img/logoa.png) center no-repeat;
+    background-size: 100%;
 }
 .tpl-login-logo {
     max-width: 159px;

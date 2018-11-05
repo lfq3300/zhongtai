@@ -59,4 +59,7 @@ class AccountModel extends CommonModel{
             return $ret;
         }
     }
+    public function getUserList($groupid,$account_id){
+        return M()->query("select * FROM mc_account WHERE role_id = $groupid AND  id != $account_id");
+    }
 }

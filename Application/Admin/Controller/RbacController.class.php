@@ -108,7 +108,7 @@ class RbacController extends AdminController{
         $groupid = I("get.id");
         $data = $model->getGroupInfo($groupid);
         $name = $data["name"];
-        $data = M("account")->where(array("role_id"=>$groupid,"id"=>array("neq",cookieDecrypt(cookie("account_id")))))->select();
+        $data = D("Account")->getUserList($groupid,cookieDecrypt(cookie("account_id")));
         $builder
             ->title($name)
             ->powerAdd(U("addAccount",array("id"=>$groupid)))
@@ -119,6 +119,7 @@ class RbacController extends AdminController{
             ->keyStatus("level","账户权限",array(1=>"普通成员",2=>"组长"))
             ->keyText("login_time","最后登陆")
             ->keyText("logincount","登陆次数")
+            ->keyDoActionEdit("handover?id=###&pid=$groupid","工作交接")
             ->keyDoActionEdit("setLoginOff?id=###&pid=$groupid","禁止登录")
             ->keyDoActionEdit("setLoginOn?id=###&pid=$groupid","允许登录")
             ->keyDoActionEdit("setPass?id=###&pid=$groupid","重置密码")
@@ -173,6 +174,7 @@ class RbacController extends AdminController{
     }
 
     public  function  addAccount(){
+        $builder = new AdminConfigBuilder();
         if(IS_POST){
             $data = array(
                 "account"=>I("post.account"),
@@ -190,25 +192,24 @@ class RbacController extends AdminController{
                 $data["level"] = 5;
             }
             if ($data["level"] ==C(ROOT_LEVEL)){
-                $this->error("权限不正确 ,请刷新页面后重试");
+                $builder->error("权限不正确 ,请刷新页面后重试");
             }
             $model = D("account");
             if($model->create($data)){
                 $ret =  D("account")->add($data);
                 if($ret){
-                    $this->success("添加成功",U("userGroup",array("id"=>I("post.role_id"))));
+                    $builder->success("添加成功",U("userGroup",array("id"=>I("post.role_id"))));
                 }else{
-                    $this->error($model->getError());
+                    $builder->error($model->getError());
                 }
             }else{
-                $this->error($model->getError());
+                $builder->error($model->getError());
             }
         }else{
             $groupid = I("get.id");
             $model = D("Role");
             $data = $model->getGroupInfo($groupid);
             $name = $data["name"];
-            $builder = new AdminConfigBuilder();
             $builder->title("添加".$name."账号")
                 ->keyHidden("role_id")
                 ->keyText("account",array("title"=>"账号"))
@@ -262,6 +263,7 @@ class RbacController extends AdminController{
     }
 
     public function addMenu(){
+        $builder = new AdminConfigBuilder();
         $model = D("Admin/AdminMenu");
         if(IS_POST){
             $next = I("post.next");
@@ -289,15 +291,14 @@ class RbacController extends AdminController{
                         S("menuPower".$item["id"],NULL);
                     }
                     if($next){
-                        $this->success("成功",U("nextmenu",array("id"=>$next)));
+                        $builder->success("成功",U("nextmenu",array("id"=>$next)));
                     }else{
-                        $this->success("成功",U("node"));
+                        $builder->success("成功",U("node"));
                     }
                 }
             }
         }else{
             $nextId = I("get.next");
-            $builder = new AdminConfigBuilder();
             $pidList = $model->getFirstMenuConfig();
             $pidList = i_array_column($pidList,'title','id');
             $builder
@@ -547,5 +548,41 @@ class RbacController extends AdminController{
                 ->data($data)
                 ->display();
         }
+    }
+
+    public function handover(){
+        $builder = new AdminConfigBuilder();
+        if($_POST){
+            $id = I("post.id");
+            $account_id = I("post.account_id");
+            $role_id = I("post.role_id");
+            list($user) = M()->query("SELECT id,nick_name,`position` FROM mc_account WHERE id = $account_id");
+            $data = array(
+                "account_id"=>$user["id"],
+                "responsible"=>$user["nick_name"],
+                "position"=>$user["position"]
+            );
+            $ret = M("app")->where(array("account_id"=>$id))->save($data);
+            if($ret === false){
+                $builder->error(M("app")->getError());
+            }else{
+                $builder->success("交接成功",U("usergroup",array("id"=>$role_id)));
+            }
+       }else{
+           $model = D("Account");
+           $account_id = I("id");
+           $groupid = I("pid");
+           $user = $model->getAccountNameInfo($account_id);
+           $select = M("account")->where(array("role_id"=>$groupid))->select();
+           $select = i_array_column($select,'nick_name','id');
+           $builder
+               ->title($user['nick_name']."工作交接")
+               ->keyHidden("id")
+               ->keyHidden("role_id")
+               ->keySelect("account_id",array("select"=>$select,"title"=>"交接对象"))
+               ->buttonSubmit()
+               ->data(array("id"=>$account_id,"role_id"=>$groupid))
+               ->display();
+       }
     }
 }
