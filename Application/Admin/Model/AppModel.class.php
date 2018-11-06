@@ -45,7 +45,6 @@ class AppModel extends CommonModel
         return  array($data,$count["len"]);
     }
 
-
     public function getEffeList(){
         // 查询 全部公众号 然后请求 公众号数据  必须通过微信公众号认证  获取用户增长的话
         $appList = M()->query(" SELECT id,appid,authorizer_refresh_token,verify_type_info FROM mc_app WHERE  verify_type_info = 0 AND day_synchron = 2");
@@ -70,12 +69,13 @@ class AppModel extends CommonModel
             writeLog('error',M()->getLastSql());
         }
     }
-
+    
     public function DelData($appid,$time){
         //删除当前账号 当前time的数据
         M()->execute("delete from mc_app_data where appid = $appid and ref_data = $time");
         M()->execute("delete from mc_app_fans where appid = $appid and ref_data = $time");
     }
+
     public function savaData($appid){
         $data = array("day_synchron"=>2);
         M("app")->where(array("appid"=>$appid))->save($data);
