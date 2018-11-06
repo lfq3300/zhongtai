@@ -58,7 +58,7 @@ class AppController extends AdminController {
                 ->title("数据同步")
                 ->keyHidden("id")
                 ->formtitle("从2018-03-01开始至".date("Y-m-d",strtotime("-1 day"))."结束.
-              <br/><br/> 单个公众号同步时间为 60 分钟.
+              <br/><br/> 单个公众号同步时间为 45 分钟.
               <br/><br/>目前等待同步公众号数量:<span style='color:red;padding-left:10px'>".$len['len']."个</span> 
               <br><br/>点击确定加入公众号同步列队")
                 ->data(array("id"=>I("get.id")))
