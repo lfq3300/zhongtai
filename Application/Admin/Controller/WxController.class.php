@@ -88,7 +88,6 @@ class WxController extends Controller
                 'qrcode_url' => $authorizer_info['qrcode_url'],
                 'principal_name' => $authorizer_info['principal_name'],
                 'alias' => $authorizer_info['alias'],
-                'group_id' => 1, // 1 是 默认分组
                 'account_id' => $accountid,  //
                 'responsible'=>$userInfo['nick_name'],
                 'position'=>$userInfo['position']
