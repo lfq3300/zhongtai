@@ -36,7 +36,7 @@ class AppModel extends CommonModel
                 $where = " WHERE responsible like '%$query%'";
             }
         }
-        $data = M()->query("SELECT id,nick_name,service_type_info,
+        $data = M()->query("SELECT id,nick_name,service_type_info,synchron,
                             verify_type_info,principal_name,head_img,
                             DATE_FORMAT(create_time,'%Y-%m-%d') AS  create_time,
                             responsible,group_id 
@@ -48,7 +48,7 @@ class AppModel extends CommonModel
 
     public function getEffeList(){
         // 查询 全部公众号 然后请求 公众号数据  必须通过微信公众号认证  获取用户增长的话
-        $appList = M()->query(" SELECT id,appid,authorizer_refresh_token,verify_type_info FROM mc_app WHERE  verify_type_info = 0 ");
+        $appList = M()->query(" SELECT id,appid,authorizer_refresh_token,verify_type_info FROM mc_app WHERE  verify_type_info = 0 AND day_synchron = 2");
         return $appList;
     }
 
@@ -69,6 +69,16 @@ class AppModel extends CommonModel
         if($res === false){
             writeLog('error',M()->getLastSql());
         }
+    }
+
+    public function DelData($appid,$time){
+        //删除当前账号 当前time的数据
+        M()->execute("delete from mc_app_data where appid = $appid and ref_data = $time");
+        M()->execute("delete from mc_app_fans where appid = $appid and ref_data = $time");
+    }
+    public function savaData($appid){
+        $data = array("day_synchron"=>2);
+        M("app")->where(array("appid"=>$appid))->save($data);
     }
 
 

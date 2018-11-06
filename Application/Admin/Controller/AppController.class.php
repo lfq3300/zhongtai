@@ -31,13 +31,40 @@ class AppController extends AdminController {
             ->keyStatus("verify_type_info","认证",[-1=>"未认证",0=>"微信认证",1=>"新浪微博认证",2=>"腾讯微博认证",3=>"资质认证,但名称未认证",4=>"资质认证,但名称未认证",4=>"资质认证,但名称未认证"])
             ->keyText("principal_name","公众号主体")
             ->keyImg("head_img","头像")
+            ->keyStatus("synchron","同步数据",[1=>"未同步",2=>"已同步",3=>"正在同步"])
             ->keyText("create_time","授权日期")
             ->powerEdit("edit?id=###","信息编辑")
             ->powerEdit("operate?id=###&nick_name=n#","运营数据")
+            ->powerEdit("synchro?id=###&nick_name=n#","数据同步")
             ->powerEdit("cancel?id=###","取消授权")
             ->data($list)
             ->pagination($count,$r)
             ->display();
+    }
+
+    public function synchro(){
+        if ($_POST){
+            $appid = M("app")->where(array("id"=>I('post.id'),"synchron"=>1))->find();
+            if (empty($appid)){
+                $this->error("公众号已经同步");
+            }else{
+                M("app")->where(array("id"=>I('post.id')))->save(array("synchron"=>3));
+                $this->success("添加成功,等待同步",U("index"));
+            }
+        }else{
+            $builder = new AdminConfigBuilder();
+            list($len) = M()->query("select count(*) as len FROM mc_app_synchron");
+            $builder
+                ->title("数据同步")
+                ->keyHidden("id")
+                ->formtitle("从2018-03-01开始至".date("Y-m-d",strtotime("-1 day"))."结束.
+              <br/><br/> 单个公众号同步时间为 60 分钟.
+              <br/><br/>目前等待同步公众号数量:<span style='color:red;padding-left:10px'>".$len['len']."个</span> 
+              <br><br/>点击确定加入公众号同步列队")
+                ->data(array("id"=>I("get.id")))
+                ->buttonSubmit()
+                ->display();
+        }
     }
 
     public function edit(){
