@@ -307,9 +307,6 @@ class AppController extends AdminController {
             if($field == 'new_user'){
                 $headArr[]='新粉丝';
             }
-            if($field == 'title'){
-                $headArr[]='标题';
-            }
             if($field == 'int_page_read_user'){
                 $headArr[]='图文阅读';
             }
