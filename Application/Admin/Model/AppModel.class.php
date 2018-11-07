@@ -72,8 +72,8 @@ class AppModel extends CommonModel
     
     public function DelData($appid,$time){
         //删除当前账号 当前time的数据
-        M()->execute("delete from mc_app_data where appid = $appid and ref_data = $time");
-        M()->execute("delete from mc_app_fans where appid = $appid and ref_data = $time");
+        M()->execute("delete from mc_app_data where appid = '$appid' and ref_data = '$time'");
+        M()->execute("delete from mc_app_fans where appid = '$appid' and ref_data = '$time'");
     }
 
     //今天已经同步
