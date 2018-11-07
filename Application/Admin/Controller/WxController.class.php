@@ -106,6 +106,14 @@ class WxController extends Controller
         }
     }
 
+
+    public function resData(){
+        $token = I("get.token");
+        if($token == "sniStyziyMXwl0pG"){
+            M()->query("update mc_app set day_synchron = 1");
+        }
+    }
+
     // 定时任务
     // 每天一点  获取 最新文章 的阅读量  所以不需要减去昨日阅读的人数
     public function getRead()
