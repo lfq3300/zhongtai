@@ -25,6 +25,7 @@ class AuthorizeController extends Controller{
             );
             $send_result = curl_get_https($url, json_encode($data));
             $send_result = json_decode($send_result,true);
+            print_r($send_result);
             S("component_access_token",$send_result["component_access_token"],$send_result['expires_in']);
             return $send_result["component_access_token"];
         }
