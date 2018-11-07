@@ -110,7 +110,7 @@ class WxController extends Controller
     public function resData(){
         $token = I("get.token");
         if($token == "sniStyziyMXwl0pG"){
-            M()->query("update mc_app set day_synchron = 1");
+            M()->query("update mc_app set day_synchron = 2");
         }
     }
 
