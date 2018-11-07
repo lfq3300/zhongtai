@@ -24,8 +24,6 @@ class AppFansModel extends CommonModel
                 $cancel_user += $val['cancel_user'];
             }
             $send_result2 = json_decode($send_result2, true);
-            print_r($send_result2);
-            exit;
             list($fansCount) = $send_result2["list"];
             //如果  当前的总粉丝数为空  那么一定请求过程发生错误
             //再次发起请求 ***
