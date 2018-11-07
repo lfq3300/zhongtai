@@ -12,7 +12,6 @@ class AppFansModel extends CommonModel
 {
     public function addFans($send_result,$send_result2,$appid,$time,$access_token = ''){
             $send_result = json_decode($send_result, true);
-            print_r($send_result);
             $new_user = 0;
             $cancel_user = 0;
             $fans = $send_result["list"];
