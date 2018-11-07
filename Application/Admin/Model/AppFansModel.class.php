@@ -12,6 +12,7 @@ class AppFansModel extends CommonModel
 {
     public function addFans($send_result,$send_result2,$appid,$time,$access_token = ''){
             $send_result = json_decode($send_result, true);
+            print_r($send_result);
             $new_user = 0;
             $cancel_user = 0;
             $fans = $send_result["list"];
@@ -23,6 +24,8 @@ class AppFansModel extends CommonModel
                 $cancel_user += $val['cancel_user'];
             }
             $send_result2 = json_decode($send_result2, true);
+            print_r($send_result2);
+            exit;
             list($fansCount) = $send_result2["list"];
             //如果  当前的总粉丝数为空  那么一定请求过程发生错误
             //再次发起请求 ***
