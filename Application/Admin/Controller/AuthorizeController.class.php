@@ -25,7 +25,6 @@ class AuthorizeController extends Controller{
             );
             $send_result = curl_get_https($url, json_encode($data));
             $send_result = json_decode($send_result,true);
-            print_r($send_result);
             S("component_access_token",$send_result["component_access_token"],$send_result['expires_in']);
             return $send_result["component_access_token"];
         }
@@ -46,8 +45,6 @@ class AuthorizeController extends Controller{
     public function refreshAccessToken($appid = '', $authorizer_refresh_token = '')
     {
         if(S($appid ."access_token")){
-            print_r("12343");
-            exit;
             return S($appid ."access_token");
         }else{
             if (empty($authorizer_refresh_token)){
@@ -55,7 +52,6 @@ class AuthorizeController extends Controller{
                 $authorizer_refresh_token = $appInfo['authorizer_refresh_token'];
             }
             $component_access_token = $this->getAccessToken();
-            print_r($component_access_token);
             $url = "https://api.weixin.qq.com/cgi-bin/component/api_authorizer_token?component_access_token=$component_access_token";
             $data = array(
                 "component_appid" => C('ZTAPPID'),
@@ -64,8 +60,6 @@ class AuthorizeController extends Controller{
             );
             $send_result = curl_get_https($url,json_encode($data, true));
             $send_result = json_decode($send_result, true);
-            print_r($send_result);
-            exit;
             $authorizer_access_token = $send_result['authorizer_access_token'];
             S($appid ."access_token", $authorizer_access_token, $send_result['expires_in']);
             return $authorizer_access_token;

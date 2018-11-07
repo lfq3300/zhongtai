@@ -52,7 +52,7 @@ class AppModel extends CommonModel
     }
 
     public function getHisList(){
-        //此处不能做缓存 synchron  = 2 的状态会更新 所以不能缓存
+        //此处不能做缓存 synchron  = 2 的状态会更新 所以不能缓存 且未同步的
         $appList = M()->query(" SELECT id,appid,authorizer_refresh_token,verify_type_info FROM mc_app WHERE  verify_type_info = 0 AND synchron = 1 ");
         // 查询 全部公众号 然后请求 公众号数据  必须通过微信公众号认证  获取用户增长的话
         return $appList;
@@ -76,8 +76,9 @@ class AppModel extends CommonModel
         M()->execute("delete from mc_app_fans where appid = $appid and ref_data = $time");
     }
 
+    //今天已经同步
     public function savaData($appid){
-        $data = array("day_synchron"=>2);
+        $data = array("day_synchron"=>1);
         M("app")->where(array("appid"=>$appid))->save($data);
     }
 

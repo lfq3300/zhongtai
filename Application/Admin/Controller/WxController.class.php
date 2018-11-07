@@ -144,12 +144,9 @@ class WxController extends Controller
         $token = I("get.token");
         if (C(FANSTOKEN) == $token){
             $appList = D("App")->getEffeList();
-            print_r($appList);
-            exit;
             foreach ($appList as $key => $val){
                 $Auth = new AuthorizeController();
                 $access_token = $Auth->refreshAccessToken($val["appid"], $val["authorizer_refresh_token"]);
-                print_r($access_token);
                 $url = "https://api.weixin.qq.com/datacube/getusersummary?access_token=$access_token";
                 $url2 = "https://api.weixin.qq.com/datacube/getusercumulate?access_token=$access_token";
                 $time =  C(YESTERDAY);
@@ -159,9 +156,7 @@ class WxController extends Controller
                 );
                 D("AppFans")->DelData($val["appid"],$time);
                 $send_result = curl_get_https($url, json_encode($data, true));
-                print_r($send_result);
                 $send_result2 = curl_get_https($url2, json_encode($data, true));
-                print_r($send_result2);
                 D("AppFans")->addFans($send_result,$send_result2,$val["appid"],$time,$access_token);
             }
         }
