@@ -141,11 +141,12 @@ class WxController extends Controller
 
     public function getFans()
     {
-            $token = I("get.token");
+        $token = I("get.token");
+        print_r($token);
+        exit;
         if (C(FANSTOKEN) == $token){
             $appList = D("App")->getEffeList();
             foreach ($appList as $key => $val){
-
                 $Auth = new AuthorizeController();
                 $access_token = $Auth->refreshAccessToken($val["appid"], $val["authorizer_refresh_token"]);
                 $url = "https://api.weixin.qq.com/datacube/getusersummary?access_token=$access_token";
