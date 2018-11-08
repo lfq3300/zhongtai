@@ -31,7 +31,7 @@ class AppController extends AdminController {
             ->keyStatus("verify_type_info","认证",[-1=>"未认证",0=>"微信认证",1=>"新浪微博认证",2=>"腾讯微博认证",3=>"资质认证,但名称未认证",4=>"资质认证,但名称未认证",4=>"资质认证,但名称未认证"])
             ->keyText("principal_name","公众号主体")
             ->keyImg("head_img","头像")
-            ->keyStatus("synchron","同步数据",[1=>"已加入同步计划",2=>"已完成同步"])
+            ->keyStatus("synchron","同步数据",[1=>"已加入同步计划",2=>"已完成同步",3=>"已完成同步"])
             ->keyText("create_time","授权日期")
             ->powerEdit("edit?id=###","信息编辑")
             ->powerEdit("operate?id=###&nick_name=n#","运营数据")
