@@ -56,6 +56,8 @@ class AdminListBuilder extends AdminBuilder{
     private $_hidequery = true;
     private $_excel = array();
     private $_excel2 = array();
+    private $_OnSelect = array();
+    private $_OnSelectData = array();
 
     public function setStatusUrl($url)
     {
@@ -145,6 +147,15 @@ class AdminListBuilder extends AdminBuilder{
         return $this;
     }
 
+    public function keyOnSelect($opt,$name = 'noselect')
+    {
+        $this->_OnSelect = array("opt"=>$opt,"name"=>$name);
+        return $this;
+    }
+    public  function  keyOnSelectData($opt,$name = "selectdata"){
+         $this->_OnSelectData = array("opt"=>$opt,"name"=>$name);
+        return $this;
+    }
 
     public  function select($arrvalue,$opt =[],$name='select'){
         $opt["defaultvalue"]=$opt["defaultvalue"]?$opt["defaultvalue"]:"不筛选";
@@ -408,6 +419,8 @@ class AdminListBuilder extends AdminBuilder{
         $this->assign('title', $this->_title);
         $this->assign('query', $this->_query);
         $this->assign('queryselect', $this->_queryselect);
+        $this->assign("onselect",$this->_OnSelect);
+        $this->assign("onselectdata",$this->_OnSelectData);
         $this->assign('excel', $this->_excel);
         $this->assign('excel2', $this->_excel2);
         $this->assign('startime', $this->_startime);
@@ -420,7 +433,6 @@ class AdminListBuilder extends AdminBuilder{
         $this->assign("otherdata",$this->_otherData);
         $this->assign("hiddenInput",$this->_queryHiddenInput);
         $this->assign("hidequery",$this->_hidequery);
-
         C('VAR_PAGE', 'page');
         $pager = new \Think\PageBack($this->_pagination['totalCount'], $this->_pagination['listRows'], $_REQUEST);
         $pager->setConfig('theme', '%UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %HEADER%');

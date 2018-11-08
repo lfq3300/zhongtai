@@ -48,12 +48,12 @@ class AppController extends AdminController {
             if (empty($appid)){
                 $this->error("公众号已经同步");
             }else{
-                M("app")->where(array("id"=>I('post.id')))->save(array("synchron"=>3));
+//                M("app")->where(array("id"=>I('post.id')))->save(array("synchron"=>3));
                 $this->success("添加成功,等待同步",U("index"));
             }
         }else{
             $builder = new AdminConfigBuilder();
-            list($len) = M()->query("select count(*) as len FROM mc_app_synchron");
+            list($len) = M()->query("select count(*) as len FROM mc_app where synchron = 2");
             $builder
                 ->title("数据同步")
                 ->keyHidden("id")
@@ -77,6 +77,7 @@ class AppController extends AdminController {
             if ($model->create($data,2)){
                 $ret = $model->editApp($data,$id);
                 if($ret!=false){
+                 //   AddactionLog("编辑公众号信息：".);
                     $this->success("修改成功",U("index"));
                 }else{
                     $this->error($model->getError());
@@ -154,6 +155,7 @@ class AppController extends AdminController {
         $id = I("get.id");
         $info = D("appData")->excelAppData($id,$stime,$etime);
         $filename = I("get.filename");
+        AddactionLog("导出 ".$filename." ".$stime."到".$etime."数据");
         $data = array();
         foreach ($info as $k=>$goods_info){
             $data[$k][nick_name] = $filename;
@@ -300,6 +302,7 @@ class AppController extends AdminController {
         $queryType = I("get.queryType");
         $info = D("appData")->excelGuardAppData($key,$stime,$etime,$state,$query,$queryType);
         $filename = I("get.filename");
+        AddactionLog("导出 ".$filename." ".$stime."到".$etime."数据");
         $data = array();
         foreach ($info as $k=>$goods_info){
             $data[$k][nick_name] = $goods_info['nick_name'];;
@@ -443,6 +446,7 @@ class AppController extends AdminController {
             M("app_fans")->where(array("appid"=>$appid))->delete();
             M("app_data")->where(array("appid"=>$appid))->delete();
             M("app")->where(array("id"=>I("post.id")))->delete();
+            AddactionLog("取消授权公众号");
             $this->success("取消授权成功",U("index"));
         }else{
             $builder = new AdminConfigBuilder();

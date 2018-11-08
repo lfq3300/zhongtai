@@ -149,6 +149,54 @@
 
 									</script>
 								</notempty>
+								<notempty name="onselect">
+									<div class="am-form-group">
+										<label  class="am-u-sm-3 am-form-label">{$onselect['opt']['title']}</label>
+										<div class="am-u-sm-6" style="padding-left: 0;padding-right: 0;float: left;">
+											<select data-am-selected="{btnSize:'sm'}" name="{$onselect['name']}" id="OnquerySelest" onchange="setonselect(this)">
+												<option>{$onselect.opt.defaultvalue}</option>
+												<volist name="onselect['opt']['select']" id="options">
+													<option  value="{$options.id}">{$options.name}</option>
+												</volist>
+											</select>
+										</div>
+									</div>
+								</notempty>
+								<notempty name="onselectdata">
+									<div class="am-form-group">
+										<label  class="am-u-sm-3 am-form-label">{$onselectdata['opt']['title']}</label>
+										<div class="am-u-sm-6" style="padding-left: 0;padding-right: 0;float: left;">
+											<select data-am-selected="{btnSize:'sm'}" name="{$onselectdata['name']}" id="OnquerySelestData">
+												<option>{$onselectdata.opt.defaultvalue}</option>
+											</select>
+										</div>
+									</div>
+									<php>
+										$newarr = json_encode($onselectdata['opt']['select']);
+									</php>
+									<script type="application/javascript">
+                                        var arr = {$newarr};
+                                        console.log(arr);
+                                        var title = "{$onselectdata.opt.title}";
+										function setonselect(dom) {
+                                            var selectVal = $(dom).val();
+                                            selectRes(selectVal);
+                                        }
+                                       // selectDataList($("#noselect"));
+                                        function selectRes(val) {
+                                            $("#OnquerySelestData").children().remove();
+                                            for (var item in arr){
+												if(item == val){
+												    var data = arr[item];
+												    for (var i = 0;i<data.length;i++){
+                                                        var html = "<option value="+data[i].id+">"+data[i].name+"</option>";
+                                                        $("#OnquerySelestData").append(html);
+													}
+												}
+											}
+                                        }
+									</script>
+								</notempty>
 								<notempty name="query">
 									<p class="am-u-sm-offset-2">
 										<button type="submit" class="am-btn am-btn-sm am-btn-success">查询</button>

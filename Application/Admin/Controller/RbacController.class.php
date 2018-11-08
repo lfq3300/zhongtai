@@ -46,6 +46,7 @@ class RbacController extends AdminController{
             if($model->create($data)){
                $ret =  $model->addGroup($data);
                if($ret){
+                   AddactionLog("添加部门".I("post.name"));
                    $this->success("添加成功",U("index"));
                }else{
                    $this->error($model->getError());
@@ -80,6 +81,7 @@ class RbacController extends AdminController{
             if($model->create($data)){
                 $ret = $model->editGroup($id,$data);
                 if($ret){
+                    AddactionLog("修改部门".I("post.old_name")." 修改为 ".I("post.name"));
                     $this->success("修改成功",U("index"));
                 }else{
                     $this->error($model->getError());
@@ -91,8 +93,10 @@ class RbacController extends AdminController{
             $builder = new AdminConfigBuilder();
             $model = D("Role");
             $data = $model->getGroupInfo(I("get.id"));
+            $data["old_name"] = $data["name"];
             $builder
                 ->keyHidden("id")
+                ->keyHidden("old_name")
                 ->title("编辑部门")
                 ->keyText("name",array("title"=>"部门"))
                 ->keySelect("status",array("title"=>"状态","select"=>array("1"=>"正常","2"=>"禁止登陆")))
@@ -161,6 +165,7 @@ class RbacController extends AdminController{
                 $verify = $item['verify'][0]==1?$item['verify'][0]:0;
                 M("power")->add(array("account_id"=>$accountid,"menu_id"=>$key,"add"=>$add,"remove"=>$remove,"edit"=>$edit,"query"=>$query,"export"=>$excel,"verify"=>$verify,"level"=>2));
             }
+            AddactionLog(" 授权：".I("post.name"));
             $this->success("权限更改成功",U("userGroup",array("id"=>$roleid)));
         }else{
             $builder = new AdminListBuilder();
@@ -171,8 +176,10 @@ class RbacController extends AdminController{
             $name = $data["name"];
             $data = $model->setPower($roleid);
             $builder
+                ->keyHidden("name")
                 ->title($name."权限配置")
                 ->otherData($data)
+                ->data(array("name"=>$name))
                 ->display("power");
         }
     }
@@ -201,6 +208,7 @@ class RbacController extends AdminController{
             if($model->create($data)){
                 $ret =  D("account")->add($data);
                 if($ret){
+                    AddactionLog("添加账号".I("post.nick_name"));
                     $this->success("添加成功",U("userGroup",array("id"=>I("post.role_id"))));
                 }else{
                     $this->error($model->getError());
@@ -232,12 +240,16 @@ class RbacController extends AdminController{
         $pid = I("get.pid");
         $pwd = md5(md5(C(DEFAULT_PWD)));
         M("account")->where(array("id"=>$id))->save(array("password"=>$pwd));
+        $name = getNickName($id);
+        AddactionLog("重置密码：".$name);
         $this->Success("重置成功 密码为： ".C(DEFAULT_PWD),U("userGroup",array("id"=>$pid)),5);
     }
 
     public  function  setLoginOff(){
         $id = I("get.id");
         $pid = I("get.pid");
+        $name = getNickName($id);
+        AddactionLog("允许登陆：".$name);
         M("account")->where(array("id"=>$id))->save(array("status"=>"0"));
         $this->success("修改成功",U("userGroup",array("id"=>$pid)));
     }
@@ -245,6 +257,8 @@ class RbacController extends AdminController{
     public  function  setLoginOn(){
         $id = I("get.id");
         $pid = I("get.pid");
+        $name = getNickName($id);
+        AddactionLog("重置密码：".$name);
         M("account")->where(array("id"=>$id))->save(array("status"=>"1"));
         $this->success("修改成功",U("userGroup",array("id"=>$pid)));
     }
@@ -470,6 +484,7 @@ class RbacController extends AdminController{
                 $verify = $item['verify'][0]==1?$item['verify'][0]:0;
                M("power")->add(array("role_id"=>$role_id,"menu_id"=>$key,"add"=>$add,"remove"=>$remove,"edit"=>$edit,"query"=>$query,"export"=>$excel,"verify"=>$verify,"level"=>2));
             }
+            AddactionLog(" 授权：".I("post.name"));
             $this->success("权限更改成功",U("index"));
         }else{
             $builder = new AdminListBuilder();
@@ -480,7 +495,9 @@ class RbacController extends AdminController{
             $data = $model->setPower();
             $builder
                 ->title($name."权限配置")
+                ->keyHidden("name")
                 ->otherData($data)
+                ->data(array("name"=>$name))
                 ->display("power");
         }
     }
@@ -567,6 +584,7 @@ class RbacController extends AdminController{
             if($ret === false){
                 $this->error(M("app")->getError());
             }else{
+                AddactionLog(" 交接工作：".I("post.nick_name"));
                 $this->success("交接成功",U("usergroup",array("id"=>$role_id)));
             }
        }else{
@@ -581,10 +599,39 @@ class RbacController extends AdminController{
                ->title($user['nick_name']."工作交接")
                ->keyHidden("id")
                ->keyHidden("role_id")
+               ->keyHidden("nick_name")
                ->keySelect("account_id",array("select"=>$select,"title"=>"交接对象"))
                ->buttonSubmit()
-               ->data(array("id"=>$account_id,"role_id"=>$groupid))
+               ->data(array("id"=>$account_id,"role_id"=>$groupid,"nick_name"=>$user['nick_name']))
                ->display();
        }
+    }
+
+    public function log(){
+        $builder = new AdminListBuilder();
+        $guord = M()->query("SELECT A.id, A.name FROM  mc_role AS A INNER JOIN mc_account AS B ON A.`id` = B.`role_id` GROUP BY A.id");
+        $account = M()->query("SELECT id,role_id AS p_id,nick_name AS NAME FROM mc_account WHERE role_id IS NOT NULL");
+        $stime = I("get.startime",date("Y-m-01", time()),"date");
+        $etime = I("get.endtime",date("Y-m-t", time()),"date");
+        $a = array();
+        foreach ($account as $key => $val){
+            $a[$val["p_id"]][] = $val;
+        }
+        $builder
+            ->query(["state"=>true])
+            ->hidequery()
+            ->queryStarTime($stime)
+            ->queryEndTime($etime)
+            ->keyOnSelect(["select"=>$guord,"defaultvalue"=>"请选择部门","title"=>"选择部门"])
+            ->keyOnSelectData(["select"=>$a,"defaultvalue"=>"请选择成员","title"=>"选择成员"])
+            ->title("操作日志列表")
+            ->keyText("id","ID")
+            ->keyText("account","账号")
+            ->keyText("nick_name","姓名")
+            ->keyText("guard_name","部门")
+            ->keyText("place","权限")
+            ->keyText("create_time","时间")
+            ->keyText("action","操作记录")
+            ->display();
     }
 }

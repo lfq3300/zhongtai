@@ -39,7 +39,7 @@ class IndexController extends Controller{
             if(md5(md5(I("post.password"))) == $accountInfo["password"]){
                 //登陆成功后
                 M("account")->where(array("account"=>I('post.account')))->save(array("login_time"=>date("Y-m-d H:i:s"),"logincount"=>$accountInfo["logincount"]+1,"loginip"=>get_ip()));
-                $time = C("SESSION_TIME");
+                AddactionLog("登陆");
                 cookie("account",cookieEncrypt($accountInfo["account"]),86400);
                 cookie("account_id",cookieEncrypt($accountInfo["id"]),86400);
                 cookie("token",cookieEncrypt($accountInfo["password"]),86400);

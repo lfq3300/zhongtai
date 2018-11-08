@@ -92,6 +92,7 @@ class WxController extends Controller
                 'responsible'=>$userInfo['nick_name'],
                 'position'=>$userInfo['position']
             ];
+            AddactionLog("授权公众号：".$authorizer_info['nick_name'],$accountid);
             if (D("Admin/App")->create($appData, 1)) {
                 $ret = D("Admin/App")->addApp($appData);
                 if ($ret) {

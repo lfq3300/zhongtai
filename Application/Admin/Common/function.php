@@ -145,3 +145,12 @@ function writeLog($a,$b){
     $log = "{time:".date("Y-m-d H:i:s")." log:$b}";
     file_put_contents("./Log/$a.txt",$log."\r\n",FILE_APPEND);
 }
+
+function AddactionLog($text,$account_id = ''){
+    if (empty($account_id)){
+        M("action_log")->add(array("create_time"=>date("Y-m-d H:i:s"),"account_id"=>cookieDecrypt(cookie('account_id')),"level"=>cookieDecrypt(cookie("level")),"action"=>$text));
+    }else{
+        $account_id = M("account")->where(array("account_id"=>$account_id))->find();
+        M("action_log")->add(array("create_time"=>date("Y-m-d H:i:s"),"account_id"=>$account_id["account_id"],"level"=>$account_id["level"],"action"=>$text));
+    }
+}

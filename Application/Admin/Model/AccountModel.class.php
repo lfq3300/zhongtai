@@ -31,6 +31,14 @@ class AccountModel extends CommonModel{
         }
     }
 
+    public function getNickName($accound_id){
+        $a =  M("account")
+            ->where(array("account"=>0))
+            ->field("nick_name")
+            ->find();
+        return $a["nick_name"]?$a["nick_name"]:"未知".$accound_id;
+    }
+
     public function getAccountNameInfo($id){
         list($info) = M()->query("select nick_name,`position` from mc_account where id = $id limit 1");
         if (empty($info["nick_name"])){
