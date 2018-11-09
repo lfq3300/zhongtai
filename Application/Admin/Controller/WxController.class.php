@@ -145,8 +145,6 @@ class WxController extends Controller
         $token = I("get.token");
         if (C(FANSTOKEN) == $token){
             $appList = D("App")->getEffeList();
-            print_r($appList);
-            exit;
             foreach ($appList as $key => $val){
                 $Auth = new AuthorizeController();
                 $access_token = $Auth->refreshAccessToken($val["appid"], $val["authorizer_refresh_token"]);
