@@ -156,7 +156,10 @@
 											<select data-am-selected="{btnSize:'sm'}" name="{$onselect['name']}" id="OnquerySelest" onchange="setonselect(this)">
 												<option>{$onselect.opt.defaultvalue}</option>
 												<volist name="onselect['opt']['select']" id="options">
-													<option  value="{$options.id}">{$options.name}</option>
+													<php>
+														$selected = $onselect['opt']['value'] == $options['id'] ? 'selected="selected" ' : '';
+													</php>
+													<option  value="{$options.id}" {$selected}>{$options.name}</option>
 												</volist>
 											</select>
 										</div>
@@ -176,20 +179,24 @@
 									</php>
 									<script type="application/javascript">
                                         var arr = {$newarr};
-                                        console.log(arr);
                                         var title = "{$onselectdata.opt.title}";
 										function setonselect(dom) {
                                             var selectVal = $(dom).val();
                                             selectRes(selectVal);
                                         }
-                                       // selectDataList($("#noselect"));
+                                        setonselect($("#OnquerySelest"));
+                                        var old_val =("{$onselectdata['opt']['value']}");
                                         function selectRes(val) {
                                             $("#OnquerySelestData").children().remove();
                                             for (var item in arr){
 												if(item == val){
 												    var data = arr[item];
 												    for (var i = 0;i<data.length;i++){
-                                                        var html = "<option value="+data[i].id+">"+data[i].name+"</option>";
+                                                        var select = "";
+                                                        if(old_val == data[i].id){
+                                                            select  = "selected='selected'";
+                                                        }
+                                                        var html = "<option value="+data[i].id+" "+select+">"+data[i].name+"</option>";
                                                         $("#OnquerySelestData").append(html);
 													}
 												}

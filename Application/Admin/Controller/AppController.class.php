@@ -19,6 +19,8 @@ class AppController extends AdminController {
         $queryType = I("get.queryType",1,"intval");
         list($list,$count) = D("App")->getList($page,$r,$query,$queryType);
         $group = D("AppGroup")->getList(true);
+        $url = U("App/index",array("page"=>$page,"query"=>$query,"queryType"=>$queryType));
+        AddactionLog("查看单公众号管理：<a href='".$url."' target='_blank' >点击查看详细</a>");
         $builder
             ->title("单公众号管理")
             ->query(["state"=>!empty($query),"url"=>U("index"),"placeholder"=>"请搜索：公众号名称",'value'=>$query])
@@ -121,8 +123,10 @@ class AppController extends AdminController {
         $etime = I("get.endtime",date("Y-m-t", time()),"date");
         $state = $stime||$etime;
         $id = I("get.id");
-        $nick_name = I("get.nick_name");
         list($list,$count) = D("appData")->getAppData($id,$page,$r,$stime,$etime);
+        $nick_name = I("get.nick_name");
+        $url = U("App/operate",array("id"=>$id,"page"=>$page,"startime"=>$stime,"endtime"=>$etime,"nick_name"=>urldecode($nick_name)));
+        AddactionLog("查看".$nick_name."运营数据：<a href='".$url."' target='_blank' >点击查看详细</a>");
         $builder
             ->title($nick_name."  运营数据")
             ->query(["placeholder"=>"搜索标题","state"=>$state,"url"=>U("operate",array("id"=>$id,"nick_name"=>$nick_name))])
@@ -232,6 +236,8 @@ class AppController extends AdminController {
         $queryType = I("get.queryType",1,"intval");
         $page = I("get.page",1,"intval");
         list($list,$count) = D("appData")->getGroupList($page,$r,$query,$queryType);
+        $url = U("App/appGroup",array("page"=>$page,"query"=>$query,"queryType"=>$queryType));
+        AddactionLog("查看多公众号管理：<a href='".$url."' target='_blank' >点击查看详细</a>");
         $builder
             ->title("多公众号管理")
             ->query(["state"=>true,"url"=>U("appGroup"),"placeholder"=>"按搜索条件搜索",'value'=>$query])
@@ -261,6 +267,8 @@ class AppController extends AdminController {
         $query = I("get.query");
         $queryType = I("get.queryType",1,"intval");
         $state = $stime||$etime||$query;
+        $url = U("App/guardData",array("id"=>$id,"page"=>$page,"startime"=>$stime,"endtime"=>$etime,"query"=>$query,"queryType"=>$queryType));
+        AddactionLog("查看公众号分组数据：<a href='".$url."' target='_blank' >点击查看详细</a>");
         list($list,$count) = D("appData")->getAppsData($id,$page,$r,$stime,$etime,true,$query,$queryType);
         $groupName = D("appGroup")->getInfo($id);
         $groupName = $groupName["group_name"];
@@ -384,6 +392,8 @@ class AppController extends AdminController {
         $queryType = I("get.queryType",1,"intval");
         $state = $stime||$etime;
         list($list,$count) = D("appData")->getAppsData($responsible,$page,$r,$stime,$etime,false,$query,$queryType);
+        $url = U("App/fans",array("responsible"=>$responsible,"page"=>$page,"startime"=>$stime,"endtime"=>$etime,"query"=>$query,"queryType"=>$queryType));
+        AddactionLog("查看公众号负责人 $responsible 数据： <a href='".$url."' target='_blank'>点击查看详细</a>");
         $builder
             ->title("公众号负责人：$responsible")
             ->hidequery()
@@ -420,6 +430,8 @@ class AppController extends AdminController {
         $etime = I("get.endtime",date("Y-m-t", time()),"date");
         $query = I("get.query");
         $queryType = I("get.queryType",1,"intval");
+        $url = U("App/fans",array("page"=>$page,"startime"=>$stime,"endtime"=>$etime,"query"=>$query,"queryType"=>$queryType));
+        AddactionLog("查看粉丝： <a href='".$url."' target='_blank'>点击查看详细</a>");
         list($list,$count) = D("appFans")->getFans($page,$r,$stime,$etime,$query,$queryType);
         $builder
             ->title("粉丝数据")
@@ -445,8 +457,9 @@ class AppController extends AdminController {
             $appid = $appid["appid"];
             M("app_fans")->where(array("appid"=>$appid))->delete();
             M("app_data")->where(array("appid"=>$appid))->delete();
+            $appname =  M("app")->where(array("id"=>I("post.id")))->find();
             M("app")->where(array("id"=>I("post.id")))->delete();
-            AddactionLog("取消授权公众号");
+            AddactionLog("取消授权公众号".$appname["nick_name"]);
             $this->success("取消授权成功",U("index"));
         }else{
             $builder = new AdminConfigBuilder();

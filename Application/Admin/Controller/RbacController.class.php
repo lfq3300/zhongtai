@@ -613,25 +613,30 @@ class RbacController extends AdminController{
         $account = M()->query("SELECT id,role_id AS p_id,nick_name AS NAME FROM mc_account WHERE role_id IS NOT NULL");
         $stime = I("get.startime",date("Y-m-01", time()),"date");
         $etime = I("get.endtime",date("Y-m-t", time()),"date");
+        $noselect = I("get.noselect");
+        $selectdata = I("get.selectdata");
+        $page = I("get.page",1,"intval");
         $a = array();
         foreach ($account as $key => $val){
             $a[$val["p_id"]][] = $val;
         }
+        list($list,$count) = D("ActionLog")->getAction($page,$noselect,$selectdata,$stime,$etime);
         $builder
             ->query(["state"=>true])
             ->hidequery()
             ->queryStarTime($stime)
             ->queryEndTime($etime)
-            ->keyOnSelect(["select"=>$guord,"defaultvalue"=>"请选择部门","title"=>"选择部门"])
-            ->keyOnSelectData(["select"=>$a,"defaultvalue"=>"请选择成员","title"=>"选择成员"])
+            ->keyOnSelect(["select"=>$guord,"defaultvalue"=>"请选择部门","title"=>"选择部门","value"=>$noselect])
+            ->keyOnSelectData(["select"=>$a,"defaultvalue"=>"请选择成员","title"=>"选择成员","value"=>$selectdata])
             ->title("操作日志列表")
             ->keyText("id","ID")
             ->keyText("account","账号")
             ->keyText("nick_name","姓名")
-            ->keyText("guard_name","部门")
-            ->keyText("place","权限")
+            ->keyText("position","职位")
             ->keyText("create_time","时间")
             ->keyText("action","操作记录")
+            ->data($list)
+            ->pagination($count,20)
             ->display();
     }
 
@@ -641,25 +646,29 @@ class RbacController extends AdminController{
         $account = M()->query("SELECT id,role_id AS p_id,nick_name AS NAME FROM mc_account WHERE role_id IS NOT NULL");
         $stime = I("get.startime",date("Y-m-01", time()),"date");
         $etime = I("get.endtime",date("Y-m-t", time()),"date");
+        $noselect = I("get.noselect");
+        $selectdata = I("get.selectdata");
+        $page = I("get.page",1,"intval");
         $a = array();
         foreach ($account as $key => $val){
             $a[$val["p_id"]][] = $val;
         }
+        list($list,$count) = D("ActionLog")->getLoginAction($page,$noselect,$selectdata,$stime,$etime);
         $builder
             ->query(["state"=>true])
             ->hidequery()
             ->queryStarTime($stime)
             ->queryEndTime($etime)
-            ->keyOnSelect(["select"=>$guord,"defaultvalue"=>"请选择部门","title"=>"选择部门"])
-            ->keyOnSelectData(["select"=>$a,"defaultvalue"=>"请选择成员","title"=>"选择成员"])
+            ->keyOnSelect(["select"=>$guord,"defaultvalue"=>"请选择部门","title"=>"选择部门","value"=>$noselect])
+            ->keyOnSelectData(["select"=>$a,"defaultvalue"=>"请选择成员","title"=>"选择成员","value"=>$selectdata])
             ->title("登陆日志")
             ->keyText("id","ID")
             ->keyText("account","账号")
             ->keyText("nick_name","姓名")
-            ->keyText("guard_name","部门")
-            ->keyText("place","权限")
             ->keyText("create_time","时间")
             ->keyText("action","操作记录")
+            ->data($list)
+            ->pagination($count,20)
             ->display();
     }
 }

@@ -32,6 +32,7 @@ class AppGroupController extends Controller {
             if ($model->create($data,1)){
                 $ret = $model->addGruop($data);
                 if($ret){
+                    AddactionLog("添加公众号分组".I("post.group_name"));
                     $this->success("成功",U("index"));
                 }else{
                     $this->error($model->getError());
@@ -59,6 +60,7 @@ class AppGroupController extends Controller {
             if ($model->create($data,1)){
                 $ret = $model->editGruop($id,$data);
                 if($ret!=false){
+                    AddLoginActionLog("修改公众号分组".I("post.group_name")."改为".I("post.old_group_name"));
                     $this->success("成功",U("index"));
                 }else{
                     $this->error($model->getError());
@@ -69,9 +71,11 @@ class AppGroupController extends Controller {
         }else{
             $builder = new AdminConfigBuilder();
             $data = $model->getInfo(I("get.id"));
+            $data["old_group_name"] = $data["group_name"];
             $builder
                 ->title("修改公众号分组")
                 ->keyHidden("id")
+                ->keyHidden("old_group_name")
                 ->keyText("group_name",['title'=>'分组名称'])
                 ->buttonSubmit()
                 ->data($data)

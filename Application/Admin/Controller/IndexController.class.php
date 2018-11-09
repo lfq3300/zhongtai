@@ -39,12 +39,12 @@ class IndexController extends Controller{
             if(md5(md5(I("post.password"))) == $accountInfo["password"]){
                 //登陆成功后
                 M("account")->where(array("account"=>I('post.account')))->save(array("login_time"=>date("Y-m-d H:i:s"),"logincount"=>$accountInfo["logincount"]+1,"loginip"=>get_ip()));
-                AddLoginActionLog("登陆");
                 cookie("account",cookieEncrypt($accountInfo["account"]),86400);
                 cookie("account_id",cookieEncrypt($accountInfo["id"]),86400);
                 cookie("token",cookieEncrypt($accountInfo["password"]),86400);
                 cookie('level', cookieEncrypt($accountInfo["level"]));
                 cookie('role_id', cookieEncrypt($accountInfo["role_id"]));
+                AddLoginActionLog("登陆");
                 returnJson(1);
             }else{
                 returnJson("0","密码错误,请注意字母大小写、符号、空格",md5(md5(I('post.password')).md5($accountInfo["creater_time"])));
