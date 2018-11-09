@@ -145,6 +145,8 @@ class WxController extends Controller
         $token = I("get.token");
         if (C(FANSTOKEN) == $token){
             $appList = D("App")->getEffeList();
+            print_r($appList);
+            exit;
             foreach ($appList as $key => $val){
                 $Auth = new AuthorizeController();
                 $access_token = $Auth->refreshAccessToken($val["appid"], $val["authorizer_refresh_token"]);
@@ -213,6 +215,21 @@ class WxController extends Controller
                 D("App")->saveSynchron($val["appid"]);
             }
         }
+    }
+
+    public function getNews(){
+        $appList = M("app")->where(array("appid"=>"wx2386b8975cd85571"))->find();
+        $Auth = new AuthorizeController();
+        $access_token = $Auth->refreshAccessToken($appList["appid"], $appList["authorizer_refresh_token"]);
+        $url = " https://api.weixin.qq.com/cgi-bin/material/batchget_material?access_token=$access_token";
+        $data = array(
+            "type" => "news",
+            "offset" =>"1",
+            "count" =>"10",
+        );
+        $send_result = curl_get_https($url,json_encode($data,true));
+        $send_result = json_decode($send_result, true);
+        print_r($send_result);
     }
 
 }
