@@ -154,3 +154,7 @@ function AddactionLog($text,$account_id = ''){
         M("action_log")->add(array("create_time"=>date("Y-m-d H:i:s"),"account_id"=>$account_id["id"],"level"=>$account_id["level"],"action"=>$text));
     }
 }
+
+function AddLoginActionLog($text){
+    M("action_log")->add(array("state"=>1,"create_time"=>date("Y-m-d H:i:s"),"account_id"=>cookieDecrypt(cookie('account_id')),"level"=>cookieDecrypt(cookie("level")),"action"=>$text));
+}

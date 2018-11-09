@@ -634,4 +634,32 @@ class RbacController extends AdminController{
             ->keyText("action","操作记录")
             ->display();
     }
+
+    public function login(){
+        $builder = new AdminListBuilder();
+        $guord = M()->query("SELECT A.id, A.name FROM  mc_role AS A INNER JOIN mc_account AS B ON A.`id` = B.`role_id` GROUP BY A.id");
+        $account = M()->query("SELECT id,role_id AS p_id,nick_name AS NAME FROM mc_account WHERE role_id IS NOT NULL");
+        $stime = I("get.startime",date("Y-m-01", time()),"date");
+        $etime = I("get.endtime",date("Y-m-t", time()),"date");
+        $a = array();
+        foreach ($account as $key => $val){
+            $a[$val["p_id"]][] = $val;
+        }
+        $builder
+            ->query(["state"=>true])
+            ->hidequery()
+            ->queryStarTime($stime)
+            ->queryEndTime($etime)
+            ->keyOnSelect(["select"=>$guord,"defaultvalue"=>"请选择部门","title"=>"选择部门"])
+            ->keyOnSelectData(["select"=>$a,"defaultvalue"=>"请选择成员","title"=>"选择成员"])
+            ->title("登陆日志")
+            ->keyText("id","ID")
+            ->keyText("account","账号")
+            ->keyText("nick_name","姓名")
+            ->keyText("guard_name","部门")
+            ->keyText("place","权限")
+            ->keyText("create_time","时间")
+            ->keyText("action","操作记录")
+            ->display();
+    }
 }
