@@ -232,17 +232,42 @@ class WxController extends Controller
 
 
     public function getArticle(){
-//        $appList = D("App")->getHisList();
-        $Auth = new AuthorizeController();
-        $access_token = $Auth->refreshAccessToken("wxc3d95ad9c8e7fa03");
-        $url = "https://api.weixin.qq.com/datacube/getarticlesummary?access_token=$access_token";
-        $data = array(
-            "begin_date" => '2018-11-10',
-            "end_date" => '2018-11-10',
-        );
-        $send_result = curl_get_https($url, json_encode($data, true));
-        $send_result = json_decode($send_result, true);
-        print_r($send_result);
+        $appList = D("App")->getEffeList();
+        $time =  C(YESTERDAY);
+        foreach ($appList as $key => $val) {
+            $Auth = new AuthorizeController();
+            $access_token = $Auth->refreshAccessToken($val["appid"], $val["authorizer_refresh_token"]);
+            $url = "https://api.weixin.qq.com/datacube/getarticlesummary?access_token=$access_token";
+            $data = array(
+                "begin_date" => $time,
+                "end_date" => $time,
+            );
+            $send_result = curl_get_https($url, json_encode($data, true));
+            D("AppArticle")->addHisData($send_result,$val["appid"],$time);
+        }
+    }
+
+    public function getHisArticle(){
+        $hisday = C(HISDAY);
+        $time = strtotime($hisday);
+        $thisday = strtotime(date("Y-m-d",strtotime("-1 day")));
+        $day = ($thisday-$time)/86400;
+        $appList = D("App")->getHisList();
+        foreach ($appList as $key => $val) {
+            for ($i = 0; $i < $day; $i++) {
+                $Auth = new AuthorizeController();
+                $access_token = $Auth->refreshAccessToken($val["appid"], $val["authorizer_refresh_token"]);
+                $url = "https://api.weixin.qq.com/datacube/getarticlesummary?access_token=$access_token";
+                $data = array(
+                    "begin_date" => date("Y-m-d", strtotime("$hisday +$i day")),
+                    "end_date" => date("Y-m-d", strtotime("$hisday +$i day")),
+                );
+                $send_result = curl_get_https($url, json_encode($data, true));
+                D("AppArticle")->addHisData($send_result,$val["appid"],date("Y-m-d",strtotime("$hisday +$i day")));
+            }
+        }
+
+
     }
 }
 ?>
