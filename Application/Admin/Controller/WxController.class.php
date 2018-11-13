@@ -234,7 +234,7 @@ class WxController extends Controller
     public function getArticle(){
 //        $appList = D("App")->getHisList();
         $Auth = new AuthorizeController();
-        $access_token = $Auth->refreshAccessToken("wxead394852858b103");
+        $access_token = $Auth->refreshAccessToken("wxc3d95ad9c8e7fa03");
         $url = "https://api.weixin.qq.com/datacube/getarticletotal?access_token=$access_token";
         $data = array(
             "begin_date" => '2018-11-06',
