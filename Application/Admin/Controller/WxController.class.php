@@ -248,7 +248,7 @@ class WxController extends Controller
     }
 
     public function getHisArticle(){
-        $hisday = C(HISDAY);
+        $hisday = C(HISARTICLEDAY);
         $time = strtotime($hisday);
         $thisday = strtotime(date("Y-m-d",strtotime("-1 day")));
         $day = ($thisday-$time)/86400;

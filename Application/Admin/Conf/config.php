@@ -56,6 +56,7 @@ return array(
     'HISDATA'=>'vyN1LMwRaHPj8CRwr1TRpHLWwVaiW5WH',
 	'YESTERDAY'=>date("Y-m-d",strtotime("- 1 day")),
 	'HISDAY'=>"2018-03-01",
+	'HISARTICLEDAY'=>"2018-09-01",
 	'SESSION_TIME'=>'60'
 )
 ?>
