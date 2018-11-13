@@ -26,6 +26,7 @@ class AppArticleModel extends CommonModel
                 $data = array(
                     "ref_date"=>$v["ref_date"],
                     "msgid"=>$v["msgid"],
+                    "appid"=>$appid,
                     "title"=>$v["title"],
                     "int_page_read_user"=>$v["int_page_read_user"],
                     "ori_page_read_user"=>$v["ori_page_read_user"],
