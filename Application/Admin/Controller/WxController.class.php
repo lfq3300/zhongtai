@@ -237,8 +237,8 @@ class WxController extends Controller
         $access_token = $Auth->refreshAccessToken("wxc3d95ad9c8e7fa03");
         $url = "https://api.weixin.qq.com/datacube/getarticletotal?access_token=$access_token";
         $data = array(
-            "begin_date" => '2018-11-08',
-            "end_date" => '2018-11-08',
+            "begin_date" => '2018-11-01',
+            "end_date" => '2018-11-01',
         );
         $send_result = curl_get_https($url, json_encode($data, true));
         $send_result = json_decode($send_result, true);
