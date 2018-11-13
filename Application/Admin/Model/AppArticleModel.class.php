@@ -13,6 +13,8 @@ class AppArticleModel extends CommonModel
     public function addHisData($send_result,$appid,$time){
         $send_result = json_decode($send_result, true);
         $list = $send_result["list"];
+        print_r($list);
+        exit;
         if(empty($list)){
             return;
         }else{
