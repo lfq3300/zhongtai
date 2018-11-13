@@ -98,4 +98,31 @@ class AppFansModel extends CommonModel
         return array($list,$count['len']);
     }
 
+
+    public function getFansAll($stime,$etime,$query,$queryType){
+        if (!empty($stime) || !empty($etime)){
+            if(strtotime($etime)>strtotime($stime)){
+                if ($stime && $etime){
+                    $where = " AND A.ref_date BETWEEN '$stime 00:00:00' AND '$etime 00:00:00' ";
+                }else if ($stime){
+                    $where = " AND  A.ref_date > '$stime 00:00:00' ";
+                }else if ($etime){
+                    $where = " WHERE A.ref_date < '$etime 00:00:00' ";
+                }
+            }else if (strtotime($etime)==strtotime($stime)){
+                $where = " AND A.ref_date = '$stime 00:00:00' ";
+            }
+        }
+        $where1 = "";
+        if(!empty($query)){
+            if ($queryType == 1){
+                $where1 = " AND B.nick_name LIKE '%$query%'";
+            }else{
+                $where1 = " AND B.responsible LIKE '%$query%'";
+            }
+        }
+        $list = M()->query("SELECT B.nick_name,DATE_FORMAT(A.ref_date,'%Y-%m-%d') as ref_date,A.cumulate_user,A.pure_user,A.new_user,B.responsible,B.position 
+                            FROM mc_app_fans  as A INNER JOIN mc_app as B ON A.appid = B.appid WHERE true $where $where1 ORDER BY A.ref_date desc ");
+        return $list;
+    }
 }

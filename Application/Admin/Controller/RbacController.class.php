@@ -495,7 +495,7 @@ class RbacController extends AdminController{
             $data = $model->setPower();
             $builder
                 ->title($name."权限配置")
-                ->keyHidden("name")
+                ->keyHidden("name",$name)
                 ->otherData($data)
                 ->data(array("name"=>$name))
                 ->display("power");

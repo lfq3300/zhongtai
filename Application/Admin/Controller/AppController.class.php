@@ -437,6 +437,7 @@ class AppController extends AdminController {
             ->title("粉丝数据")
             ->query(["state"=>!empty($query),"url"=>U("fans"),"placeholder"=>"请搜索：公众号名称",'value'=>$query])
             ->queryselect(["1"=>"公众号名称","2"=>"负责人"],["title"=>"搜索条件","select"=>$queryType])
+            ->powerExport(U("excelfans",array("startime"=>$stime,"endtime"=>$etime,"queryType"=>$queryType,"query"=>$query)))
             ->queryStarTime($stime)
             ->queryEndTime($etime)
             ->keyText("nick_name","公众号")
@@ -449,6 +450,54 @@ class AppController extends AdminController {
             ->data($list)
             ->pagination($count,$r)
             ->display();
+    }
+
+    public function excelfans(){
+        $stime = I("get.startime");
+        $etime = I("get.endtime");
+        $query  = I("get.query");
+        $queryType = I("get.queryType");
+        $list = D("appFans")->getFansAll($stime,$etime,$query,$queryType);
+        empty($query)?"默认":$query;
+        $filename = $queryType == 1?"公众号名称":"负责人";
+        AddactionLog("导出 搜索条件：".$filename." 为：".$query." ".$stime."到".$etime."的 粉丝 数据");
+        $filename ="粉丝数据";
+        $data = array();
+        foreach ($list as $k=>$goods_info){
+            $data[$k][nick_name] = $goods_info['nick_name'];;
+            $data[$k][ref_date] = $goods_info['ref_date'];
+            $data[$k][cumulate_user] = $goods_info['cumulate_user'];
+            $data[$k][pure_user] = $goods_info['pure_user'];
+            $data[$k][new_user] = $goods_info['new_user'];
+            $data[$k][responsible] = $goods_info['responsible'];
+            $data[$k][position] = $goods_info['position'];
+        }
+        foreach ($data as $field=>$v){
+            if($field == 'nick_name'){
+                $headArr[]='公众号';
+            }
+            if($field == 'ref_date'){
+                $headArr[]='日期';
+            }
+            if($field == 'cumulate_user'){
+                $headArr[]='总粉丝';
+            }
+            if($field == 'pure_user'){
+                $headArr[]='净粉丝';
+            }
+            if($field == 'new_user'){
+                $headArr[]='新粉丝';
+            }
+            if($field == 'responsible'){
+                $headArr[]='负责人';
+            }
+            if($field == 'position'){
+                $headArr[]='岗位';
+            }
+        }
+        $filename=$filename.time();
+        $Excel = new UploadExcel();
+        $Excel->getExcel($filename,$headArr,$data);
     }
 
     public function cancel(){
