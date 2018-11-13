@@ -33,7 +33,7 @@ class AccountModel extends CommonModel{
 
     public function getNickName($accound_id){
         $a =  M("account")
-            ->where(array("account"=>0))
+            ->where(array("id"=>$accound_id))
             ->field("nick_name")
             ->find();
         return $a["nick_name"]?$a["nick_name"]:"未知".$accound_id;
@@ -69,5 +69,9 @@ class AccountModel extends CommonModel{
     }
     public function getUserList($groupid,$account_id){
         return M()->query("select * FROM mc_account WHERE role_id = $groupid AND  id != $account_id");
+    }
+
+    public function getUserGroupList($account_id){
+        return M()->query("select B.id,B.nick_name FROM mc_account as A INNER JOIN  mc_account as B on A.role_id = B.role_id WHERE A.id = $account_id");
     }
 }

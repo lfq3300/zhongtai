@@ -230,5 +230,20 @@ class WxController extends Controller
         print_r($send_result);
     }
 
+
+    public function getArticle(){
+//        $appList = D("App")->getHisList();
+        $appList = array("appid"=>"wxc3d95ad9c8e7fa03","authorizer_refresh_token"=>"refreshtoken@@@5pJ20g-7Qxf2BNr3eOXZAZKXAApEaedIaxT9kBooXeI");
+        $Auth = new AuthorizeController();
+        $access_token = $Auth->refreshAccessToken($appList["appid"], $appList["authorizer_refresh_token"]);
+        $url = "https://api.weixin.qq.com/datacube/getarticlesummary?access_token=$access_token";
+        $data = array(
+            "begin_date" => '2018-11-10',
+            "end_date" => '2018-11-10',
+        );
+        $send_result = curl_get_https($url, json_encode($data, true));
+        $send_result = json_decode($send_result, true);
+        print_r($send_result);
+    }
 }
 ?>

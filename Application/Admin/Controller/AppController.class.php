@@ -37,11 +37,37 @@ class AppController extends AdminController {
             ->keyText("create_time","授权日期")
             ->powerEdit("edit?id=###","信息编辑")
             ->powerEdit("operate?id=###&nick_name=n#","运营数据")
+            ->powerEdit("article?id=###&nick_name=n#","文章数据")
             ->powerEdit("synchro?id=###&nick_name=n#","数据同步")
             ->powerEdit("cancel?id=###","取消授权")
             ->data($list)
             ->pagination($count,$r)
             ->display();
+    }
+
+    public function article(){
+        $builder = new AdminListBuilder();
+        $page =  I("get.page",1,"intval");
+        $nick_name = I("get.nick_name");
+        $stime = I("get.startime",date("Y-m-01", time()),"date");
+        $etime = I("get.endtime",date("Y-m-t", time()),"date");
+        $id = I("get.id");
+        $builder->title($nick_name." 文章数据")
+                ->query(["placeholder"=>"搜索文章标题","url"=>U("article",array("id"=>$id,"nick_name"=>$nick_name))])
+                ->queryStarTime($stime)
+                ->queryEndTime($etime)
+                ->keyText("ref_date","日期")
+                ->keyText("int_page_read_user","总阅读")
+                ->keyText("cumulate_user","总粉丝")
+                ->keyText("int_page_from_session_read_user","会话")
+                ->keyText("int_page_from_friends_read_user","朋友圈")
+                ->keyText("share_user","分享转发")
+                ->keyText("int_page_from_kanyikan_read_user","看一看")
+                ->keyText("active_percent","活跃度",["added"=>'%'])
+                ->keyText("responsible","负责人")
+                ->keyText("position","岗位")
+                ->display();
+
     }
 
     public function synchro(){
@@ -72,14 +98,20 @@ class AppController extends AdminController {
     public function edit(){
         $model = D("App");
         if($_POST){
+            $nick_name = D("Account")->getNickName(I("post.account_id"));
             $data = [
                 "group_id"=>I("post.group_id"),
+                "account_id"=>I("post.account_id"),
+                "responsible"=>$nick_name
             ];
+            $oldnick_name = D("Account")->getNickName(I("post.oldaccount_id"));
+            $ogroupName = D("AppGroup")->getInfo(I("post.hidegroup_id"));
+            $ngroupName = D("AppGroup")->getInfo(I("post.group_id"));
             $id = I("post.id");
             if ($model->create($data,2)){
                 $ret = $model->editApp($data,$id);
                 if($ret!=false){
-                 //   AddactionLog("编辑公众号信息：".);
+                    AddactionLog("编辑公众号信息：负责人 ".$oldnick_name."更换为".$nick_name.", 类型 ：".$ogroupName["group_name"]." 更换为".$ngroupName["group_name"]);
                     $this->success("修改成功",U("index"));
                 }else{
                     $this->error($model->getError());
@@ -91,15 +123,22 @@ class AppController extends AdminController {
             $builder = new AdminConfigBuilder();
             $data= $model->getInfo(I("get.id"));
             $group = D("AppGroup")->getList(true);
+            $userList = D("Account")->getUserGroupList(cookieDecrypt(cookie("account_id")));
+            $select = i_array_column($userList,'nick_name','id');
             $builder
                 ->title($data['nick_name']." 信息编辑")
                 ->keyDisabled("appid",["title"=>"Appid"])
                 ->keyDisabled("nick_name",["title"=>"名称"])
                 ->keyShowImg("head_img",["title"=>"头像"])
-                ->keyHidden("id")
-                ->keyDisabled("responsible",["title"=>"负责人"])
-                ->keyDisabled("position",["title"=>"岗位"])
-                ->keySelect("group_id",["title"=>"公众号分类","select"=>$group,"value"=>$data["group_id"]])
+                ->keyHidden("id");
+            if (cookieDecrypt(cookie("level")) == 2){
+                $builder->keySelect("account_id",["title"=>"负责人","select"=>$select,"value"=>$data["account_id"]]);
+            }else{
+                $builder->keyDisabled("responsible",["title"=>"负责人"]);
+            }
+            $builder->keySelect("group_id",["title"=>"公众号分类","select"=>$group,"value"=>$data["group_id"]])
+                ->keyHidden("oldaccount_id",$data["account_id"])
+                ->keyHidden("hidegroup_id",$data["group_id"])
                 ->data($data)
                 ->buttonSubmit()
                 ->display();
