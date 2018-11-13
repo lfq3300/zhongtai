@@ -14,10 +14,12 @@ class AppArticleModel extends CommonModel
         $send_result = json_decode($send_result, true);
         $list = $send_result["list"];
         print_r($list);
-        exit;
         if(empty($list)){
+            print_r("756");
             return;
         }else{
+            print_r("123");
+            exit;
             $fans = D("AppFans")->getFansCount($appid,$time);
             if($fans == 0){
                 $active_percent = 0;
