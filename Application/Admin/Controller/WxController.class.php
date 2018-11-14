@@ -133,7 +133,6 @@ class WxController extends Controller
                 );
                 $send_result = curl_get_https($url, json_encode($data, true));
                 D("AppData")->addHisData($send_result,$val["appid"],$time);
-                D("App")->savaData($val["appid"]);
             }
         }
     }
@@ -210,7 +209,6 @@ class WxController extends Controller
                     $send_result = curl_get_https($url, json_encode($data, true));
                     D("AppData")->addHisData($send_result,$val["appid"],date("Y-m-d",strtotime("$hisday +$i day")));
                 }
-                D("App")->saveSynchron($val["appid"]);
             }
         }
     }
@@ -244,6 +242,7 @@ class WxController extends Controller
             );
             $send_result = curl_get_https($url, json_encode($data, true));
             D("AppArticle")->addHisData($send_result,$val["appid"],$time);
+            D("App")->savaData($val["appid"]);
         }
     }
 
@@ -265,9 +264,8 @@ class WxController extends Controller
                 $send_result = curl_get_https($url, json_encode($data, true));
                 D("AppArticle")->addHisData($send_result,$val["appid"],date("Y-m-d",strtotime("$hisday +$i day")));
             }
+            D("App")->saveSynchron($val["appid"]);
         }
-
-
     }
 }
 ?>
