@@ -63,6 +63,11 @@ class AppModel extends CommonModel
         return $data;
     }
 
+    public function getAppid($id){
+        list($data) = M()->query("SELECT appid FROM mc_app where id = $id limit 1");
+        return $data['appid'];
+    }
+
     public function saveSynchron($appid){
         $res = M("app")->where(array("appid"=>$appid))->save(array("synchron"=>2));
         if($res === false){

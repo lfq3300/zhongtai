@@ -45,27 +45,33 @@ class AppController extends AdminController {
             ->display();
     }
 
-    public function article(){
+    public function article($r = 20){
         $builder = new AdminListBuilder();
         $page =  I("get.page",1,"intval");
         $nick_name = I("get.nick_name");
         $stime = I("get.startime",date("Y-m-01", time()),"date");
         $etime = I("get.endtime",date("Y-m-t", time()),"date");
         $id = I("get.id");
+        $query = I("get.query");
+        $state = $query||$stime||$etime;
+        list($list,$count) = D("AppArticle")->getList($page,$r,$stime,$etime,$id,$query);
         $builder->title($nick_name." 文章数据")
-                ->query(["placeholder"=>"搜索文章标题","url"=>U("article",array("id"=>$id,"nick_name"=>$nick_name))])
+                ->query(["state"=>$state,"placeholder"=>"搜索文章标题","value"=>$query,"url"=>U("article",array("id"=>$id,"nick_name"=>$nick_name))])
                 ->queryStarTime($stime)
                 ->queryEndTime($etime)
                 ->keyText("ref_date","日期")
+                ->keyText("title","标题")
                 ->keyText("int_page_read_user","总阅读")
                 ->keyText("cumulate_user","总粉丝")
                 ->keyText("int_page_from_session_read_user","会话")
                 ->keyText("int_page_from_friends_read_user","朋友圈")
                 ->keyText("share_user","分享转发")
-                ->keyText("int_page_from_kanyikan_read_user","看一看")
+            //    ->keyText("int_page_from_kanyikan_read_user","看一看")
                 ->keyText("active_percent","活跃度",["added"=>'%'])
                 ->keyText("responsible","负责人")
                 ->keyText("position","岗位")
+                ->data($list)
+                ->pagination($count,$r)
                 ->display();
 
     }

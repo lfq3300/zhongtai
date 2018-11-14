@@ -11,9 +11,10 @@ class WxController extends Controller
         echo "success";
     }
     public function savData(){
-        M()->execute("UPDATE mc_app set synchron = 1");
+        M()->execute("UPDATE mc_app set synchron = 1,day_synchron = 2");
         M()->execute("delete from mc_app_data");
         M()->execute("delete from mc_app_fans");
+        M()->execute("delete from mc_app_article");
     }
     /*
      * 每隔10分钟 微信回调并且更新 ticket  存入数据库
@@ -56,7 +57,6 @@ class WxController extends Controller
         if ($auth_code) {
             $Auth = new AuthorizeController();
             $component_access_token = $Auth->getAccessToken();
-
             $url = "https://api.weixin.qq.com/cgi-bin/component/api_query_auth?component_access_token=$component_access_token";
             $data = array(
                 "component_appid" => C('ZTAPPID'),
