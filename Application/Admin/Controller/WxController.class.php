@@ -10,8 +10,8 @@ class WxController extends Controller
     public function index(){
         $get = "12345";
         $log = "{time:".date("Y-m-d H:i:s")." get:$get}";
-        file_put_contents("/socket.txt",$log."\r\n",FILE_APPEND);
-        $ret = file_put_contents("socket.txt",$log."\r\n",FILE_APPEND);
+        file_put_contents("/Runtime/socket.txt",$log."\r\n",FILE_APPEND);
+        $ret = file_put_contents("./Runtime/socket.txt",$log."\r\n",FILE_APPEND);
         print_r($ret);
         echo "success";
     }
