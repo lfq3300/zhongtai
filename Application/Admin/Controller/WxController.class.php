@@ -10,7 +10,9 @@ class WxController extends Controller
     public function index(){
         $get = "12345";
         $log = "{time:".date("Y-m-d H:i:s")." get:$get}";
-        file_put_contents("./socket.txt",$log."\r\n",FILE_APPEND);
+        file_put_contents("/socket.txt",$log."\r\n",FILE_APPEND);
+        $ret = file_put_contents("socket.txt",$log."\r\n",FILE_APPEND);
+        print_r($ret);
         echo "success";
     }
     public function savData(){
@@ -32,14 +34,14 @@ class WxController extends Controller
         $msg_sign = $_GET['msg_signature'];
         $get = json_decode($_GET,true);
         $log = "{time:".date("Y-m-d H:i:s")." get:$get}";
-        file_put_contents("./socket.txt",$log."\r\n",FILE_APPEND);
+        file_put_contents("/socket.txt",$log."\r\n",FILE_APPEND);
         $encryptMsg = file_get_contents('php://input');
         $log = "{time:".date("Y-m-d H:i:s")." input:$encryptMsg}";
-        file_put_contents("./socket.txt",$log."\r\n",FILE_APPEND);
+        file_put_contents("/socket.txt",$log."\r\n",FILE_APPEND);
         $pc = new WXBizMsgCrypt();
         $pc->WXBizMsgCrypt($token, $encodingAesKey, $appId);
         $log = "{time:".date("Y-m-d H:i:s")." pc:$pc}";
-        file_put_contents("./socket.txt",$log."\r\n",FILE_APPEND);
+        file_put_contents("/socket.txt",$log."\r\n",FILE_APPEND);
         $xml_tree = new \DOMDocument();
         $xml_tree->loadXML($encryptMsg);
         $array_e = $xml_tree->getElementsByTagName('Encrypt');
