@@ -21,6 +21,8 @@ class WxController extends Controller
      */
     public function iosocket()
     {
+        echo 'success';
+        return;
         $encodingAesKey = C('ZTENCODINGAESKEY');
         $token = C('ZTTOKEN');
         $appId = C('ZTAPPID');
@@ -60,6 +62,8 @@ class WxController extends Controller
      */
     public function socket()
     {
+        echo 'success';
+        return;
         $encodingAesKey = C('ZTENCODINGAESKEY');
         $token = C('ZTTOKEN');
         $appId = C('ZTAPPID');
