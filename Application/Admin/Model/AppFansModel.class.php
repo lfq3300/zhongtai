@@ -168,60 +168,23 @@ class AppFansModel extends CommonModel
         return $list;
     }
 
-    /*
-     *  $data = [
-            [
-                "ref_data"=>"2018-10-08",
-                "ranking"=>"1",
-                "nick_name"=>"测试",
-                "cumulate_user"=>[
-                    "data"=>6600000,
-                    "data1"=>35,
-                    "data2"=>45,
-                    "data3"=>35,
-                    "data4"=>45,
-                    "data5"=>35,
-                    "data6"=>45,
-                ],
-                "new_user"=>[
-                    "data"=>6600000,
-                    "data1"=>35,
-                    "data2"=>45,
-                    "data3"=>35,
-                    "data4"=>45,
-                    "data5"=>35,
-                    "data6"=>45,
-                ],
-                "pure_user"=>[
-                    "data"=>6600000,
-                    "data1"=>35,
-                    "data2"=>45,
-                    "data3"=>35,
-                    "data4"=>45,
-                    "data5"=>35,
-                    "data6"=>45,
-                ],
-                "increase_user"=>[
-                    "data"=>6600000,
-                    "data1"=>35,
-                    "data2"=>45,
-                    "data3"=>35,
-                    "data4"=>45,
-                    "data5"=>35,
-                    "data6"=>45,
-                ],
-            ]
-        ];
-     * */
 
     public function getFansData($page,$r,$query = '',$stime = '',$etime = ''){
-        $thisDay = Date("Y-m-d",strtotime("- 1 day"));
+        return array();
+        //获取 昨天的数据日期的 号数
+        $Number = date("d",strtotime("- 1 day"));
+        //获取前天的数据日期
         $yDay = Date("Y-m-d",strtotime("- 2 day"));
+        print_r($yDay);
+        //获取昨日数据日期
+        $thisDay = date('Y-m-d',strtotime("- 1 day"));
+        print_r($thisDay);
         $data = array();
+        //获取昨日的数据
         $dayData =  M()->query("SELECT 
         DATE_FORMAT(A.ref_date, '%Y-%m-%d') AS ref_date,
-        B.`nick_name`,A.`cumulate_user`,
-        A.`cancel_user`,A.`pure_user`,A.`new_user`,A.appid 
+        B.`nick_name`,IFNULL(A.`cumulate_user`,0) AS  cumulate_user,
+        IFNULL(A.`cancel_user`,0) AS  cancel_user,IFNULL(A.`pure_user`,0) as pure_user,IFNULL(A.`new_user`,0) AS new_user,A.appid 
         FROM mc_app_fans AS A INNER JOIN mc_app AS B
         ON A.`appid` = B.`appid`  WHERE A.`ref_date` = '$thisDay' 
         GROUP BY A.`appid` ORDER BY A.cumulate_user DESC");
@@ -234,24 +197,27 @@ class AppFansModel extends CommonModel
                 "nick_name"=>$val["nick_name"],
                 "appid"=>$val["appid"],
                 "cumulate_user"=>array(
-                    "data"=>$val["cumulate_user"]
+                    "data"=>$val["cumulate_user"],
+                    "data1"=>$val["cumulate_user"]
                 ),
                 "pure_user"=>array(
-                    "data"=>$val["pure_user"]
+                    "data"=>$val["pure_user"],
+                    "data1"=>$val["pure_user"],
                 ),
                 "new_user"=>array(
-                    "data"=>$val['new_user']
+                    "data"=>$val['new_user'],
+                    "data1"=>$val['new_user']
                 ),
-                "increase_user"=>array(
-                    "data"=>$val['increase_user']
+                "cancel_user"=>array(
+                    "data"=>$val['cancel_user'],
+                    "data1"=>$val['cancel_user']
                 ),
             );
         }
         $ids = rtrim($appids,",").")";
-        $yData = M()->query("SELECT 
-        DATE_FORMAT(A.ref_date, '%Y-%m-%d') AS ref_date,
-        B.`nick_name`,A.`cumulate_user`,
-        A.`cancel_user`,A.`cumulate_user`,A.appid 
+        //获取前天的数据 和 昨日的进行对比
+        $yData = M()->query("SELECT IFNULL(A.`cumulate_user`,0) AS  cumulate_user,
+        IFNULL(A.`cancel_user`,0) AS  cancel_user,IFNULL(A.`pure_user`,0) as pure_user,IFNULL(A.`new_user`,0) AS new_user,A.appid 
         FROM mc_app_fans AS A INNER JOIN mc_app AS B
         ON A.`appid` = B.`appid`  WHERE A.`appid` IN $ids AND  A.`ref_date` = '$yDay' 
         GROUP BY A.`appid` ORDER BY A.cumulate_user DESC");
@@ -259,11 +225,100 @@ class AppFansModel extends CommonModel
             $data[$val["appid"]]["cumulate_user"]["data1"]= $val["cumulate_user"];
             $data[$val["appid"]]["pure_user"]["data1"]= $val["pure_user"];
             $data[$val["appid"]]["new_user"]["data1"]= $val["new_user"];
-            $data[$val["appid"]]["increase_user"]["data1"]= $val["increase_user"];
+            $data[$val["appid"]]["cancel_user"]["data1"]= $val["cancel_user"];
         }
-        //周 上周 这周
-        
 
+        //获取昨天的星期号数   若超了第三个星期  需要查询回前两个星期的
+
+        //获取
+        $w = date('w');
+        if( $w== 1){
+            //如果是转个星期一的话
+            $MondayStart = date('Y-m-d', strtotime('-1 monday', time()));
+            $MondayEnd = date('Y-m-d', strtotime('-1 monday', time())+ 7 * 60*60*24);
+            $pMondayStart = date("Y-m-d",strtotime('-2 monday',time()) - 7*60*60*24);
+            $pMondayEnd = date("Y-m-d",strtotime('-2 monday') +  7*60*60*24);
+
+        } else{
+            //  数据的星期一
+            $MondayStart = date('Y-m-d', strtotime("- $w day", time()));
+            //  数据 当天
+            $MondayEnd = date('Y-m-d', strtotime("- 1 day"));
+            //上个星期
+            $pMondayStart = date("Y-m-d",strtotime('- 1 monday',time()) - 7*60*60*24);
+            $pMondayEnd = date("Y-m-d",strtotime('- 1 monday') +  7*60*60*24);
+
+        }
+        $tMData = M()->query("SELECT IFNULL(SUM(A.`cumulate_user`),0) AS cumulate_user,
+        IFNULL(SUM(A.`cancel_user`),0) AS  cancel_user,IFNULL(SUM(A.`pure_user`),0) as pure_user,IFNULL(SUM(A.`new_user`),0) AS new_user,A.appid 
+        FROM mc_app_fans AS A INNER JOIN mc_app AS B
+        ON A.`appid` = B.`appid`  WHERE A.`appid` IN $ids  and A.`ref_date` BETWEEN '$MondayStart' AND '$MondayEnd'
+        GROUP BY A.`appid` ORDER BY A.cumulate_user DESC");
+
+        foreach ($tMData as $key=>$val){
+            $data[$val["appid"]]["cumulate_user"]["data2"]= $val["cumulate_user"];
+            $data[$val["appid"]]["pure_user"]["data2"]= $val["pure_user"];
+            $data[$val["appid"]]["new_user"]["data2"]= $val["new_user"];
+            $data[$val["appid"]]["cancel_user"]["data2"]= $val["cancel_user"];
+        }
+
+        $pMData = M()->query("SELECT IFNULL(SUM(A.`cumulate_user`),0) AS cumulate_user,
+        IFNULL(SUM(A.`cancel_user`),0) AS  cancel_user,IFNULL(SUM(A.`pure_user`),0) as pure_user,IFNULL(SUM(A.`new_user`),0) AS new_user,A.appid 
+        FROM mc_app_fans AS A INNER JOIN mc_app AS B
+        ON A.`appid` = B.`appid`  WHERE A.`appid` IN $ids  and A.`ref_date` BETWEEN '$pMondayStart' AND '$pMondayEnd'
+        GROUP BY A.`appid` ORDER BY A.cumulate_user DESC");
+
+        foreach ($pMData as $key=>$val){
+            $data[$val["appid"]]["cumulate_user"]["data3"]= $val["cumulate_user"];
+            $data[$val["appid"]]["pure_user"]["data3"]= $val["pure_user"];
+            $data[$val["appid"]]["new_user"]["data3"]= $val["new_user"];
+            $data[$val["appid"]]["cancel_user"]["data3"]= $val["cancel_user"];
+        }
+        //判断今天是不是1号
+        if(date("d") == 1){
+            //最后一天 取最后 一天 和 1号
+            $psm = date('Y-m-01', strtotime('-2 month'));
+            $pem = date('Y-m-t', strtotime('-2 month'));
+            $sm =  date('Y-m-01', strtotime('-1 month'));
+            $em = date('Y-m-t', strtotime('-1 month'));
+
+        }else{
+            //判断获取时间是多少 号  上个月有没有获取时间的号
+            //获取上个天数
+            $pmdays = date('t', strtotime(date("Y-m-d",strtotime("-1 month"))));
+            //这个月
+            $sm = date('Y-m-01');
+            $em = date('Y-m-d',strtotime("- 2 day"));
+            //上个月就获取全部
+            $psm =  date('Y-m-01', strtotime('-1 month'));
+            if ($pmdays == $Number){
+                $pem = date('Y-m-t', strtotime('-1 month'));
+            }else{
+                $pem = date('Y-m-01', strtotime("+ $Number month"));
+            }
+        }
+        $tMData = M()->query("SELECT IFNULL(SUM(A.`cumulate_user`),0) AS cumulate_user,
+        IFNULL(SUM(A.`cancel_user`),0) AS  cancel_user,IFNULL(SUM(A.`pure_user`),0) as pure_user,IFNULL(SUM(A.`new_user`),0) AS new_user,A.appid 
+        FROM mc_app_fans AS A INNER JOIN mc_app AS B
+        ON A.`appid` = B.`appid`  WHERE A.`appid` IN $ids  and A.`ref_date` BETWEEN '$sm' AND '$em'
+        GROUP BY A.`appid` ORDER BY A.cumulate_user DESC");
+        foreach ($tMData as $key=>$val){
+            $data[$val["appid"]]["cumulate_user"]["data4"]= $val["cumulate_user"];
+            $data[$val["appid"]]["pure_user"]["data4"]= $val["pure_user"];
+            $data[$val["appid"]]["new_user"]["data4"]= $val["new_user"];
+            $data[$val["appid"]]["cancel_user"]["data4"]= $val["cancel_user"];
+        }
+        $pMData = M()->query("SELECT IFNULL(SUM(A.`cumulate_user`),0) AS cumulate_user,
+        IFNULL(SUM(A.`cancel_user`),0) AS  cancel_user,IFNULL(SUM(A.`pure_user`),0) as pure_user,IFNULL(SUM(A.`new_user`),0) AS new_user,A.appid 
+        FROM mc_app_fans AS A INNER JOIN mc_app AS B
+        ON A.`appid` = B.`appid`  WHERE A.`appid` IN $ids  and A.`ref_date` BETWEEN '$psm' AND '$pem'
+        GROUP BY A.`appid` ORDER BY A.cumulate_user DESC");
+        foreach ($pMData as $key=>$val){
+            $data[$val["appid"]]["cumulate_user"]["data5"]= $val["cumulate_user"];
+            $data[$val["appid"]]["pure_user"]["data5"]= $val["pure_user"];
+            $data[$val["appid"]]["new_user"]["data5"]= $val["new_user"];
+            $data[$val["appid"]]["cancel_user"]["data5"]= $val["cancel_user"];
+        }
     }
 
 }
