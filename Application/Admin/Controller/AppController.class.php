@@ -509,7 +509,7 @@ class AppController extends AdminController {
         list($list,$count) = D("appFans")->getoneFans($page,$r,$stime,$etime,$id);
         $builder
             ->title($nick_name."粉丝数据")
-            ->query(["state"=>!empty($query),"url"=>U("oneFans",array("id"=>$id,"nick_name"=>$nick_name))])
+            ->query(["state"=>true,"url"=>U("oneFans",array("id"=>$id,"nick_name"=>$nick_name))])
             ->hidequery()
             ->powerExport(U("excelonfans",array("startime"=>$stime,"endtime"=>$etime,"id"=>$id)))
             ->queryStarTime($stime)
