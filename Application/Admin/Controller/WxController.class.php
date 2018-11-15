@@ -170,6 +170,8 @@ class WxController extends Controller
             $thisday = strtotime(date("Y-m-d",strtotime("-1 day")));
             $day = ($thisday-$time)/86400;
             $appList = D("App")->getHisList();
+            print_r($appList);
+            exit;
             foreach ($appList as $key => $val){
                 for ($i = 0;$i<$day;$i++){
                     $Auth = new AuthorizeController();

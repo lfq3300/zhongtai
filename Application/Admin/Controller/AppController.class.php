@@ -38,7 +38,7 @@ class AppController extends AdminController {
             ->powerEdit("edit?id=###","信息编辑")
             ->powerEdit("operate?id=###&nick_name=n#","运营数据")
             ->powerEdit("article?id=###&nick_name=n#","文章数据")
-            ->powerEdit("synchro?id=###&nick_name=n#","数据同步")
+            ->powerEdit("oneFans?id=###&nick_name=n#","粉丝数据")
             ->powerEdit("cancel?id=###","取消授权")
             ->data($list)
             ->pagination($count,$r)
@@ -437,7 +437,7 @@ class AppController extends AdminController {
         $queryType = I("get.queryType",1,"intval");
         $state = $stime||$etime;
         list($list,$count) = D("appData")->getAppsData($responsible,$page,$r,$stime,$etime,false,$query,$queryType);
-        $url = U("App/fans",array("responsible"=>$responsible,"page"=>$page,"startime"=>$stime,"endtime"=>$etime,"query"=>$query,"queryType"=>$queryType));
+        $url = U("App/responsibleData",array("responsible"=>$responsible,"page"=>$page,"startime"=>$stime,"endtime"=>$etime,"query"=>$query,"queryType"=>$queryType));
         AddactionLog("查看公众号负责人 $responsible 数据： <a href='".$url."' target='_blank'>点击查看详细</a>");
         $builder
             ->title("公众号负责人：$responsible")
@@ -496,6 +496,83 @@ class AppController extends AdminController {
             ->pagination($count,$r)
             ->display();
     }
+
+    public function oneFans($r = 20){
+        $builder = new AdminListBuilder();
+        $page =  I("get.page",1,"intval");
+        $stime = I("get.startime",date("Y-m-01", time()),"date");
+        $etime = I("get.endtime",date("Y-m-t", time()),"date");
+        $url = U("App/oneFans",array("page"=>$page,"startime"=>$stime,"endtime"=>$etime));
+        $id = I("get.id");
+        $nick_name = I("get.nick_name");
+        AddactionLog("查看".$nick_name."粉丝： <a href='".$url."' target='_blank'>点击查看详细</a>");
+        list($list,$count) = D("appFans")->getoneFans($page,$r,$stime,$etime,$id);
+        $builder
+            ->title($nick_name."粉丝数据")
+            ->query(["state"=>!empty($query),"url"=>U("oneFans",array("id"=>$id,"nick_name"=>$nick_name))])
+            ->hidequery()
+            ->powerExport(U("excelonfans",array("startime"=>$stime,"endtime"=>$etime,"id"=>$id)))
+            ->queryStarTime($stime)
+            ->queryEndTime($etime)
+            ->keyText("nick_name","公众号")
+            ->keyText("ref_date","日期")
+            ->keyText("cumulate_user","总粉丝")
+            ->keyText("pure_user","净粉丝")
+            ->keyText("new_user","新粉丝")
+            ->keyText("responsible","负责人")
+            ->keyText("position","职位")
+            ->data($list)
+            ->pagination($count,$r)
+            ->display();
+    }
+
+
+    public function excelonfans(){
+        $stime = I("get.startime");
+        $etime = I("get.endtime");
+        $id = I("get.id");
+        $nick_name = I("get.nick_name");
+        $list = D("appFans")->getonFansAll($stime,$etime,$id);
+        AddactionLog("导出 $nick_name".$stime."到".$etime."的 粉丝 数据");
+        $filename ="粉丝数据";
+        $data = array();
+        foreach ($list as $k=>$goods_info){
+            $data[$k][nick_name] = $goods_info['nick_name'];;
+            $data[$k][ref_date] = $goods_info['ref_date'];
+            $data[$k][cumulate_user] = $goods_info['cumulate_user'];
+            $data[$k][pure_user] = $goods_info['pure_user'];
+            $data[$k][new_user] = $goods_info['new_user'];
+            $data[$k][responsible] = $goods_info['responsible'];
+            $data[$k][position] = $goods_info['position'];
+        }
+        foreach ($data as $field=>$v){
+            if($field == 'nick_name'){
+                $headArr[]='公众号';
+            }
+            if($field == 'ref_date'){
+                $headArr[]='日期';
+            }
+            if($field == 'cumulate_user'){
+                $headArr[]='总粉丝';
+            }
+            if($field == 'pure_user'){
+                $headArr[]='净粉丝';
+            }
+            if($field == 'new_user'){
+                $headArr[]='新粉丝';
+            }
+            if($field == 'responsible'){
+                $headArr[]='负责人';
+            }
+            if($field == 'position'){
+                $headArr[]='岗位';
+            }
+        }
+        $filename=$filename.time();
+        $Excel = new UploadExcel();
+        $Excel->getExcel($filename,$headArr,$data);
+    }
+
 
     public function excelfans(){
         $stime = I("get.startime");
@@ -568,5 +645,29 @@ class AppController extends AdminController {
                 ->display();
         }
 
+    }
+
+    public function data($r = 20){
+        $page =  I("get.page",1,"intval");
+        //   $stime = I("get.startime",date("Y-m-01", time()),"date");
+        //   $etime = I("get.endtime",date("Y-m-t", time()),"date");
+        $builder = new AdminListBuilder();
+        $query = I("get.query");
+        $list = D("appFans")->getFansData($page,$r,$query);
+        // $state = $query||$stime||$etime;
+        $builder
+            ->title("单公众号数据")
+            ->query(["state"=>!empty($query),"url"=>U("data"),"placeholder"=>"请搜索：公众号名称",'value'=>$query])
+//            ->queryStarTime($stime)
+//            ->queryEndTime($etime)
+            ->keyText("ref_data","时间")
+            ->keyText("ranking","排名")
+            ->keyText("nick_name","公众号")
+            ->keyUserData("cumulate_user","总粉丝/同比")
+            ->keyUserData("new_user","新粉/同比")
+            ->keyUserData("pure_user","掉粉/同比")
+            ->keyUserData("increase_user","增长/同比")
+            //  ->data($data)
+            ->display();
     }
 }

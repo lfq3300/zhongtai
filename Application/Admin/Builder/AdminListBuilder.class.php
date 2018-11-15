@@ -105,6 +105,10 @@ class AdminListBuilder extends AdminBuilder{
         return $this->key($name, $title,"text",$opt);
     }
 
+    public function keyUserData($name, $title,$opt = []){
+        return $this->key($name, $title,"UserData",$opt);
+    }
+
     public  function  keyTime($name, $title,$opt = []){
         return $this->key($name, $title,"time",$opt);
     }
@@ -373,6 +377,41 @@ class AdminListBuilder extends AdminBuilder{
 
          $this->convertKey("Img",'html',function($value,$key,$item){
             $html = "<img style='max-width:100px;max-height:100px' src=\"" .$key['mcurl'] .$value ."\" class='tpl-table-line-img' />";
+            return $html;
+        });
+
+        $this->convertKey("UserData",'html',function($value,$key,$item){
+            $data = $value['data'];
+            $data1 = $value['data1'];
+            $data2 = $value['data2'];
+            $data3 = $value['data3'];
+            $data4 = $value['data4'];
+            $data5 = $value['data5'];
+            $data6 = $value['data6'];
+            $a = round($data1/$data2,2);
+            if ($a > 0 ){
+                $a = "<span style='color: green;'>+ $a%</span>";
+            }else{
+                $a = "<span style='color: red;'>- $a%</span>";
+            }
+            $b = round($data3/$data4,2);
+            if ($b > 0 ){
+                $b = "<span style='color: green;'>+ $b%</span>";
+            }else{
+                $b = "<span style='color: red;'>- $b%</span>";
+            }
+            $c = round($data5/$data6,2);
+            if ($c > 0 ){
+                $c = "<span style='color: green;'>+ $c%</span>";
+            }else{
+                $c = "<span style='color: red;'>- $c%</span>";
+            }
+            $html = "<div>
+                        <div style='text-align: center;font-size: 18px;color: #4395ff;'>$data</div>
+                        <div class='' style='margin-top:10px'>日：( <span style='color: red;'> $data1 </span>/<span> $data2 <span> ) $a</div>
+                        <div class=''>周：( <span style='color: red;'> $data3 </span>/<span> $data4 <span> ) $b</div>
+                        <div class=''>月：( <span style='color: red;'> $data5 </span>/<span> $data6 <span> ) $c</div>
+                    </div>";
             return $html;
         });
 
