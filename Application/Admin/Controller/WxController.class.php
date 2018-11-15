@@ -100,7 +100,7 @@ class WxController extends Controller
 
     public function  appcallback(){
         echo "success";
-        exit
+        exit;
     }
     public function AuthorizeCallback()
     {
