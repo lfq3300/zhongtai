@@ -55,7 +55,45 @@ class WxController extends Controller
         }
         echo 'success';
     }
-
+    /*
+     * 每隔10分钟 微信回调并且更新 ticket  存入数据库
+     */
+    public function socket()
+    {
+        $encodingAesKey = C('ZTENCODINGAESKEY');
+        $token = C('ZTTOKEN');
+        $appId = C('ZTAPPID');
+        $timeStamp = $_GET['timestamp'];
+        $nonce = $_GET['nonce'];
+        $msg_sign = $_GET['msg_signature'];
+        $get = json_decode($_GET,true);
+        $log = "{time:".date("Y-m-d H:i:s")." get:$get}";
+        file_put_contents("./socket.txt",$log."\r\n",FILE_APPEND);
+        $encryptMsg = file_get_contents('php://input');
+        $log = "{time:".date("Y-m-d H:i:s")." input:$encryptMsg}";
+        file_put_contents("./socket.txt",$log."\r\n",FILE_APPEND);
+        $pc = new WXBizMsgCrypt();
+        $pc->WXBizMsgCrypt($token, $encodingAesKey, $appId);
+        $log = "{time:".date("Y-m-d H:i:s")." pc:$pc}";
+        file_put_contents("./socket.txt",$log."\r\n",FILE_APPEND);
+        $xml_tree = new \DOMDocument();
+        $xml_tree->loadXML($encryptMsg);
+        $array_e = $xml_tree->getElementsByTagName('Encrypt');
+        $encrypt = $array_e->item(0)->nodeValue;
+        $format = "<xml><ToUserName><![CDATA[toUser]]></ToUserName><Encrypt><![CDATA[%s]]></Encrypt></xml>";
+        $from_xml = sprintf($format, $encrypt);
+        $msg = '';
+        $errCode = $pc->decryptMsg($msg_sign, $timeStamp, $nonce, $from_xml, $msg);
+        if ($errCode == 0) {
+            $xml = new \DOMDocument();
+            $xml->loadXML($msg);
+            $array_e = $xml->getElementsByTagName('ComponentVerifyTicket');
+            $component_verify_ticket = $array_e->item(0)->nodeValue;
+            //存入数据库
+            M("ticket")->where(array("id" => 1))->save(['ticket' => $component_verify_ticket, 'create_time' => date("Y-m-d H:i:s")]);
+        }
+        echo 'success';
+    }
     //扫码授权回调函数
     public function AuthorizeCallback()
     {
