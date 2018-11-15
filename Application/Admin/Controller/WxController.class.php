@@ -95,6 +95,10 @@ class WxController extends Controller
         echo 'success';
     }
     //扫码授权回调函数
+
+    public function  appcallback(){
+        echo "success";
+    }
     public function AuthorizeCallback()
     {
         $auth_code = $_GET["auth_code"];
