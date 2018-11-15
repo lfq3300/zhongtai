@@ -19,7 +19,7 @@ class WxController extends Controller
     /*
      * 每隔10分钟 微信回调并且更新 ticket  存入数据库
      */
-    public function socket()
+    public function iosocket()
     {
         $encodingAesKey = C('ZTENCODINGAESKEY');
         $token = C('ZTTOKEN');
