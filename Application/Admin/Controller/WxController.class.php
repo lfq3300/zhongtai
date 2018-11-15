@@ -21,8 +21,6 @@ class WxController extends Controller
      */
     public function iosocket()
     {
-        echo 'success';
-        return;
         $encodingAesKey = C('ZTENCODINGAESKEY');
         $token = C('ZTTOKEN');
         $appId = C('ZTAPPID');
@@ -56,14 +54,13 @@ class WxController extends Controller
             M("ticket")->where(array("id" => 1))->save(['ticket' => $component_verify_ticket, 'create_time' => date("Y-m-d H:i:s")]);
         }
         echo 'success';
+        exit;
     }
     /*
      * 每隔10分钟 微信回调并且更新 ticket  存入数据库
      */
     public function socket()
     {
-        echo 'success';
-        return;
         $encodingAesKey = C('ZTENCODINGAESKEY');
         $token = C('ZTTOKEN');
         $appId = C('ZTAPPID');
@@ -97,11 +94,13 @@ class WxController extends Controller
             M("ticket")->where(array("id" => 1))->save(['ticket' => $component_verify_ticket, 'create_time' => date("Y-m-d H:i:s")]);
         }
         echo 'success';
+        exit;
     }
     //扫码授权回调函数
 
     public function  appcallback(){
         echo "success";
+        exit
     }
     public function AuthorizeCallback()
     {
