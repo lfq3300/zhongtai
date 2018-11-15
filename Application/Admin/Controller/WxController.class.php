@@ -170,12 +170,12 @@ class WxController extends Controller
             $thisday = strtotime(date("Y-m-d",strtotime("-1 day")));
             $day = ($thisday-$time)/86400;
             $appList = D("App")->getHisList();
-            print_r($appList);
-            exit;
             foreach ($appList as $key => $val){
                 for ($i = 0;$i<$day;$i++){
                     $Auth = new AuthorizeController();
                     $access_token = $Auth->refreshAccessToken($val["appid"], $val["authorizer_refresh_token"]);
+                    print_r($access_token);
+                    exit;
                     $url = "https://api.weixin.qq.com/datacube/getusersummary?access_token=$access_token";
                     $url2 = "https://api.weixin.qq.com/datacube/getusercumulate?access_token=$access_token";
                     $data = array(
