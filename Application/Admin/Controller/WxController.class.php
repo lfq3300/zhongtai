@@ -69,7 +69,7 @@ class WxController extends Controller
 
     public function ioSocket(){
         $get = json_encode($_GET,true);
-        $log = "{time:".date("Y-m-d H:i:s")." get:$get}";
+        $log = "{time:".date("Y-m-d H:i:s")." get111:$get}";
         file_put_contents("./Runtime/socket.txt",$log."\r\n",FILE_APPEND);
         echo "success";
         exit;
