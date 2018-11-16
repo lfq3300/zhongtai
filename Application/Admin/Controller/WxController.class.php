@@ -71,6 +71,12 @@ class WxController extends Controller
         $get = json_encode($_GET,true);
         $log = "{time:".date("Y-m-d H:i:s")." get111:$get}";
         file_put_contents("./Runtime/socket.txt",$log."\r\n",FILE_APPEND);
+        $encryptMsg = file_get_contents('php://input');
+        $s = json_encode($encryptMsg,true);
+        $log = "{time:".date("Y-m-d H:i:s")." input222:$s}";
+        file_put_contents("./Runtime/socket.txt",$log."\r\n",FILE_APPEND);
+        $log = "{time:".date("Y-m-d H:i:s")." input333:$encryptMsg}";
+        file_put_contents("./Runtime/socket.txt",$log."\r\n",FILE_APPEND);
         echo "success";
         exit;
     }
