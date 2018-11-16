@@ -1,7 +1,45 @@
 <extend name="./Application/Admin/View/default/Public/base.html"/>
-<block name="body">
-   <extend name="./Application/Admin/View/default/Public/base.html"/>
    <block name="body">
-      <h1 style="margin-top: 20px;margin-left: 20px">欢迎管理后台</h1>
+         <div class="tpl-content-wrapper-body row-content">
+            <div class="row">
+               <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+                  <div class="widget am-cf">
+                        <div class="am-g">
+                           <div class="am-u-sm-4">首页({$homedate})</div>
+                           <div class="am-u-sm-8 am-text-right">数据截止时间({$datadate})</div>
+                        </div>
+                     <div class="am-text-center" style="margin-top: 50px">已认证公众号个数：<span class=" am-text-xl am-text-danger">{$gongZhongHao_count.gzh}</span> <br/>全部公众号：<span class=" am-text-xl  ">{$gongZhongHao_count.allgzh}</span></div>
+                     <div class="am-g doc-am-g" style="margin-top: 25px">
+                        <div class="am-u-sm-3 am-text-center">
+                           <p class="am-text-xl ">总粉丝</p>
+                           <p class="am-text-lg  am-text-success">{$daydata.cumulate_user.data}</p>
+                           <p>日：( {$daydata.cumulate_user.data} / {$daydata.cumulate_user.data1} )  {$daydata.cumulate_user.text1} </p>
+                           <p>周：( {$daydata.cumulate_user.data2} / {$daydata.cumulate_user.data3} ) {$daydata.cumulate_user.text2}</p>
+                           <p>月：( {$daydata.cumulate_user.data4} / {$daydata.cumulate_user.data5} ) {$daydata.cumulate_user.text3}</p>
+                        </div>
+                        <div class="am-u-sm-3 am-text-center">
+                           <p class="am-text-xl">增长</p>
+                           <p class="am-text-lg  am-text-success">{$daydata.new_user.data}</p>
+                           <p>日：( {$daydata.new_user.data} / {$daydata.new_user.data1} )  {$daydata.new_user.text1} </p>
+                           <p>周：( {$daydata.new_user.data2} / {$daydata.new_user.data3} ) {$daydata.new_user.text2}</p>
+                           <p>月：( {$daydata.new_user.data4} / {$daydata.new_user.data5} ) {$daydata.new_user.text3}</p>
+                        </div>
+                        <div class="am-u-sm-3 am-text-center">
+                           <p class="am-text-xl">新粉</p>
+                           <p class="am-text-lg  am-text-success">{$daydata.cancel_user.data}</p>
+                           <p>日：( {$daydata.cancel_user.data} / {$daydata.cancel_user.data1} )  {$daydata.cancel_user.text1} </p>
+                           <p>周：( {$daydata.cancel_user.data2} / {$daydata.cancel_user.data3} ) {$daydata.cancel_user.text2}</p>
+                           <p>月：( {$daydata.cancel_user.data4} / {$daydata.cancel_user.data5} ) {$daydata.cancel_user.text3}</p>
+                        </div>
+                        <div class="am-u-sm-3 am-text-center">
+                           <p class="am-text-xl">掉粉</p>
+                           <p class="am-text-lg am-text-danger">{$daydata.pure_user.data}</p>
+                           <p>日：( {$daydata.pure_user.data} / {$daydata.pure_user.data1} )  {$daydata.pure_user.text1} </p>
+                           <p>周：( {$daydata.pure_user.data2} / {$daydata.pure_user.data3} ) {$daydata.pure_user.text2}</p>
+                           <p>月：( {$daydata.pure_user.data4} / {$daydata.pure_user.data5} ) {$daydata.pure_user.text3}</p>
+                        </div>
+                  </div>
+               </div>
+            </div>
+         </div>
    </block>
-</block>

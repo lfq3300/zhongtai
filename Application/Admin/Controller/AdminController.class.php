@@ -45,7 +45,14 @@ class AdminController extends Controller{
     }
 
     public  function  admin(){
+          $day = "2018-11-12";
           $builder = new AdminListBuilder();
+          $this->assign("homedate",date("Y-m-d"));
+          $this->assign("datadate",$day);
+          list($gongZhongHao_count,$gongZhongHao_all_count) = D("App")->getCount();
+          $data = D("AppFans")->getDataFansData($day);
+          $this->assign("gongZhongHao_count",array("gzh"=>$gongZhongHao_count,"allgzh"=>$gongZhongHao_all_count));
+          $this->assign("daydata",$data);
           $builder->display("index");
     }
 

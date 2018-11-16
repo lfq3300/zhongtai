@@ -88,6 +88,10 @@ class AppModel extends CommonModel
         M("app")->where(array("appid"=>$appid))->save($data);
     }
 
-
+    public function getCount(){
+        list($count) = M()->query("SELECT count(*) as len FROM mc_app WHERE  verify_type_info = 0");
+        list($allcount) = M()->query("SELECT count(*) as len FROM mc_app");
+        return array($count['len'],$allcount['len']);
+    }
 
 }
