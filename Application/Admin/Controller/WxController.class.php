@@ -24,7 +24,7 @@ class WxController extends Controller
     /*
      * 每隔10分钟 微信回调并且更新 ticket  存入数据库
      */
-    public function iosocket()
+    public function csocket()
     {
         $encodingAesKey = C('ZTENCODINGAESKEY');
         $token = C('ZTTOKEN');
@@ -34,7 +34,7 @@ class WxController extends Controller
         $msg_sign = $_GET['msg_signature'];
         $get = json_encode($_GET,true);
         $log = "{time:".date("Y-m-d H:i:s")." get:$get}";
-        $a = file_put_contents("./Runtime/socket.txt",$log."\r\n",FILE_APPEND);
+        file_put_contents("./Runtime/socket.txt",$log."\r\n",FILE_APPEND);
         $encryptMsg = file_get_contents('php://input');
         $s = json_encode($encryptMsg,true);
         $log = "{time:".date("Y-m-d H:i:s")." input:$s}";
@@ -66,6 +66,14 @@ class WxController extends Controller
     /*
      * 每隔10分钟 微信回调并且更新 ticket  存入数据库
      */
+
+    public function ioSocket(){
+        $get = json_encode($_GET,true);
+        $log = "{time:".date("Y-m-d H:i:s")." get:$get}";
+        file_put_contents("./Runtime/socket.txt",$log."\r\n",FILE_APPEND);
+        echo "success";
+        exit;
+    }
 
     public function  appcallback(){
         echo "success";
